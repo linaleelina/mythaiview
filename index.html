@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Таиланд моими глазами</title>
-<meta name="description" content="Справочник на русском языке для тех, кто живёт в Таиланде, работает здесь или собирается переехать. Правила изложены простым языком, и для каждого указан официальный документ, на котором оно основано.">
+<meta name="description" content="Справочник на русском языке для тех, кто живёт в Таиланде, работает здесь, собирается переехать или инвестировать. Правила изложены простым языком, и для каждого указан официальный документ, на котором оно основано.">
 <meta property="og:site_name" content="Таиланд моими глазами">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
-:root{
+:root{--head:#2f56b0;
   --ink:#16233b;
   --paper:#f4f6f9;
   --card:#ffffff;
@@ -34,7 +34,7 @@
   :root:not([data-theme="light"]){
     --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
     --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
-    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
     color-scheme: dark;
   }
 }
@@ -52,6 +52,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 h1,h2,h3{text-wrap:balance;line-height:1.2}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
 h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3{color:var(--head)}
 h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
@@ -186,7 +187,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 
 <section class="view active" id="v-home">
   <h1>Таиланд моими глазами</h1>
-  <p class="lead prose">Справочник на русском языке для тех, кто живёт в Таиланде, работает здесь или собирается переехать. Правила изложены простым языком, и для каждого указан официальный документ, на котором оно основано.</p>
+  <p class="lead prose">Справочник на русском языке для тех, кто живёт в Таиланде, работает здесь, собирается переехать или инвестировать. Правила изложены простым языком, и для каждого указан официальный документ, на котором оно основано.</p>
   <div class="cards">
     <a class="card" href="taxes/"><b>1. Налоги</b><span>Резидентство, подоходный налог, бизнес, визы с льготами, соглашение с Россией, календарь и словарь</span></a>
     <a class="card" href="property/"><b>2. Недвижимость</b><span>Freehold и leasehold, права иностранцев, сборы при сделках, налог на землю и строения</span></a>
