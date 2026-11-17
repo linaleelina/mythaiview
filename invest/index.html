@@ -52,7 +52,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 h1,h2,h3{text-wrap:balance;line-height:1.2}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
 h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
-#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3{color:var(--head)}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3{color:var(--head)}
 h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
@@ -193,9 +193,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <nav class="sub" aria-label="Недвижимость">
       <a href="../property/">Обзор</a>
       <a aria-current="page" href="../invest/">Инвестиции на Пхукете</a>
+      <a href="../check/">Проверка застройщика</a>
       <a href="../rights/">Права и формы владения</a>
       <a href="../buying/">Покупка и сборы</a>
       <a href="../renting/">Сдача в аренду</a>
+      <a href="../exit/">Продажа и выход</a>
     </nav>
   </div>
 </header>
@@ -263,39 +265,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="row"><span>Окупаемость</span><span id="y-pay">—</span></div>
     </div>
   </div>
-  <p class="prose" style="font-size:.88rem;color:var(--muted)">Расчёт упрощённый. Налог резидента посчитан только с дохода от аренды, без других доходов и личных вычетов. Налог на землю и строения посчитан от цены покупки, а не от кадастровой оценки. Не учтены рост цены, курс валют и расходы на выход — их можно посчитать ниже.</p>
+  <p class="prose" style="font-size:.88rem;color:var(--muted)">Расчёт упрощённый. Налог резидента посчитан только с дохода от аренды, без других доходов и личных вычетов. Налог на землю и строения посчитан от цены покупки, а не от кадастровой оценки. Не учтены рост цены, курс валют и расходы на выход — их можно посчитать на странице <a href="../exit/">«Продажа и выход»</a>.</p>
 
-  <div class="prose">
-  <h2 id="calc-exit">Посчитайте сами: сколько стоит выход</h2>
-  <p>Какие налоги и расходы заплатит продавец при перепродаже квартиры, купленной во freehold. Сборы считаются от кадастровой оценки, поэтому узнайте её в Земельном департаменте или у юридического лица кондоминиума.</p>
-  </div>
-  <div class="calc" id="xc">
-    <div>
-      <div class="f"><label for="x-sale">Цена продажи, бат</label><input id="x-sale" type="number" inputmode="numeric" min="0" step="100000" value="6500000"></div>
-      <div class="f"><label for="x-appr">Кадастровая оценка, бат</label><input id="x-appr" type="number" inputmode="numeric" min="0" step="100000" value="4500000"><span class="hint">Обычно ниже рыночной цены</span></div>
-      <div class="f"><label for="x-buy">Цена покупки, бат</label><input id="x-buy" type="number" inputmode="numeric" min="0" step="100000" value="6000000"></div>
-      <div class="f"><label for="x-seller">Продавец</label><select id="x-seller"><option value="ind">Физическое лицо</option><option value="co">Компания</option></select></div>
-      <div class="f"><label for="x-y1">Год покупки (регистрации права)</label><input id="x-y1" type="number" min="1980" max="2100" step="1" value="2022"></div>
-      <div class="f"><label for="x-y2">Год продажи</label><input id="x-y2" type="number" min="1980" max="2100" step="1" value="2026"></div>
-      <div class="f chk"><input id="x-5y" type="checkbox"><label for="x-5y">С даты регистрации покупки прошло 5 лет и больше</label></div>
-      <div class="f chk"><input id="x-tb" type="checkbox"><label for="x-tb">Прописка в объекте (тамбьен баан) не меньше года</label></div>
-      <div class="f"><label for="x-share">Доля продавца в регистрационном сборе 2%, %</label><input id="x-share" type="number" min="0" max="100" step="10" value="50"></div>
-      <div class="f"><label for="x-agent">Комиссия агента, % от цены продажи</label><input id="x-agent" type="number" min="0" max="20" step="0.5" value="3"></div>
-    </div>
-    <div class="res" aria-live="polite">
-      <div style="color:var(--muted);font-size:.9rem">Расходы продавца</div>
-      <div class="big num" id="x-total">0 ฿</div>
-      <div style="margin:.2rem 0 .8rem;color:var(--muted)" id="x-pct">0% от цены продажи</div>
-      <div class="row"><span>Специальный налог 3,3%</span><span id="x-sbt">0</span></div>
-      <div class="row"><span>Гербовый сбор 0,5%</span><span id="x-stamp">0</span></div>
-      <div class="row"><span>Подоходный налог продавца</span><span id="x-wht">0</span></div>
-      <div class="row"><span>Регистрационный сбор (доля продавца)</span><span id="x-fee">0</span></div>
-      <div class="row"><span>Комиссия агента</span><span id="x-ag">0</span></div>
-      <div class="row"><span><b>Вы получите на руки</b></span><span id="x-netp"><b>0</b></span></div>
-      <div class="row"><span>Результат против цены покупки</span><span id="x-res">0</span></div>
-    </div>
-  </div>
-  <p class="prose" style="font-size:.88rem;color:var(--muted)">Подоходный налог физлица считается по ст. 48 (4) (б) и 50 (5) (б) Налогового кодекса: из кадастровой оценки вычитаются расходы по Королевскому указу № 165 (92% за 1 год владения … 50% за 8 лет и больше), остаток делится на число лет владения (календарных, не больше 10), к результату применяется шкала подоходного налога с 5% с первого бата, налог умножается на число лет и не превышает 20% дохода. Специальный налог (3,3%) и гербовый сбор (0,5%) считаются от большей из двух сумм — цены или оценки; если платится специальный налог, гербовый сбор не платится. Для компании: подоходный налог 1% от большей суммы и специальный налог 3,3%. Расчёт оценочный: точную сумму считает Земельный департамент в день регистрации.</p>
   <div class="prose">
 <script>
 (function(){
@@ -332,26 +303,6 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   });
   document.querySelectorAll("#yc input,#yc select").forEach(function(e){e.addEventListener("input",y);e.addEventListener("change",y);});
   y();
-  // выход
-  var DED={1:.92,2:.84,3:.77,4:.71,5:.65,6:.60,7:.55};
-  function x(){
-    var sale=n("x-sale"),appr=n("x-appr"),buy=n("x-buy"),co=document.getElementById("x-seller").value==="co";
-    var y1=parseInt(document.getElementById("x-y1").value,10),y2=parseInt(document.getElementById("x-y2").value,10);
-    var yrs=Math.min(Math.max((y2-y1+1)||1,1),10), base=Math.max(sale,appr);
-    document.getElementById("x-tb").disabled=co; document.getElementById("x-5y").disabled=co;
-    var exempt=!co&&(document.getElementById("x-5y").checked||document.getElementById("x-tb").checked);
-    var sbt=exempt?0:base*0.033, stamp=exempt?base*0.005:0, wht;
-    if(co){wht=base*0.01;}
-    else{var d=yrs>=8?.5:DED[yrs], netinc=appr*(1-d), per=netinc/yrs; wht=Math.min(scale(per,0.05)*yrs, appr*0.2);}
-    var fee=appr*0.02*Math.min(n("x-share"),100)/100, ag=sale*n("x-agent")/100;
-    var tot=sbt+stamp+wht+fee+ag, netp=sale-tot;
-    set("x-total",money(tot)); set("x-pct",(sale?tot/sale*100:0).toFixed(1).replace(".",",")+"% от цены продажи · лет владения для налога: "+yrs);
-    set("x-sbt",money(sbt));set("x-stamp",money(stamp));set("x-wht",money(wht));set("x-fee",money(fee));set("x-ag",money(ag));
-    document.getElementById("x-netp").innerHTML="<b>"+money(netp)+"</b>";
-    set("x-res",(netp-buy>=0?"+ ":"− ")+money(Math.abs(netp-buy)));
-  }
-  document.querySelectorAll("#xc input,#xc select").forEach(function(e){e.addEventListener("input",x);e.addEventListener("change",x);});
-  x();
 })();
 </script>
   </div>
