@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
-:root{
+:root{--head:#2f56b0;
   --ink:#16233b;
   --paper:#f4f6f9;
   --card:#ffffff;
@@ -34,7 +34,7 @@
   :root:not([data-theme="light"]){
     --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
     --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
-    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
     color-scheme: dark;
   }
 }
@@ -52,6 +52,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 h1,h2,h3{text-wrap:balance;line-height:1.2}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
 h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3{color:var(--head)}
 h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
@@ -187,7 +188,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <section class="view active" id="v-property">
   <div class="prose">
   <h1>Недвижимость</h1>
-  <h2 id="phuket-invest"><span style="color:#2f56b0">Инвестиционная привлекательность рынка недвижимости Пхукета</span> <span style="color:#f0604a;font-weight:700">СПОРНА</span></h2>
+  <h2 id="phuket-invest"><span>Инвестиционная привлекательность рынка недвижимости Пхукета</span> <span style="color:#f0604a;font-weight:700">СПОРНА</span></h2>
   <p>Пхукет активно продают как рынок с высокой доходностью. Перед покупкой с целью заработка, после того как исключён риск недостроя (проверены застройщик и его финансовое состояние, проведён независимый due diligence), стоит учесть несколько вещей.</p>
   <ol>
     <li><b>Рекламная доходность и реальная — разные цифры.</b> В рекламе обычно указывают валовую доходность 8–15% от краткосрочной аренды. После комиссии управляющей компании (обычно 20–30%), платы за общие помещения, ремонта и налога чистая доходность, по оценкам самих агентств, около 4–7% годовых.</li>
@@ -221,6 +222,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <li><b>Перепродажа и залог.</b> Freehold проще продать, на него больше покупателей, его можно заложить. Под leasehold банки кредиты почти не дают, поэтому на вторичном рынке он продаётся труднее и с большей скидкой.</li>
   </ol>
   <p>Leasehold может подойти, если вы планируете жить в объекте сами определённый срок и не рассчитываете на рост стоимости. Тогда сравнивайте его цену с арендой за те же годы.</p>
+  <p><b>Ещё один неочевидный риск leasehold — невозможность сменить управляющую компанию.</b> В кондоминиуме зданием управляет юридическое лицо кондоминиума (นิติบุคคลอาคารชุด, juristic person). Его общее собрание назначает и меняет управляющего, утверждает бюджет и размер платы за общее имущество. Голосуют на собрании только собственники помещений, пропорционально своей доле в общем имуществе. Арендатор по leasehold собственником не является, поэтому голоса у него нет: за его помещение голосует собственник-арендодатель. Обычно это сам застройщик или связанная с ним компания, и он может быть заинтересован сохранить «свою» управляющую компанию.</p>
 
 
   <h2>Freehold и leasehold</h2>
