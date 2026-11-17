@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
-:root{
+:root{--head:#2f56b0;
   --ink:#16233b;
   --paper:#f4f6f9;
   --card:#ffffff;
@@ -34,7 +34,7 @@
   :root:not([data-theme="light"]){
     --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
     --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
-    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
     color-scheme: dark;
   }
 }
@@ -52,6 +52,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 h1,h2,h3{text-wrap:balance;line-height:1.2}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
 h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3{color:var(--head)}
 h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
@@ -153,6 +154,13 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   .bar{flex-wrap:wrap;gap:8px}
 }
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
 </style>
 </head>
 <body>
@@ -162,7 +170,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <nav class="main" aria-label="Разделы">
       <a href="../">Главная</a>
       <a aria-current="page" href="../taxes/" data-group="taxes">Налоги</a>
-      <a href="../property/">Недвижимость</a>
+      <a href="../property/" data-group="property">Недвижимость</a>
       <a href="../banks/">Банки и платежи</a>
       <a href="../tourism/">Туризм</a>
     </nav>
@@ -178,6 +186,15 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a aria-current="page" href="../calendar/">Календарь</a>
       <a href="../glossary/">Словарь</a>
       <a href="../docs/">Документы</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="Недвижимость">
+      <a href="../property/">Обзор</a>
+      <a href="../invest/">Инвестиции на Пхукете</a>
+      <a href="../rights/">Права и формы владения</a>
+      <a href="../buying/">Покупка и сборы</a>
+      <a href="../renting/">Сдача в аренду</a>
     </nav>
   </div>
 </header>
