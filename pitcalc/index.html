@@ -239,7 +239,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <div class="res" aria-live="polite">
       <div style="color:var(--muted);font-size:.9rem">Налог за год</div>
       <div class="big num" id="r-tax">0 ฿</div>
-      <div style="margin:.2rem 0 .8rem;color:var(--muted)" id="r-eff">Эффективная ставка 0%</div>
+      <div style="margin:.2rem 0 .8rem;color:var(--muted)" id="r-eff">Эффективная ставка<sup><a href="#fn-effrate" style="text-decoration:none;color:inherit">⁶</a></sup> 0%</div>
       <div class="row"><span>Расходы</span><span id="r-exp">0</span></div>
       <div class="row"><span>Вычеты</span><span id="r-ded">0</span></div>
       <div class="row"><span>Облагаемый доход</span><span id="r-net">0</span></div>
@@ -249,6 +249,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <p class="prose" style="font-size:.88rem;color:var(--muted)">Расчёт упрощённый: не учитывает лимиты отдельных вычетов, зачёт иностранного налога и особые режимы (LTR 17%). Для декларации пользуйтесь данными rd.go.th.</p>
 
+  <p id="fn-effrate" class="prose" style="font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;margin-top:1.2rem">⁶ Эффективная ставка налога (effective tax rate) — экономический термин: фактическая доля налога в доходе, налог за год ÷ доход за год. Шкала подоходного налога прогрессивная, а часть дохода уменьшают расходы и вычеты, поэтому фактическая ставка всегда ниже ставки верхней ступени, в которую попал ваш доход.</p>
 </section>
 
 </main>
@@ -284,7 +285,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     var ded=60000+v("c-ss")+(document.getElementById("c-spouse").checked?60000:0)+Math.floor(v("c-kids"))*30000+v("c-other");
     var net=Math.max(0,inc-exp-ded), r=pit(net);
     document.getElementById("r-tax").textContent=fmt.format(r.tax)+" ฿";
-    document.getElementById("r-eff").textContent="Эффективная ставка "+(inc>0?(r.tax/inc*100).toFixed(1).replace(".",","):"0")+"% от дохода";
+    document.getElementById("r-eff").innerHTML="Эффективная ставка<sup><a href=\"#fn-effrate\" style=\"text-decoration:none;color:inherit\">⁶</a></sup> "+(inc>0?(r.tax/inc*100).toFixed(1).replace(".",","):"0")+"% от дохода";
     document.getElementById("r-exp").textContent=fmt.format(exp);
     document.getElementById("r-ded").textContent=fmt.format(ded);
     document.getElementById("r-net").textContent=fmt.format(net);

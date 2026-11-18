@@ -240,7 +240,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
 
   <div class="prose">
-  <h2 id="calc-yield">Калькулятор окупаемости<sup><a href="#fn-payback" style="text-decoration:none;color:inherit">⁴</a></sup>: эффективная vs рекламная</h2>
+  <h2 id="calc-yield">Калькулятор окупаемости<sup><a href="#fn-payback" style="text-decoration:none;color:inherit">⁴</a></sup>: эффективная<sup><a href="#fn-effective" style="text-decoration:none;color:inherit">⁵</a></sup> vs рекламная</h2>
   <p>Подставьте цифры из предложения застройщика или управляющей компании. Значения по умолчанию — только пример, замените их своими.</p>
   </div>
   <div class="calc" id="yc">
@@ -275,12 +275,13 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="row"><span><b>Чистый доход за год</b></span><span id="y-net"><b>0</b></span></div>
       <div class="row"><span>Цена за м²</span><span id="y-ppm">0</span></div>
       <div class="row"><span>Чистый доход за м² в год</span><span id="y-npm">0</span></div>
-      <div class="row"><span><b>Окупаемость эффективная</b></span><span id="y-pay"><b>—</b></span></div>
+      <div class="row"><span><b>Окупаемость эффективная<sup><a href="#fn-effective" style="text-decoration:none;color:inherit">⁵</a></sup></b></span><span id="y-pay"><b>—</b></span></div>
       <div class="row"><span>Окупаемость рекламная</span><span id="y-payad">—</span></div>
     </div>
   </div>
   <p class="prose" style="font-size:.88rem;color:var(--muted)">Расчёт упрощённый. Налог резидента посчитан только с дохода от аренды, без других доходов и личных вычетов. Налог на землю и строения посчитан от цены покупки, а не от кадастровой оценки. Не учтены рост цены, курс валют и расходы на выход — их можно посчитать на странице <a href="../exit/">«Продажа и выход»</a>.</p>
   <p id="fn-payback" class="prose" style="font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;margin-top:1.2rem">⁴ Окупаемость (срок окупаемости, payback period) — за сколько лет доход от объекта вернёт вложенную сумму: цена покупки ÷ доход за год. Эффективная окупаемость считается от чистого дохода, то есть после комиссии управляющей компании, платы за общее имущество, коммунальных, ремонта, страховки и налогов. Рекламная — от доходности, которую обещает застройщик или агент: 100 ÷ доходность из рекламы. Рост цены объекта, инфляция и расходы на выход здесь не учитываются.</p>
+  <p id="fn-effective" class="prose" style="font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;margin-top:1.2rem">⁵ Эффективная — здесь значит фактическая: окупаемость, рассчитанная по чистому доходу, который реально остаётся у собственника после всех расходов и налогов. Рекламная — рассчитанная по доходности, которую обещают застройщик или агент. Это не стандартный экономический термин, а обозначение, принятое на этом сайте; в экономике для этого показателя используют термин «срок окупаемости».</p>
 
   <div class="prose">
 <script>
