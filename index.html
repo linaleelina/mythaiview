@@ -75,7 +75,7 @@ nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;ove
 nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
 nav.sub a:hover{color:var(--ink)}
 nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
-#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
 
 main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
 .view{display:none}
@@ -129,6 +129,10 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
 .res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
 .res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
 .res .row:last-child{border-bottom:0}
@@ -213,6 +217,12 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="deposits/">Страхование<br>вкладов</a>
       <a href="payments/">Платёжная<br>система</a>
       <a href="emoney/">Электронные<br>деньги</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="Аналитика">
+      <a href="analytics/">Обзор</a>
+      <a href="asi/">Фильтр<br>ASI</a>
     </nav>
   </div>
 </header>

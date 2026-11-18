@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Фильтр ASI: иллюстрационная модель — пройдёт ли человечество испытание сверхинтеллектом — Таиланд моими глазами</title>
+<meta name="description" content="Пройдёт ли человечество испытание сверхинтеллектом (ASI) — научится управлять технологией до того, как она выйдет из-под контроля, и станет космической цивилизацией?">
+<meta property="og:site_name" content="Таиланд моими глазами">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">Т</span>Таиланд моими глазами</a>
+    <nav class="main" aria-label="Разделы">
+      <a href="../">Главная</a>
+      <a href="../taxes/" data-group="taxes">Налоги</a>
+      <a href="../property/" data-group="property">Недвижимость</a>
+      <a href="../banks/" data-group="banks">Банки и платежи</a>
+      <a href="../tourism/">Туризм</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="Налоги">
+      <a href="../taxes/">Обзор</a>
+      <a href="../residency/">Резидентство</a>
+      <a href="../pit/">Подоходный<br>налог</a>
+      <a href="../pitcalc/">Калькулятор<br>налога</a>
+      <a href="../visas/">Визы<br>и льготы</a>
+      <a href="../russia/">РФ —<br>Таиланд</a>
+      <a href="../business/">Бизнес</a>
+      <a href="../tfrs/">Стандарты<br>отчётности</a>
+      <a href="../calendar/">Календарь</a>
+      <a href="../glossary/">Словарь</a>
+      <a href="../docs/">Документы</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="Недвижимость">
+      <a href="../property/">Обзор</a>
+      <a href="../invest/">Инвестиции<br>на Пхукете</a>
+      <a href="../decide/">Как принимать<br>решение</a>
+      <a href="../check/">Проверка<br>застройщика</a>
+      <a href="../rights/">Права и формы<br>владения</a>
+      <a href="../buying/">Покупка<br>и сборы</a>
+      <a href="../renting/">Сдача<br>в аренду</a>
+      <a href="../exit/">Продажа<br>и выход</a>
+      <a href="../tokens/">Токены<br>в недвижимости</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks" hidden>
+    <nav class="sub" aria-label="Банки и платежи">
+      <a href="../banks/">Обзор</a>
+      <a href="../bot/">Банк<br>Таиланда</a>
+      <a href="../banksystem/">Банковская<br>система</a>
+      <a href="../deposits/">Страхование<br>вкладов</a>
+      <a href="../payments/">Платёжная<br>система</a>
+      <a href="../emoney/">Электронные<br>деньги</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics">
+    <nav class="sub" aria-label="Аналитика">
+      <a href="../analytics/">Обзор</a>
+      <a aria-current="page" href="../asi/">Фильтр<br>ASI</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-asi" data-title="Фильтр ASI: иллюстрационная модель — пройдёт ли человечество испытание сверхинтеллектом">
+  <div class="prose">
+  <h1>Фильтр ASI: иллюстрационная модель</h1>
+  <p class="lead">Пройдёт ли человечество испытание сверхинтеллектом (ASI) — научится управлять технологией до того, как она выйдет из-под контроля, и станет космической цивилизацией?</p>
+  <p>Человечество не запрограммировано на самоуничтожение: исход зависит от того, растёт ли способность управлять технологией быстрее самой технологии. Точной формулы, которая даёт ответ, нет — ни одну из величин нельзя измерить. Но идею «великого фильтра» можно записать как модель и увидеть, от чего зависит исход.</p>
+
+  <h2>1. Гонка двух кривых</h2>
+  <ul>
+    <li><b>C(t)</b> — мощь технологии (возможности ИИ);</li>
+    <li><b>W(t)</b> — способность человечества ею управлять: наука о безопасности ИИ, институты, международные договорённости.</li>
+  </ul>
+  <p>Технология растёт экспоненциально с темпом α, управление — с темпом β:</p>
+  <div class="fx"><span class="fr"><span><i>dC</i></span><span><i>dt</i></span></span> = α·<i>C</i>, &nbsp;&nbsp;&nbsp; <span class="fr"><span><i>dW</i></span><span><i>dt</i></span></span> = β·<i>W</i></div>
+  <p>Опасность определяет разрыв между ними:</p>
+  <div class="fx"><i>G</i>(<i>t</i>) = <i>C</i>(<i>t</i>) − <i>W</i>(<i>t</i>)</div>
+  <p>Испытание наступает, когда мощь технологии достигает порога сверхинтеллекта <i>C</i>*. Условие прохождения фильтра — к этому моменту t* мы умеем ею управлять:</p>
+  <div class="fx"><i>W</i>(<i>t</i>*) ≥ <i>C</i>(<i>t</i>*), &nbsp; где <i>C</i>(<i>t</i>*) = <i>C</i>*</div>
+
+  <h2>2. Вероятность выжить</h2>
+  <p>Риск катастрофы в каждый момент пропорционален разрыву; λ — «цена ошибки»:</p>
+  <div class="fx"><i>h</i>(<i>t</i>) = λ · max(0, <i>C</i>(<i>t</i>) − <i>W</i>(<i>t</i>))</div>
+  <p>Вероятность пройти весь путь до ASI:</p>
+  <div class="fx"><i>P</i><sub>прохождения</sub> = exp( −λ ∫<sub>0</sub><sup><i>t</i>*</sup> max(0, <i>C</i>(<i>t</i>) − <i>W</i>(<i>t</i>)) <i>dt</i> )</div>
+  <p>Выживание падает экспоненциально от накопленного разрыва — площади между кривыми технологии и управления. Важно не только догнать технологию, но и не отставать от неё долго.</p>
+
+  <h2>Попробуйте сами</h2>
+  <p>Двигайте ползунки и смотрите, как меняется площадь разрыва и вероятность прохождения фильтра. Числа условные: модель показывает направление, а не прогноз.</p>
+  </div>
+  <div class="calc" id="asic" style="grid-template-columns:1fr">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+      <div class="f"><label for="a-alpha">Темп роста технологии α: <span id="a-alpha-v"></span></label><input id="a-alpha" type="range" min="0.10" max="0.60" step="0.01" value="0.35"></div>
+      <div class="f"><label for="a-beta">Темп роста управления β: <span id="a-beta-v"></span></label><input id="a-beta" type="range" min="0.05" max="0.60" step="0.01" value="0.20"></div>
+      <div class="f"><label for="a-lam">Цена ошибки λ: <span id="a-lam-v"></span></label><input id="a-lam" type="range" min="0.001" max="0.02" step="0.001" value="0.01"></div>
+    </div>
+    <svg id="asi-chart" viewBox="0 0 900 360" role="img" aria-label="График мощи технологии и способности управлять ею"></svg>
+    <div class="res" aria-live="polite">
+      <div class="row"><span>Момент появления ASI, t*</span><span id="a-t">—</span></div>
+      <div class="row"><span>Управление к этому моменту</span><span id="a-w">—</span></div>
+      <div class="row"><span><b>Вероятность пройти фильтр</b></span><span id="a-p"><b>—</b></span></div>
+      <div style="margin-top:.6rem" id="a-msg"></div>
+    </div>
+  </div>
+  <div class="prose">
+  <h2>3. Разложение по условиям</h2>
+  <p>В духе уравнения Дрейка вероятность стать космической цивилизацией — произведение четырёх условий:</p>
+  <div class="fx"><i>P</i><sub>космос</sub> = <i>P</i><sub>A</sub> · <i>P</i><sub>K</sub> · <i>P</i><sub>З</sub> · <i>P</i><sub>У</sub></div>
+  <ul>
+    <li><b>P<sub>A</sub> — согласование (alignment):</b> ASI преследует цели, совместимые с человеческими;</li>
+    <li><b>P<sub>K</sub> — координация:</b> страны и компании не устраивают гонку, где безопасностью жертвуют ради скорости;</li>
+    <li><b>P<sub>З</sub> — защита от злоупотребления:</b> технология не попадает к тем, кто применит её для разрушения;</li>
+    <li><b>P<sub>У</sub> — устойчивость:</b> ошибки исправимы и не становятся необратимыми.</li>
+  </ul>
+  <p>Это произведение: провал любого множителя обнуляет результат. Цепь рвётся по самому слабому звену.</p>
+
+  <h2>Что говорит модель</h2>
+  <p>Исход задают параметры, а параметры зависят от выбора людей. Фильтр проходит цивилизация, у которой β ≥ α: мудрость растёт не медленнее силы.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Рычаг</th><th>В формуле</th><th>Что это на практике</th></tr></thead>
+    <tbody>
+      <tr><td>Замедлить рост мощи</td><td>уменьшить α</td><td>паузы, лицензирование, ограничения вычислений</td></tr>
+      <tr><td>Ускорить управление</td><td>увеличить β</td><td>исследования безопасности, регулирование</td></tr>
+      <tr><td>Снизить цену ошибки</td><td>уменьшить λ</td><td>контроль, возможность «выключить», резервные системы</td></tr>
+      <tr><td>Отодвинуть порог</td><td>увеличить t*</td><td>больше времени до ASI на подготовку</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p class="rule-box"><b>ПРАВИЛО:</b> выживание = мудрость, растущая быстрее силы.</p>
+  <p style="font-size:.88rem;color:var(--muted)">Это модель для размышления, а не прогноз. Какие сейчас значения α, β и λ, никто не знает, и споры исследователей ИИ во многом идут именно об этих числах.</p>
+  </div>
+<script>
+(function(){
+  var svg=document.getElementById("asi-chart"); if(!svg) return;
+  var NS="http://www.w3.org/2000/svg", CSTAR=100, W0=3, TMAX=30;
+  function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e;}
+  function v(id){return parseFloat(document.getElementById(id).value);}
+  function draw(){
+    var a=v("a-alpha"), b=v("a-beta"), l=v("a-lam");
+    document.getElementById("a-alpha-v").textContent=a.toFixed(2);
+    document.getElementById("a-beta-v").textContent=b.toFixed(2);
+    document.getElementById("a-lam-v").textContent=l.toFixed(3);
+    var ts=Math.log(CSTAR)/a; if(ts>TMAX) ts=TMAX;
+    var N=240, dt=ts/N, area=0, C=[], W=[];
+    for(var i=0;i<=N;i++){var t=i*dt, c=Math.exp(a*t), w=W0*Math.exp(b*t); C.push([t,c]); W.push([t,w]); if(i>0) area+=Math.max(0,c-w)*dt;}
+    var P=Math.exp(-l*area), wEnd=W[N][1];
+    var L=60,R=880,T=20,B=320, ymax=Math.max(CSTAR,Math.min(wEnd,CSTAR*1.6))*1.08;
+    function X(t){return L+(R-L)*t/ts;} function Y(y){return B-(B-T)*Math.min(y,ymax)/ymax;}
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var cs=getComputedStyle(document.documentElement);
+    var ink=cs.getPropertyValue("--ink")||"#222", mut=cs.getPropertyValue("--muted")||"#777", head=cs.getPropertyValue("--head")||"#2f56b0", acc=cs.getPropertyValue("--accent")||"#b9770e";
+    var gap="";
+    for(var i=0;i<=N;i++){var c=C[i][1],w=W[i][1]; if(c>w){gap+=(gap?"":"M")+X(C[i][0])+","+Y(c)+" ";}}
+    var poly=[];
+    for(var i=0;i<=N;i++) poly.push(X(C[i][0])+","+Y(Math.max(C[i][1],W[i][1])));
+    for(var i=N;i>=0;i--) poly.push(X(W[i][0])+","+Y(W[i][1]));
+    svg.appendChild(el("polygon",{points:poly.join(" "),fill:"#e4573d",opacity:"0.18"}));
+    svg.appendChild(el("line",{x1:L,y1:B,x2:R,y2:B,stroke:mut}));
+    svg.appendChild(el("line",{x1:L,y1:T,x2:L,y2:B,stroke:mut}));
+    svg.appendChild(el("line",{x1:L,y1:Y(CSTAR),x2:R,y2:Y(CSTAR),stroke:mut,"stroke-dasharray":"5 5"}));
+    svg.appendChild(el("text",{x:L+6,y:Y(CSTAR)-6,fill:mut,"font-size":"13"},"порог ASI, C*"));
+    function path(arr,col){var d="";arr.forEach(function(p,i){d+=(i?"L":"M")+X(p[0]).toFixed(1)+","+Y(p[1]).toFixed(1);});svg.appendChild(el("path",{d:d,fill:"none",stroke:col,"stroke-width":"3"}));}
+    path(C,acc); path(W,head);
+    svg.appendChild(el("text",{x:R-6,y:Y(C[N][1])-8,fill:acc,"font-size":"14","text-anchor":"end","font-weight":"600"},"Мощь технологии C(t)"));
+    svg.appendChild(el("text",{x:R-6,y:Math.min(B-8,Y(wEnd)+18),fill:head,"font-size":"14","text-anchor":"end","font-weight":"600"},"Управление W(t)"));
+    svg.appendChild(el("text",{x:(L+R)/2,y:B+30,fill:mut,"font-size":"13","text-anchor":"middle"},"время →  ·  закрашено: накопленный разрыв"));
+    svg.appendChild(el("text",{x:R,y:B+16,fill:mut,"font-size":"12","text-anchor":"end"},"t*"));
+    document.getElementById("a-t").textContent=ts.toFixed(1)+" усл. ед.";
+    document.getElementById("a-w").textContent=wEnd>=CSTAR?"достаточно ("+Math.round(wEnd)+" при пороге "+CSTAR+")":Math.round(wEnd)+" из "+CSTAR+" нужных";
+    document.getElementById("a-p").innerHTML="<b>"+(P*100).toFixed(P<0.01?2:0)+"%</b>";
+    document.getElementById("a-msg").textContent = wEnd>=CSTAR ? "Управление успевает к порогу: β достаточно велико." : (b>=a ? "Управление растёт быстрее, но не успевает догнать к порогу: нужно больше времени или меньше α." : "Технология растёт быстрее управления: разрыв увеличивается, шансы падают.");
+  }
+  ["a-alpha","a-beta","a-lam"].forEach(function(id){document.getElementById(id).addEventListener("input",draw);});
+  draw();
+})();
+</script>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>Таиланд моими глазами</b> — бесплатный справочник на русском языке. Составитель: Лина Ли.<br>
+      Материалы подготовлены по открытым официальным источникам, переводы выполнены составителем. Материалы носят справочный характер, не являются налоговой или юридической консультацией и не означают оказания услуг. Первоисточник: Налоговый департамент Таиланда, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
