@@ -75,7 +75,7 @@ nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;ove
 nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
 nav.sub a:hover{color:var(--ink)}
 nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
-#subbar-prop nav.sub a,#subbar-banks nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
 
 main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
 .view{display:none}
@@ -181,10 +181,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <nav class="sub" aria-label="Налоги">
       <a aria-current="page" href="../taxes/">Обзор</a>
       <a href="../residency/">Резидентство</a>
-      <a href="../pit/">Подоходный налог</a>
+      <a href="../pit/">Подоходный<br>налог</a>
+      <a href="../pitcalc/">Калькулятор<br>налога</a>
       <a href="../business/">Бизнес</a>
-      <a href="../visas/">Визы и льготы</a>
-      <a href="../russia/">Россия — Таиланд</a>
+      <a href="../visas/">Визы<br>и льготы</a>
+      <a href="../russia/">РФ —<br>Таиланд</a>
       <a href="../calendar/">Календарь</a>
       <a href="../glossary/">Словарь</a>
       <a href="../docs/">Документы</a>
@@ -267,7 +268,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <h2>С чего начать</h2>
   <div class="cards">
     <a class="card" href="../residency/"><b>Я живу в Таиланде</b><span>Резидент ли я, облагается ли доход из-за рубежа, что изменилось с 2024 года</span></a>
-    <a class="card" href="../pit/"><b>Сколько я заплачу</b><span>Шкала, вычеты, декларации ПНД 90 и 91, калькулятор налога</span></a>
+    <a class="card" href="../pit/"><b>Сколько я заплачу</b><span>Шкала, вычеты, декларации ПНД 90 и 91</span></a>
+    <a class="card" href="../pitcalc/"><b>Калькулятор налога</b><span>Посчитайте подоходный налог за год</span></a>
     <a class="card" href="../business/"><b>У меня компания</b><span>Налог на прибыль, НДС, удержания у источника, соцстрах, МРОТ и рабочее время</span></a>
     <a class="card" href="../property/"><b>Покупаю или продаю жильё</b><span>Freehold и leasehold, сборы в Земельном департаменте, налог на землю и строения</span></a>
     <a class="card" href="../visas/"><b>Визы с налоговыми льготами</b><span>LTR со ставкой 17% и освобождением иностранного дохода, DTV, крипта</span></a>

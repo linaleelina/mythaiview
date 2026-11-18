@@ -75,7 +75,7 @@ nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;ove
 nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
 nav.sub a:hover{color:var(--ink)}
 nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
-#subbar-prop nav.sub a,#subbar-banks nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
 
 main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
 .view{display:none}
@@ -181,10 +181,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <nav class="sub" aria-label="Налоги">
       <a href="../taxes/">Обзор</a>
       <a href="../residency/">Резидентство</a>
-      <a aria-current="page" href="../pit/">Подоходный налог</a>
+      <a aria-current="page" href="../pit/">Подоходный<br>налог</a>
+      <a href="../pitcalc/">Калькулятор<br>налога</a>
       <a href="../business/">Бизнес</a>
-      <a href="../visas/">Визы и льготы</a>
-      <a href="../russia/">Россия — Таиланд</a>
+      <a href="../visas/">Визы<br>и льготы</a>
+      <a href="../russia/">РФ —<br>Таиланд</a>
       <a href="../calendar/">Календарь</a>
       <a href="../glossary/">Словарь</a>
       <a href="../docs/">Документы</a>
@@ -246,33 +247,9 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </ol>
   </div>
 
-  <h2>Калькулятор</h2>
-  <div class="calc" id="calc">
-    <div>
-      <div class="f"><label for="c-type">Вид дохода</label>
-        <select id="c-type"><option value="salary">Зарплата (расходы 50%, до 100 000)</option><option value="other">Иной доход без нормативных расходов</option></select></div>
-      <div class="f"><label for="c-income">Доход за год, бат</label>
-        <input id="c-income" type="number" inputmode="numeric" min="0" step="10000" value="1200000"></div>
-      <div class="f"><label for="c-ss">Взносы в соцстрах за год, бат</label>
-        <input id="c-ss" type="number" inputmode="numeric" min="0" step="500" value="10500"><span class="hint">В 2026 году максимум 875 × 12 = 10 500</span></div>
-      <div class="f chk"><input id="c-spouse" type="checkbox"><label for="c-spouse">Супруг(а) без дохода (+60 000)</label></div>
-      <div class="f"><label for="c-kids">Детей</label>
-        <input id="c-kids" type="number" min="0" max="10" step="1" value="0"><span class="hint">Считаю по 30 000 на ребёнка</span></div>
-      <div class="f"><label for="c-other">Другие вычеты, бат</label>
-        <input id="c-other" type="number" inputmode="numeric" min="0" step="1000" value="0"><span class="hint">Страхование, фонды и т. п.</span></div>
-    </div>
-    <div class="res" aria-live="polite">
-      <div style="color:var(--muted);font-size:.9rem">Налог за год</div>
-      <div class="big num" id="r-tax">0 ฿</div>
-      <div style="margin:.2rem 0 .8rem;color:var(--muted)" id="r-eff">Эффективная ставка 0%</div>
-      <div class="row"><span>Расходы</span><span id="r-exp">0</span></div>
-      <div class="row"><span>Вычеты</span><span id="r-ded">0</span></div>
-      <div class="row"><span>Облагаемый доход</span><span id="r-net">0</span></div>
-      <div class="row"><span>Налог в месяц</span><span id="r-month">0</span></div>
-      <div class="bars" id="r-bars"></div>
-    </div>
+  <div class="prose">
+  <p><b>Посчитайте свой налог:</b> <a href="../pitcalc/">калькулятор подоходного налога</a>.</p>
   </div>
-  <p class="prose" style="font-size:.88rem;color:var(--muted)">Расчёт упрощённый: не учитывает лимиты отдельных вычетов, зачёт иностранного налога и особые режимы (LTR 17%). Для декларации пользуйтесь данными rd.go.th.</p>
 
   <div class="prose">
   <h2>Декларации и сроки</h2>
@@ -310,43 +287,5 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
 </footer>
 
-<script>
-(function(){
-  var BR=[[150000,0],[300000,.05],[500000,.10],[750000,.15],[1000000,.20],[2000000,.25],[5000000,.30],[Infinity,.35]];
-  function pit(net){
-    var tax=0,prev=0,parts=[];
-    for(var i=0;i<BR.length;i++){
-      var top=BR[i][0],r=BR[i][1];
-      var slice=Math.max(0,Math.min(net,top)-prev);
-      if(slice>0) parts.push({rate:r,tax:slice*r});
-      tax+=slice*r; prev=top; if(net<=top) break;
-    }
-    return {tax:tax,parts:parts};
-  }
-  window.__pit=pit;
-  var fmt=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0});
-  function v(id){var x=parseFloat(document.getElementById(id).value);return isFinite(x)&&x>0?x:0;}
-  function calc(){
-    var inc=v("c-income"), type=document.getElementById("c-type").value;
-    var exp=type==="salary"?Math.min(inc*.5,100000):0;
-    var ded=60000+v("c-ss")+(document.getElementById("c-spouse").checked?60000:0)+Math.floor(v("c-kids"))*30000+v("c-other");
-    var net=Math.max(0,inc-exp-ded), r=pit(net);
-    document.getElementById("r-tax").textContent=fmt.format(r.tax)+" ฿";
-    document.getElementById("r-eff").textContent="Эффективная ставка "+(inc>0?(r.tax/inc*100).toFixed(1).replace(".",","):"0")+"% от дохода";
-    document.getElementById("r-exp").textContent=fmt.format(exp);
-    document.getElementById("r-ded").textContent=fmt.format(ded);
-    document.getElementById("r-net").textContent=fmt.format(net);
-    document.getElementById("r-month").textContent=fmt.format(r.tax/12);
-    var max=Math.max.apply(null,r.parts.map(function(p){return p.tax}).concat([1]));
-    document.getElementById("r-bars").innerHTML=r.parts.filter(function(p){return p.rate>0}).map(function(p){
-      return '<div><span>'+Math.round(p.rate*100)+'%</span><i style="width:'+(p.tax/max*100)+'%"></i><em>'+fmt.format(p.tax)+'</em></div>';
-    }).join("");
-  }
-  ["c-type","c-income","c-ss","c-spouse","c-kids","c-other"].forEach(function(id){
-    var el=document.getElementById(id); el.addEventListener("input",calc); el.addEventListener("change",calc);
-  });
-  calc();
-})();
-</script>
 </body>
 </html>
