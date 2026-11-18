@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Круговорот денег в Таиланде: наличные и безналичные платежи — Таиланд моими глазами</title>
+<meta name="description" content="Товары, услуги и труд движутся в одну сторону, деньги — в обратную. Наличные проходят из рук в руки, а безналичные деньги всегда идут через банки.">
+<meta property="og:site_name" content="Таиланд моими глазами">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">Т</span>Таиланд моими глазами</a>
+    <nav class="main" aria-label="Разделы">
+      <a href="../">Главная</a>
+      <a href="../taxes/" data-group="taxes">Налоги</a>
+      <a href="../property/" data-group="property">Недвижимость</a>
+      <a aria-current="page" href="../banks/" data-group="banks">Банки и платежи</a>
+      <a href="../tourism/">Туризм</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="Налоги">
+      <a href="../taxes/">Обзор</a>
+      <a href="../residency/">Резидентство</a>
+      <a href="../pit/">Подоходный<br>налог</a>
+      <a href="../pitcalc/">Калькулятор<br>налога</a>
+      <a href="../visas/">Визы<br>и льготы</a>
+      <a href="../russia/">РФ —<br>Таиланд</a>
+      <a href="../business/">Бизнес</a>
+      <a href="../tfrs/">Стандарты<br>отчётности</a>
+      <a href="../calendar/">Календарь</a>
+      <a href="../glossary/">Словарь</a>
+      <a href="../docs/">Документы</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="Недвижимость">
+      <a href="../property/">Обзор</a>
+      <a href="../invest/">Инвестиции<br>на Пхукете</a>
+      <a href="../decide/">Как принимать<br>решение</a>
+      <a href="../check/">Проверка<br>застройщика</a>
+      <a href="../rights/">Права и формы<br>владения</a>
+      <a href="../buying/">Покупка<br>и сборы</a>
+      <a href="../renting/">Сдача<br>в аренду</a>
+      <a href="../exit/">Продажа<br>и выход</a>
+      <a href="../tokens/">Токены<br>в недвижимости</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks">
+    <nav class="sub" aria-label="Банки и платежи">
+      <a href="../banks/">Обзор</a>
+      <a aria-current="page" href="../moneyflow/">Круговорот<br>денег</a>
+      <a href="../bot/">Банк<br>Таиланда</a>
+      <a href="../banksystem/">Банковская<br>система</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../deposits/">Страхование<br>вкладов</a>
+      <a href="../payments/">Платёжная<br>система</a>
+      <a href="../propertypay/">Платежи<br>за недвижимость</a>
+      <a href="../emoney/">Электронные<br>деньги</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="Аналитика">
+      <a href="../analytics/">Обзор</a>
+      <a href="../asi/">Фильтр<br>ASI</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-moneyflow" data-title="Круговорот денег в Таиланде: наличные и безналичные платежи">
+  <div class="prose">
+  <h1>Круговорот денег</h1>
+  <p class="lead">Товары, услуги и труд движутся в одну сторону, деньги — в обратную. Наличные проходят из рук в руки, а безналичные деньги всегда идут через банки.</p>
+  </div>
+<figure style="margin:1rem 0 1.5rem;max-width:960px">
+<svg viewBox="0 0 960 640" role="img" aria-labelledby="mf-t mf-d" style="width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;font-family:inherit">
+<title id="mf-t">Круговорот денег, товаров и услуг в Таиланде</title>
+<desc id="mf-d">Домохозяйства и бизнес обмениваются товарами, услугами и трудом. Деньги идут обратно наличными и безналично через коммерческие банки. Банки рассчитываются между собой через Банк Таиланда, который выпускает наличные. Государство получает налоги и платит за услуги и пособия.</desc>
+<defs>
+<marker id="mf-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker>
+<marker id="mf-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f56b0"/></marker>
+<marker id="mf-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker>
+</defs>
+<style>
+.mf-box{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.mf-h{font-size:17px;font-weight:700;fill:var(--ink)}
+.mf-s{font-size:12.5px;fill:var(--muted)}
+.mf-l{font-size:13px;font-weight:600}
+.mf-gl{fill:#2e8b57}.mf-bl{fill:#2f56b0}.mf-cl{fill:#d9822b}
+.mf-ga{stroke:#2e8b57;stroke-width:3;fill:none;marker-end:url(#mf-g)}
+.mf-ba{stroke:#2f56b0;stroke-width:3;fill:none;marker-end:url(#mf-b)}
+.mf-ca{stroke:#d9822b;stroke-width:3;fill:none;stroke-dasharray:8 6;marker-end:url(#mf-c)}
+@media (prefers-color-scheme:dark){.mf-bl{fill:#8fb0ff}.mf-ba{stroke:#8fb0ff}}
+</style>
+<!-- узлы -->
+<rect class="mf-box" x="30" y="40" width="240" height="140" rx="12"/>
+<text class="mf-h" x="150" y="104" text-anchor="middle">Домохозяйства</text>
+<text class="mf-s" x="150" y="126" text-anchor="middle">люди и семьи</text>
+<rect class="mf-box" x="690" y="40" width="240" height="140" rx="12"/>
+<text class="mf-h" x="810" y="104" text-anchor="middle">Бизнес</text>
+<text class="mf-s" x="810" y="126" text-anchor="middle">компании и продавцы</text>
+<rect class="mf-box" x="350" y="290" width="260" height="100" rx="12"/>
+<text class="mf-h" x="480" y="326" text-anchor="middle">Коммерческие банки</text>
+<text class="mf-s" x="480" y="348" text-anchor="middle">счета, вклады, кредиты,</text>
+<text class="mf-s" x="480" y="366" text-anchor="middle">PromptPay, карты, банкоматы</text>
+<rect class="mf-box" x="60" y="500" width="300" height="80" rx="12"/>
+<text class="mf-h" x="210" y="534" text-anchor="middle">Банк Таиланда</text>
+<text class="mf-s" x="210" y="556" text-anchor="middle">выпускает наличные, ведёт BAHTNET</text>
+<rect class="mf-box" x="600" y="500" width="300" height="80" rx="12"/>
+<text class="mf-h" x="750" y="534" text-anchor="middle">Государство</text>
+<text class="mf-s" x="750" y="556" text-anchor="middle">налоги, госуслуги, пособия</text>
+
+<!-- между домохозяйствами и бизнесом -->
+<path class="mf-ga" d="M688,78 L274,78"/>
+<text class="mf-l mf-gl" x="480" y="69" text-anchor="middle">товары и услуги</text>
+<path class="mf-ga" d="M272,116 L686,116"/>
+<text class="mf-l mf-gl" x="480" y="107" text-anchor="middle">труд</text>
+<path class="mf-ca" d="M272,154 L686,154"/>
+<text class="mf-l mf-cl" x="480" y="145" text-anchor="middle">оплата наличными</text>
+
+<!-- домохозяйства и банки -->
+<path class="mf-ba" d="M215,182 L376,288"/>
+<text class="mf-l mf-bl" x="306" y="222">оплата картой,</text>
+<text class="mf-l mf-bl" x="306" y="238">PromptPay</text>
+<path class="mf-ba" d="M352,312 L170,182"/>
+<text class="mf-l mf-bl" x="232" y="262" text-anchor="end">зарплата</text>
+<path class="mf-ca" d="M352,372 L92,182"/>
+<text class="mf-l mf-cl" x="168" y="300" text-anchor="end">наличные</text>
+<text class="mf-l mf-cl" x="168" y="316" text-anchor="end">из банкомата</text>
+
+<!-- бизнес и банки -->
+<path class="mf-ba" d="M584,288 L745,182"/>
+<text class="mf-l mf-bl" x="654" y="222" text-anchor="end">зачисление</text>
+<text class="mf-l mf-bl" x="654" y="238" text-anchor="end">оплаты</text>
+<path class="mf-ba" d="M790,182 L608,312"/>
+<text class="mf-l mf-bl" x="728" y="262">зарплата</text>
+
+<!-- банки и Банк Таиланда -->
+<path class="mf-ba" d="M400,392 L300,498"/>
+<text class="mf-l mf-bl" x="360" y="452">расчёты</text>
+<text class="mf-l mf-bl" x="360" y="468">через BAHTNET</text>
+<path class="mf-ca" d="M240,498 L364,392"/>
+<text class="mf-l mf-cl" x="282" y="432" text-anchor="end">банкноты</text>
+
+<!-- банки и государство -->
+<path class="mf-ba" d="M560,392 L660,498"/>
+<text class="mf-l mf-bl" x="600" y="460" text-anchor="end">налоги</text>
+<path class="mf-ba" d="M720,498 L596,392"/>
+<text class="mf-l mf-bl" x="682" y="432">пособия,</text>
+<text class="mf-l mf-bl" x="682" y="448">госзаказы</text>
+
+<!-- легенда -->
+<g transform="translate(60,618)">
+<line x1="0" y1="0" x2="34" y2="0" stroke="#2e8b57" stroke-width="3"/><text class="mf-s" x="42" y="4">товары, услуги, труд</text>
+<line x1="260" y1="0" x2="294" y2="0" stroke="#2f56b0" stroke-width="3"/><text class="mf-s" x="302" y="4">безналичные деньги</text>
+<line x1="520" y1="0" x2="554" y2="0" stroke="#d9822b" stroke-width="3" stroke-dasharray="8 6"/><text class="mf-s" x="562" y="4">наличные</text>
+</g>
+</svg>
+</figure>
+  <div class="prose">
+  <h2>Как читать схему</h2>
+  <ul>
+    <li><b>Зелёные стрелки — товары, услуги и труд.</b> Бизнес продаёт товары и услуги домохозяйствам, домохозяйства работают на бизнес.</li>
+    <li><b>Синие стрелки — безналичные деньги.</b> Оплата картой, по QR-коду PromptPay, переводом или через электронный кошелёк списывается со счёта покупателя и зачисляется на счёт продавца. Между банками такие платежи проходят через систему ITMX, крупные расчёты — через BAHTNET в Банке Таиланда. Зарплаты, налоги и пособия тоже обычно идут безналично.</li>
+    <li><b>Оранжевые пунктирные стрелки — наличные.</b> Банкноты выпускает только Банк Таиланда и выдаёт их коммерческим банкам, а те — людям через кассы и банкоматы. Наличными платят из рук в руки, без участия банка.</li>
+  </ul>
+
+  <h2>Чем различаются наличные и безналичные</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Наличные</th><th>Безналичные</th></tr></thead>
+    <tbody>
+      <tr><td><b>Кто выпускает</b></td><td>Банк Таиланда</td><td>Коммерческие банки (деньги на счетах) и поставщики электронных денег (кошельки)</td></tr>
+      <tr><td><b>Через кого проходит платёж</b></td><td>Из рук в руки</td><td>Через банки и платёжные системы: ITMX, PromptPay, карточные сети, BAHTNET</td></tr>
+      <tr><td><b>След платежа</b></td><td>Нет, если не выдан чек</td><td>Есть в банке у плательщика и получателя</td></tr>
+      <tr><td><b>Защита при сбое банка</b></td><td>Не нужна: деньги у вас в руках</td><td>Вклады в батах застрахованы до 1 млн бат в одном банке</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p>Подробнее о каждом участнике: <a href="../bot/">Банк Таиланда</a>, <a href="../banksystem/">банковская система</a>, <a href="../payments/">платёжная система</a>, <a href="../emoney/">электронные деньги</a>, <a href="../deposits/">страхование вкладов</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>Таиланд моими глазами</b> — бесплатный справочник на русском языке. Составитель: Лина Ли.<br>
+      Материалы подготовлены по открытым официальным источникам, переводы выполнены составителем. Материалы носят справочный характер, не являются налоговой или юридической консультацией и не означают оказания услуг. Первоисточник: Налоговый департамент Таиланда, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
