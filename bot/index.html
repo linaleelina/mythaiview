@@ -129,6 +129,15 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
 .pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
 .pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
 .pc-t{font-weight:700;margin-bottom:6px}
@@ -260,6 +269,23 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <li><b>Надзор за платёжными системами</b> по Закону о платёжных системах 2017 года (см. ниже).</li>
     <li><b>Банкноты:</b> выпуск и управление наличным обращением.</li>
   </ul>
+  <h2 id="bot-ratios">Обязательные нормативы для банков</h2>
+  <p>Банк Таиланда устанавливает коммерческим банкам обязательные нормативы по международным стандартам Базель III.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Норматив</th><th>Минимум</th><th>Для системно значимых банков (D-SIB)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Базовый капитал</b> (Common Equity Tier 1, CET1) к активам, взвешенным по риску</td><td>4,5% + буфер 2,5% = 7%</td><td>+ 1% = 8%</td></tr>
+      <tr><td><b>Основной капитал</b> (Tier 1)</td><td>6% + буфер 2,5% = 8,5%</td><td>+ 1% = 9,5%</td></tr>
+      <tr><td><b>Общая достаточность капитала</b></td><td>8,5% + буфер 2,5% = 11%</td><td>+ 1% = 12%</td></tr>
+      <tr><td><b>Кредиты одной группе компаний</b></td><td colspan="2">не больше 25% капитала банка</td></tr>
+      <tr><td><b>Вложения в бизнес с цифровыми активами</b></td><td colspan="2">не больше 3% капитала банка</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p>Буфер консервации капитала (2,5%) — запас сверх минимума на случай кризиса. Системно значимые банки — Bangkok Bank, Krungthai, Krungsri, Kasikornbank, SCB и TTB — держат ещё 1% базового капитала. Для ипотеки Банк Таиланда также ограничивает отношение суммы кредита к стоимости жилья (loan-to-value, LTV).</p>
+  <p>На практике крупные банки держат капитал с большим запасом: например, у Krungsri на 31 января 2026 года общая достаточность капитала составляла 20,85% при минимуме 12%, у Bangkok Bank по итогам 2025 года — 21,78%.</p>
+
   <p>С 1 октября 2025 года управляющий Банком Таиланда — Витай Ратанакорн (Vitai Ratanakorn), до этого возглавлявший государственный Сберегательный банк (Government Savings Bank). Срок полномочий управляющего — 5 лет.</p>
 
   <p style="font-size:.88rem;color:var(--muted)">Ставки, лимиты и списки участников меняются. Проверяйте актуальные сведения на сайтах <a href="https://www.bot.or.th/en/home.html">Банка Таиланда</a> и <a href="https://www.dpa.or.th/">Агентства по защите вкладов</a>.</p>
