@@ -129,6 +129,15 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
 .pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
 .pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
 .pc-t{font-weight:700;margin-bottom:6px}
@@ -252,7 +261,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p class="lead">Что нужно знать иностранцу, который покупает, владеет или сдаёт недвижимость в Таиланде: инвестиционные риски, права и формы владения, налоги и сборы при покупке, сдача в аренду.</p>
   <div class="cards">
     <a class="card" href="../invest/"><b>Инвестиции на Пхукете</b><span>Реальная доходность, комиссии агентов, риски перепродажи и калькулятор доходности</span></a>
-    <a class="card" href="../decide/"><b>Как принимать решение</b><span>9 правил: не спешить, считать самим, решать по документам</span></a>
+    <a class="card" href="../decide/"><b>Как принимать решение</b><span>Манипуляции в продажах и 9 правил, которые от них защищают</span></a>
     <a class="card" href="../check/"><b>Проверка застройщика</b><span>Как самому проверить компанию, землю, разрешения и лицензии по государственным источникам</span></a>
     <a class="card" href="../rights/"><b>Права и формы владения</b><span>Какие права признаёт тайское право, freehold и leasehold, что выбрать</span></a>
     <a class="card" href="../buying/"><b>Покупка и сборы</b><span>Налоги и сборы при регистрации, договор с застройщиком, налог на землю и строения</span></a>
