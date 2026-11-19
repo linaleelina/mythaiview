@@ -129,6 +129,15 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
 .pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
 .pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
 .pc-t{font-weight:700;margin-bottom:6px}
@@ -233,7 +242,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../propertypay/">Платежи<br>за недвижимость</a>
       <a href="../emoney/">Электронные<br>деньги</a>
       <a href="../crypto/">Крипто-<br>биржи</a>
-      <a href="../paychain/">Цепочки<br>оплаты</a>
+      <a href="../amlo/">AMLO</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-analytics" hidden>
@@ -263,7 +272,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     </ol>
   <p>Это не значит, что на Пхукете нельзя заработать. Заработать можно, но только точечно: объекты в лучших локациях с гостиничной лицензией и профессиональным управлением могут приносить стабильный доход. Ещё одна возможность — покупка на этапе pre-sale, когда застройщик продаёт первые квартиры по стартовой цене, ещё до начала активных продаж. При проверенном застройщике и удачной локации такую квартиру можно продать дороже ещё до сдачи дома. Но риск недостроя здесь самый высокий, а переуступка договора часто ограничена условиями застройщика или требует дополнительной платы.</p>
   <p class="rule-box"><b>ПРАВИЛО:</b> считайте чистую доходность и расходы на выход до покупки. Решение о покупке принимайте, когда потенциальные выгоды превышают риски.</p>
-  <p class="rule-box"><b>ПРАВИЛО:</b> сравнивайте не цену объекта, а цену за квадратный метр и ожидаемую аренду за метр. Высокая цена за метр ≠ высокий доход. Чем выше конкуренция, тем больше конкурентных преимуществ должно быть у объекта.</p>
+  <p class="rule-box"><b>ПРАВИЛО:</b> сравнивайте не цену объекта, а цену за квадратный метр и ожидаемую аренду за метр. Высокая цена за метр ≠ высокий доход.</p>
+  <p class="rule-box"><b>ПРАВИЛО ВЫБОРА ОБЪЕКТА:</b> чем выше конкуренция, тем больше конкурентных преимуществ должно быть у объекта.</p>
   <div class="view-box"><p><b>МОЙ ВЗГЛЯД:</b> к покупке на Пхукете стоит относиться как к покупке для жизни с возможным доходом, а не как к надёжной инвестиции. Если планируете жить в квартире сами и сэкономить на аренде, рассмотрите альтернативы сделки: покупку на вторичном рынке или квартиры в новостройке по переуступке.</p><p class="sig">— Лина Ли</p></div>
   <p id="fn-land" style="font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;margin-top:1.2rem">¹ Речь о рынке кондоминиумов и вилл, которые продают иностранцам. Рынок земли устроен иначе: иностранцы не могут владеть землёй в Таиланде, поэтому её покупают в основном тайские граждане и компании.</p>
   </div>
@@ -361,7 +371,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <div>
       <b>Таиланд моими глазами</b> — бесплатный справочник на русском языке. Составитель: Лина Ли.<br>
       Материалы подготовлены по открытым официальным источникам, переводы выполнены составителем. Материалы носят справочный характер, не являются налоговой или юридической консультацией и не означают оказания услуг. Первоисточник: Налоговый департамент Таиланда, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
-    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
+    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.amlo.go.th/">Управление по борьбе с отмыванием денег (AMLO)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
   </div>
 </footer>
 

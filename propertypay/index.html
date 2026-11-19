@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Платежи за недвижимость в Таиланде: перевод из-за рубежа и справка FET — Таиланд моими глазами</title>
-<meta name="description" content="Как оплатить квартиру в Таиланде иностранцу: откуда должны прийти деньги, в какой валюте и какой документ подтвердит перевод.">
+<title>Платежи за недвижимость в Таиланде: перевод из-за рубежа, справка FET, цепочки оплаты — Таиланд моими глазами</title>
+<meta name="description" content="Как оплатить квартиру в Таиланде иностранцу: откуда должны прийти деньги, в какой валюте, какой документ подтвердит перевод и какой из шести способов оплаты дешевле.">
 <meta property="og:site_name" content="Таиланд моими глазами">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +129,15 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
 .pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
 .pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
 .pc-t{font-weight:700;margin-bottom:6px}
@@ -233,7 +242,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a aria-current="page" href="../propertypay/">Платежи<br>за недвижимость</a>
       <a href="../emoney/">Электронные<br>деньги</a>
       <a href="../crypto/">Крипто-<br>биржи</a>
-      <a href="../paychain/">Цепочки<br>оплаты</a>
+      <a href="../amlo/">AMLO</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-analytics" hidden>
@@ -246,20 +255,102 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 
 <main>
 
-<section class="view active" id="v-propertypay" data-title="Платежи за недвижимость в Таиланде: перевод из-за рубежа и справка FET">
+<section class="view active" id="v-propertypay" data-title="Платежи за недвижимость в Таиланде: перевод из-за рубежа, справка FET, цепочки оплаты">
   <span class="stamp">Актуально на 19 ноября 2026 года</span>
   <div class="prose">
   <h1>Платежи за недвижимость</h1>
-  <p class="lead">Как оплатить квартиру в Таиланде иностранцу: откуда должны прийти деньги, в какой валюте и какой документ подтвердит перевод.</p>
+  <p class="lead">Как оплатить квартиру в Таиланде иностранцу: откуда должны прийти деньги, в какой валюте, какой документ подтвердит перевод и какой из шести способов оплаты дешевле.</p>
 
   <h2>Перевод денег из-за рубежа и справка FET</h2>
   <p>Для оформления квартиры во freehold иностранец должен подтвердить, что деньги пришли из-за рубежа в иностранной валюте. Для этого банк выдаёт справку о валютной операции (Foreign Exchange Transaction Form, FET). Bangkok Bank принимает такие переводы по SWIFT на счёт в батах или на валютный счёт.</p>
   <p>Переводы через сервисы вроде Wise выплачиваются внутри Таиланда через местного партнёра, поэтому формально не считаются международными, и сам сервис справку FET выдать не может. Её нужно запрашивать в банке-партнёре, через который пришли деньги.</p>
 
-  <p class="rule-box"><b>ПРАВИЛО:</b> если деньги нужны для покупки квартиры, переводите их из-за рубежа в иностранной валюте по SWIFT напрямую в тайский банк и сразу просите справку FET. Без неё оформить freehold на иностранца нельзя.</p>
+  <h2 id="iban">Почему у тайского счёта нет IBAN</h2>
+  <p>IBAN (International Bank Account Number) — международный номер счёта, который используют в основном в Европе и на Ближнем Востоке. Таиланд в систему IBAN не входит, поэтому у тайских счетов IBAN нет. Bangkok Bank прямо пишет, что у него нет IBAN и отправителю не нужно его указывать, а нужен SWIFT-код банка.</p>
+  <p>Чтобы перевести деньги в Таиланд, отправителю нужны:</p>
+  <ul>
+    <li>имя владельца счёта — точно как в банке;</li>
+    <li>номер счёта — только цифры, без пробелов и дефисов (длина номера у разных банков разная);</li>
+    <li>название банка и его SWIFT-код, например BKKBTHBK у Bangkok Bank, KASITHBK у Kasikornbank, SICOTHBK у SCB, AYUDTHBK у Krungsri;</li>
+    <li>назначение платежа — например, покупка квартиры с её номером и названием проекта.</li>
+  </ul>
+  <p>Если ваш банк не пропускает перевод без IBAN, впишите в это поле номер тайского счёта или оставьте его пустым, если банк это позволяет, и обязательно укажите SWIFT-код. Если не получается, спросите в своём банке, как оформить перевод в страну без IBAN.</p>
 
+  </div>
+  <div class="prose">
+  <h2 id="paychain">Цепочки оплаты: от вашего счёта до застройщика</h2>
+  <p>Шесть способов, которыми иностранец со счётом за рубежом может заплатить тайскому застройщику за квартиру, — от самого дешёвого до самого дорогого. Для каждого указано, годится ли он для оформления квартиры во freehold.</p>
+  <p class="pc-f">Ранжирование — по типичной структуре затрат: сколько раз меняется валюта, сколько банков участвует и кто устанавливает курс. Точная сумма зависит от вашего банка, суммы и валюты. Официально известна только комиссия тайских банков за приём перевода по SWIFT: 0,25%, не больше 500 бат. <span class="pc-cost">●</span> — относительная стоимость; синие блоки — шаги в Таиланде.</p>
+  </div>
+  <div class="pc-row"><div class="pc-n">1</div><div>
+    <div class="pc-t">Сервис переводов (Wise и похожие) в батах</div>
+    <div class="pc-chain"><span class="pc-s">Ваш счёт за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Сервис переводов</span> <span class="pc-a">→</span> <span class="pc-s th">Тайский банк-партнёр</span> <span class="pc-a">→</span> <span class="pc-s th">Ваш счёт в Таиланде</span> <span class="pc-a">→</span> <span class="pc-s th">Счёт застройщика</span></div>
+    <div class="pc-f">Комиссия сервиса + конвертация по курсу, близкому к рыночному. Тайские банки за входящий перевод не берут: деньги приходят как внутренний перевод.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●○○○○○</span><span class="pc-b mid">Для freehold: под вопросом</span></div>
+    <div class="pc-note">Обычно самый дешёвый способ, но перевод приходит в батах и как внутренний. Для оформления квартиры во freehold нужна справка банка-партнёра, что деньги пришли из-за рубежа, — её дают не всегда.</div>
+  </div></div>
+  <div class="pc-row"><div class="pc-n">2</div><div>
+    <div class="pc-t">SWIFT в валюте напрямую на счёт застройщика</div>
+    <div class="pc-chain"><span class="pc-s">Ваш счёт за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Банк-корреспондент (если нужен)</span> <span class="pc-a">→</span> <span class="pc-s th">Банк застройщика</span></div>
+    <div class="pc-f">Комиссия вашего банка за перевод + комиссии посредников (если есть) + 0,25% за приём в тайском банке, не больше 500 бат + одна конвертация валюты в баты по курсу тайского банка.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●●○○○○</span><span class="pc-b ok">Для freehold: да, справка FET</span></div>
+    <div class="pc-note">Самый короткий путь из подходящих для freehold: одна конвертация, один получатель. В назначении платежа укажите своё имя и цель — покупка квартиры с номером, чтобы справка FET была оформлена на вас.</div>
+  </div></div>
+  <div class="pc-row"><div class="pc-n">3</div><div>
+    <div class="pc-t">SWIFT в валюте на свой счёт в Таиланде, затем застройщику</div>
+    <div class="pc-chain"><span class="pc-s">Ваш счёт за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Банк-корреспондент (если нужен)</span> <span class="pc-a">→</span> <span class="pc-s th">Ваш счёт в Таиланде</span> <span class="pc-a">→</span> <span class="pc-s th">Счёт застройщика</span></div>
+    <div class="pc-f">То же, что в варианте 2, плюс перевод внутри Таиланда: через PromptPay или ITMX обычно бесплатно в пределах лимитов, крупные суммы — банковским чеком или через BAHTNET за отдельную комиссию.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●●●○○○</span><span class="pc-b ok">Для freehold: да, справка FET</span></div>
+    <div class="pc-note">Немного дороже и дольше варианта 2, зато деньги под вашим контролем до каждого платежа застройщику — удобно при оплате частями. Справку FET выдаёт ваш банк.</div>
+  </div></div>
+  <div class="pc-row"><div class="pc-n">4</div><div>
+    <div class="pc-t">SWIFT, но валюту меняет банк отправителя</div>
+    <div class="pc-chain"><span class="pc-s">Ваш счёт за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Конвертация в баты за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Банк-корреспондент</span> <span class="pc-a">→</span> <span class="pc-s th">Банк застройщика</span></div>
+    <div class="pc-f">Комиссии те же, что в варианте 2, но курс конвертации в баты устанавливает зарубежный банк — обычно он хуже курса тайского банка.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●●●●○○</span><span class="pc-b no">Для freehold: нет — деньги пришли не в валюте</span></div>
+    <div class="pc-note">Частая ошибка: перевод уходит сразу в батах. Для freehold иностранец должен ввезти деньги в иностранной валюте, поэтому при отправке выбирайте валюту перевода — доллары, евро или другую, а не баты.</div>
+  </div></div>
+  <div class="pc-row"><div class="pc-n">5</div><div>
+    <div class="pc-t">Оплата банковской картой</div>
+    <div class="pc-chain"><span class="pc-s">Ваша карта</span> <span class="pc-a">→</span> <span class="pc-s">Платёжная система</span> <span class="pc-a">→</span> <span class="pc-s th">Эквайер застройщика</span> <span class="pc-a">→</span> <span class="pc-s th">Счёт застройщика</span></div>
+    <div class="pc-f">Комиссия банка за операцию за рубежом и конвертация платёжной системы; застройщик может добавить комиссию за приём карты.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●●●●●○</span><span class="pc-b no">Для freehold: нет</span></div>
+    <div class="pc-note">Подходит только для небольшой брони. Крупную сумму картой не платят: дорого, есть лимиты, и справки FET не будет.</div>
+  </div></div>
+  <div class="pc-row"><div class="pc-n">6</div><div>
+    <div class="pc-t">Наличная валюта, криптовалюта или P2P-обмен</div>
+    <div class="pc-chain"><span class="pc-s">Наличные, криптовалюта или P2P</span> <span class="pc-a">→</span> <span class="pc-s th">Обмен в Таиланде</span> <span class="pc-a">→</span> <span class="pc-s th">Счёт застройщика</span></div>
+    <div class="pc-f">Курс обменника или биржи, при ввозе более 20 000 долларов наличными — обязательная декларация на таможне. Платить застройщику криптовалютой запрещено.</div>
+    <div class="pc-meta"><span class="pc-cost" title="Относительная стоимость">●●●●●●</span><span class="pc-b no">Для freehold: нет</span></div>
+    <div class="pc-note">Самый дорогой и рискованный путь: это не перевод из-за рубежа, справки FET нет, а крупные наличные и криптовалюта привлекают внимание банков и регуляторов. При P2P-обмене баты приходят со счёта постороннего человека — если это деньги мошенников, ваш счёт могут заморозить (подробнее — <a href="../crypto/#p2p">P2P-обмен</a>).</div>
+  </div></div>
+  <div class="prose">
+  <h2 id="paychain-relatives">Если деньги отправляют родственники</h2>
+  <p>Заплатить за квартиру могут и родственники, супруг или ваша компания. Закон этого не запрещает, но перевод должен быть однозначно привязан к покупателю.</p>
+  </div>
+  <div class="pc-row"><div class="pc-n">+</div><div>
+    <div class="pc-t">SWIFT в валюте со счёта родственника</div>
+    <div class="pc-chain"><span class="pc-s">Счёт родственника за рубежом</span> <span class="pc-a">→</span> <span class="pc-s">Банк-корреспондент (если нужен)</span> <span class="pc-a">→</span> <span class="pc-s th">Ваш счёт в Таиланде или банк застройщика</span></div>
+    <div class="pc-f">Стоимость — как в вариантах 2 и 3. В назначении платежа: «Purchase of condominium unit No. … in … by [ваше имя как в паспорте]».</div>
+    <div class="pc-meta"><span class="pc-b mid">Для freehold: да, если покупатель указан в переводе</span></div>
+    <div class="pc-note">Лучше всего, чтобы получателем был сам покупатель — на его тайский счёт. Подход земельных офисов разный: одни принимают перевод от третьего лица с правильным назначением платежа, другие требуют, чтобы имя покупателя стояло в справке FET как отправителя или получателя. Уточните заранее в банке и у юриста или застройщика.</div>
+  </div></div>
+  <div class="prose">
+  <ul>
+    <li><b>Сумма не ограничена.</b> Порог в 50 000 долларов за один перевод определяет только документ: от этой суммы банк выдаёт справку FET, меньше — уведомление о зачислении (credit advice) и письмо-подтверждение банка. Земельный департамент принимает оба.</li>
+    <li><b>Не дробите перевод</b>, чтобы обойти порог: документов для сверки станет больше, а вопросов — тоже.</li>
+    <li><b>Сохраните документы о связи с отправителем:</b> письмо о дарении, свидетельство о браке или решение компании.</li>
+  </ul>
+  </div>
+  <div class="prose">
+  <h2>Что выбрать</h2>
+  <p>Если квартира оформляется во freehold, выбирайте <b>вариант 2 или 3</b>: самый дешёвый способ, который точно даёт справку FET. Вариант 1 дешевле, но рискованнее для freehold. Варианты 4–6 для покупки квартиры иностранцем не подходят.</p>
+  </div>
+  <div class="prose">
+  <h2>Правила</h2>
+  <p class="rule-box"><b>ПРАВИЛО:</b> переводите деньги на квартиру из-за рубежа в иностранной валюте по SWIFT напрямую в тайский банк, а меняйте на баты в тайском банке. В назначении платежа указывайте своё имя и цель — покупка квартиры. Справку FET просите сразу после зачисления: без неё оформить freehold на иностранца нельзя.</p>
   <p class="rule-box"><b>ПРАВИЛО:</b> чтобы перевод из-за рубежа был виден как международный, открывайте счёт в банке, куда деньги приходят напрямую по SWIFT, и указывайте его код. Тогда справку FET выдаёт ваш собственный банк.</p>
-  <p>Почему перевод может прийти через банк-посредник и выглядеть как внутренний, разобрано на странице <a href="../bangkokbank/#bbl-intermediary">«Bangkok Bank»</a>. Сборы и налоги при покупке — на странице <a href="../buying/">«Покупка и сборы»</a>.</p>
+  <p>Почему перевод может прийти через банк-посредник и выглядеть как внутренний, разобрано на странице <a href="../bangkokbank/#bbl-intermediary">«Bangkok Bank»</a>. Сборы и налоги при покупке — на странице <a href="../buying/">«Покупка и сборы»</a>. О каких платежах банк и земельный офис сообщают в AMLO — на странице <a href="../amlo/">«AMLO»</a>.</p>
   </div>
 </section>
 
@@ -270,7 +361,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <div>
       <b>Таиланд моими глазами</b> — бесплатный справочник на русском языке. Составитель: Лина Ли.<br>
       Материалы подготовлены по открытым официальным источникам, переводы выполнены составителем. Материалы носят справочный характер, не являются налоговой или юридической консультацией и не означают оказания услуг. Первоисточник: Налоговый департамент Таиланда, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
-    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
+    <div class="src"><b>Официальные ресурсы для проверки:</b> <a href="https://www.rd.go.th/english/">Налоговый департамент</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (официальные публикации законов)</a>, <a href="https://www.krisdika.go.th/">Государственный совет (тексты законов)</a>, <a href="https://www.dol.go.th/">Земельный департамент</a>, <a href="https://www.bot.or.th/">Банк Таиланда</a>, <a href="https://www.dpa.or.th/">Агентство по защите вкладов</a>, <a href="https://www.sec.or.th/EN/">Комиссия по ценным бумагам и биржам (SEC)</a>, <a href="https://www.amlo.go.th/">Управление по борьбе с отмыванием денег (AMLO)</a>, <a href="https://www.tfac.or.th/">Федерация бухгалтерских профессий (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — профиль Таиланда</a>, <a href="https://www.sso.go.th/">Управление социального страхования</a>, <a href="https://www.labour.go.th/">Департамент защиты труда и социального обеспечения</a>, <a href="https://www.excise.go.th/">Акцизный департамент</a>, <a href="https://www.customs.go.th/">Таможенный департамент</a>, <a href="https://www.boi.go.th/">Комитет по инвестициям (BOI)</a>, <a href="https://www.dmf.go.th/">Департамент минерального топлива</a>, <a href="https://www.reic.or.th/">REIC — Центр информации о недвижимости Жилищного банка (Government Housing Bank)</a>.</div>
   </div>
 </footer>
 
