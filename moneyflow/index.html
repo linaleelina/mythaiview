@@ -129,6 +129,15 @@ li{margin:.25rem 0}
 .calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
 .calc .chk{flex-direction:row;align-items:center;gap:8px}
 .res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
 .pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
 .pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
 .pc-t{font-weight:700;margin-bottom:6px}
@@ -355,6 +364,26 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <tr><td><b>Защита при сбое банка</b></td><td>Не нужна: деньги у вас в руках</td><td>Вклады в батах застрахованы до 1 млн бат в одном банке</td></tr>
     </tbody>
   </table></div>
+  <div class="prose">
+  <div class="rule-box" id="mf-principle"><p style="margin-top:0"><b>ГЛАВНЫЙ ЭКОНОМИЧЕСКИЙ ПРИНЦИП:</b> деньги — это средство обмена, которое обеспечивает движение товаров, услуг и труда между участниками экономики.</p>
+    <ul>
+      <li>Избыток денег относительно товаров и услуг может приводить к росту цен и инфляции.</li>
+      <li>Недостаток денег и платёжеспособного спроса может приводить к сокращению продаж, производства и занятости.</li>
+      <li>Неравномерное распределение денег может нарушать движение денежных потоков даже тогда, когда общий объём денег в экономике достаточен.</li>
+    </ul>
+    <p style="margin-bottom:0">Здоровая экономика — это не просто большое количество денег, а устойчивое движение денег, товаров, услуг и доходов между всеми участниками.</p>
+  </div>
+
+  <h2 id="mf-savings">Сбережения возвращаются в оборот</h2>
+  <p>Деньги не исчезают, когда человек откладывает их на депозит. Они переходят из активного обращения в сбережения. Банк может использовать привлечённые средства для кредитования бизнеса и населения, возвращая деньги в экономический оборот.</p>
+  </div>
+  <div class="pc-row" style="grid-template-columns:1fr">
+    <div>
+    <div class="pc-t">Как сбережения финансируют экономику</div>
+    <div class="pc-chain"><span class="pc-s">Сбережения домохозяйств</span> <span class="pc-a">→</span> <span class="pc-s th">Депозиты банков</span> <span class="pc-a">→</span> <span class="pc-s th">Кредиты бизнесу</span> <span class="pc-a">→</span> <span class="pc-s">Инвестиции и зарплаты</span> <span class="pc-a">→</span> <span class="pc-s">Доходы домохозяйств</span> <span class="pc-a">↺</span></div>
+    <div class="pc-note">Эта связь замыкает не только круговорот денег, но и показывает механизм финансирования экономики.</div>
+    </div>
+  </div>
   <div class="prose">
   <p>Подробнее о каждом участнике: <a href="../bot/">Банк Таиланда</a>, <a href="../banksystem/">банковская система</a>, <a href="../payments/">платёжная система</a>, <a href="../emoney/">электронные деньги</a>, <a href="../bangkokbank/#bbl-deposits">страхование вкладов</a>.</p>
   </div>
