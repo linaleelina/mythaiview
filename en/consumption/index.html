@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consumption: how the consumer economy works and what is wrong with it — My Thai View</title>
+<meta name="description" content="Consumption: how the consumer economy works and what is wrong with it">
+<meta property="og:site_name" content="My Thai View">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang{margin-left:auto;display:flex;gap:2px;background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang a{padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{background:#2f56b0;color:#fff}
+@media (max-width:720px){.lang{order:2}nav.main{order:3}}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
+.pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
+.pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.pc-t{font-weight:700;margin-bottom:6px}
+.pc-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 8px}
+.pc-s{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.88rem}
+.pc-s.th{background:var(--blue-soft,#e8eefb);border-color:var(--head);color:var(--head)}
+.pc-a{color:var(--muted);font-size:.9rem}
+.pc-f{font-size:.82rem;color:var(--muted)}
+.pc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.pc-b{font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 10px}
+.pc-b.ok{background:var(--ok-soft);color:var(--ok)}.pc-b.no{background:var(--warn-soft);color:var(--warn)}.pc-b.mid{background:var(--accent-soft);color:#8a5a00}
+.pc-cost{font-size:.85rem;letter-spacing:2px}
+.pc-note{font-size:.9rem;margin-top:6px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/consumption/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/consumption/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/consumption/">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">T</span>My Thai View</a>
+    <nav class="main" aria-label="Sections">
+      <a href="../">Home</a>
+      <a href="../taxes/" data-group="taxes">Taxes</a>
+      <a href="../property/" data-group="property">Property</a>
+      <a href="../banks/" data-group="banks">Money</a>
+      <a href="../tourism/">Tourism</a>
+    </nav>
+    <nav class="lang" aria-label="Language"><a href="../../consumption/" hreflang="ru" lang="ru">RU</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a></nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="Taxes">
+      <a href="../taxes/">Overview</a>
+      <a href="../residency/">Residency</a>
+      <a href="../pit/">Income<br>tax</a>
+      <a href="../pitcalc/">Tax<br>calculator</a>
+      <a href="../visas/">Visas<br>and benefits</a>
+      <a href="../russia/">Russia —<br>Thailand</a>
+      <a href="../business/">Business</a>
+      <a href="../tfrs/">Reporting<br>standards</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../glossary/">Glossary</a>
+      <a href="../docs/">Documents</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="Property">
+      <a href="../property/">Overview</a>
+      <a href="../invest/">Investing<br>in Phuket</a>
+      <a href="../decide/">How to make<br>a decision</a>
+      <a href="../check/">Developer<br>check</a>
+      <a href="../rights/">Ownership rights<br>and forms</a>
+      <a href="../buying/">Buying<br>and fees</a>
+      <a href="../renting/">Renting<br>out</a>
+      <a href="../exit/">Selling<br>and exit</a>
+      <a href="../tokens/">Real estate<br>tokens</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks" hidden>
+    <nav class="sub" aria-label="Money">
+      <a href="../banks/">Overview</a>
+      <a href="../moneyflow/">Circular<br>flow of money</a>
+      <a href="../bot/">Bank of<br>Thailand</a>
+      <a href="../banksystem/">Banking<br>system</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../payments/">Payment<br>system</a>
+      <a href="../propertypay/">Property<br>payments</a>
+      <a href="../emoney/">Electronic<br>money</a>
+      <a href="../crypto/">Crypto<br>exchanges</a>
+      <a href="../amlo/">AMLO</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics">
+    <nav class="sub" aria-label="Analytics">
+      <a href="../analytics/">Overview</a>
+      <a aria-current="page" href="../consumption/">Consumption</a>
+      <a href="../focus/">Reclaim<br>attention</a>
+      <a href="../future/">Future<br>economy</a>
+      <a href="../asi/">ASI<br>filter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-consumption" data-title="Consumption: how the consumer economy works and what is wrong with it">
+  <span class="stamp">Data as of 20 November 2026</span>
+  <div class="prose">
+  <h1>Consumption</h1>
+  <div class="view-box"><p><b>MY VIEW:</b> I believe people need to stop consuming and learn to understand what is an expense and what is an investment. Your attention is being managed, and the decision to buy should be yours, not theirs.</p><p class="sig">— Lina Lee</p></div>
+
+  <h2>How the consumer economy works</h2>
+  <p>A consumer economy is a model in which the main engine of growth is people's spending on goods and services. It works as a closed loop:</p>
+  <ol>
+    <li>A person works and receives wages.</li>
+    <li>Spends them on purchases.</li>
+    <li>Businesses earn revenue, hire people and pay wages.</li>
+    <li>New wages turn into purchases again.</li>
+  </ol>
+  <p>To make the loop spin faster, <b>credit</b> is added: a person buys today with money they will earn tomorrow. And <b>advertising, fashion and the short lifespan of things</b> push people to buy more often than they need. The state has an interest in this loop: it collects taxes on every purchase and every wage.</p>
+  <p>The most striking example is the US: household spending there accounts for about <b>68% of GDP</b>. When Americans spend less, the whole world economy feels it, including Thailand's tourism and exports.</p>
+
+  <h2>What is wrong with it right now</h2>
+  </div>
+  <div class="tiles">
+    <div class="tile"><div class="v num">45,5%</div><div class="k">of all US consumer spending comes from the top 10% of earners (Q1 2026)</div></div>
+    <div class="tile"><div class="v num">$19.1 trillion</div><div class="k">US household debt — a record (Q3 2026)</div></div>
+    <div class="tile"><div class="v num">3,8%</div><div class="k">of income is what Americans save — a near four-year low (September 2026)</div></div>
+    <div class="tile"><div class="v num">85%</div><div class="k">of GDP — Thailand's household debt (Q2 2026)</div></div>
+  </div>
+  <div class="prose">
+  <ol>
+    <li><b>Consumption rests on a narrow group of people.</b> According to Moody's Analytics, the wealthiest 10% of Americans account for 45.5% of all spending, and the top 20% for about 60%. Thirty years ago the top 10%'s share was about 36%. The wealthy spend partly out of stock market gains: if the market falls, spending will drop sharply, and the remaining 80–90% of the population have nothing to pick it up with.</li>
+    <li><b>The loop runs on debt.</b> US household debt has risen to a record 19.1 trillion dollars, and credit card debt to a record 1.29 trillion. Since the end of 2019 debt has grown by about 5 trillion. New York Fed researchers say plainly that the growth in debt reflects financial hardship.</li>
+    <li><b>People are spending more than they can afford.</b> To maintain their usual standard of living as prices rise, Americans are saving less and less: in September 2026, 3.8% of income — less than four cents of every dollar.</li>
+    <li><b>Thailand has the same problem.</b> Household debt is about 85–87% of GDP. People increasingly borrow for everyday expenses. The debt-to-GDP ratio is falling, but not because people have become richer: banks have simply stopped lending, and people turn to cooperatives and pawnshops. The Bank of Thailand believes high debt is preventing the economy from returning to normal growth.</li>
+    <li><b>The "work → wages → purchases" link is weakening.</b> Automation and AI make it possible to produce more with fewer workers. If wages stop growing along with production, there will be no one to buy the output. More on the <a href="../future/">"The future economy"</a> page.</li>
+  </ol>
+  <p>Conclusion: the consumer economy is still growing, but it rests on debt, dwindling savings and the spending of a small well-off group. This is not a sustainable flow of money but a flow into debt.</p>
+
+  <h2 id="attention">People and the attention economy</h2>
+  <p>Consumption begins not in the shop but with our attention. Advertising, social networks and marketplace algorithms study people's interests and suggest what to buy. Discounts, sales and instalment plans can create a sense of a good deal and push people towards a purchase that would not have happened without the offer.</p>
+  <p>AI amplifies this influence: it talks to a person like a personal adviser, answers questions and helps work through doubts. Such a dialogue can be useful, but it can also quietly steer a person towards a purchase.</p>
+  <p>That is why it is important to understand where your income goes: on necessary expenses, impulse purchases or investment in the future. The decision to buy should remain with the person — conscious and informed.</p>
+
+  <h2 id="experiment">A thought experiment: who goes broke first</h2>
+  </div>
+  <div class="cards">
+    <div class="card"><b>You have lost your job for 5 years</b><span>Imagine: you are out of work and cannot find a new job for five years. What will you do? First you will spend your savings, and then you will start selling what you have: the car, electronics, jewellery, perhaps the apartment. That is when it becomes clear which of your purchases were investments and which were expenses: some things can be sold, for others no one will give you anything.</span></div>
+    <div class="card"><b>You have stopped consuming right now</b><span>Now the other way round: you stop going to the cinema, the gym and restaurants, you don't buy yet another pair of shoes, a new phone or another subscription. It is not you who goes broke first, but the businesses that live on your spending. Your money stays with you.</span></div>
+  </div>
+  <div class="prose">
+  <p>The consumer economy is set up so that the buyer carries the risk: they spend today and pay for it later — with debt, a lack of savings, selling off property at a difficult moment. By no longer spending on what you don't need, you shift that risk back onto business.</p>
+
+  <h2 id="owner">How to stop being a resource and become an owner</h2>
+  <p>The modern economy is set up so that a person is at once a worker, a consumer, a source of data and an object of attention. Companies earn money on each of these resources.</p>
+  <p>But a person can change their role: not only creating profit for others but also sharing in its distribution. To do this, it is important to act on five levels.</p>
+
+  <h3>1. Manage your attention</h3>
+  <p>Your attention is an economic resource. The more time you spend on platforms, in shops and on social networks, the more opportunities companies have to make money on you.</p>
+  <ul>
+    <li>Turn off unnecessary notifications.</li>
+    <li>Unsubscribe from advertising mailings.</li>
+    <li>Do not make purchase decisions under the pressure of urgency and artificial scarcity.</li>
+    <li>Use a pause rule before unplanned purchases.</li>
+    <li>Do not let algorithms define your desires.</li>
+  </ul>
+
+  <h3>2. Manage your money</h3>
+  <p>Every purchase is a decision about who gets your income and which economic activity you support.</p>
+  <ul>
+    <li>Avoid consumer loans for non-essential purchases.</li>
+    <li>Do not overpay for convenience if it has no real value to you.</li>
+    <li>Compare prices and purchase terms.</li>
+    <li>Support small and local businesses where this is in your interest.</li>
+    <li>Build savings and a financial reserve.</li>
+  </ul>
+
+  <h3>3. Move from consumption to ownership</h3>
+  <p>This is the next level of economic independence.</p>
+  <p>As long as you only buy goods and services, you take part in creating companies' profits as a consumer. But you can also become an owner of part of a business.</p>
+  <p>Shares, bonds, stakes in companies and index funds let you take part in the economy not only through consumption but also through owning capital<sup><a href="#fn-securities" style="text-decoration:none;color:inherit">¹</a></sup>.</p>
+  <p>In this way a person can remain a buyer of a company's products and at the same time gain economic benefit from owning a part of it.</p>
+
+  <h3>4. Protect your rights and data</h3>
+  <p>Your personal data, digital activity and consumer rights have economic value.</p>
+  <ul>
+    <li>Control your consents to the processing of personal data.</li>
+    <li>Limit the sharing of information that is not needed to receive a service.</li>
+    <li>Use your right to opt out of the advertising use of your data.</li>
+    <li>Insist on warranties and consumer rights being respected.</li>
+    <li>Leave honest reviews and report violations.</li>
+  </ul>
+
+  <h3>5. Take part in shaping the rules of the economy</h3>
+  <p>An individual can manage their own behaviour, but market rules are shaped collectively.</p>
+  <p>Competition, antitrust regulation, personal data protection, advertising transparency and consumer rights determine how fairly economic opportunities are distributed.</p>
+  <p>Taking part in civic initiatives, supporting transparent businesses and making informed choices as a citizen allow you to influence these rules.</p>
+
+  <div class="rule-box"><p style="margin-top:0"><b>THE MAIN PRINCIPLE:</b> do not limit yourself to the role of consumer. Become an owner of assets, manage your resources, protect your rights and take part in economic processes.</p>
+  <p style="margin-bottom:0">Your goal is not simply to give less to corporations, but to build your own economic resilience and share in the distribution of the value created.</p></div>
+
+  <p class="rule-box"><b>RULE:</b> every time before you spend 1 dollar, 30 baht or 100 roubles, ask yourself: is this an investment or an unnecessary expense?</p>
+
+  <p id="fn-securities" style="font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;margin-top:1.2rem">¹ The securities market is a separate risk. Prices of shares and fund units can fall, sometimes for a long time; companies can go bankrupt, and bond issuers can fail to repay their debts. Investments can make a loss, up to losing all the money invested. Invest only money you will not need in the coming years, after you have built a financial reserve, and spread it across different assets. This is not an investment recommendation.</p>
+  <p style="font-size:.88rem;color:var(--muted)">Sources: <a href="https://www.newyorkfed.org/newsevents/news/research/2026/20261110" target="_blank" rel="noopener">New York Fed — household debt, Q3 2026</a>; <a href="https://bea.gov/news/2026/personal-income-and-outlays-september-2026" target="_blank" rel="noopener">BEA — personal income and outlays, September 2026</a>; <a href="https://fred.stlouisfed.org/series/DPCERE1A156NBEA" target="_blank" rel="noopener">FRED — consumption share of US GDP</a>; Moody's Analytics estimates (as reported in the media); <a href="https://www.bot.or.th/" target="_blank" rel="noopener">Bank of Thailand</a> and <a href="https://www.scbeic.com/en/detail/product/HouseholdDebt-230726" target="_blank" rel="noopener">SCB EIC</a> — Thai household debt.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>My Thai View</b> is a free reference guide in English and Russian. Compiled by Lina Lee.<br>
+      The material is based on open official sources; translations are by the compiler. It is for reference only, is not tax or legal advice and does not constitute the provision of services. Primary source: Thailand's Revenue Department, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+    <div class="src"><b>Official resources to check:</b> <a href="https://www.rd.go.th/english/">Revenue Department</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (official publication of laws)</a>, <a href="https://www.krisdika.go.th/">Council of State (texts of laws)</a>, <a href="https://www.dol.go.th/">Department of Lands</a>, <a href="https://www.bot.or.th/">Bank of Thailand</a>, <a href="https://www.dpa.or.th/">Deposit Protection Agency</a>, <a href="https://www.sec.or.th/EN/">Securities and Exchange Commission (SEC)</a>, <a href="https://www.amlo.go.th/">Anti-Money Laundering Office (AMLO)</a>, <a href="https://www.tfac.or.th/">Federation of Accounting Professions (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — Thailand profile</a>, <a href="https://www.sso.go.th/">Social Security Office</a>, <a href="https://www.labour.go.th/">Department of Labour Protection and Welfare</a>, <a href="https://www.excise.go.th/">Excise Department</a>, <a href="https://www.customs.go.th/">Customs Department</a>, <a href="https://www.boi.go.th/">Board of Investment (BOI)</a>, <a href="https://www.dmf.go.th/">Department of Mineral Fuels</a>, <a href="https://www.reic.or.th/">REIC — Real Estate Information Center of the Government Housing Bank</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>

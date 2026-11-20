@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The circular flow of money in Thailand: cash and non-cash payments — My Thai View</title>
+<meta name="description" content="Goods, services and labour move one way, money the other. Cash passes from hand to hand, while non-cash money always goes through banks.">
+<meta property="og:site_name" content="My Thai View">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang{margin-left:auto;display:flex;gap:2px;background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang a{padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{background:#2f56b0;color:#fff}
+@media (max-width:720px){.lang{order:2}nav.main{order:3}}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
+.pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
+.pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.pc-t{font-weight:700;margin-bottom:6px}
+.pc-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 8px}
+.pc-s{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.88rem}
+.pc-s.th{background:var(--blue-soft,#e8eefb);border-color:var(--head);color:var(--head)}
+.pc-a{color:var(--muted);font-size:.9rem}
+.pc-f{font-size:.82rem;color:var(--muted)}
+.pc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.pc-b{font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 10px}
+.pc-b.ok{background:var(--ok-soft);color:var(--ok)}.pc-b.no{background:var(--warn-soft);color:var(--warn)}.pc-b.mid{background:var(--accent-soft);color:#8a5a00}
+.pc-cost{font-size:.85rem;letter-spacing:2px}
+.pc-note{font-size:.9rem;margin-top:6px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/moneyflow/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/moneyflow/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/moneyflow/">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">T</span>My Thai View</a>
+    <nav class="main" aria-label="Sections">
+      <a href="../">Home</a>
+      <a href="../taxes/" data-group="taxes">Taxes</a>
+      <a href="../property/" data-group="property">Property</a>
+      <a aria-current="page" href="../banks/" data-group="banks">Money</a>
+      <a href="../tourism/">Tourism</a>
+    </nav>
+    <nav class="lang" aria-label="Language"><a href="../../moneyflow/" hreflang="ru" lang="ru">RU</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a></nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="Taxes">
+      <a href="../taxes/">Overview</a>
+      <a href="../residency/">Residency</a>
+      <a href="../pit/">Income<br>tax</a>
+      <a href="../pitcalc/">Tax<br>calculator</a>
+      <a href="../visas/">Visas<br>and benefits</a>
+      <a href="../russia/">Russia —<br>Thailand</a>
+      <a href="../business/">Business</a>
+      <a href="../tfrs/">Reporting<br>standards</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../glossary/">Glossary</a>
+      <a href="../docs/">Documents</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="Property">
+      <a href="../property/">Overview</a>
+      <a href="../invest/">Investing<br>in Phuket</a>
+      <a href="../decide/">How to make<br>a decision</a>
+      <a href="../check/">Developer<br>check</a>
+      <a href="../rights/">Ownership rights<br>and forms</a>
+      <a href="../buying/">Buying<br>and fees</a>
+      <a href="../renting/">Renting<br>out</a>
+      <a href="../exit/">Selling<br>and exit</a>
+      <a href="../tokens/">Real estate<br>tokens</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks">
+    <nav class="sub" aria-label="Money">
+      <a href="../banks/">Overview</a>
+      <a aria-current="page" href="../moneyflow/">Circular<br>flow of money</a>
+      <a href="../bot/">Bank of<br>Thailand</a>
+      <a href="../banksystem/">Banking<br>system</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../payments/">Payment<br>system</a>
+      <a href="../propertypay/">Property<br>payments</a>
+      <a href="../emoney/">Electronic<br>money</a>
+      <a href="../crypto/">Crypto<br>exchanges</a>
+      <a href="../amlo/">AMLO</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="Analytics">
+      <a href="../analytics/">Overview</a>
+      <a href="../consumption/">Consumption</a>
+      <a href="../focus/">Reclaim<br>attention</a>
+      <a href="../future/">Future<br>economy</a>
+      <a href="../asi/">ASI<br>filter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-moneyflow" data-title="The circular flow of money in Thailand: cash and non-cash payments">
+  <div class="prose">
+  <h1>Circular flow of money</h1>
+  <p class="lead">Goods, services and labour move one way, money the other. Cash passes from hand to hand, while non-cash money always goes through banks.</p>
+  </div>
+<figure style="margin:1rem 0 1.5rem;max-width:960px">
+<svg viewBox="0 0 960 760" role="img" aria-labelledby="mf-t mf-d" style="width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;font-family:inherit">
+<title id="mf-t">Circular flow of money, goods and services in Thailand</title>
+<desc id="mf-d">Households and businesses exchange goods, services and labour. Money flows back in cash and non-cash through commercial banks. Banks settle with each other through the Bank of Thailand, which issues cash. The government receives taxes and pays for services and benefits. The rest of the world brings foreign currency into the country for exports, tourism and investment and receives payment for imports and transfers abroad.</desc>
+<defs>
+<marker id="mf-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker>
+<marker id="mf-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f56b0"/></marker>
+<marker id="mf-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker>
+</defs>
+<style>
+.mf-box{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.mf-h{font-size:17px;font-weight:700;fill:var(--ink)}
+.mf-s{font-size:12.5px;fill:var(--muted)}
+.mf-l{font-size:13px;font-weight:600}
+.mf-gl{fill:#2e8b57}.mf-bl{fill:#2f56b0}.mf-cl{fill:#d9822b}
+.mf-ga{stroke:#2e8b57;stroke-width:3;fill:none;marker-end:url(#mf-g)}
+.mf-ba{stroke:#2f56b0;stroke-width:3;fill:none;marker-end:url(#mf-b)}
+.mf-ca{stroke:#d9822b;stroke-width:3;fill:none;stroke-dasharray:8 6;marker-end:url(#mf-c)}
+@media (prefers-color-scheme:dark){.mf-bl{fill:#8fb0ff}.mf-ba{stroke:#8fb0ff}}
+</style>
+<!-- узлы -->
+<rect class="mf-box" x="30" y="40" width="240" height="140" rx="12"/>
+<text class="mf-h" x="150" y="104" text-anchor="middle">Households</text>
+<text class="mf-s" x="150" y="126" text-anchor="middle">people and families</text>
+<rect class="mf-box" x="690" y="40" width="240" height="140" rx="12"/>
+<text class="mf-h" x="810" y="104" text-anchor="middle">Businesses</text>
+<text class="mf-s" x="810" y="126" text-anchor="middle">companies and sellers</text>
+<rect class="mf-box" x="350" y="290" width="260" height="100" rx="12"/>
+<text class="mf-h" x="480" y="326" text-anchor="middle">Commercial banks</text>
+<text class="mf-s" x="480" y="348" text-anchor="middle">accounts, deposits, loans,</text>
+<text class="mf-s" x="480" y="366" text-anchor="middle">PromptPay, cards, ATMs</text>
+<rect class="mf-box" x="60" y="500" width="300" height="80" rx="12"/>
+<text class="mf-h" x="210" y="534" text-anchor="middle">Bank of Thailand</text>
+<text class="mf-s" x="210" y="556" text-anchor="middle">issues cash, runs BAHTNET</text>
+<rect class="mf-box" x="600" y="500" width="300" height="80" rx="12"/>
+<text class="mf-h" x="750" y="534" text-anchor="middle">Government</text>
+<text class="mf-s" x="750" y="556" text-anchor="middle">taxes, public services, benefits</text>
+
+<!-- между домохозяйствами и бизнесом -->
+<path class="mf-ga" d="M688,78 L274,78"/>
+<text class="mf-l mf-gl" x="480" y="69" text-anchor="middle">goods and services</text>
+<path class="mf-ga" d="M272,116 L686,116"/>
+<text class="mf-l mf-gl" x="480" y="107" text-anchor="middle">labour</text>
+<path class="mf-ca" d="M272,154 L686,154"/>
+<text class="mf-l mf-cl" x="480" y="145" text-anchor="middle">cash payment</text>
+
+<!-- домохозяйства и банки -->
+<path class="mf-ba" d="M215,182 L376,288"/>
+<text class="mf-l mf-bl" x="306" y="222">card payment,</text>
+<text class="mf-l mf-bl" x="306" y="238">PromptPay</text>
+<path class="mf-ba" d="M352,312 L170,182"/>
+<text class="mf-l mf-bl" x="232" y="262" text-anchor="end">wages</text>
+<path class="mf-ca" d="M352,372 L92,182"/>
+<text class="mf-l mf-cl" x="168" y="300" text-anchor="end">cash</text>
+<text class="mf-l mf-cl" x="168" y="316" text-anchor="end">from ATMs</text>
+
+<!-- бизнес и банки -->
+<path class="mf-ba" d="M584,288 L745,182"/>
+<text class="mf-l mf-bl" x="654" y="222" text-anchor="end">credits</text>
+<text class="mf-l mf-bl" x="654" y="238" text-anchor="end">payments</text>
+<path class="mf-ba" d="M790,182 L608,312"/>
+<text class="mf-l mf-bl" x="728" y="262">wages</text>
+
+<!-- банки и Банк Таиланда -->
+<path class="mf-ba" d="M400,392 L300,498"/>
+<text class="mf-l mf-bl" x="360" y="452">settlement</text>
+<text class="mf-l mf-bl" x="360" y="468">via BAHTNET</text>
+<path class="mf-ca" d="M240,498 L364,392"/>
+<text class="mf-l mf-cl" x="282" y="432" text-anchor="end">banknotes</text>
+
+<!-- банки и государство -->
+<path class="mf-ba" d="M560,392 L660,498"/>
+<text class="mf-l mf-bl" x="600" y="460" text-anchor="end">taxes</text>
+<path class="mf-ba" d="M720,498 L596,392"/>
+<text class="mf-l mf-bl" x="682" y="432">benefits,</text>
+<text class="mf-l mf-bl" x="682" y="448">procurement</text>
+
+<!-- внешний мир -->
+<rect class="mf-box" x="330" y="640" width="300" height="72" rx="12"/>
+<text class="mf-h" x="480" y="670" text-anchor="middle">Rest of the world</text>
+<text class="mf-s" x="480" y="692" text-anchor="middle">exports, imports, tourists, investors</text>
+<path class="mf-ba" d="M484,638 L484,394"/>
+<text class="mf-l mf-bl" x="474" y="604" text-anchor="end">exports, tourism,</text>
+<text class="mf-l mf-bl" x="474" y="620" text-anchor="end">investment, remittances</text>
+<path class="mf-ba" d="M514,394 L514,636"/>
+<text class="mf-l mf-bl" x="524" y="604">import payments,</text>
+<text class="mf-l mf-bl" x="524" y="620">transfers abroad</text>
+
+<!-- легенда -->
+<g transform="translate(60,740)">
+<line x1="0" y1="0" x2="34" y2="0" stroke="#2e8b57" stroke-width="3"/><text class="mf-s" x="42" y="4">goods, services, labour</text>
+<line x1="260" y1="0" x2="294" y2="0" stroke="#2f56b0" stroke-width="3"/><text class="mf-s" x="302" y="4">non-cash money</text>
+<line x1="520" y1="0" x2="554" y2="0" stroke="#d9822b" stroke-width="3" stroke-dasharray="8 6"/><text class="mf-s" x="562" y="4">cash</text>
+</g>
+</svg>
+</figure>
+  <div class="prose">
+  <h2>How to read the diagram</h2>
+  <ul>
+    <li><b>Green arrows are goods, services and labour.</b> Businesses sell goods and services to households, and households work for businesses.</li>
+    <li><b>Blue arrows are non-cash money.</b> A payment by card, PromptPay QR code, transfer or e-wallet is debited from the buyer's account and credited to the seller's. Between banks such payments go through the ITMX system, large settlements through BAHTNET at the Bank of Thailand. Wages, taxes and benefits usually also move as non-cash payments.</li>
+    <li><b>Orange dotted arrows are cash.</b> Banknotes are issued only by the Bank of Thailand, which supplies them to commercial banks, and they in turn to people through tellers and ATMs. Cash is paid from hand to hand, without a bank.</li>
+    <li><b>Rest of the world.</b> For Thailand it is a major source of money: exports, tourism, foreign investment and remittances from abroad bring foreign currency into the country, which banks exchange into baht. In the other direction go import payments and transfers abroad. International transfers pass through SWIFT and correspondent banks (in detail on the <a href="../bangkokbank/#bbl-intermediary">"Bangkok Bank"</a> page).</li>
+  </ul>
+
+  <h2>How cash and non-cash money differ</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Cash</th><th>Non-cash</th></tr></thead>
+    <tbody>
+      <tr><td><b>Who issues it</b></td><td>Bank of Thailand</td><td>Commercial banks (money in accounts) and e-money providers (wallets)</td></tr>
+      <tr><td><b>What the payment goes through</b></td><td>Hand to hand</td><td>Banks and payment systems: ITMX, PromptPay, card networks, BAHTNET</td></tr>
+      <tr><td><b>Payment trail</b></td><td>None, unless a receipt is issued</td><td>Recorded at the payer's and recipient's banks</td></tr>
+      <tr><td><b>Protection if a bank fails</b></td><td>Not needed: the money is in your hands</td><td>Baht deposits are insured up to 1 million baht per bank</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <div class="rule-box" id="mf-principle"><p style="margin-top:0"><b>THE MAIN ECONOMIC PRINCIPLE:</b> money is a means of exchange that keeps goods, services and labour moving between participants in the economy.</p>
+    <ul>
+      <li>An excess of money relative to goods and services can lead to rising prices and inflation.</li>
+      <li>A shortage of money and effective demand can lead to falling sales, output and employment.</li>
+      <li>An uneven distribution of money can disrupt money flows even when the total amount of money in the economy is sufficient.</li>
+      <li>Fast-moving money is not in itself a sign of health. Turnover driven by debt and speculation can be very active and end in a crisis — that is how the 1997 crisis began in Thailand.</li>
+    </ul>
+    <p style="margin-bottom:0">A healthy economy is not simply a large amount of money but a sustained flow of money, goods, services and income between all participants, backed by growth in real production and not only by debt.</p>
+  </div>
+
+  <h2 id="mf-savings">Savings return to circulation</h2>
+  <p>Money does not disappear when a person puts it on deposit. It moves from active circulation into savings. Banks lend to businesses and households, and the money returns to economic circulation.</p>
+  <p>An important nuance: when a bank makes a loan, it does not hand out other people's deposits but credits new money to the borrower's account. This is how most non-cash money in the economy is created. The Bank of England explains this, for example, in its article <a href="https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy" target="_blank" rel="noopener">"Money creation in the modern economy"</a> (2014). How much a bank can lend is limited above all by the capital and liquidity requirements set by the <a href="../bot/">Bank of Thailand</a>, its policy rate and the demand for loans.</p>
+  </div>
+  <div class="pc-row" style="grid-template-columns:1fr">
+    <div>
+    <div class="pc-t">How savings finance the economy</div>
+    <div class="pc-chain"><span class="pc-s">Household savings</span> <span class="pc-a">→</span> <span class="pc-s th">Bank deposits</span> <span class="pc-a">→</span> <span class="pc-s th">Business loans</span> <span class="pc-a">→</span> <span class="pc-s">Investment and wages</span> <span class="pc-a">→</span> <span class="pc-s">Household income</span> <span class="pc-a">↺</span></div>
+    <div class="pc-note">This link not only closes the circular flow of money but also shows how the economy is financed. The diagram is simplified: in reality a loan itself creates a new deposit, and deposits matter to a bank above all as a stable source of liquidity.</div>
+    </div>
+  </div>
+  <div class="prose">
+  <p>More about each participant: <a href="../bot/">Bank of Thailand</a>, <a href="../banksystem/">banking system</a>, <a href="../payments/">payment system</a>, <a href="../emoney/">electronic money</a>, <a href="../bangkokbank/#bbl-deposits">deposit insurance</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>My Thai View</b> is a free reference guide in English and Russian. Compiled by Lina Lee.<br>
+      The material is based on open official sources; translations are by the compiler. It is for reference only, is not tax or legal advice and does not constitute the provision of services. Primary source: Thailand's Revenue Department, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+    <div class="src"><b>Official resources to check:</b> <a href="https://www.rd.go.th/english/">Revenue Department</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (official publication of laws)</a>, <a href="https://www.krisdika.go.th/">Council of State (texts of laws)</a>, <a href="https://www.dol.go.th/">Department of Lands</a>, <a href="https://www.bot.or.th/">Bank of Thailand</a>, <a href="https://www.dpa.or.th/">Deposit Protection Agency</a>, <a href="https://www.sec.or.th/EN/">Securities and Exchange Commission (SEC)</a>, <a href="https://www.amlo.go.th/">Anti-Money Laundering Office (AMLO)</a>, <a href="https://www.tfac.or.th/">Federation of Accounting Professions (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — Thailand profile</a>, <a href="https://www.sso.go.th/">Social Security Office</a>, <a href="https://www.labour.go.th/">Department of Labour Protection and Welfare</a>, <a href="https://www.excise.go.th/">Excise Department</a>, <a href="https://www.customs.go.th/">Customs Department</a>, <a href="https://www.boi.go.th/">Board of Investment (BOI)</a>, <a href="https://www.dmf.go.th/">Department of Mineral Fuels</a>, <a href="https://www.reic.or.th/">REIC — Real Estate Information Center of the Government Housing Bank</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
