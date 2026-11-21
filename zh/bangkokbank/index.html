@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>盘谷银行：在泰国银行体系中的作用与国际汇款 — 我眼中的泰国</title>
+<meta name="description" content="盘谷银行（ธนาคารกรุงเทพ）是泰国资产规模最大的商业银行，也是国际化程度最高的泰国银行。其海外网络和1,000多家代理行使其成为境外汇款进入泰国的主要渠道之一。">
+<meta property="og:site_name" content="我眼中的泰国">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang{margin-left:auto;display:flex;gap:2px;background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang a{padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{background:#2f56b0;color:#fff}
+@media (max-width:720px){.lang{order:2}nav.main{order:3}}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
+.pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
+.pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.pc-t{font-weight:700;margin-bottom:6px}
+.pc-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 8px}
+.pc-s{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.88rem}
+.pc-s.th{background:var(--blue-soft,#e8eefb);border-color:var(--head);color:var(--head)}
+.pc-a{color:var(--muted);font-size:.9rem}
+.pc-f{font-size:.82rem;color:var(--muted)}
+.pc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.pc-b{font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 10px}
+.pc-b.ok{background:var(--ok-soft);color:var(--ok)}.pc-b.no{background:var(--warn-soft);color:var(--warn)}.pc-b.mid{background:var(--accent-soft);color:#8a5a00}
+.pc-cost{font-size:.85rem;letter-spacing:2px}
+.pc-note{font-size:.9rem;margin-top:6px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/bangkokbank/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/bangkokbank/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/bangkokbank/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/bangkokbank/">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">泰</span>我眼中的泰国</a>
+    <nav class="main" aria-label="栏目">
+      <a href="../">首页</a>
+      <a href="../taxes/" data-group="taxes">税务</a>
+      <a href="../property/" data-group="property">房产</a>
+      <a aria-current="page" href="../banks/" data-group="banks">货币</a>
+      <a href="../tourism/">旅游</a>
+    </nav>
+    <nav class="lang" aria-label="Language"><a href="../../bangkokbank/" hreflang="ru" lang="ru">RU</a><a href="../../en/bangkokbank/" hreflang="en" lang="en">EN</a><a href="./" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a></nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="税收">
+      <a href="../taxes/">概览</a>
+      <a href="../residency/">税务居民</a>
+      <a href="../pit/">个人<br>所得税</a>
+      <a href="../pitcalc/">税款<br>计算器</a>
+      <a href="../visas/">签证<br>与优惠</a>
+      <a href="../russia/">俄罗斯—<br>泰国</a>
+      <a href="../business/">企业</a>
+      <a href="../tfrs/">财务<br>报告准则</a>
+      <a href="../calendar/">税务日历</a>
+      <a href="../glossary/">术语表</a>
+      <a href="../docs/">文件</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="房产">
+      <a href="../property/">概览</a>
+      <a href="../invest/">普吉岛<br>投资</a>
+      <a href="../decide/">如何<br>做决定</a>
+      <a href="../check/">核查<br>开发商</a>
+      <a href="../rights/">产权<br>与持有形式</a>
+      <a href="../buying/">购房<br>与费用</a>
+      <a href="../renting/">出租</a>
+      <a href="../exit/">出售<br>与退出</a>
+      <a href="../tokens/">房地产<br>代币</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks">
+    <nav class="sub" aria-label="货币">
+      <a href="../banks/">概览</a>
+      <a href="../moneyflow/">货币<br>循环</a>
+      <a href="../bot/">泰国<br>央行</a>
+      <a href="../banksystem/">银行<br>体系</a>
+      <a aria-current="page" href="../bangkokbank/">盘谷<br>银行</a>
+      <a href="../payments/">支付<br>体系</a>
+      <a href="../propertypay/">房产<br>付款</a>
+      <a href="../emoney/">电子<br>货币</a>
+      <a href="../crypto/">加密货币<br>交易所</a>
+      <a href="../amlo/">AMLO</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="分析">
+      <a href="../analytics/">概览</a>
+      <a href="../consumption/">消费</a>
+      <a href="../focus/">找回<br>注意力</a>
+      <a href="../future/">未来<br>经济</a>
+      <a href="../asi/">ASI<br>过滤器</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-bangkokbank" data-title="盘谷银行：在泰国银行体系中的作用与国际汇款">
+  <span class="stamp">更新于2026年11月18日</span>
+  <div class="prose">
+  <h1>盘谷银行在泰国银行体系中的作用</h1>
+  <p class="lead">盘谷银行（ธนาคารกรุงเทพ）是泰国资产规模最大的商业银行，也是国际化程度最高的泰国银行。其海外网络和1,000多家代理行使其成为境外汇款进入泰国的主要渠道之一。</p>
+
+  <h2>在体系中的地位</h2>
+  <ul>
+    <li><b>历史。</b>成立于1944年12月1日。1975年成为泰国证券交易所首批16家上市公司之一。</li>
+    <li><b>规模。</b>2025年底：资产4.61万亿泰铢，贷款2.61万亿泰铢，存款3.20万亿泰铢，资本充足率21.78%。</li>
+    <li><b>系统重要性。</b>自2017年起，泰国央行将盘谷银行与泰京银行、大城银行、开泰银行和汇商银行一起列入国内系统重要性银行（D-SIB）名单；2021年TTB被列入。这类银行须持有额外资本并接受更严格的监管，因为它们出问题会影响整个经济。</li>
+  </ul>
+
+  <h2>国际网络</h2>
+  <p>盘谷银行拥有泰国银行中最大的海外网络：在14个经济体开展业务。该行1954年在香港开设第一家海外分行——这是东南亚银行的第一家海外分行。</p>
+  <ul>
+    <li><b>东盟：</b>柬埔寨、印度尼西亚、老挝、马来西亚、缅甸、菲律宾、新加坡、越南。</li>
+    <li><b>东亚：</b>中国、香港、日本、台湾。</li>
+    <li><b>金融中心：</b>伦敦和纽约。</li>
+    <li><b>海外子银行：</b>马来西亚的Bangkok Bank Berhad、盘谷银行（中国）和PermataBank——印度尼西亚十大银行之一。</li>
+  </ul>
+
+  <h2>哪些国际付款经由盘谷银行</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>渠道</th><th>汇入的款项</th><th>特点</th></tr></thead>
+    <tbody>
+      <tr><td><b>SWIFT</b>（代码BKKBTHBK）</td><td>来自任何国家的汇款：工资、服务费、购房款、给亲属的汇款</td><td>经由1,000多家代理行和该行自己的海外分行。可入泰铢账户或外币账户（FCD）</td></tr>
+      <tr><td><b>纽约分行</b></td><td>来自美国的汇款，包括政府付款：政府机构和私人组织的养老金和福利（直接存款）</td><td>为直接存款单独开立账户。只能本人到网点取款，不能委托、不能用ATM或网上渠道</td></tr>
+      <tr><td><b>伦敦分行</b></td><td>来自英国的汇款</td><td>经由该行自己的分行</td></tr>
+      <tr><td><b>东京和大阪分行</b></td><td>来自日本的汇款</td><td>经由该行自己的分行</td></tr>
+      <tr><td><b>邮政汇款</b></td><td>经以色列邮政来自以色列的汇款</td><td>入盘谷银行账户</td></tr>
+      <tr><td><b>西联汇款</b></td><td>无需银行账户的汇款</td><td>在网点领取</td></tr>
+      <tr><td><b>Payoneer</b></td><td>网店和电商平台的销售收入</td><td>面向电商卖家</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+
+  <h2 id="bbl-intermediary">为什么汇款经由盘谷银行到账</h2>
+  <p>汇往其他泰国银行的款项常常先到盘谷银行，再由它转给收款人的银行。此时盘谷银行起中间行的作用。这有两种情况。</p>
+  </div>
+  <figure style="margin:1rem 0 1.5rem;max-width:960px">
+  <svg viewBox="0 0 960 330" role="img" aria-labelledby="bi-t bi-d" style="width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;font-family:inherit">
+  <title id="bi-t">经由盘谷银行的汇款路径</title>
+  <desc id="bi-d">SWIFT汇款：境外汇款行，然后盘谷银行作为中间行，然后泰国的收款行。通过Wise等服务汇款：服务商，然后泰国合作银行，然后以境内转账到收款行。</desc>
+  <defs><marker id="bi-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f56b0"/></marker>
+  <marker id="bi-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+  <style>.bi-b{fill:var(--paper);stroke:var(--line);stroke-width:1.5}.bi-k{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}.bi-h{font-size:15.5px;font-weight:700;fill:var(--ink)}.bi-s{font-size:12.5px;fill:var(--muted)}.bi-t{font-size:14px;font-weight:700}.bi-l{font-size:12.5px;font-weight:600}</style>
+  <text class="bi-t" x="30" y="34" fill="#2f56b0">1. SWIFT银行汇款</text>
+  <rect class="bi-b" x="30" y="50" width="250" height="80" rx="10"/><text class="bi-h" x="155" y="84" text-anchor="middle">汇款行</text><text class="bi-s" x="155" y="106" text-anchor="middle">境外，外币</text>
+  <rect class="bi-k" x="355" y="50" width="250" height="80" rx="10"/><text class="bi-h" x="480" y="84" text-anchor="middle">盘谷银行</text><text class="bi-s" x="480" y="106" text-anchor="middle">中间行，兑换成泰铢</text>
+  <rect class="bi-b" x="680" y="50" width="250" height="80" rx="10"/><text class="bi-h" x="805" y="84" text-anchor="middle">收款行</text><text class="bi-s" x="805" y="106" text-anchor="middle">在泰国</text>
+  <path d="M282,90 L351,90" stroke="#2f56b0" stroke-width="3" marker-end="url(#bi-a)"/><text class="bi-l" x="316" y="74" text-anchor="middle" fill="#2f56b0">SWIFT</text>
+  <path d="M607,90 L676,90" stroke="#2f56b0" stroke-width="3" marker-end="url(#bi-a)"/><text class="bi-l" x="641" y="74" text-anchor="middle" fill="#2f56b0">境内</text><text class="bi-l" x="641" y="116" text-anchor="middle" fill="#2f56b0">转账</text>
+  <text class="bi-t" x="30" y="194" fill="#d9822b">2. 汇款服务（Wise等）</text>
+  <rect class="bi-b" x="30" y="210" width="250" height="80" rx="10"/><text class="bi-h" x="155" y="244" text-anchor="middle">汇款服务</text><text class="bi-s" x="155" y="266" text-anchor="middle">资金不跨越国境</text>
+  <rect class="bi-k" x="355" y="210" width="250" height="80" rx="10"/><text class="bi-h" x="480" y="244" text-anchor="middle">泰国合作银行</text><text class="bi-s" x="480" y="266" text-anchor="middle">例如盘谷银行</text>
+  <rect class="bi-b" x="680" y="210" width="250" height="80" rx="10"/><text class="bi-h" x="805" y="244" text-anchor="middle">收款行</text><text class="bi-s" x="805" y="266" text-anchor="middle">显示为境内转账</text>
+  <path d="M282,250 L351,250" stroke="#d9822b" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#bi-c)"/><text class="bi-l" x="316" y="234" text-anchor="middle" fill="#d9822b">泰铢</text>
+  <path d="M607,250 L676,250" stroke="#d9822b" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#bi-c)"/><text class="bi-l" x="641" y="234" text-anchor="middle" fill="#d9822b">境内</text><text class="bi-l" x="641" y="276" text-anchor="middle" fill="#d9822b">转账</text>
+  </svg>
+  </figure>
+  <div class="prose">
+  <ul>
+    <li><b>SWIFT银行汇款。</b>境外汇款行与泰国收款行之间并不总是直接相连。这时付款会经过一家同时持有双方账户的中间行：它接收SWIFT指令、进行核查、扣除手续费并把钱转出。盘谷银行凭借1,000多家代理行网络以及在纽约、伦敦、东京等城市的分行，常常成为这样的中间行。资金并不实际移动：银行只是在彼此开立的账户上进行借记和贷记。</li>
+    <li><b>汇款服务。</b>Wise等服务通过当地合作银行在泰国境内付款，因此在收款行看来，这笔汇款可能不像国际汇款。盘谷银行就是这样的合作伙伴之一；服务商的合作银行可能会变。</li>
+  </ul>
+  <h3>这在实践中意味着什么</h3>
+  <ul>
+    <li><b>在对账单上，这笔汇款可能显示为境内转账</b>——来自盘谷银行，而不是来自境外。</li>
+    <li><b>向中间行索取FET表或入账通知（Credit Advice）。</b>如果Wise汇款经由盘谷银行，而您的账户在另一家银行，请在工作时间通过客服中心联系盘谷银行总行（外府可联系当地分行），并携带护照和服务商的汇款确认。</li>
+    <li><b>每家中间行都可能扣除手续费</b>，因此到账金额会少于汇出金额。</li>
+  </ul>
+
+  <h2 id="bbl-choose">按用途如何选择</h2>
+  <p>汇款路径由汇款行选择，因此收款人无法完全避开中间行。但可以根据用途选择汇款方式。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>用途</th><th>如何选择</th></tr></thead>
+    <tbody>
+      <tr><td><b>购买公寓，需要FET表</b></td><td>SWIFT外币直接汇入收款行，最好是办理交易登记的同一家银行</td></tr>
+      <tr><td><b>为签证证明收入</b></td><td>SWIFT汇入您自己的银行，或用Wise汇入盘谷银行账户</td></tr>
+      <tr><td><b>日常汇款，看重价格</b></td><td>Wise等服务：通常更便宜更快，但汇款可能以境内转账形式到账</td></tr>
+      <tr><td><b>来自新加坡、马来西亚等已连通二维码系统国家的小额汇款</b></td><td>跨境PromptPay：资金直接在银行之间流转，但有限额。例如大城银行，每位客户每天每笔最高25,000泰铢</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+
+  <h2 id="bbl-deposits">存款保险</h2>
+  <p>盘谷银行的存款和其他银行一样，受依据2008年法律设立的存款保护机构（DPA，dpa.or.th）保障。自2021年8月11日起，泰铢存款保障额度为<b>每位存款人在每家金融机构100万泰铢</b>。保障对象包括个人和法人。外币存款不受保障。</p>
+  <p class="rule-box"><b>规则：</b>100万泰铢的限额按每位存款人在每家银行计算。超过限额的金额可以分散存在不同银行。</p>
+
+  <h2>外国人的外币账户（FCD）</h2>
+  <p>非居民外国人可以在盘谷银行开立外币存款（FCD）账户——活期、储蓄或定期。可以通过SWIFT汇款、外币现金、支票和汇票存入。存取款只能在开户网点办理（在总行开立的账户可在所有提供外汇服务的网点办理）。利息预扣15%的税。</p>
+
+  <p>如何为购买公寓汇款并取得FET表——见<a href="../propertypay/">“房产付款”</a>页面。</p>
+
+  <p>其他银行以及体系如何运作——见<a href="../banksystem/">“银行体系”</a>和<a href="../payments/">“支付体系”</a>页面。</p>
+  <p style="font-size:.88rem;color:var(--muted)">银行的条款和费用会变化。最新信息见<a href="https://www.bangkokbank.com/en/Personal/Other-Services/Transfers/Transferring-Into-Thailand">盘谷银行</a>网站及其<a href="https://www.bangkokbank.com/en/Investor-Relations">年报</a>。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>我眼中的泰国</b>是一份免费的参考指南，有中文、英文和俄文版本。编者：莉娜·李。<br>
+      材料依据公开的官方来源；译文由编者完成。仅供参考，不构成税务或法律建议，也不构成提供服务。主要来源：泰国税务厅，<a href="https://www.rd.go.th/english/">rd.go.th</a>。</div>
+    <div class="src"><b>可供核查的官方资源：</b><a href="https://www.rd.go.th/english/">税务厅</a>、<a href="https://www.ratchakitcha.soc.go.th/">《政府公报》（法律的官方公布）</a>、<a href="https://www.krisdika.go.th/">国务委员会（法律文本）</a>、<a href="https://www.dol.go.th/">土地厅</a>、<a href="https://www.bot.or.th/">泰国央行</a>、<a href="https://www.dpa.or.th/">存款保护机构</a>、<a href="https://www.sec.or.th/EN/">证券交易委员会（SEC）</a>、<a href="https://www.amlo.go.th/">反洗钱办公室（AMLO）</a>、<a href="https://www.tfac.or.th/">会计专业联合会（TFAC）</a>、<a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS基金会——泰国概况</a>、<a href="https://www.sso.go.th/">社会保障办公室</a>、<a href="https://www.labour.go.th/">劳动保护与福利厅</a>、<a href="https://www.excise.go.th/">消费税厅</a>、<a href="https://www.customs.go.th/">海关厅</a>、<a href="https://www.boi.go.th/">投资促进委员会（BOI）</a>、<a href="https://www.dmf.go.th/">矿物燃料厅</a>、<a href="https://www.reic.or.th/">REIC——政府住房银行房地产信息中心</a>。</div>
+  </div>
+</footer>
+
+</body>
+</html>
