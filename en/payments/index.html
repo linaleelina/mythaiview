@@ -270,7 +270,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <main>
 
 <section class="view active" id="v-payments" data-title="Thailand's national payment system: BAHTNET, ITMX, PromptPay">
-  <span class="stamp">Current as of 18 November 2026</span>
+  <span class="stamp">Current as of 21 November 2026</span>
   <div class="prose">
   <h1>The national payment system</h1>
   <p class="lead">Payment systems are regulated by the Payment Systems Act of 2017 (B.E. 2560), which took effect in April 2018. Oversight is carried out by the Bank of Thailand. </p>
@@ -292,6 +292,17 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <li><b>Bank cards.</b> Thai banks mainly issue Visa and Mastercard debit cards. Since 2012, transactions on debit cards issued in Thailand must be processed domestically. For this purpose the local Thai Payment Network (TPN) was launched in 2016, created by UnionPay International and the four largest banks: Bangkok Bank, Krungthai, Kasikornbank and SCB. The first Thai TPN debit cards were built on it.</li>
     <li><b>Paying bills in shops (Counter Service).</b> Bills for water, electricity, phone, loans and cards can be paid in cash at the till of 7-Eleven and other shops through Counter Service, a CP All group company. The bill is paid by barcode; the fee is usually 15 baht per bill. Since 2018 Bank of Thailand rules have allowed banks to appoint shops as their agents, so at 7-Eleven you can also top up an account and make a transfer.</li>
   </ul>
+
+  <h2 id="auto-collection">Automating incoming payments</h2>
+  <p>If you receive many payments — from tenants, buyers or clients — matching each transfer against the statement by hand takes a long time. The bank can notify your accounting system of every incoming payment itself. For this you need a business QR rather than an ordinary transfer.</p>
+  <ul>
+    <li><b>Ordinary QR (Tag 29)</b> — a transfer to a phone number or account. The money arrives, but the payment is not linked to an invoice and has to be reconciled by hand.</li>
+    <li><b>Business QR (Tag 30, Bill Payment).</b> The company gets a payee identifier (Biller ID) from the bank. Each QR contains an invoice or order number, so the payment is automatically matched to a specific invoice.</li>
+    <li><b>Bank API.</b> After payment the bank sends a payment confirmation to the company's server. If the confirmation does not arrive, the payment can be checked with a separate request.</li>
+  </ul>
+  <p>Several Thai banks offer such APIs, for example SCB and Bangkok Bank. SCB has an open developer portal, <a href="https://developer.scb.co.th/">SCB Developers</a>: the test environment is connected automatically, the bank sends confirmation of every payment to your system, and there is a payment status inquiry, slip verification and acceptance of payments via Alipay and WeChat Pay.</p>
+  <div class="view-box"><p><b>MY VIEW:</b> among Thai banks, SCB's technical capabilities make it the best suited to automating incoming payments: an open developer portal, a test environment and confirmation of every payment straight into your accounting system.</p><p class="sig">— Lina Lee</p></div>
+  <p class="rule-box"><b>RULE:</b> for automatic reconciliation, accept payments by business QR with an invoice number, not by transfer to a phone number or account.</p>
 
   <h2 id="russian-banks">Cards and apps of Russian banks</h2>
   <p>Russia is not among the countries whose payment systems the Bank of Thailand has linked with. So everything Russian banks offer in Thailand works through their own partners, not through an official link between central banks. The information below comes from bank announcements and the media, not from Bank of Thailand data.</p>

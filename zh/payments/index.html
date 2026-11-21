@@ -270,7 +270,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <main>
 
 <section class="view active" id="v-payments" data-title="泰国国家支付体系：BAHTNET、ITMX、PromptPay">
-  <span class="stamp">更新于2026年11月18日</span>
+  <span class="stamp">更新于2026年11月21日</span>
   <div class="prose">
   <h1>国家支付体系</h1>
   <p class="lead">支付系统由2017年（佛历2560年）《支付系统法》监管，该法于2018年4月生效。监督由泰国央行负责。 </p>
@@ -293,6 +293,17 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <li><b>在商店缴费（Counter Service）。</b>水费、电费、话费、贷款和信用卡账单可以通过正大集团旗下CP All公司的Counter Service，在7-Eleven等商店收银台用现金缴纳。凭条形码缴费，手续费通常为每张账单15泰铢。自2018年起，泰国央行的规定允许银行指定商店作为其代理，因此在7-Eleven还可以给账户充值和转账。</li>
   </ul>
 
+  <h2 id="auto-collection">自动化收款</h2>
+  <p>如果您收款很多——来自租户、买家或客户——逐笔手工核对转账和对账单非常耗时。银行可以自行把每一笔到账通知您的会计系统。为此需要的不是普通转账，而是企业二维码。</p>
+  <ul>
+    <li><b>普通二维码（Tag 29）</b>——转账到手机号或账户。钱会到账，但付款不与发票关联，只能手工对账。</li>
+    <li><b>企业二维码（Tag 30，Bill Payment）。</b>公司从银行获得收款人标识（Biller ID）。每个二维码都包含发票号或订单号，因此到账款项会自动与具体发票匹配。</li>
+    <li><b>银行API。</b>付款后，银行会把付款确认发送到公司的服务器。如果确认没有送达，可以通过单独的查询核实付款。</li>
+  </ul>
+  <p>多家泰国银行提供此类API，例如汇商银行（SCB）和盘谷银行。SCB有开放的开发者门户<a href="https://developer.scb.co.th/">SCB Developers</a>：测试环境自动开通，银行把每笔付款的确认发送到您的系统，还提供付款状态查询、付款凭证核验（slip verification）以及通过支付宝和微信支付收款。</p>
+  <div class="view-box"><p><b>我的观点：</b>在泰国银行中，SCB的技术能力最适合实现自动化收款：开放的开发者门户、测试环境，以及把每笔付款的确认直接发送到您的会计系统。</p><p class="sig">— 莉娜·李</p></div>
+  <p class="rule-box"><b>规则：</b>为了自动对账，请通过带发票号的企业二维码收款，而不是让对方转账到手机号或账户。</p>
+
   <h2 id="russian-banks">俄罗斯银行的卡和应用</h2>
   <p>俄罗斯不在泰国央行已连通支付系统的国家之列。因此，俄罗斯银行在泰国提供的一切服务都通过它们自己的合作伙伴运作，而不是通过两国央行之间的官方连接。以下信息来自银行公告和媒体，而非泰国央行数据。</p>
   <ul>
@@ -309,8 +320,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <footer>
   <div class="foot">
     <div>
-      <b>My Thai View</b> is a free reference guide in Russian, English and Chinese. Compiled by Lina Lee.<br>
-      The material is based on open official sources; translations are by the compiler. It is for reference only, is not tax or legal advice and does not constitute the provision of services. Primary source: Thailand's Revenue Department, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+      <b>我眼中的泰国</b>是一份免费的参考指南，有俄文、英文和中文版本。编者：莉娜·李。<br>
+      材料依据公开的官方来源；译文由编者完成。仅供参考，不构成税务或法律建议，也不构成提供服务。主要来源：泰国税务厅，<a href="https://www.rd.go.th/english/">rd.go.th</a>。</div>
     <div class="src"><b>可供核查的官方资源：</b><a href="https://www.rd.go.th/english/">税务厅</a>、<a href="https://www.ratchakitcha.soc.go.th/">《政府公报》（法律的官方公布）</a>、<a href="https://www.krisdika.go.th/">国务委员会（法律文本）</a>、<a href="https://www.dol.go.th/">土地厅</a>、<a href="https://www.bot.or.th/">泰国央行</a>、<a href="https://www.dpa.or.th/">存款保护机构</a>、<a href="https://www.sec.or.th/EN/">证券交易委员会（SEC）</a>、<a href="https://www.amlo.go.th/">反洗钱办公室（AMLO）</a>、<a href="https://www.tfac.or.th/">会计专业联合会（TFAC）</a>、<a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS基金会——泰国概况</a>、<a href="https://www.sso.go.th/">社会保障办公室</a>、<a href="https://www.labour.go.th/">劳动保护与福利厅</a>、<a href="https://www.excise.go.th/">消费税厅</a>、<a href="https://www.customs.go.th/">海关厅</a>、<a href="https://www.boi.go.th/">投资促进委员会（BOI）</a>、<a href="https://www.dmf.go.th/">矿物燃料厅</a>、<a href="https://www.reic.or.th/">REIC——政府住房银行房地产信息中心</a>。</div>
   </div>
 </footer>
