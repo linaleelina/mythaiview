@@ -67,6 +67,7 @@ form .wide{grid-column:1/-1}
 .note{font-size:13px;color:var(--mute);max-width:80ch}
 details summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
 .scroll{overflow-x:auto}
+.shift{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}.shift li{margin-bottom:6px}
 .cols{columns:2 340px;column-gap:40px}.cols li{break-inside:avoid}
 .empty{padding:40px 16px;text-align:center;color:var(--mute)}
 @media(max-width:600px){.seg button{padding:0 10px;font-size:13px}table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;white-space:normal;color:var(--mute)}.stack td:empty{display:none}.stack td.n{text-align:start}}
@@ -110,6 +111,21 @@ details summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;alig
     <h2>Что это означает</h2>
     <p style="margin-top:0;max-width:80ch"><b class="c">Окно риска</b> — годы, когда технологии уже могут улучшать сами себя (уровень 4), но ещё не стали сверхинтеллектом (уровень 5), а умение ими управлять отстаёт. По модели «Фильтр ASI» в это время разрыв и риск максимальны. Это не дата катастрофы, а период, когда ошибку труднее всего исправить: как ехать ночью на большой скорости.</p>
         <p style="max-width:80ch">Пока разрыв растёт: технологии прибавляют больше, чем управление, а правила обычно меняются рывками, после кризисов. Повлиять на это отдельный человек почти не может. Но он может подготовиться сам.</p>
+    <h3 style="font-size:20px;margin:22px 0 8px">Окно риска может сдвигаться</h3>
+    <p style="max-width:80ch;margin-top:0">Даты окна риска — продолжение нынешнего темпа по прямой. Они пересчитываются при каждом новом событии и могут уйти как раньше, так и позже.</p>
+    <div class="shift">
+      <div class="panel card"><b class="c">Раньше, если</b><ul style="margin:8px 0 0;padding-left:1.2em">
+        <li>ИИ начнёт ускорять собственное развитие: после уровня 4 рост технологий может стать круче прямой;</li>
+        <li>случится неожиданный прорыв — новая архитектура или способ обучения, как Transformer в 2017 году;</li>
+        <li>резко вырастут вложения в вычисления и дата-центры;</li>
+        <li>правила ослабят или отменят, как отмену указа 14110 в США: тогда управление отстаёт ещё сильнее.</li></ul></div>
+      <div class="panel card"><b>Позже, если</b><ul style="margin:8px 0 0;padding-left:1.2em">
+        <li>рост упрётся в электроэнергию, чипы, данные или деньги;</li>
+        <li>способности перестанут расти от увеличения моделей и вычислений;</li>
+        <li>после серьёзного инцидента государства замедлят разработку: правила обычно меняются рывками после кризисов;</li>
+        <li>США и Китай договорятся о взаимной проверке — это самый сильный способ сократить разрыв.</li></ul></div>
+    </div>
+    <p class="note" style="max-width:80ch">Кроме того, уровни событий — экспертная оценка, а прямая построена всего по нескольким годам данных. Поэтому окно риска — ориентир для размышления, а не дата в календаре.</p>
     <div class="panel card" style="margin-top:14px">
       <h3 style="margin-top:0;font-size:20px">Что это означает для каждого из нас</h3>
       <ol class="cols" style="margin:0;padding-left:1.2em">
