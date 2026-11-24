@@ -335,7 +335,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
     var stop=document.getElementById("s-stop").checked;
     if(ws>0&&ws!==100)S=S*100/ws;
-    var tot=document.getElementById("s-total");tot.textContent=f1(S)+" из 10";tot.style.color=(S>=7&&!stop&&!crit.length)?"#2e9e4f":"";
+    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> из 10';
     document.getElementById("s-contrib").innerHTML=ch;
     var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
     var vd;
