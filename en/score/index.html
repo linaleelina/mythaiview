@@ -199,6 +199,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="alternate" hreflang="ru" href="https://mythaiview.ru/score/">
 <link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/score/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/score/">
 <link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/score/">
 </head>
 <body>
@@ -212,7 +213,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../banks/" data-group="banks">Money</a>
       <a href="../tourism/">Tourism</a>
     </nav>
-    <nav class="lang" aria-label="Language"><a href="../../score/" hreflang="ru" lang="ru">RU</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a><a href="../../zh/property/" hreflang="zh-Hans" lang="zh-Hans">中文</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../../score/" hreflang="ru" lang="ru">RU</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a><a href="../../zh/score/" hreflang="zh-Hans" lang="zh-Hans">中文</a></nav>
   </div>
   <div class="subbar" id="subbar" hidden>
     <nav class="sub" aria-label="Taxes">
@@ -311,13 +312,17 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <div class="res" aria-live="polite">
       <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
       <div style="color:var(--muted);font-size:.9rem">(overall property score)</div>
-      <div style="margin:.2rem 0 .8rem" id="s-verdict">—</div>
+      <div style="margin:.2rem 0 .2rem" id="s-verdict">—</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem">A high score is a necessary but not sufficient condition for buying.</div>
       <div id="s-contrib"></div>
       <div class="row"><span>Sum of weights</span><span id="s-wsum">100%</span></div>
       <div id="s-warn" style="margin-top:.8rem;font-size:.9rem"></div>
     </div>
   </div>
   <p class="prose" style="font-size:.88rem;color:var(--muted)">The model helps compare properties against the same rules, but it does not replace legal due diligence, an inspection of the property or a yield calculation. The scores are your own judgement, so compare properties scored by the same person against the same criteria.</p>
+  <div class="prose">
+  <p class="rule-box"><b>RULE:</b> the model weeds out weak properties and helps compare strong ones, but the decision to buy is made only after all the conditions have been checked.</p>
+  </div>
 <script>
 (function(){
   var C=[["loc","Location"],["price","Price per m²"],["dev","Developer and construction quality"],["legal","Legal clarity"],["mgmt","Management and maintenance"],["liq","Liquidity"],["erg","Ergonomics and functionality"]];

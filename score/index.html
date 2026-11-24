@@ -199,6 +199,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="alternate" hreflang="ru" href="https://mythaiview.ru/score/">
 <link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/score/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/score/">
 <link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/score/">
 </head>
 <body>
@@ -212,7 +213,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../banks/" data-group="banks">Деньги</a>
       <a href="../tourism/">Туризм</a>
     </nav>
-    <nav class="lang" aria-label="Language"><a href="./" hreflang="ru" lang="ru" aria-current="true">RU</a><a href="../en/score/" hreflang="en" lang="en">EN</a><a href="../zh/property/" hreflang="zh-Hans" lang="zh-Hans">中文</a></nav>
+    <nav class="lang" aria-label="Language"><a href="./" hreflang="ru" lang="ru" aria-current="true">RU</a><a href="../en/score/" hreflang="en" lang="en">EN</a><a href="../zh/score/" hreflang="zh-Hans" lang="zh-Hans">中文</a></nav>
   </div>
   <div class="subbar" id="subbar" hidden>
     <nav class="sub" aria-label="Налоги">
@@ -312,13 +313,17 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <div class="res" aria-live="polite">
       <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
       <div style="color:var(--muted);font-size:.9rem">(итоговая оценка объекта)</div>
-      <div style="margin:.2rem 0 .8rem" id="s-verdict">—</div>
+      <div style="margin:.2rem 0 .2rem" id="s-verdict">—</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem">Высокая оценка — необходимое, но не достаточное условие для покупки.</div>
       <div id="s-contrib"></div>
       <div class="row"><span>Сумма весов</span><span id="s-wsum">100%</span></div>
       <div id="s-warn" style="margin-top:.8rem;font-size:.9rem"></div>
     </div>
   </div>
   <p class="prose" style="font-size:.88rem;color:var(--muted)">Модель помогает сравнивать объекты между собой по одним правилам, но не заменяет юридическую проверку, осмотр объекта и расчёт доходности. Баллы — ваша оценка, поэтому сравнивайте объекты, оценённые одним человеком по одним критериям.</p>
+  <div class="prose">
+  <p class="rule-box"><b>ПРАВИЛО:</b> модель отсеивает слабые объекты и помогает сравнить сильные, но решение о покупке принимается только после проверки всех условий.</p>
+  </div>
 <script>
 (function(){
   var C=[["loc","Локация"],["price","Цена за м²"],["dev","Застройщик и качество строительства"],["legal","Юридическая чистота"],["mgmt","Управление и содержание"],["liq","Ликвидность"],["erg","Эргономика и функциональность"]];
