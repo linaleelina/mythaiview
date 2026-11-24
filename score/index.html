@@ -298,27 +298,18 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <div class="prose">
   <h2 id="score-data">Локация: балл считается сам</h2>
-  <p>Введите расстояние по дороге до пляжа и/или до международной школы — балл за локацию проставится в калькуляторе автоматически. Можно заполнить одно поле. Балл всегда можно поправить вручную.</p>
+  <p>Введите расстояние до пляжа или до международной школы — балл за локацию проставится в калькуляторе автоматически. Балл всегда можно поправить вручную.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}</style>
   <div class="calc" id="sd">
     <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1"><legend>Локация</legend>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 18px">
-        <div class="f"><label for="d-beach">До пляжа, м</label><input id="d-beach" type="number" min="0" step="50" inputmode="numeric"></div>
-        <div class="f"><label for="d-school">До международной школы, м</label><input id="d-school" type="number" min="0" step="100" inputmode="numeric"></div>
-      </div>
+      <div class="f" style="max-width:420px"><label for="d-dist">До пляжа / до международной школы, м (по дороге, а не по прямой)</label><input id="d-dist" type="number" min="0" step="50" inputmode="numeric"></div>
       <div class="sd-out" id="o-loc"></div>
     </fieldset>
   </div>
-  <details class="prose" style="margin:-.5rem 0 1.5rem">
-  <summary style="cursor:pointer;color:var(--head);font-weight:600">Как метры переводятся в баллы</summary>
-  <ul style="font-size:.92rem">
-    <li><b>До пляжа:</b> до 300 м, пешая доступность — 10; 1 км — 7; 3 км — 4; 8 км и дальше — 1.</li>
-    <li><b>До международной школы:</b> до 400 м, пешая доступность — 10; 1 км — 8; 5 км — 5; 15 км и дальше — 1.</li>
-    <li>Если заполнены оба поля, пляж весит 70%, школа 30%. Для стратегии «Собственное проживание» — по 50%.</li>
-    <li>Между точками балл меняется плавно и округляется до 0,5.</li>
-  </ul>
-  </details>
+  <div class="prose">
+  <p style="font-size:.92rem;color:var(--muted)">Шкала одинаковая для пляжа и школы: до 300 м — 10 баллов; до 700 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+  </div>
   <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
@@ -390,15 +381,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function avg(L){var sw=0,s=0;L.forEach(function(p){if(p[0]!==null){s+=p[0]*p[1];sw+=p[1];}});return sw?s/sw:null;}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
-    var live=strat.value==="live",A={};
-    var b=num("d-beach"),sc=num("d-school");
-    A.loc=avg([[b===null?null:pw(b,[[300,10],[1000,7],[3000,4],[8000,1]]),live?50:70],[sc===null?null:pw(sc,[[400,10],[1000,8],[5000,5],[15000,1]]),live?50:30]]);
-    ["loc"].forEach(function(k){
-      var out=document.getElementById("o-"+k),inp=document.getElementById("s-r-"+k);
-      if(A[k]===null){out.textContent="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}return;}
-      var sc=r05(A[k]);out.innerHTML="→ балл за локацию <b>"+String(sc).replace(".",",")+"</b>";
-      inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
-    });
+    var d=num("d-dist"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
+    if(d===null){out.textContent="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    var sc=d<=300?10:d<=700?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;
+    out.innerHTML="→ балл за локацию <b>"+sc+"</b>";
+    inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
     calc();
   }
   document.getElementById("sd").addEventListener("input",autoScores);
