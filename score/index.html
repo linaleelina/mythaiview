@@ -277,8 +277,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     <thead><tr><th>Критерий</th><th>Вес</th><th>Почему такой вес</th></tr></thead>
     <tbody>
       <tr><td>Локация</td><td>20%</td><td>Формирует спрос, арендный потенциал и долгосрочную привлекательность</td></tr>
-      <tr><td>Цена за м²</td><td>15%</td><td>Определяет входную стоимость и запас конкурентоспособности</td></tr>
-      <tr><td>Застройщик и качество строительства</td><td>15%</td><td>Влияют на исполнение проекта, качество актива и дополнительные затраты</td></tr>
+      <tr><td>Цена за м²</td><td>20%</td><td>Определяет входную стоимость и запас конкурентоспособности</td></tr>
+      <tr><td>Застройщик и качество строительства</td><td>10%</td><td>Влияют на исполнение проекта, качество актива и дополнительные затраты</td></tr>
       <tr><td>Юридическая чистота</td><td>20%</td><td>Защищает право собственности и вложенный капитал</td></tr>
       <tr><td>Управление и содержание</td><td>10%</td><td>Определяют операционные расходы, качество эксплуатации и фактическую доходность</td></tr>
       <tr><td>Ликвидность</td><td>10%</td><td>Определяет возможность и стоимость выхода из инвестиции</td></tr>
@@ -320,7 +320,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <script>
 (function(){
   var C=[["loc","Локация"],["price","Цена за м²"],["dev","Застройщик и качество строительства"],["legal","Юридическая чистота"],["mgmt","Управление и содержание"],["liq","Ликвидность"],["erg","Эргономика и функциональность"]];
-  var W={base:[20,15,15,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
   C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="1" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"></div>';});
