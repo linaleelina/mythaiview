@@ -308,7 +308,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">Есть неустранённые юридические проблемы (стоп-фактор)</label></div>
     </div>
     <div class="res" aria-live="polite">
-      <div class="big num" id="s-total">0</div>
+      <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
       <div style="color:var(--muted);font-size:.9rem">(итоговая оценка объекта)</div>
       <div style="margin:.2rem 0 .8rem" id="s-verdict">—</div>
       <div id="s-contrib"></div>
@@ -335,7 +335,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
     var stop=document.getElementById("s-stop").checked;
     if(ws>0&&ws!==100)S=S*100/ws;
-    document.getElementById("s-total").textContent=f1(S)+" из 10";
+    var tot=document.getElementById("s-total");tot.textContent=f1(S)+" из 10";tot.style.color=(S>=7&&!stop&&!crit.length)?"#2e9e4f":"";
     document.getElementById("s-contrib").innerHTML=ch;
     var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
     var vd;
