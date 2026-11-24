@@ -290,18 +290,19 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p><b>Почему юридическая чистота — 20%.</b> Это не просто критерий оценки, а обязательное условие допуска объекта к рассмотрению. Прекрасная локация, привлекательная цена и высокая расчётная доходность не компенсируют проблемы с правами на землю, разрешительной документацией или законностью владения. Поэтому юридические риски проверяются не только баллами, но и по принципу стоп-фактора.</p>
   <p><b>Как оценивать.</b> Каждый критерий оценивается по шкале от 1 до 10: 1–2 — критически плохо; 3–4 — ниже рыночного уровня; 5–6 — соответствует рынку; 7–8 — лучше большинства конкурентов; 9–10 — исключительное преимущество. Итоговая оценка — сумма баллов, умноженных на веса: <b>S = Σ (вес × балл) / 100</b>. Например, 8 баллов за локацию с весом 20% дают в итог 1,6 балла.</p>
   <p class="rule-box"><b>ПРАВИЛО 1:</b> высокий общий балл не компенсирует критический недостаток. Объект может получить 8,5 из 10, но иметь неустранённые юридические проблемы — такой объект нельзя рекомендовать к покупке.</p>
-  <p class="rule-box"><b>ПРАВИЛО 2:</b> веса зависят от инвестиционной стратегии. Для арендного бизнеса важнее всего локация, цена и управление; для перепродажи — цена, ликвидность и локация; для долгосрочного сохранения капитала — юридическая чистота, локация и застройщик; для собственного проживания — локация, эргономика и качество строительства.</p>
+  <p class="rule-box"><b>ПРАВИЛО 2:</b> веса зависят от инвестиционной стратегии. Для сдачи в аренду важнее всего локация, цена и управление; для перепродажи — цена, ликвидность и локация; для долгосрочного сохранения капитала — юридическая чистота, локация и застройщик; для собственного проживания — локация, эргономика и качество строительства.</p>
   <p>Выберите стратегию, поставьте баллы своему объекту — модель посчитает итог. Веса для стратегий — ориентир, их можно изменить.</p>
   </div>
   <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat">Стратегия</label><select id="s-strat">
         <option value="base">Базовая модель</option>
-        <option value="rent">Арендный бизнес</option>
+        <option value="rent">Сдача в аренду</option>
         <option value="resale">Перепродажа</option>
         <option value="keep">Долгосрочное сохранение капитала</option>
         <option value="live">Собственное проживание</option>
       </select></div>
+      <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">(пока цель не определена)</div>
       <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Критерий</span><span>Балл 1–10</span><span>Вес, %</span></div>
       <div id="s-rows"></div>
       <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">Есть неустранённые юридические проблемы (стоп-фактор)</label></div>
@@ -326,7 +327,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   var strat=document.getElementById("s-strat");
   function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
   function f1(x){return x.toFixed(1).replace(".",",");}
-  function setW(){W[strat.value].forEach(function(w,i){document.getElementById("s-w-"+C[i][0]).value=w;});}
+  function setW(){document.getElementById("s-basenote").hidden=strat.value!=="base";W[strat.value].forEach(function(w,i){document.getElementById("s-w-"+C[i][0]).value=w;});}
   function calc(){
     var S=0,ws=0,ch="",crit=[];
     C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
