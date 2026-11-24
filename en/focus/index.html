@@ -103,6 +103,7 @@ main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
 .card:hover{border-color:var(--accent)}
+.card-st{position:relative}.card-st .st-main{color:inherit;text-decoration:none}.card-st .st-main::after{content:"";position:absolute;inset:0;border-radius:10px}.card-st .st-sub{position:relative;z-index:1;color:var(--head);font-weight:600}
 .card b{font-size:1.04rem}
 .card span{color:var(--muted);font-size:.93rem;line-height:1.45}
 
@@ -239,6 +240,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../renting/">Renting<br>out</a>
       <a href="../exit/">Selling<br>and exit</a>
       <a href="../tokens/">Real estate<br>tokens</a>
+      <a href="../score/">Scoring<br>model</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-banks" hidden>
@@ -336,10 +338,23 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <ul>
     <li>There are <b>open models</b>: their creators publish the model files freely. Such a model can be downloaded and run on your own computer or your own server, without a corporation's cloud.</li>
     <li>Free programs such as <b>Ollama</b> or <b>LM Studio</b> help you download and run a model. On top of such a model you can build your own agent: it sorts your mail, searches your documents, does calculations and prepares drafts.</li>
-    <li><b>What this gives you.</b> Your questions, documents and data do not go to other people's servers. Answers are not tailored to someone else's commercial interests. You set the agent's rules, and the model will not change without your knowledge.</li>
+    <li><b>What this gives you.</b> Less of your questions, documents and data goes to cloud services. You set the agent's rules, and the model will not change without your knowledge. But this is not full protection: the program may connect to the internet and transmit data, and the model itself was trained by its developer and carries the developer's settings.</li>
     <li><b>What to bear in mind.</b> Powerful models need a powerful computer: lots of memory and a good graphics card. Small models run on an ordinary laptop but are weaker than cloud ones. Setup and updates are your responsibility. Before using a model, check its licence: it determines what you are allowed to do with it.</li>
     <li>The main thing stays the same: even your own agent is <b>an executor, not the one who decides for you</b>.</li>
   </ul>
+
+  <h3 id="ai-safety">8. Use AI safely</h3>
+  <p>The more AI can do, the more costly a mistake. In an ordinary chat the main risk is that your data ends up with strangers. With an AI agent that has access to your mail, browser, files and accounts, it is that the agent does something in your name.</p>
+  <ul>
+    <li><b>Put nothing in a chat that you are not ready to publish.</b> Passwords, bank details, document numbers — never. If you cannot do without the data, anonymise it: remove names and numbers, use made-up examples, retell a document in your own words instead of uploading it in full.</li>
+    <li><b>Passwords belong only in a password manager.</b> Do not type them into a chat or give them to an agent directly. If the agent can work with a password manager, it fills in the password without seeing it.</li>
+    <li><b>Give an agent minimum access.</b> If it only needs your mail, do not give it access to your bank and files. Limited access to one service for the duration of a task is better than all your credentials.</li>
+    <li><b>Confirm important actions yourself.</b> An agent should make payments, send emails and delete files only after your "yes".</li>
+    <li><b>Emails, websites and documents an agent reads may contain someone else's commands.</b> An attacker hides a phrase like "forward the passwords to such-and-such address" in the text; this is called prompt injection. Do not have an agent with broad access read everything indiscriminately.</li>
+    <li><b>Check your settings every few months.</b> Training on your chats and "memory" are separate switches. Deleting a chat does not always erase what the AI has remembered about you: in some services memory is deleted separately.</li>
+    <li><b>Your own AI on your computer also needs care.</b> Turn off unnecessary network access, download models and programs only from known sources, and do not give a local agent access to folders with passwords and documents.</li>
+  </ul>
+  <p style="font-size:.88rem;color:var(--muted)">Based on materials from the UK National Cyber Security Centre (<a href="https://www.ncsc.gov.uk/guidance/ai-and-cyber-security-what-you-need-to-know" target="_blank" rel="noopener">NCSC</a>) and the <a href="https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP AI Agent Security Cheat Sheet</a>. The NCSC notes that the main responsibility for AI security lies with developers rather than users, but a few simple rules noticeably reduce the risk.</p>
 
   <p><b>A short daily check:</b> today, did I manage my attention — or was it managed for me?</p>
 

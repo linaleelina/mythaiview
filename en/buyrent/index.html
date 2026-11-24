@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculator: buy or rent property or a car in Thailand — My Thai View</title>
+<title>Alternatives calculator: buy or rent property or a car in Thailand — My Thai View</title>
 <meta name="description" content="The calculator compares what buying and renting an apartment or a car will cost over your chosen period. Buying includes not only the price but also running costs, loss of value and the income the money could have earned on deposit.">
 <meta property="og:site_name" content="My Thai View">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,6 +103,7 @@ main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
 .card:hover{border-color:var(--accent)}
+.card-st{position:relative}.card-st .st-main{color:inherit;text-decoration:none}.card-st .st-main::after{content:"";position:absolute;inset:0;border-radius:10px}.card-st .st-sub{position:relative;z-index:1;color:var(--head);font-weight:600}
 .card b{font-size:1.04rem}
 .card span{color:var(--muted);font-size:.93rem;line-height:1.45}
 
@@ -239,6 +240,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../renting/">Renting<br>out</a>
       <a href="../exit/">Selling<br>and exit</a>
       <a href="../tokens/">Real estate<br>tokens</a>
+      <a href="../score/">Scoring<br>model</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-banks" hidden>
@@ -268,9 +270,9 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 
 <main>
 
-<section class="view active" id="v-buyrent" data-title="Calculator: buy or rent property or a car in Thailand">
+<section class="view active" id="v-buyrent" data-title="Alternatives calculator: buy or rent property or a car in Thailand">
   <div class="prose">
-  <h1>Buy or rent?<sup><a href="#fn-how-buyrent" style="text-decoration:none;color:inherit">¹</a></sup></h1>
+  <h1>Alternatives calculator: buy or rent<sup><a href="#fn-how-buyrent" style="text-decoration:none;color:inherit">¹</a></sup></h1>
   <p class="lead">The calculator compares what buying and renting an apartment or a car will cost over your chosen period. Buying includes not only the price but also running costs, loss of value and the income the money could have earned on deposit.</p>
   </div>
   <div class="calc" id="brc">
