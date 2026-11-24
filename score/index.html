@@ -316,24 +316,24 @@ footer{border-top:1px solid var(--line);background:var(--card)}
         </div>
       </div>
       <div class="sd-out" id="o-loc"></div>
+      <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
+        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+        <div id="loc-help-sea" hidden>
+          <p style="margin:0 0 8px">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до моря: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
+          <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
+            <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">Высота</th><th style="text-align:left;padding:4px 10px">У моря (до 300 м)</th><th style="text-align:left;padding:4px 10px">В 1 км</th><th style="text-align:left;padding:4px 10px">В 3 км</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:3px 10px 3px 0">0 м</td><td style="padding:3px 10px">−4</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">2 м</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">5 м</td><td style="padding:3px 10px">−1</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">10 м</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">20 м и выше</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Важно:</b> 10 баллов за 300 м до пляжа не означают, что у самого моря селиться всегда хорошо. В низинах — ниже 5 м над уровнем моря — у моря лучше не селиться от слова совсем: это зона риска цунами и подтоплений. Посмотрите <a href="../tourism/#tsunami">карту высот Пхукета</a> на странице «Туризм».</p>
+        </div>
+      </div>
     </fieldset>
-  </div>
-  <div class="prose">
-  <p style="font-size:.92rem;color:var(--muted)">Шкала расстояния одинаковая для моря и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
-  <p style="font-size:.92rem;color:var(--muted)">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до моря: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
-  </div>
-  <div class="tbl"><table>
-    <thead><tr><th>Высота над уровнем моря</th><th>Штраф у моря (до 300 м)</th><th>Штраф в 1 км от моря</th><th>Штраф в 3 км от моря</th></tr></thead>
-    <tbody>
-      <tr><td>0 м</td><td>−4</td><td>−2,5</td><td>−1</td></tr>
-      <tr><td>2 м</td><td>−2,5</td><td>−1,5</td><td>−0,5</td></tr>
-      <tr><td>5 м</td><td>−1</td><td>−0,5</td><td>−0,5</td></tr>
-      <tr><td>10 м</td><td>−0,5</td><td>0</td><td>0</td></tr>
-      <tr><td>20 м и выше</td><td>0</td><td>0</td><td>0</td></tr>
-    </tbody>
-  </table></div>
-  <div class="prose">
-  <p style="font-size:.92rem"><b>Важно:</b> 10 баллов за 300 м до пляжа не означают, что у самого моря селиться всегда хорошо. В низинах — ниже 5 м над уровнем моря — у моря лучше не селиться от слова совсем: это зона риска цунами и подтоплений. Посмотрите <a href="../tourism/#tsunami">карту высот Пхукета</a> на странице «Туризм».</p>
   </div>
   <div class="calc" id="sc">
     <div>
@@ -419,6 +419,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   }
   document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
   document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
+  (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
+    sd.addEventListener("focusin",function(e){hp.hidden=false;hs.hidden=!(e.target.id==="d-sea"||e.target.id==="d-elev"||(hs.contains(e.target)));});
+    var keep=false;sd.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    sd.addEventListener("focusout",function(){setTimeout(function(){if(!keep&&!sd.contains(document.activeElement)){hp.hidden=true;hs.hidden=true;}},0);});
+    document.addEventListener("pointerdown",function(e){if(!sd.contains(e.target)){hp.hidden=true;hs.hidden=true;}});})();
   document.getElementById("sd").addEventListener("input",autoScores);
   document.getElementById("sd").addEventListener("change",autoScores);
   strat.addEventListener("change",autoScores);
