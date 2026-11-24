@@ -321,9 +321,9 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 (function(){
   var C=[["loc","Локация"],["price","Цена за м²"],["dev","Застройщик и качество строительства"],["legal","Юридическая чистота"],["mgmt","Управление и содержание"],["liq","Ликвидность"],["erg","Эргономика и функциональность"]];
   var W={base:[20,15,15,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
-  var RB=["#ffb3b3","#ffd1a3","#fff0a0","#c2f0b5","#b5e3f7","#b9c6ff","#dcc2ff"];
+  var RB=["#ff8a8a","#ffb366","#ffe066","#8fdc7a","#7cc8f0","#8fa8f7","#c39af2"];
   var rows=document.getElementById("s-rows"),h="";
-  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem"><mark style="background:'+col+';color:inherit;padding:0 .25em;border-radius:.35em">'+c[1]+'</mark></label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="1" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"></div>';});
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="1" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"></div>';});
   rows.innerHTML=h;
   var strat=document.getElementById("s-strat");
   function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
