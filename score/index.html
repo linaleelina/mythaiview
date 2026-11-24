@@ -308,7 +308,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     </fieldset>
   </div>
   <div class="prose">
-  <p style="font-size:.92rem;color:var(--muted)">Шкала одинаковая для пляжа и школы: до 300 м — 10 баллов; до 700 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+  <p style="font-size:.92rem;color:var(--muted)">Шкала одинаковая для пляжа и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
   </div>
   <div class="calc" id="sc">
     <div>
@@ -383,7 +383,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function autoScores(){
     var d=num("d-dist"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
     if(d===null){out.textContent="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
-    var sc=d<=300?10:d<=700?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;
+    var sc=d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;
     out.innerHTML="→ балл за локацию <b>"+sc+"</b>";
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
     calc();
