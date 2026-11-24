@@ -298,7 +298,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <div class="prose">
   <h2 id="score-data">Локация: балл считается сам</h2>
-  <p>Слева — море: расстояние до пляжа и высота над уровнем моря. Справа — расстояние до международной школы. Можно заполнить что-то одно или всё. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
+  <p>Выберите, что для вас важнее: море или школа. Слева — расстояние до пляжа и высота над уровнем моря, справа — расстояние до международной школы. Заполняется что-то одно: если ввести метры до моря, поле школы очистится, и наоборот. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -319,7 +319,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     </fieldset>
   </div>
   <div class="prose">
-  <p style="font-size:.92rem;color:var(--muted)">Шкала расстояния одинаковая для моря и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4. Если заполнены и море, и школа, берётся лучший из двух баллов.</p>
+  <p style="font-size:.92rem;color:var(--muted)">Шкала расстояния одинаковая для моря и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
   <p style="font-size:.92rem;color:var(--muted)">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до моря: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
   </div>
   <div class="tbl"><table>
@@ -417,6 +417,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
     calc();
   }
+  document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
+  document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
   document.getElementById("sd").addEventListener("input",autoScores);
   document.getElementById("sd").addEventListener("change",autoScores);
   strat.addEventListener("change",autoScores);
