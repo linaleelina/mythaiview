@@ -295,35 +295,39 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p>选择策略并为您的房产打分，模型会计算总分。各策略的权重仅供参考，您可以修改。</p>
   </div>
   <div class="prose">
-  <h2 id="score-data">地段：自动计算得分</h2>
-  <p>您的策略决定您的地段：海边和/或学校和/或运动。左侧填写到海滩的距离和海拔高度，右侧填写到国际学校或运动设施的距离。只需填写一项：输入到海滩的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
+  <h2 id="score-data">地段：半自动计算得分</h2>
+  <p>您的策略决定您的地段：海边和/或学校和/或运动。只需填写一项：输入到海滩的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
   <p class="rule-box"><b>地段的帕累托法则：</b>80%的得分取决于到您最看重的目标的距离：海滩、学校或运动设施（最高8分，满分10分）。20%是其他所有因素的总和：周边环境的加分和扣分（最高2分）。海边低洼扣分单独计算——这是对风险的修正，而不是对便利性的评价。</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
-    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">地段</legend>
-      <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">请输入数据</legend>
+      <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div class="sd-vs" style="display:grid;grid-template-columns:1fr;gap:0;align-items:start">
         <div>
-          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">海边</span></div>
-          <div class="f"><label for="d-sea">到海滩的距离，米——按道路计算，而非直线距离</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
-          <div class="f"><label for="d-elev">海拔高度，米</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#b9ebe4;border-radius:7px;padding:6px 14px">海边</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px;align-items:end">
+            <div class="f"><label for="d-sea">到海滩的距离，米——按道路计算，而非直线距离</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+            <div class="f"><label for="d-elev">海拔高度，米</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+          </div>
         </div>
-        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
+        <div style="height:10px"></div>
         <div>
-          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">学校 / 运动</span></div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#f8c8d8;border-radius:7px;padding:6px 14px">学校 / 运动</span></div>
           <div class="f"><label for="d-school">到国际学校或运动设施的距离，米——按道路计算</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
-      <div style="margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)">
-        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="background:#fbefb3;border-radius:7px;padding:4px 14px">周边环境</span></div>
-        <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px">
+      </div><div style="margin:0">
+        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="display:block;background:#fbefb3;border-radius:7px;padding:6px 14px">周边环境</span></div>
+        <div style="display:grid;grid-template-columns:1fr;gap:6px">
           <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">每勾选一项 +0.5分</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">小区内有游泳池</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">周边已全部建成</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">步行可达咖啡馆、餐厅和商店</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">15分钟车程内有医院或诊所</label></div>
           <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">扣分项</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">附近正在建设同类项目（−1）</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">噪音：机场、施工、夜生活（−0.5）</label></div>
         </div>
       </div>
-      <div class="sd-out" id="o-loc"></div>
+      </div>
+      <div class="sd-out" id="o-loc" style="margin-top:8px"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">海边、学校和运动设施使用同一距离评分标准：300米以内——8分；600米以内——7分；1公里以内——6分；2公里以内——5分；3公里以内——4分；5公里以内——3分；超过5公里——2分。周边环境勾选项最多再加2分——每项0.5分。扣分项：附近在建同类项目——−1分，噪音——−0.5分。总分最高10分，最低1分。</p>
+        <p style="margin:0 0 8px">海边、学校和运动设施使用同一距离评分标准：300米以内——8分；600米以内——7分；1公里以内——6分；3公里以内——5分；5公里以内——4分；超过5公里——3分。周边环境勾选项最多再加2分——每项0.5分。扣分项：附近在建同类项目——−1分，噪音——−0.5分。总分最高10分，最低1分。</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">海拔高度是一项反向修正：地块越低、离海越近，扣分越多。两者是非线性关系——海拔越接近海平面，扣分增长越快：<b>扣分 = 4 × e<sup>−海拔/4</sup> × k</b>，其中k取决于到海滩的距离：300米以内——1；600米以内——0.8；1公里以内——0.6；2公里以内——0.4；3公里以内——0.25；更远——0.15。结果四舍五入到0.5，最低为1分。</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
@@ -341,7 +345,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       </div>
     </fieldset>
   </div>
-    <div class="calc" id="sc">
+  <style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel input[type=number]{background:#fff}#loc-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#loc-panel .loc-2col{grid-template-columns:1fr!important}#loc-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}</style>
+  <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">策略</mark></label><select id="s-strat">
         <option value="base">基础模型</option>
@@ -351,7 +356,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
         <option value="live">自住</option>
       </select></div>
       <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">（目标尚未确定）</div>
-      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>标准</span><span>得分</span><span>权重，%</span></div>
+      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>标准</span><span>得分</span><span>权重，%</span><span>加权分</span></div>
       <div id="s-rows"></div>
       <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">存在未解决的法律问题（一票否决）</label></div>
     </div>
@@ -375,7 +380,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
-  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="得分：'+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="权重：'+c[1]+'"></div>';});
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="得分：'+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="权重：'+c[1]+'"><input id="s-c-'+c[0]+'" type="text" readonly tabindex="-1" aria-label="加权分：'+c[1]+'" style="background:#eef1f6;font-weight:600;text-align:center;padding-left:4px;padding-right:4px"></div>';});
   rows.innerHTML=h;
   var strat=document.getElementById("s-strat");
   function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
@@ -384,7 +389,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function calc(){
     var S=0,ws=0,ch="",crit=[];
     C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
-      ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
+      document.getElementById("s-c-"+c[0]).value=f1(k); if(r<=2)crit.push(c[1]);});
     var stop=document.getElementById("s-stop").checked;
     if(ws>0&&ws!==100)S=S*100/ws;
     var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> / 10';
@@ -413,7 +418,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
-    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=2000?5:d<=3000?4:d<=5000?3:2;}
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=3000?5:d<=5000?4:3;}
     var nb=document.querySelectorAll(".e-plus:checked").length,bon=nb*0.5,mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0);
     if(sea===null&&sch===null){out.textContent=h!==null?"请输入到海滩的距离——海拔修正以此为依据。":(nb||mn?"请输入到海滩或学校的距离——周边环境加分会加在距离得分上。":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
@@ -437,6 +442,17 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   document.getElementById("sd").addEventListener("change",autoScores);
   strat.addEventListener("change",autoScores);
   document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="已手动修改";}});
+  (function(){var inp=document.getElementById("s-r-loc"),row=inp.parentNode,sd=document.getElementById("sd"),hd=document.getElementById("score-data").parentNode,stl=hd.nextElementSibling;
+    var pan=document.createElement("div");pan.id="loc-panel";pan.hidden=true;
+    pan.appendChild(hd);if(stl&&stl.tagName==="STYLE")pan.appendChild(stl);pan.appendChild(sd);row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});})();
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(!t.id||t.id.indexOf("s-w-")!==0)return;var o=0;C.forEach(function(c){if("s-w-"+c[0]!==t.id){var x=parseFloat(document.getElementById("s-w-"+c[0]).value);if(isFinite(x))o+=x;}});var v=parseFloat(t.value);if(isFinite(v)&&v+o>100){t.value=Math.max(0,100-o);t.style.outline="2px solid #e0a100";setTimeout(function(){t.style.outline="";},700);}},true);
   setW();calc();
 })();
 </script>
