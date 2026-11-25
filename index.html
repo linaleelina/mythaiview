@@ -279,7 +279,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="tbl"><table>
     <thead><tr><th>Критерий</th><th>Вес</th><th style="width:42%">Что оценивать</th><th>Почему такой вес</th></tr></thead>
     <tbody>
-      <tr><td>Локация</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>расстояние до моря или международной школы по дороге</li><li>высота над уровнем моря: риск цунами и подтоплений</li><li>магазины, больница, рестораны рядом</li><li>дорога и время в пути в сезон</li><li>шум: аэропорт, стройка, ночная жизнь</li><li>сколько похожих объектов строится рядом</li></ul></td><td>Формирует спрос, арендный потенциал и долгосрочную привлекательность</td></tr>
+      <tr><td>Локация</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>расстояние до моря или международной школы по дороге</li><li>высота над уровнем моря: риск цунами и подтоплений</li><li>магазины, больница, рестораны рядом</li><li>спортивные объекты рядом: фитнес-клуб, бассейн, теннис, гольф, тайский бокс</li><li>дорога и время в пути в сезон</li><li>шум: аэропорт, стройка, ночная жизнь</li><li>сколько похожих объектов строится рядом</li></ul></td><td>Формирует спрос, арендный потенциал и долгосрочную привлекательность</td></tr>
       <tr><td>Цена за м²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>цена за м² против средней цены похожих объектов в районе</li><li>что входит в цену: мебель, налоги и сборы при покупке</li><li>условия оплаты и рассрочки</li><li>скидки и бонусы — не завышена ли базовая цена</li></ul></td><td>Определяет входную стоимость и запас конкурентоспособности</td></tr>
       <tr><td>Застройщик и качество строительства</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>сколько объектов уже сдано</li><li>сколько из них сдано без переноса сроков</li><li>сколько судебных споров с покупателями</li><li>местный застройщик или с иностранным участием, сколько лет на рынке</li><li>менеджмент: кто принимает решения, открыт ли к диалогу</li><li>финансовая отчётность в реестре DBD</li><li>качество сданных объектов: осмотр, отзывы владельцев</li><li>сейсмостойкость: проект по стандарту для зоны 2</li></ul></td><td>Влияют на исполнение проекта, качество актива и дополнительные затраты</td></tr>
       <tr><td>Юридическая чистота</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>документ на землю: Чанот или другой</li><li>форма владения: фрихолд в иностранной квоте или лизхолд</li><li>разрешение на строительство и EIA</li><li>регистрация кондоминиума</li><li>залоги и другие обременения</li><li>договор: сроки, штрафы, гарантии, обещания письменно</li></ul></td><td>Защищает право собственности и вложенный капитал</td></tr>
@@ -298,7 +298,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <div class="prose">
   <h2 id="score-data">Локация: балл считается сам</h2>
-  <p>Выберите, что для вас важнее: море или школа. Слева — расстояние до пляжа и высота над уровнем моря, справа — расстояние до международной школы. Заполняется что-то одно: если ввести метры до моря, поле школы очистится, и наоборот. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
+  <p>Выберите, что для вас важнее: море или школа и спорт. Слева — расстояние до пляжа и высота над уровнем моря, справа — расстояние до международной школы или спортивного объекта. Заполняется что-то одно: если ввести метры до моря, поле школы очистится, и наоборот. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -311,13 +311,13 @@ footer{border-top:1px solid var(--line);background:var(--card)}
         </div>
         <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
         <div>
-          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">ШКОЛА</span></div>
-          <div class="f"><label for="d-school">До международной школы, м — по дороге</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">ШКОЛА / СПОРТ</span></div>
+          <div class="f"><label for="d-school">До международной школы или спортивного объекта, м — по дороге</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря и школы: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до моря: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
