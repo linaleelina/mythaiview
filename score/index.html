@@ -417,7 +417,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#f1e2cb;border-radius:7px;padding:6px 14px">ОБЪЕКТ</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-price">Цена квартиры, ฿</label><input id="p-price" type="number" min="1000000" step="any" inputmode="decimal"></div><div class="f"><label for="p-area">Площадь, м²</label><input id="p-area" type="number" min="10" step="any" inputmode="decimal"></div></div>
       <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dfe9d4;border-radius:7px;padding:6px 14px">РЫНОЧНЫЙ ОРИЕНТИР</span></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-med">Медиана аналогов, ฿ за м² — первичный рынок</label><input id="p-med" type="number" min="0" step="any" inputmode="decimal"></div><div class="f"><label for="p-med2">Медиана аналогов, ฿ за м² — вторичный рынок</label><input id="p-med2" type="number" min="0" step="any" inputmode="decimal"></div></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Балл считается по первичному рынку; если он не заполнен — по вторичному.</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-med">Медиана аналогов, ฿ за м² — первичный рынок</label><input id="p-med" type="number" min="0" step="any" inputmode="decimal"></div><div class="f"><label for="p-med2">Медиана аналогов, ฿ за м² — вторичный рынок</label><input id="p-med2" type="number" min="0" step="any" inputmode="decimal"></div></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Балл считается по первичному рынку и сравнивается со вторичным: после сдачи квартира сама станет вторичкой. Цена выше вторички на 10–25% — −1 балл, больше 25% — −2; для стратегии «Перепродажа» больше 25% — стоп-фактор. Если первичный рынок не заполнен, балл считается по вторичному.</span>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-n">Аналогов в выборке</label><input id="p-n" type="number" min="1" step="any" inputmode="decimal"></div><div class="f"><label for="p-src">Источник данных</label><select id="p-src"><option value="0">объявления</option><option value="1">сделки</option><option value="2">смешанный</option></select></div></div>
       <div class="f"><label for="p-date">Дата сбора данных</label><input id="p-date" type="date"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Сравнивайте объекты с похожей локацией, формой собственности, стадией строительства и характеристиками. Берите цены конкретных квартир, а не рекламные цены «от». Площадь считайте одинаково: в Таиланде в неё часто включают балкон.</span>
       <p style="font-size:.88rem;color:var(--muted);margin:0 0 8px">Шкала: дешевле рынка на 20%+ — 9; на 10–20% — 8; на 5–10% — 7; ±5% — 6; дороже на 5–10% — 5; на 10–20% — 4; на 20–35% — 3; больше — 2.</p>
@@ -474,14 +474,15 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     var S=0,ws=0,ch="",crit=[];
     C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
       document.getElementById("s-c-"+c[0]).value=f1(k); if(r<=2)crit.push(c[1]);});
-    var stop=document.getElementById("s-stop").checked,rsb=strat.value==="resale"&&(document.getElementById("l-resale")||{}).value==="-2";
+    var stop=document.getElementById("s-stop").checked,rsb=strat.value==="resale"&&(document.getElementById("l-resale")||{}).value==="-2";var rsc=strat.value==="resale"&&document.getElementById("s-r-price").dataset.secstop==="1";
     if(ws>0&&ws!==100)S=S*100/ws;
-    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!rsb&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> из 10';
+    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!rsb&&!rsc&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> из 10';
     document.getElementById("s-contrib").innerHTML=ch;
     var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
     var vd;
     if(stop) vd="<b style='color:#c0392b'>Стоп-фактор: объект не рассматривается, независимо от баллов</b>";
     else if(rsb) vd="<b style='color:#c0392b'>Стоп-фактор для стратегии «Перепродажа»: договор запрещает переуступку до сдачи, поэтому продать объект до получения ключей нельзя</b>";
+    else if(rsc) vd="<b style='color:#c0392b'>Стоп-фактор для стратегии «Перепродажа»: цена объекта выше вторичного рынка больше чем на 25%, перепродать с прибылью почти невозможно</b>";
     else if(crit.length) vd="<b style='color:#c0392b'>Критический недостаток — высокий балл его не компенсирует</b>";
     else if(S>=8.5) vd="Сильный объект: исключительные преимущества";
     else if(S>=7) vd="Лучше большинства конкурентов";
@@ -627,15 +628,15 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     var link=function(a,b){g(a).addEventListener("input",function(e){if(!e.isTrusted)return;g(b).value=g(a).value;g(b).dispatchEvent(new Event("input",{bubbles:true}));});};
     link("p-price","l-price");link("l-price","p-price");link("p-area","e-area");link("e-area","p-area");
     var F=function(x){return String(x).replace(".",",");},G=function(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");},RL=["низкая","ограниченная","хорошая"];
-    function clr(){if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
+    function clr(){inp.dataset.secstop="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
     function pr(){var p=num("p-price"),a=num("p-area"),m1=num("p-med"),m2=num("p-med2"),m=(m1!==null&&m1>0)?m1:m2,both=m1!==null&&m1>0&&m2!==null&&m2>0,n=num("p-n"),h="";
       if(p!==null&&a!==null&&a>0)h+="Цена объекта: <b>{p} ฿ за м²</b>".replace("{p}",G(p/a));
       if(p===null||a===null||a<=0||m===null||m<=0){out.innerHTML=(h?h+"<br>":"")+"Введите цену квартиры, площадь и медианную цену аналогов.";clr();calc();return;}
       var d=(p/a/m-1)*100,dr=Math.round(d*10)/10;
       var base=d<=-20?9:d<=-10?8:d<=-5?7:d<5?6:d<10?5:d<20?4:d<35?3:2,adj=0;
       pan.querySelectorAll(".p-adj:checked").forEach(function(c){adj+=parseFloat(c.dataset.v);});
-      var v=Math.max(1,Math.min(10,base+adj));
-      h+="<br>"+"Отклонение от рынка: <b>{d}%</b> — ".replace("{d}",(dr>0?"+":dr<0?"−":"")+F(Math.abs(dr)))+(d<=-5?"объект дешевле рыночного ориентира":d>=5?"объект дороже рыночного ориентира":"объект на уровне рынка");if(both){var d2=Math.round((p/a/m2-1)*1000)/10;h+="<br>"+"Вторичный рынок: {d}%".replace("{d}",(d2>0?"+":d2<0?"−":"")+F(Math.abs(d2)));}
+      var pm2=both?(p/a/m2-1)*100:null,padj=pm2===null?0:pm2>25?-2:pm2>10?-1:0;adj+=padj;inp.dataset.secstop=(pm2!==null&&pm2>25)?"1":"";var v=Math.max(1,Math.min(10,base+adj));
+      h+="<br>"+"Отклонение от рынка: <b>{d}%</b> — ".replace("{d}",(dr>0?"+":dr<0?"−":"")+F(Math.abs(dr)))+(d<=-5?"объект дешевле рыночного ориентира":d>=5?"объект дороже рыночного ориентира":"объект на уровне рынка");if(both){var d2=Math.round((p/a/m2-1)*1000)/10;h+="<br>"+"Вторичный рынок: {d}%".replace("{d}",(d2>0?"+":d2<0?"−":"")+F(Math.abs(d2)));;if(pm2>10)h+='<br><span style="color:'+(pm2>25?"#c0392b":"#b9770e")+'">Цена выше вторичного рынка на '+F(Math.round(pm2*10)/10)+'%: при продаже после сдачи вы конкурируете со вторичкой, наценку за новизну покупатель не вернёт.</span>';}
       h="→ балл за цену <b>"+F(v)+"</b> (база "+base+(adj?", корректировки "+(adj>0?"+":"−")+F(Math.abs(adj)):"")+")<br>"+h;
       if(n!==null)h+="<br>Достоверность ориентира: <b>"+(n<=2?RL[0]:n<=4?RL[1]:RL[2])+"</b>"+(n>10?" — десять несопоставимых квартир хуже пяти действительно похожих.":"");
       if(g("p-src").value==="0")h+="<br>Медиана объявлений — это цены предложения, а не сделок.";
