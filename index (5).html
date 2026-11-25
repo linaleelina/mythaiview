@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property scoring model for Phuket: criteria, weights and calculator — My Thai View</title>
+<meta name="description" content="The model turns the seven criteria from the rule for choosing a property into a single overall score. It is a base model for investment property in Phuket: each criterion gets a weight, and the weights add up to 100%.">
+<meta property="og:site_name" content="My Thai View">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang{margin-left:auto;display:flex;gap:2px;background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang a{padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{background:#2f56b0;color:#fff}
+@media (max-width:720px){.lang{order:2}nav.main{order:3}}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card-st{position:relative}.card-st .st-main{color:inherit;text-decoration:none}.card-st .st-main::after{content:"";position:absolute;inset:0;border-radius:10px}.card-st .st-sub{position:relative;z-index:1;color:var(--head);font-weight:600}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
+.pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
+.pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.pc-t{font-weight:700;margin-bottom:6px}
+.pc-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 8px}
+.pc-s{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.88rem}
+.pc-s.th{background:var(--blue-soft,#e8eefb);border-color:var(--head);color:var(--head)}
+.pc-a{color:var(--muted);font-size:.9rem}
+.pc-f{font-size:.82rem;color:var(--muted)}
+.pc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.pc-b{font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 10px}
+.pc-b.ok{background:var(--ok-soft);color:var(--ok)}.pc-b.no{background:var(--warn-soft);color:var(--warn)}.pc-b.mid{background:var(--accent-soft);color:#8a5a00}
+.pc-cost{font-size:.85rem;letter-spacing:2px}
+.pc-note{font-size:.9rem;margin-top:6px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
+</style>
+<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/score/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/score/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/score/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/score/">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="../"><span class="mark">T</span>My Thai View</a>
+    <nav class="main" aria-label="Sections">
+      <a href="../">Home</a>
+      <a href="../taxes/" data-group="taxes">Taxes</a>
+      <a aria-current="page" href="../property/" data-group="property">Property</a>
+      <a href="../banks/" data-group="banks">Money</a>
+      <a href="../tourism/">Tourism</a>
+    </nav>
+    <nav class="lang" aria-label="Language"><a href="../../zh/score/" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a><a href="../../score/" hreflang="ru" lang="ru">RU</a></nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="Taxes">
+      <a href="../taxes/">Overview</a>
+      <a href="../residency/">Residency</a>
+      <a href="../pit/">Income<br>tax</a>
+      <a href="../pitcalc/">Tax<br>calculator</a>
+      <a href="../visas/">Visas<br>and benefits</a>
+      <a href="../business/">Business</a>
+      <a href="../tfrs/">Reporting<br>standards</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../glossary/">Glossary</a>
+      <a href="../docs/">Documents</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop">
+    <nav class="sub" aria-label="Property">
+      <a href="../property/">Overview</a>
+      <a href="../invest/">Investing<br>in Phuket</a>
+      <a href="../decide/">How to make<br>a decision</a>
+      <a href="../check/">Developer<br>check</a>
+      <a href="../rights/">Ownership rights<br>and forms</a>
+      <a href="../buying/">Buying<br>and fees</a>
+      <a href="../renting/">Renting<br>out</a>
+      <a href="../exit/">Selling<br>and exit</a>
+      <a href="../tokens/">Real estate<br>tokens</a>
+      <a aria-current="page" href="../score/">Scoring<br>model</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks" hidden>
+    <nav class="sub" aria-label="Money">
+      <a href="../banks/">Overview</a>
+      <a href="../moneyflow/">Circular<br>flow of money</a>
+      <a href="../bot/">Bank of<br>Thailand</a>
+      <a href="../banksystem/">Banking<br>system</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../payments/">Payment<br>system</a>
+      <a href="../propertypay/">Property<br>payments</a>
+      <a href="../emoney/">Electronic<br>money</a>
+      <a href="../crypto/">Crypto<br>exchanges</a>
+      <a href="../amlo/">AMLO</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="Analytics">
+      <a href="../analytics/">Overview</a>
+      <a href="../consumption/">Consumption</a>
+      <a href="../focus/">Reclaim<br>attention</a>
+      <a href="../future/">Future<br>economy</a>
+      <a href="../asi/">ASI<br>filter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="view active" id="v-score" data-title="Property scoring model for Phuket: criteria, weights and calculator">
+  <div class="prose">
+  <h1 id="calc-score">Property scoring model</h1>
+  <p class="lead">The model turns the seven criteria from the rule for choosing a property into a single overall score. It is a base model for investment property in Phuket: each criterion gets a weight, and the weights add up to 100%.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Criterion</th><th>Weight</th><th style="width:42%">What to assess</th><th>Why this weight</th></tr></thead>
+    <tbody>
+      <tr><td>Location</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>distance to the beach or an international school by road</li><li>elevation above sea level: tsunami and flooding risk</li><li>shops, a hospital, restaurants nearby</li><li>sports facilities nearby: a gym, swimming pool, tennis, golf, Muay Thai</li><li>the road and travel time in high season</li><li>noise: the airport, construction, nightlife</li><li>how many similar properties are being built nearby</li></ul></td><td>Shapes demand, rental potential and long-term appeal</td></tr>
+      <tr><td>Price per m²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>price per m² against the average for similar properties in the area</li><li>what the price includes: furniture, taxes and fees on purchase</li><li>payment terms and instalments</li><li>discounts and bonuses — is the base price inflated</li></ul></td><td>Determines the entry cost and the margin of competitiveness</td></tr>
+      <tr><td>Developer and construction quality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>how many projects have already been completed</li><li>how many of them were completed without delays</li><li>how many lawsuits with buyers</li><li>local developer or with foreign participation, how many years on the market</li><li>management: who makes decisions and how, is it open to dialogue, does it keep a balance between its own interests and those of buyers</li><li>financial statements in the DBD register</li><li>quality of completed projects: inspection, owner reviews</li><li>seismic resistance: designed to the standard for zone 2</li></ul></td><td>Affect project delivery, asset quality and extra costs</td></tr>
+      <tr><td>Legal clarity</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>land title: Chanote or other</li><li>the basis on which the Chanote was issued: which document it was converted from and whether there is a risk of revocation — for example, if the plot is on forest land, a hillside or near the shoreline</li><li>form of ownership: freehold in the foreign quota or leasehold</li><li>building permit and EIA</li><li>condominium registration</li><li>mortgages and other encumbrances</li><li>the contract: deadlines, penalties, guarantees, promises in writing</li></ul></td><td>Protects ownership rights and the capital invested</td></tr>
+      <tr><td>Management and maintenance</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>hotel operator: an international brand or a local company, how many years it has operated in Phuket</li><li>the operator agreement: the owner's share of revenue, the term, whether it can be terminated</li><li>actual occupancy and average nightly rate at the operator's other properties, not the promised figures</li><li>operator fees: base fee, brand and marketing fees, the furniture and equipment replacement reserve</li><li>common area fee, ฿ per m² per month</li><li>the management company's commission on rental income</li><li>sinking fund and condominium juristic person reporting</li><li>owner reviews of management</li><li>whether the management company can be replaced</li><li>electricity and air conditioning costs: a glass façade and west-facing windows mean more heat from the sun and higher air conditioning bills</li></ul></td><td>Determine operating costs, quality of operation and actual yield</td></tr>
+      <tr><td>Liquidity</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>segment: the lower the price, the wider the sales funnel; the higher the price, the fewer buyers</li><li>a well-known hotel brand supports demand on resale; if the operator leaves, the property loses value</li><li>how quickly similar properties sell</li><li>how many comparable properties are on sale now</li><li>whether there is free foreign quota for resale</li><li>who will be the buyer when you exit</li><li>whether the developer allows resale (assignment) before completion and on what terms</li></ul></td><td>Determines whether and at what cost you can exit the investment</td></tr>
+      <tr><td>Ergonomics and functionality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>layout and room sizes: structural and architectural features should not create unusable corners, niches and passages — you pay in baht for every such square metre</li><li>light, ventilation, humidity</li><li>sound insulation</li><li>storage space</li><li>parking, balcony</li><li>the view: assess it when everything around is already built and the view is preserved; a vacant plot next door is a risk of new construction that will block the view</li></ul></td><td>Affects the property's appeal to tenants and buyers</td></tr>
+      <tr><td><b>Total</b></td><td><b>100%</b></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p><b>Why legal clarity is 20%.</b> It is not just a scoring criterion but a precondition for considering a property at all. An excellent location, an attractive price and a high estimated yield do not make up for problems with land rights, permits or the legality of ownership. That is why legal risks are checked not only with points but also on the stop-factor principle.</p>
+  <p><b>How to score.</b> Each criterion is scored from 1 to 10: 1–2 — critically poor; 3–4 — below market level; 5–6 — in line with the market; 7–8 — better than most competitors; 9–10 — an exceptional advantage. The overall score is the sum of the points multiplied by the weights: <b>S = Σ (weight × score) / 100</b>. For example, 8 points for location with a weight of 20% add 1.6 points to the total.</p>
+  <p class="rule-box"><b>RULE 1:</b> a high overall score does not make up for a critical flaw. A property may score 8.5 out of 10 but have unresolved legal problems — such a property cannot be recommended for purchase.</p>
+  <p class="rule-box"><b>RULE 2:</b> the weights depend on the investment strategy. For renting out, location, price and management matter most; for resale — price, liquidity and location; for long-term capital preservation — legal clarity, location and the developer; for living in it yourself — location, ergonomics and construction quality.</p>
+  <p>Choose a strategy and score your property — the model will calculate the total. The strategy weights are a guide; you can change them.</p>
+  </div>
+  <div class="prose">
+  <h2 id="score-data">Location: the score is calculated automatically</h2>
+  <p>Choose what matters more to you: the sea, or a school and sports. On the left — the distance to the beach and the elevation above sea level; on the right — the distance to an international school or a sports facility. Fill in only one: if you enter metres to the beach, the school field is cleared, and vice versa. The location score is entered in the calculator automatically, and you can always adjust it by hand.</p>
+  </div>
+  <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
+  <div class="calc" id="sd">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">Location</legend>
+      <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">SEA</span></div>
+          <div class="f"><label for="d-sea">To the beach, m — by road, not in a straight line</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div class="f"><label for="d-elev">Elevation above sea level, m</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+        </div>
+        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">SCHOOL / SPORTS</span></div>
+          <div class="f"><label for="d-school">To an international school or sports facility, m — by road</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+        </div>
+      </div>
+      <div class="sd-out" id="o-loc"></div>
+      <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
+        <p style="margin:0 0 8px">The distance scale is the same for the sea, a school and a sports facility: up to 300 m — 10 points; up to 600 m — 9; up to 1 km — 8; up to 2 km — 7; up to 3 km — 6; up to 5 km — 5; beyond 5 km — 4.</p>
+        <div id="loc-help-sea" hidden>
+          <p style="margin:0 0 8px">Elevation above sea level works as an inverse adjustment: the lower the plot and the closer it is to the sea, the bigger the penalty. The relationship is non-linear — the penalty grows quickly over the last metres of elevation: <b>penalty = 4 × e<sup>−elevation/4</sup> × k</b>, where k depends on the distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; beyond — 0.15. The result is rounded to 0.5 and never falls below 1.</p>
+          <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
+            <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">Elevation</th><th style="text-align:left;padding:4px 10px">By the sea (up to 300 m)</th><th style="text-align:left;padding:4px 10px">1 km away</th><th style="text-align:left;padding:4px 10px">3 km away</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:3px 10px 3px 0">0 m</td><td style="padding:3px 10px">−4</td><td style="padding:3px 10px">−2.5</td><td style="padding:3px 10px">−1</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">2 m</td><td style="padding:3px 10px">−2.5</td><td style="padding:3px 10px">−1.5</td><td style="padding:3px 10px">−0.5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">5 m</td><td style="padding:3px 10px">−1</td><td style="padding:3px 10px">−0.5</td><td style="padding:3px 10px">−0.5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">10 m</td><td style="padding:3px 10px">−0.5</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">20 m and above</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Important:</b> 10 points for 300 m to the beach does not mean that living right by the sea is always good. In low-lying areas — below 5 m above sea level — it is better not to live by the sea at all: this is a tsunami and flooding risk zone. See the <a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">elevation map of Phuket</a> (UNOSAT, 2004).</p>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+    <div class="calc" id="sc">
+    <div>
+      <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Strategy</mark></label><select id="s-strat">
+        <option value="base">Base model</option>
+        <option value="rent">Renting out</option>
+        <option value="resale">Resale</option>
+        <option value="keep">Long-term capital preservation</option>
+        <option value="live">Living in it yourself</option>
+      </select></div>
+      <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">(goal not yet defined)</div>
+      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Criterion</span><span>Score</span><span>Weight, %</span></div>
+      <div id="s-rows"></div>
+      <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">There are unresolved legal problems (stop factor)</label></div>
+    </div>
+    <div class="res" aria-live="polite">
+      <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
+      <div style="color:var(--muted);font-size:.9rem">(overall property score)</div>
+      <div style="margin:.2rem 0 .2rem" id="s-verdict">—</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem">A high score is a necessary but not sufficient condition for buying.</div>
+      <div id="s-contrib"></div>
+      <div class="row"><span>Sum of weights</span><span id="s-wsum">100%</span></div>
+      <div id="s-warn" style="margin-top:.8rem;font-size:.9rem"></div>
+    </div>
+  </div>
+  <p class="prose" style="font-size:.88rem;color:var(--muted)">The model helps compare properties against the same rules, but it does not replace legal due diligence, an inspection of the property or a yield calculation. The scores are your own judgement, so compare properties scored by the same person against the same criteria.</p>
+  <div class="prose">
+  <p class="rule-box"><b>RULE:</b> the model weeds out weak properties and helps compare strong ones, but the decision to buy is made only after all the conditions have been checked.</p>
+  </div>
+<script>
+(function(){
+  var C=[["loc","Location"],["price","Price per m²"],["dev","Developer and construction quality"],["legal","Legal clarity"],["mgmt","Management and maintenance"],["liq","Liquidity"],["erg","Ergonomics and functionality"]];
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
+  var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
+  var rows=document.getElementById("s-rows"),h="";
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Score: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Weight: '+c[1]+'"></div>';});
+  rows.innerHTML=h;
+  var strat=document.getElementById("s-strat");
+  function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
+  function f1(x){return x.toFixed(1);}
+  function setW(){document.getElementById("s-basenote").hidden=strat.value!=="base";W[strat.value].forEach(function(w,i){document.getElementById("s-w-"+C[i][0]).value=w;});}
+  function calc(){
+    var S=0,ws=0,ch="",crit=[];
+    C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
+      ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
+    var stop=document.getElementById("s-stop").checked;
+    if(ws>0&&ws!==100)S=S*100/ws;
+    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> out of 10';
+    document.getElementById("s-contrib").innerHTML=ch;
+    var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
+    var vd;
+    if(stop) vd="<b style='color:#c0392b'>Stop factor: the property is not considered, regardless of the score</b>";
+    else if(crit.length) vd="<b style='color:#c0392b'>Critical flaw — a high score does not make up for it</b>";
+    else if(S>=8.5) vd="Strong property: exceptional advantages";
+    else if(S>=7) vd="Better than most competitors";
+    else if(S>=5) vd="In line with the market";
+    else if(S>=3) vd="Below market level";
+    else vd="Critically weak property";
+    document.getElementById("s-verdict").innerHTML=vd;
+    var wn=[];
+    if(crit.length) wn.push("Score 1–2: "+crit.join(", ")+".");
+    if(ws!==100) wn.push("The weights do not add up to 100% — the total has been rescaled proportionally.");
+    document.getElementById("s-warn").textContent=wn.join(" ");
+  }
+  strat.addEventListener("change",function(){setW();calc();});
+  document.getElementById("sc").addEventListener("input",calc);
+  // --- automatic scores ---
+  function num(id){var e=document.getElementById(id);if(!e||e.value==="")return null;var x=parseFloat(e.value);return isFinite(x)?x:null;}
+  function pw(x,P){if(x<=P[0][0])return P[0][1];for(var i=1;i<P.length;i++){if(x<=P[i][0]){var a=P[i-1],b=P[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}}return P[P.length-1][1];}
+  function avg(L){var sw=0,s=0;L.forEach(function(p){if(p[0]!==null){s+=p[0]*p[1];sw+=p[1];}});return sw?s/sw:null;}
+  function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
+  function autoScores(){
+    var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
+    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
+    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the beach — the elevation adjustment is based on it.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
+    if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
+    var sc=Math.max(1,base-pen),f=function(x){return String(x);},parts=[];
+    if(ss!==null)parts.push("sea "+ss);if(sc0!==null)parts.push("school "+sc0);if(pen)parts.push("low-lying penalty −"+f(pen));
+    out.innerHTML="→ location score <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Low-lying land by the sea: below 5 m above sea level is a tsunami and flooding risk zone.</span>':"")+(h!==null&&sea===null?'<br>To take elevation into account, enter the distance to the beach.':"");
+    inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";
+    calc();
+  }
+  document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
+  document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
+  (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
+    sd.addEventListener("focusin",function(e){hp.hidden=false;hs.hidden=!(e.target.id==="d-sea"||e.target.id==="d-elev"||(hs.contains(e.target)));});
+    var keep=false;sd.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    sd.addEventListener("focusout",function(){setTimeout(function(){if(!keep&&!sd.contains(document.activeElement)){hp.hidden=true;hs.hidden=true;}},0);});
+    document.addEventListener("pointerdown",function(e){if(!sd.contains(e.target)){hp.hidden=true;hs.hidden=true;}});})();
+  document.getElementById("sd").addEventListener("input",autoScores);
+  document.getElementById("sd").addEventListener("change",autoScores);
+  strat.addEventListener("change",autoScores);
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="Changed by hand";}});
+  setW();calc();
+})();
+</script>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <b>My Thai View</b> is a free reference guide in Russian, English and Chinese. Compiled by Lina Lee.<br>
+      The material is based on open official sources; translations are by the compiler. It is for reference only, is not tax or legal advice and does not constitute the provision of services. Primary source: Thailand's Revenue Department, <a href="https://www.rd.go.th/english/">rd.go.th</a>.</div>
+    <div class="src"><b>Official resources to check:</b> <a href="https://www.rd.go.th/english/">Revenue Department</a>, <a href="https://www.ratchakitcha.soc.go.th/">Royal Gazette (official publication of laws)</a>, <a href="https://www.krisdika.go.th/">Council of State (texts of laws)</a>, <a href="https://www.dol.go.th/">Department of Lands</a>, <a href="https://www.bot.or.th/">Bank of Thailand</a>, <a href="https://www.dpa.or.th/">Deposit Protection Agency</a>, <a href="https://www.sec.or.th/EN/">Securities and Exchange Commission (SEC)</a>, <a href="https://www.amlo.go.th/">Anti-Money Laundering Office (AMLO)</a>, <a href="https://www.tfac.or.th/">Federation of Accounting Professions (TFAC)</a>, <a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS Foundation — Thailand profile</a>, <a href="https://www.sso.go.th/">Social Security Office</a>, <a href="https://www.labour.go.th/">Department of Labour Protection and Welfare</a>, <a href="https://www.excise.go.th/">Excise Department</a>, <a href="https://www.customs.go.th/">Customs Department</a>, <a href="https://www.boi.go.th/">Board of Investment (BOI)</a>, <a href="https://www.dmf.go.th/">Department of Mineral Fuels</a>, <a href="https://www.reic.or.th/">REIC — Real Estate Information Center of the Government Housing Bank</a>.</div>
+  </div>
+</footer>
+
+</body>
+</html>
