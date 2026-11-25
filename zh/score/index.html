@@ -275,16 +275,16 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p class="lead">该模型把选房规则中的七项标准汇总为一个总评分。这是普吉岛投资性房产的基础模型：每项标准都有权重，权重合计为100%。</p>
   </div>
   <div class="tbl"><table>
-    <thead><tr><th>标准</th><th>权重</th><th>为什么是这个权重</th></tr></thead>
+    <thead><tr><th>标准</th><th>权重</th><th style="width:42%">评估什么</th><th>为什么是这个权重</th></tr></thead>
     <tbody>
-      <tr><td>地段</td><td>20%</td><td>决定需求、出租潜力和长期吸引力</td></tr>
-      <tr><td>每平方米价格</td><td>20%</td><td>决定入场成本和竞争力余量</td></tr>
-      <tr><td>开发商与施工质量</td><td>10%</td><td>影响项目交付、资产质量和额外支出</td></tr>
-      <tr><td>法律清晰度</td><td>20%</td><td>保护所有权和投入的资本</td></tr>
-      <tr><td>管理与维护</td><td>10%</td><td>决定运营成本、物业运营质量和实际收益</td></tr>
-      <tr><td>流动性</td><td>10%</td><td>决定能否退出投资以及退出的代价</td></tr>
-      <tr><td>人体工学与功能性</td><td>10%</td><td>影响房产对租客和买家的吸引力</td></tr>
-      <tr><td><b>合计</b></td><td><b>100%</b></td><td></td></tr>
+      <tr><td>地段</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>按道路计算到海边或国际学校的距离</li><li>海拔高度：海啸和洪水风险</li><li>附近的商店、医院、餐厅</li><li>道路情况和旺季通行时间</li><li>噪音：机场、施工、夜生活</li><li>附近在建的同类项目数量</li></ul></td><td>决定需求、出租潜力和长期吸引力</td></tr>
+      <tr><td>每平方米价格</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>每平方米价格与区域内同类房产均价对比</li><li>价格包含什么：家具、购房税费</li><li>付款条件和分期</li><li>折扣和赠送——基础价格是否被抬高</li></ul></td><td>决定入场成本和竞争力余量</td></tr>
+      <tr><td>开发商与施工质量</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>已交付多少个项目</li><li>其中多少个按期交付、没有延期</li><li>与买家有多少起诉讼</li><li>本地还是外国开发商，在市场上经营多少年</li><li>管理层：由谁决策，是否愿意沟通</li><li>在DBD登记处的财务报表</li><li>已交付项目的质量：实地查看、业主评价</li><li>抗震：是否按2区标准设计</li></ul></td><td>影响项目交付、资产质量和额外支出</td></tr>
+      <tr><td>法律清晰度</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>土地证：Chanote还是其他</li><li>所有权形式：外国人配额内的永久产权还是租赁产权</li><li>建筑许可和环境影响评估（EIA）</li><li>公寓法人登记</li><li>抵押及其他负担</li><li>合同：期限、违约金、保证，承诺是否写入书面</li></ul></td><td>保护所有权和投入的资本</td></tr>
+      <tr><td>管理与维护</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>公共区域管理费，每平方米每月泰铢</li><li>管理公司从租金中抽取的佣金</li><li>维修基金和公寓法人的报告</li><li>业主对管理的评价</li><li>能否更换管理公司</li><li>电费和空调费用</li></ul></td><td>决定运营成本、物业运营质量和实际收益</td></tr>
+      <tr><td>流动性</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>细分市场：价格越低，销售漏斗越宽；价格越高，买家越少</li><li>同类房产多久能卖出</li><li>目前在售的同类房产数量</li><li>是否有空余的外国人配额可供转售</li><li>退出时谁会是买家</li><li>开发商是否允许交房前转售（转让）以及条件</li></ul></td><td>决定能否退出投资以及退出的代价</td></tr>
+      <tr><td>人体工学与功能性</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>户型和房间面积</li><li>采光、通风、湿度</li><li>隔音</li><li>储物空间</li><li>停车位、阳台</li><li>景观：在周边都已建成、景观得以保留时再评估；旁边的空地意味着新建筑可能挡住景观</li></ul></td><td>影响房产对租客和买家的吸引力</td></tr>
+      <tr><td><b>合计</b></td><td><b>100%</b></td><td></td><td></td></tr>
     </tbody>
   </table></div>
   <div class="prose">
@@ -294,7 +294,46 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p class="rule-box"><b>规则2：</b>权重取决于投资策略。用于出租时，地段、价格和管理最重要；用于转售时——价格、流动性和地段；用于长期保值时——法律清晰度、地段和开发商；用于自住时——地段、人体工学和施工质量。</p>
   <p>选择策略并为您的房产打分，模型会计算总分。各策略的权重仅供参考，您可以修改。</p>
   </div>
-  <div class="calc" id="sc">
+  <div class="prose">
+  <h2 id="score-data">地段：自动计算得分</h2>
+  <p>请选择对您更重要的一项：海边还是学校。左侧填写到海滩的距离和海拔高度，右侧填写到国际学校的距离。只需填写一项：输入到海边的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
+  </div>
+  <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
+  <div class="calc" id="sd">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">地段</legend>
+      <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">海边</span></div>
+          <div class="f"><label for="d-sea">到海边（海滩）的距离，米——按道路计算，而非直线距离</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div class="f"><label for="d-elev">海拔高度，米</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+        </div>
+        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">学校</span></div>
+          <div class="f"><label for="d-school">到国际学校的距离，米——按道路计算</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+        </div>
+      </div>
+      <div class="sd-out" id="o-loc"></div>
+      <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
+        <p style="margin:0 0 8px">海边和学校使用同一距离评分标准：300米以内——10分；600米以内——9分；1公里以内——8分；2公里以内——7分；3公里以内——6分；5公里以内——5分；超过5公里——4分。</p>
+        <div id="loc-help-sea" hidden>
+          <p style="margin:0 0 8px">海拔高度是一项反向修正：地块越低、离海越近，扣分越多。两者是非线性关系——海拔越接近海平面，扣分增长越快：<b>扣分 = 4 × e<sup>−海拔/4</sup> × k</b>，其中k取决于到海边的距离：300米以内——1；600米以内——0.8；1公里以内——0.6；2公里以内——0.4；3公里以内——0.25；更远——0.15。结果四舍五入到0.5，最低为1分。</p>
+          <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
+            <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">海拔</th><th style="text-align:left;padding:4px 10px">海边（300米以内）</th><th style="text-align:left;padding:4px 10px">距海1公里</th><th style="text-align:left;padding:4px 10px">距海3公里</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:3px 10px 3px 0">0米</td><td style="padding:3px 10px">−4</td><td style="padding:3px 10px">−2.5</td><td style="padding:3px 10px">−1</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">2米</td><td style="padding:3px 10px">−2.5</td><td style="padding:3px 10px">−1.5</td><td style="padding:3px 10px">−0.5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">5米</td><td style="padding:3px 10px">−1</td><td style="padding:3px 10px">−0.5</td><td style="padding:3px 10px">−0.5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">10米</td><td style="padding:3px 10px">−0.5</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">20米及以上</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>重要：</b>距海滩300米得10分，并不意味着住在海边总是好的。在低洼地带——海拔低于5米——最好完全不要住在海边：这里是海啸和洪水风险区。请参阅<a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">普吉岛海拔地图</a>（UNOSAT，2004年）。</p>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+    <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">策略</mark></label><select id="s-strat">
         <option value="base">基础模型</option>
@@ -328,7 +367,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
-  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="1" value="6" aria-label="得分：'+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="权重：'+c[1]+'"></div>';});
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="得分：'+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="权重：'+c[1]+'"></div>';});
   rows.innerHTML=h;
   var strat=document.getElementById("s-strat");
   function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
@@ -359,6 +398,34 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   }
   strat.addEventListener("change",function(){setW();calc();});
   document.getElementById("sc").addEventListener("input",calc);
+  // --- 自动评分 ---
+  function num(id){var e=document.getElementById(id);if(!e||e.value==="")return null;var x=parseFloat(e.value);return isFinite(x)?x:null;}
+  function pw(x,P){if(x<=P[0][0])return P[0][1];for(var i=1;i<P.length;i++){if(x<=P[i][0]){var a=P[i-1],b=P[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}}return P[P.length-1][1];}
+  function avg(L){var sw=0,s=0;L.forEach(function(p){if(p[0]!==null){s+=p[0]*p[1];sw+=p[1];}});return sw?s/sw:null;}
+  function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
+  function autoScores(){
+    var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
+    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
+    if(sea===null&&sch===null){out.textContent=h!==null?"请输入到海边的距离——海拔修正以此为依据。":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
+    if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
+    var sc=Math.max(1,base-pen),f=function(x){return String(x);},parts=[];
+    if(ss!==null)parts.push("海边 "+ss);if(sc0!==null)parts.push("学校 "+sc0);if(pen)parts.push("低洼扣分 −"+f(pen));
+    out.innerHTML="→ 地段得分 <b>"+f(sc)+"</b> ("+parts.join("，")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">海边低洼地：海拔低于5米属于海啸和洪水风险区。</span>':"")+(h!==null&&sea===null?'<br>如需考虑海拔，请输入到海边的距离。':"");
+    inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="自动计算";
+    calc();
+  }
+  document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
+  document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
+  (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
+    sd.addEventListener("focusin",function(e){hp.hidden=false;hs.hidden=!(e.target.id==="d-sea"||e.target.id==="d-elev"||(hs.contains(e.target)));});
+    var keep=false;sd.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    sd.addEventListener("focusout",function(){setTimeout(function(){if(!keep&&!sd.contains(document.activeElement)){hp.hidden=true;hs.hidden=true;}},0);});
+    document.addEventListener("pointerdown",function(e){if(!sd.contains(e.target)){hp.hidden=true;hs.hidden=true;}});})();
+  document.getElementById("sd").addEventListener("input",autoScores);
+  document.getElementById("sd").addEventListener("change",autoScores);
+  strat.addEventListener("change",autoScores);
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="已手动修改";}});
   setW();calc();
 })();
 </script>
