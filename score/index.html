@@ -299,6 +299,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="prose">
   <h2 id="score-data">Локация: балл считается сам</h2>
   <p>Ваша стратегия определяет вашу локацию: море и/или школа и/или спорт. Слева — расстояние до пляжа и высота над уровнем моря, справа — расстояние до международной школы или спортивного объекта. Заполняется что-то одно: если ввести метры до пляжа, поле школы очистится, и наоборот. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
+  <p class="rule-box"><b>ПРАВИЛО ПАРЕТО ДЛЯ ЛОКАЦИИ:</b> 80% оценки — расстояние до главного для вас объекта: пляжа, школы или спорта (до 8 баллов из 10). 20% — все остальные факторы вместе: окружение, плюсы и минусы (до 2 баллов). Отдельно вычитается штраф за низину у моря — это поправка на риск, а не на удобство.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -315,9 +316,16 @@ footer{border-top:1px solid var(--line);background:var(--card)}
           <div class="f"><label for="d-school">До международной школы или спортивного объекта, м — по дороге</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
+      <div style="margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)">
+        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="background:#fbefb3;border-radius:7px;padding:4px 14px">Окружение</span></div>
+        <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px">
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">+0,5 балла за каждую галочку</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">В комплексе есть бассейн</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">Рядом всё уже построено</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">Кафе, рестораны и магазин в пешей доступности</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">Больница или клиника в 15 минутах езды</label></div>
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">Минусы</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">Рядом строятся похожие объекты (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">Шум: аэропорт, стройка, ночная жизнь (−0,5)</label></div>
+        </div>
+      </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 8 баллов; до 600 м — 7; до 1 км — 6; до 2 км — 5; до 3 км — 4; до 5 км — 3; дальше 5 км — 2. Ещё до 2 баллов дают галочки окружения — по 0,5 за каждую. Минусы: похожие объекты строятся рядом — −1, шум — −0,5. Итог не больше 10 и не меньше 1.</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до пляжа: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
@@ -330,7 +338,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
               <tr><td style="padding:3px 10px 3px 0">20 м и выше</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
             </tbody>
           </table></div>
-          <p style="margin:0 0 8px;color:var(--ink)"><b>Важно:</b> 10 баллов за 300 м до пляжа не означают, что у самого моря селиться всегда хорошо. В низинах — ниже 5 м над уровнем моря — у моря лучше не селиться от слова совсем: это зона риска цунами и подтоплений. Посмотрите <a href="../tourism/#tsunami">карту высот Пхукета</a> на странице «Туризм».</p>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Важно:</b> 8 баллов за 300 м до пляжа не означают, что у самого моря селиться всегда хорошо. В низинах — ниже 5 м над уровнем моря — у моря лучше не селиться от слова совсем: это зона риска цунами и подтоплений. Посмотрите <a href="../tourism/#tsunami">карту высот Пхукета</a> на странице «Туризм».</p>
         </div>
       </div>
     </fieldset>
@@ -407,16 +415,19 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
-    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
-    if(sea===null&&sch===null){out.textContent=h!==null?"Введите расстояние до пляжа — поправка на высоту считается от него.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=2000?5:d<=3000?4:d<=5000?3:2;}
+    var nb=document.querySelectorAll(".e-plus:checked").length,bon=nb*0.5,mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0);
+    if(sea===null&&sch===null){out.textContent=h!==null?"Введите расстояние до пляжа — поправка на высоту считается от него.":(nb||mn?"Введите расстояние до пляжа или школы — галочки окружения добавляются к нему.":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
     if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
-    var sc=Math.max(1,base-pen),f=function(x){return String(x).replace(".",",");},parts=[];
-    if(ss!==null)parts.push("море "+ss);if(sc0!==null)parts.push("школа "+sc0);if(pen)parts.push("штраф за низину −"+f(pen));
+    var sc=Math.max(1,Math.min(10,base+bon-mn-pen)),f=function(x){return String(x).replace(".",",");},parts=[];
+    if(ss!==null)parts.push("пляж "+ss+" из 8");if(sc0!==null)parts.push("школа/спорт "+sc0+" из 8");if(bon||mn)parts.push("окружение "+(bon-mn>=0?"+":"−")+f(Math.abs(bon-mn))+" из 2");if(pen)parts.push("штраф за низину −"+f(pen));
     out.innerHTML="→ балл за локацию <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Низина у моря: ниже 5 м над уровнем моря — зона риска цунами и подтоплений.</span>':"")+(h!==null&&sea===null?'<br>Чтобы учесть высоту, введите расстояние до пляжа.':"");
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
     calc();
   }
+  document.getElementById("e-p1").addEventListener("change",function(){if(this.checked)document.getElementById("e-cons").checked=false;});
+  document.getElementById("e-cons").addEventListener("change",function(){if(this.checked)document.getElementById("e-p1").checked=false;});
   document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
   document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
   (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
