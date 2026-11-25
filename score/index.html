@@ -354,7 +354,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
         <option value="live">Собственное проживание</option>
       </select></div>
       <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">(пока цель не определена)</div>
-      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Критерий</span><span>Балл 1–10</span><span>Вес, %</span></div>
+      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Критерий</span><span>Балл</span><span>Вес, %</span><span>Итог</span></div>
       <div id="s-rows"></div>
       <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">Есть неустранённые юридические проблемы (стоп-фактор)</label></div>
     </div>
@@ -378,7 +378,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
-  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"></div>';});
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"><input id="s-c-'+c[0]+'" type="text" readonly tabindex="-1" aria-label="Итог: '+c[1]+'" style="background:#eef1f6;font-weight:600;text-align:center;padding-left:4px;padding-right:4px"></div>';});
   rows.innerHTML=h;
   var strat=document.getElementById("s-strat");
   function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
@@ -387,7 +387,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function calc(){
     var S=0,ws=0,ch="",crit=[];
     C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
-      ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
+      document.getElementById("s-c-"+c[0]).value=f1(k); if(r<=2)crit.push(c[1]);});
     var stop=document.getElementById("s-stop").checked;
     if(ws>0&&ws!==100)S=S*100/ws;
     var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> из 10';
