@@ -343,6 +343,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       </div>
     </fieldset>
   </div>
+<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:rgba(255,255,255,.6)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#loc-panel .sd-vs{grid-template-columns:1fr!important}#loc-panel .sd-vs>div:nth-child(2){text-align:center;padding:2px 0 8px!important}</style>
   <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
@@ -439,6 +440,15 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   document.getElementById("sd").addEventListener("change",autoScores);
   strat.addEventListener("change",autoScores);
   document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="Изменено вручную";}});
+  (function(){var inp=document.getElementById("s-r-loc"),row=inp.parentNode,sd=document.getElementById("sd"),hd=document.getElementById("score-data").parentNode,stl=hd.nextElementSibling;
+    var pan=document.createElement("div");pan.id="loc-panel";pan.hidden=true;
+    pan.appendChild(hd);if(stl&&stl.tagName==="STYLE")pan.appendChild(stl);pan.appendChild(sd);row.parentNode.insertBefore(pan,row.nextSibling);
+    var keep=false,show=function(){pan.hidden=false;},hide=function(){pan.hidden=true;};
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});})();
   setW();calc();
 })();
 </script>
