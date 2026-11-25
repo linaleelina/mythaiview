@@ -355,7 +355,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="calc" id="sdl"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Введите данные</legend>
     <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
       <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#e6dff0;border-radius:7px;padding:6px 14px">СЕГМЕНТ</span></div>
-      <div class="f"><label for="l-price">Цена объекта, млн ฿</label><input id="l-price" type="number" min="0" step="0.5" inputmode="decimal"></div>
+      <div class="f"><label for="l-price">Цена объекта, ฿</label><input id="l-price" type="number" min="1000000" step="any" inputmode="decimal"><span style="font-size:.85rem;color:var(--muted)">Полная цена в батах, от 1 000 000 ฿.</span></div>
       <p style="font-size:.88rem;color:var(--muted);margin:0 0 8px">Шкала: до 3 млн ฿ — 8 баллов; до 6 млн — 7; до 12 млн — 6; до 25 млн — 5; до 50 млн — 4; дороже — 3.</p>
     </div><div>
       <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#fbefb3;border-radius:7px;padding:6px 14px">УСЛОВИЯ</span></div>
@@ -485,8 +485,9 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
     document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});
     var F=function(x){return true?String(x).replace(".",","):String(x);};
-    function liq(){var p=num("l-price"),rs=document.getElementById("l-resale").value,q=document.getElementById("l-quota").value,b=document.getElementById("l-brand").checked,m=num("l-sell");
+    function liq(){var p=num("l-price");var low=p!==null&&p<1e6;if(p!==null)p=p/1e6;var rs=document.getElementById("l-resale").value,q=document.getElementById("l-quota").value,b=document.getElementById("l-brand").checked,m=num("l-sell");
       var adj=(rs===""?0:parseFloat(rs))+(q===""?0:parseFloat(q))+(b?0.5:0)+(m===null?0:(m<=6?0.5:(m>12?-0.5:0)));
+      if(low){out.innerHTML='<span style="color:#c0392b">Введите цену от 1 000 000 ฿.</span>';if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
       if(p===null){out.textContent=(rs!==""||q!==""||b||m!==null)?"Введите цену объекта — остальные условия добавляются к баллу за сегмент.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
       var base=p<=3?8:p<=6?7:p<=12?6:p<=25?5:p<=50?4:3,v=Math.max(1,Math.min(10,base+adj));
       out.innerHTML="→ балл за ликвидность <b>"+F(v)+"</b> ("+"сегмент "+base+" из 8"+(adj?", "+"условия "+(adj>0?"+":"−")+F(Math.abs(adj))+"":"")+")"+(rs==="-1"?'<br><span style="color:#c0392b">Запрет переуступки — стоп-фактор для стратегии «Перепродажа»: продать объект до сдачи нельзя.</span>':"");
