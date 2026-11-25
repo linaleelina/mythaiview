@@ -298,6 +298,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="prose">
   <h2 id="score-data">Location: the score is calculated automatically</h2>
   <p>Your strategy determines your location: the sea and/or a school and/or sports. On the left — the distance to the beach and the elevation above sea level; on the right — the distance to an international school or a sports facility. Fill in only one: if you enter metres to the beach, the school field is cleared, and vice versa. The location score is entered in the calculator automatically, and you can always adjust it by hand.</p>
+  <p class="rule-box"><b>THE PARETO RULE FOR LOCATION:</b> 80% of the score is the distance to the place that matters most to you: the beach, a school or sports (up to 8 points out of 10). 20% is all the other factors together: the surroundings, pluses and minuses (up to 2 points). The low-lying penalty by the sea is subtracted separately — it is an adjustment for risk, not for convenience.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -314,9 +315,16 @@ footer{border-top:1px solid var(--line);background:var(--card)}
           <div class="f"><label for="d-school">To an international school or sports facility, m — by road</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
+      <div style="margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)">
+        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="background:#fbefb3;border-radius:7px;padding:4px 14px">Surroundings</span></div>
+        <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px">
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">+0.5 points for each tick</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">The complex has a swimming pool</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">Everything nearby is already built</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">Cafés, restaurants and a shop within walking distance</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">A hospital or clinic within a 15-minute drive</label></div>
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">Minuses</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">Similar properties are being built nearby (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">Noise: the airport, construction, nightlife (−0.5)</label></div>
+        </div>
+      </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">The distance scale is the same for the sea, a school and a sports facility: up to 300 m — 10 points; up to 600 m — 9; up to 1 km — 8; up to 2 km — 7; up to 3 km — 6; up to 5 km — 5; beyond 5 km — 4.</p>
+        <p style="margin:0 0 8px">The distance scale is the same for the sea, a school and a sports facility: up to 300 m — 8 points; up to 600 m — 7; up to 1 km — 6; up to 2 km — 5; up to 3 km — 4; up to 5 km — 3; beyond 5 km — 2. The surroundings ticks add up to 2 more points — 0.5 for each. Minuses: similar properties being built nearby — −1, noise — −0.5. The total is no more than 10 and no less than 1.</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">Elevation above sea level works as an inverse adjustment: the lower the plot and the closer it is to the sea, the bigger the penalty. The relationship is non-linear — the penalty grows quickly over the last metres of elevation: <b>penalty = 4 × e<sup>−elevation/4</sup> × k</b>, where k depends on the distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; beyond — 0.15. The result is rounded to 0.5 and never falls below 1.</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
@@ -329,7 +337,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
               <tr><td style="padding:3px 10px 3px 0">20 m and above</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
             </tbody>
           </table></div>
-          <p style="margin:0 0 8px;color:var(--ink)"><b>Important:</b> 10 points for 300 m to the beach does not mean that living right by the sea is always good. In low-lying areas — below 5 m above sea level — it is better not to live by the sea at all: this is a tsunami and flooding risk zone. See the <a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">elevation map of Phuket</a> (UNOSAT, 2004).</p>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Important:</b> 8 points for 300 m to the beach does not mean that living right by the sea is always good. In low-lying areas — below 5 m above sea level — it is better not to live by the sea at all: this is a tsunami and flooding risk zone. See the <a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">elevation map of Phuket</a> (UNOSAT, 2004).</p>
         </div>
       </div>
     </fieldset>
@@ -406,16 +414,19 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
-    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
-    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the beach — the elevation adjustment is based on it.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=2000?5:d<=3000?4:d<=5000?3:2;}
+    var nb=document.querySelectorAll(".e-plus:checked").length,bon=nb*0.5,mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0);
+    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the beach — the elevation adjustment is based on it.":(nb||mn?"Enter the distance to the beach or a school — the surroundings ticks are added to it.":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
     if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
-    var sc=Math.max(1,base-pen),f=function(x){return String(x);},parts=[];
-    if(ss!==null)parts.push("sea "+ss);if(sc0!==null)parts.push("school "+sc0);if(pen)parts.push("low-lying penalty −"+f(pen));
+    var sc=Math.max(1,Math.min(10,base+bon-mn-pen)),f=function(x){return String(x);},parts=[];
+    if(ss!==null)parts.push("beach "+ss+" of 8");if(sc0!==null)parts.push("school/sports "+sc0+" of 8");if(bon||mn)parts.push("surroundings "+(bon-mn>=0?"+":"−")+f(Math.abs(bon-mn))+" of 2");if(pen)parts.push("low-lying penalty −"+f(pen));
     out.innerHTML="→ location score <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Low-lying land by the sea: below 5 m above sea level is a tsunami and flooding risk zone.</span>':"")+(h!==null&&sea===null?'<br>To take elevation into account, enter the distance to the beach.':"");
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";
     calc();
   }
+  document.getElementById("e-p1").addEventListener("change",function(){if(this.checked)document.getElementById("e-cons").checked=false;});
+  document.getElementById("e-cons").addEventListener("change",function(){if(this.checked)document.getElementById("e-p1").checked=false;});
   document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
   document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
   (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
