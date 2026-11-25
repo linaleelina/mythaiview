@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Таиланд моими глазами</title>
-<meta name="description" content="My Thai View — независимый просветительский проект и справочник о Таиланде на русском языке. Он помогает тем, кто живёт в стране, работает здесь, планирует переезд или рассматривает инвестиции, лучше ориентироваться в местных правилах и практике. Объясняю сложные темы простым языком и по возможности указываю официальные документы и источники, на которых основана информация.">
+<title>Модель оценки объекта недвижимости на Пхукете: критерии, веса и калькулятор — Таиланд моими глазами</title>
+<meta name="description" content="Модель переводит семь критериев из правила выбора объекта в одну итоговую оценку. Это базовая модель для инвестиционной недвижимости на Пхукете: каждый критерий получает вес, сумма весов — 100%.">
 <meta property="og:site_name" content="Таиланд моими глазами">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +57,7 @@ h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
 
-header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
 header.top .bar{padding-top:30px;padding-bottom:30px}
 @media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
 .logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
@@ -197,98 +197,240 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 .motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
 </style>
 <script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/">
-<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/">
-<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/">
-<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/">
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/score/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/score/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/score/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/score/">
 </head>
 <body>
 <header class="top">
   <div class="bar">
-    <a class="logo" href="./"><span class="mark">Т</span>Таиланд моими глазами</a>
+    <a class="logo" href="../"><span class="mark">Т</span>Таиланд моими глазами</a>
     <nav class="main" aria-label="Разделы">
-      <a aria-current="page" href="./">Главная</a>
-      <a href="taxes/" data-group="taxes">Налоги</a>
-      <a href="property/" data-group="property">Недвижимость</a>
-      <a href="banks/" data-group="banks">Деньги</a>
-      <a href="tourism/">Туризм</a>
+      <a href="../">Главная</a>
+      <a href="../taxes/" data-group="taxes">Налоги</a>
+      <a aria-current="page" href="../property/" data-group="property">Недвижимость</a>
+      <a href="../banks/" data-group="banks">Деньги</a>
+      <a href="../tourism/">Туризм</a>
     </nav>
-    <nav class="lang" aria-label="Language"><a href="zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="en/" hreflang="en" lang="en">EN</a><a href="./" hreflang="ru" lang="ru" aria-current="true">RU</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../zh/score/" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="../en/score/" hreflang="en" lang="en">EN</a><a href="./" hreflang="ru" lang="ru" aria-current="true">RU</a></nav>
   </div>
   <div class="subbar" id="subbar" hidden>
     <nav class="sub" aria-label="Налоги">
-      <a href="taxes/">Обзор</a>
-      <a href="residency/">Резидентство</a>
-      <a href="pit/">Подоходный<br>налог</a>
-      <a href="pitcalc/">Калькулятор<br>налога</a>
-      <a href="visas/">Визы<br>и льготы</a>
-      <a href="russia/">РФ —<br>Таиланд</a>
-      <a href="business/">Бизнес</a>
-      <a href="tfrs/">Стандарты<br>отчётности</a>
-      <a href="calendar/">Календарь</a>
-      <a href="glossary/">Словарь</a>
-      <a href="docs/">Документы</a>
+      <a href="../taxes/">Обзор</a>
+      <a href="../residency/">Резидентство</a>
+      <a href="../pit/">Подоходный<br>налог</a>
+      <a href="../pitcalc/">Калькулятор<br>налога</a>
+      <a href="../visas/">Визы<br>и льготы</a>
+      <a href="../russia/">РФ —<br>Таиланд</a>
+      <a href="../business/">Бизнес</a>
+      <a href="../tfrs/">Стандарты<br>отчётности</a>
+      <a href="../calendar/">Календарь</a>
+      <a href="../glossary/">Словарь</a>
+      <a href="../docs/">Документы</a>
     </nav>
   </div>
-  <div class="subbar" id="subbar-prop" hidden>
+  <div class="subbar" id="subbar-prop">
     <nav class="sub" aria-label="Недвижимость">
-      <a href="property/">Обзор</a>
-      <a href="invest/">Инвестиции<br>на Пхукете</a>
-      <a href="decide/">Как принимать<br>решение</a>
-      <a href="check/">Проверка<br>застройщика</a>
-      <a href="rights/">Права и формы<br>владения</a>
-      <a href="buying/">Покупка<br>и сборы</a>
-      <a href="renting/">Сдача<br>в аренду</a>
-      <a href="exit/">Продажа<br>и выход</a>
-      <a href="tokens/">Токены<br>в недвижимости</a>
-      <a href="score/">Модель оценки<br>объекта</a>
+      <a href="../property/">Обзор</a>
+      <a href="../invest/">Инвестиции<br>на Пхукете</a>
+      <a href="../decide/">Как принимать<br>решение</a>
+      <a href="../check/">Проверка<br>застройщика</a>
+      <a href="../rights/">Права и формы<br>владения</a>
+      <a href="../buying/">Покупка<br>и сборы</a>
+      <a href="../renting/">Сдача<br>в аренду</a>
+      <a href="../exit/">Продажа<br>и выход</a>
+      <a href="../tokens/">Токены<br>в недвижимости</a>
+      <a aria-current="page" href="../score/">Модель оценки<br>объекта</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-banks" hidden>
     <nav class="sub" aria-label="Деньги">
-      <a href="banks/">Обзор</a>
-      <a href="moneyflow/">Круговорот<br>денег</a>
-      <a href="bot/">Банк<br>Таиланда</a>
-      <a href="banksystem/">Банковская<br>система</a>
-      <a href="bangkokbank/">Bangkok<br>Bank</a>
-      <a href="payments/">Платёжная<br>система</a>
-      <a href="propertypay/">Платежи<br>за недвижимость</a>
-      <a href="emoney/">Электронные<br>деньги</a>
-      <a href="crypto/">Крипто-<br>биржи</a>
-      <a href="amlo/">AMLO</a>
+      <a href="../banks/">Обзор</a>
+      <a href="../moneyflow/">Круговорот<br>денег</a>
+      <a href="../bot/">Банк<br>Таиланда</a>
+      <a href="../banksystem/">Банковская<br>система</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../payments/">Платёжная<br>система</a>
+      <a href="../propertypay/">Платежи<br>за недвижимость</a>
+      <a href="../emoney/">Электронные<br>деньги</a>
+      <a href="../crypto/">Крипто-<br>биржи</a>
+      <a href="../amlo/">AMLO</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-analytics" hidden>
     <nav class="sub" aria-label="Аналитика">
-      <a href="analytics/">Обзор</a>
-      <a href="consumption/">Потребление</a>
-      <a href="focus/">Верните<br>внимание</a>
-      <a href="future/">Будущая<br>экономика</a>
-      <a href="asi/">Фильтр<br>ASI</a>
+      <a href="../analytics/">Обзор</a>
+      <a href="../consumption/">Потребление</a>
+      <a href="../focus/">Верните<br>внимание</a>
+      <a href="../future/">Будущая<br>экономика</a>
+      <a href="../asi/">Фильтр<br>ASI</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="view active" id="v-home">
-  <h1>Таиланд моими глазами</h1>
-  <p class="motto">Суть превыше формы</p>
-  <p class="lead prose">My Thai View — независимый просветительский проект и справочник о Таиланде на русском языке. Он помогает тем, кто живёт в стране, работает здесь, планирует переезд или рассматривает инвестиции, лучше ориентироваться в местных правилах и практике. Объясняю сложные темы простым языком и по возможности указываю официальные документы и источники, на которых основана информация.</p>
-  <div class="cards">
-    <a class="card" style="background:#f1e2cb;border-color:#f1e2cb" href="taxes/"><b>Налоги</b><span>Резидентство, подоходный налог, бизнес, визы с льготами, соглашение с Россией, календарь и словарь</span></a>
-    <div class="card card-st" style="background:#cdeee8;border-color:#cdeee8"><a class="st-main" href="property/"><b>Недвижимость</b></a><span>Инвестиции на Пхукете, права и формы владения, налоги и сборы при покупке, сдача в аренду</span><a class="st-sub" href="score/" style="display:inline-block;margin-top:10px;background:#b8e994;color:var(--ink);font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:1rem">Модель оценки объекта →</a></div>
-    <a class="card" style="background:#fbefb3;border-color:#fbefb3" href="banks/"><b>Деньги</b><span>Круговорот денег, Банк Таиланда, банки, PromptPay, электронные деньги, криптобиржи, AMLO</span></a>
-    <a class="card" style="background:#d3defa;border-color:#d3defa" href="tourism/"><b>Туризм</b><span>Таиланд за пределами туристических маршрутов</span></a>
-    <a class="card" style="background:#e6dcf5;border-color:#e6dcf5" href="invest/#calc-yield"><b>Калькулятор входа (покупка актива)</b><span>Расчётная окупаемость объекта недвижимости против рекламной</span></a>
-    <a class="card" style="background:#d6edc9;border-color:#d6edc9" href="pitcalc/"><b>Калькулятор налога</b><span>Подоходный налог физлица за год по шкале 2026 года</span></a>
-    <a class="card" style="background:#d4ecf8;border-color:#d4ecf8" href="exit/"><b>Калькулятор выхода (продажа актива)</b><span>Налоги и сборы продавца при перепродаже</span></a>
-    <a class="card" style="background:#fbd9b8;border-color:#fbd9b8" href="buyrent/"><b>Калькулятор альтернативы: покупка или аренда</b><span>Объект недвижимости или машина: что обойдётся дешевле за выбранный срок</span></a>
+<section class="view active" id="v-score" data-title="Модель оценки объекта недвижимости на Пхукете: критерии, веса и калькулятор">
+  <div class="prose">
+  <h1 id="calc-score">Модель оценки объекта</h1>
+  <p class="lead">Модель переводит семь критериев из правила выбора объекта в одну итоговую оценку. Это базовая модель для инвестиционной недвижимости на Пхукете: каждый критерий получает вес, сумма весов — 100%.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Критерий</th><th>Вес</th><th style="width:42%">Что оценивать</th><th>Почему такой вес</th></tr></thead>
+    <tbody>
+      <tr><td>Локация</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>расстояние до пляжа или международной школы по дороге</li><li>высота над уровнем моря: риск цунами и подтоплений</li><li>магазины, больница, рестораны рядом</li><li>спортивные объекты рядом: фитнес-клуб, бассейн, теннис, гольф, тайский бокс</li><li>дорога и время в пути в сезон</li><li>шум: аэропорт, стройка, ночная жизнь</li><li>сколько похожих объектов строится рядом</li></ul></td><td>Формирует спрос, арендный потенциал и долгосрочную привлекательность</td></tr>
+      <tr><td>Цена за м²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>цена за м² против средней цены похожих объектов в районе</li><li>что входит в цену: мебель, налоги и сборы при покупке</li><li>условия оплаты и рассрочки</li><li>скидки и бонусы — не завышена ли базовая цена</li></ul></td><td>Определяет входную стоимость и запас конкурентоспособности</td></tr>
+      <tr><td>Застройщик и качество строительства</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>сколько объектов уже сдано</li><li>сколько из них сдано без переноса сроков</li><li>сколько судебных споров с покупателями</li><li>местный застройщик или с иностранным участием, сколько лет на рынке</li><li>менеджмент: кто и как принимает решения, открыт ли к диалогу, соблюдает ли баланс собственных интересов и интересов покупателей</li><li>финансовая отчётность в реестре DBD</li><li>качество сданных объектов: осмотр, отзывы владельцев</li><li>сейсмостойкость: проект по стандарту для зоны 2</li></ul></td><td>Влияют на исполнение проекта, качество актива и дополнительные затраты</td></tr>
+      <tr><td>Юридическая чистота</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>документ на землю: Чанот или другой</li><li>основания выдачи Чанота: из какого документа он переоформлен и нет ли риска отзыва — например, если участок на землях лесного фонда, на склоне или у береговой линии</li><li>форма владения: фрихолд в иностранной квоте или лизхолд</li><li>разрешение на строительство и EIA</li><li>регистрация кондоминиума</li><li>залоги и другие обременения</li><li>договор: сроки, штрафы, гарантии, обещания письменно</li></ul></td><td>Защищает право собственности и вложенный капитал</td></tr>
+      <tr><td>Управление и содержание</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>отельный оператор: международный бренд или местная компания, сколько лет работает на Пхукете</li><li>договор с оператором: доля дохода владельца, срок, можно ли расторгнуть</li><li>фактическая заполняемость и средняя цена ночи на других объектах оператора, а не обещанные</li><li>сборы оператора: базовая плата, плата за бренд и маркетинг, резерв на обновление мебели и оборудования</li><li>плата за общее имущество, ฿ за м² в месяц</li><li>комиссия управляющей компании от аренды</li><li>фонд на ремонт и отчётность юрлица кондоминиума</li><li>отзывы владельцев об управлении</li><li>можно ли сменить управляющую компанию</li><li>расходы на электричество и кондиционер: стеклянный фасад и окна на запад — больше нагрев от солнца и счета за кондиционер</li></ul></td><td>Определяют операционные расходы, качество эксплуатации и фактическую доходность</td></tr>
+      <tr><td>Ликвидность</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>сегмент: чем ниже цена, тем шире воронка продаж; чем выше цена, тем меньше покупателей</li><li>известный отельный бренд поддерживает спрос при перепродаже; если оператор уходит, объект теряет в цене</li><li>за сколько продаются похожие объекты</li><li>сколько аналогов сейчас в продаже</li><li>есть ли свободная иностранная квота для перепродажи</li><li>кто будет покупателем при выходе</li><li>разрешает ли застройщик перепродажу (переуступку) до сдачи и на каких условиях</li></ul></td><td>Определяет возможность и стоимость выхода из инвестиции</td></tr>
+      <tr><td>Эргономика и функциональность</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>планировка и площадь комнат: конструктивные и архитектурные особенности не должны создавать нефункциональные углы, ниши и проходы — за каждый такой метр вы платите батом</li><li>свет, вентиляция, влажность</li><li>шумоизоляция</li><li>места хранения и кладовая</li><li>парковка, балкон</li><li>вид: оценивайте его, когда рядом уже всё построено и вид сохранён; свободный участок рядом — риск соседней застройки, которая закроет вид</li></ul></td><td>Влияет на привлекательность объекта для арендаторов и покупателей</td></tr>
+      <tr><td><b>Итого</b></td><td><b>100%</b></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p><b>Почему юридическая чистота — 20%.</b> Это не просто критерий оценки, а обязательное условие допуска объекта к рассмотрению. Прекрасная локация, привлекательная цена и высокая расчётная доходность не компенсируют проблемы с правами на землю, разрешительной документацией или законностью владения. Поэтому юридические риски проверяются не только баллами, но и по принципу стоп-фактора.</p>
+  <p><b>Как оценивать.</b> Каждый критерий оценивается по шкале от 1 до 10: 1–2 — критически плохо; 3–4 — ниже рыночного уровня; 5–6 — соответствует рынку; 7–8 — лучше большинства конкурентов; 9–10 — исключительное преимущество. Итоговая оценка — сумма баллов, умноженных на веса: <b>S = Σ (вес × балл) / 100</b>. Например, 8 баллов за локацию с весом 20% дают в итог 1,6 балла.</p>
+  <p class="rule-box"><b>ПРАВИЛО 1:</b> высокий общий балл не компенсирует критический недостаток. Объект может получить 8,5 из 10, но иметь неустранённые юридические проблемы — такой объект нельзя рекомендовать к покупке.</p>
+  <p class="rule-box"><b>ПРАВИЛО 2:</b> веса зависят от инвестиционной стратегии. Для сдачи в аренду важнее всего локация, цена и управление; для перепродажи — цена, ликвидность и локация; для долгосрочного сохранения капитала — юридическая чистота, локация и застройщик; для собственного проживания — локация, эргономика и качество строительства.</p>
+  <p>Выберите стратегию, поставьте баллы своему объекту — модель посчитает итог. Веса для стратегий — ориентир, их можно изменить.</p>
   </div>
   <div class="prose">
-  <h2 id="author" style="color:var(--head)">О составителе</h2>
-  <div class="view-box"><p>Исследую Таиланд и живу на Пхукете. Моя миссия — быть проводником в мире информации: находить важное, раскрывать то, что остаётся за кадром, и делиться знаниями и практическим опытом.</p><p>Меня интересует не только то, что происходит, но и почему это происходит, кто стоит за процессами, чьи интересы они отражают и к каким последствиям приводят.</p><p class="sig">— Лина Ли</p></div>
+  <h2 id="score-data">Локация: балл считается сам</h2>
+  <p>Выберите, что для вас важнее: море или школа и спорт. Слева — расстояние до пляжа и высота над уровнем моря, справа — расстояние до международной школы или спортивного объекта. Заполняется что-то одно: если ввести метры до пляжа, поле школы очистится, и наоборот. Балл за локацию проставится в калькуляторе автоматически, его всегда можно поправить вручную.</p>
   </div>
+  <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
+  <div class="calc" id="sd">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">Локация</legend>
+      <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">МОРЕ</span></div>
+          <div class="f"><label for="d-sea">До пляжа, м — по дороге, а не по прямой</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div class="f"><label for="d-elev">Высота над уровнем моря, м</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+        </div>
+        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">ШКОЛА / СПОРТ</span></div>
+          <div class="f"><label for="d-school">До международной школы или спортивного объекта, м — по дороге</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+        </div>
+      </div>
+      <div class="sd-out" id="o-loc"></div>
+      <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
+        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 10 баллов; до 600 м — 9; до 1 км — 8; до 2 км — 7; до 3 км — 6; до 5 км — 5; дальше 5 км — 4.</p>
+        <div id="loc-help-sea" hidden>
+          <p style="margin:0 0 8px">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до пляжа: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
+          <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
+            <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">Высота</th><th style="text-align:left;padding:4px 10px">У моря (до 300 м)</th><th style="text-align:left;padding:4px 10px">В 1 км</th><th style="text-align:left;padding:4px 10px">В 3 км</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:3px 10px 3px 0">0 м</td><td style="padding:3px 10px">−4</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">2 м</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">5 м</td><td style="padding:3px 10px">−1</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">10 м</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">20 м и выше</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Важно:</b> 10 баллов за 300 м до пляжа не означают, что у самого моря селиться всегда хорошо. В низинах — ниже 5 м над уровнем моря — у моря лучше не селиться от слова совсем: это зона риска цунами и подтоплений. Посмотрите <a href="../tourism/#tsunami">карту высот Пхукета</a> на странице «Туризм».</p>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="calc" id="sc">
+    <div>
+      <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
+        <option value="base">Базовая модель</option>
+        <option value="rent">Сдача в аренду</option>
+        <option value="resale">Перепродажа</option>
+        <option value="keep">Долгосрочное сохранение капитала</option>
+        <option value="live">Собственное проживание</option>
+      </select></div>
+      <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">(пока цель не определена)</div>
+      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Критерий</span><span>Балл 1–10</span><span>Вес, %</span></div>
+      <div id="s-rows"></div>
+      <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">Есть неустранённые юридические проблемы (стоп-фактор)</label></div>
+    </div>
+    <div class="res" aria-live="polite">
+      <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
+      <div style="color:var(--muted);font-size:.9rem">(итоговая оценка объекта)</div>
+      <div style="margin:.2rem 0 .2rem" id="s-verdict">—</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem">Высокая оценка — необходимое, но не достаточное условие для покупки.</div>
+      <div id="s-contrib"></div>
+      <div class="row"><span>Сумма весов</span><span id="s-wsum">100%</span></div>
+      <div id="s-warn" style="margin-top:.8rem;font-size:.9rem"></div>
+    </div>
+  </div>
+  <p class="prose" style="font-size:.88rem;color:var(--muted)">Модель помогает сравнивать объекты между собой по одним правилам, но не заменяет юридическую проверку, осмотр объекта и расчёт доходности. Баллы — ваша оценка, поэтому сравнивайте объекты, оценённые одним человеком по одним критериям.</p>
+  <div class="prose">
+  <p class="rule-box"><b>ПРАВИЛО:</b> модель отсеивает слабые объекты и помогает сравнить сильные, но решение о покупке принимается только после проверки всех условий.</p>
+  </div>
+<script>
+(function(){
+  var C=[["loc","Локация"],["price","Цена за м²"],["dev","Застройщик и качество строительства"],["legal","Юридическая чистота"],["mgmt","Управление и содержание"],["liq","Ликвидность"],["erg","Эргономика и функциональность"]];
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
+  var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
+  var rows=document.getElementById("s-rows"),h="";
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 64px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"></div>';});
+  rows.innerHTML=h;
+  var strat=document.getElementById("s-strat");
+  function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
+  function f1(x){return x.toFixed(1).replace(".",",");}
+  function setW(){document.getElementById("s-basenote").hidden=strat.value!=="base";W[strat.value].forEach(function(w,i){document.getElementById("s-w-"+C[i][0]).value=w;});}
+  function calc(){
+    var S=0,ws=0,ch="",crit=[];
+    C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
+      ch+='<div class="row"><span>'+c[1]+'</span><span>'+f1(k)+'</span></div>'; if(r<=2)crit.push(c[1]);});
+    var stop=document.getElementById("s-stop").checked;
+    if(ws>0&&ws!==100)S=S*100/ws;
+    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> из 10';
+    document.getElementById("s-contrib").innerHTML=ch;
+    var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
+    var vd;
+    if(stop) vd="<b style='color:#c0392b'>Стоп-фактор: объект не рассматривается, независимо от баллов</b>";
+    else if(crit.length) vd="<b style='color:#c0392b'>Критический недостаток — высокий балл его не компенсирует</b>";
+    else if(S>=8.5) vd="Сильный объект: исключительные преимущества";
+    else if(S>=7) vd="Лучше большинства конкурентов";
+    else if(S>=5) vd="Соответствует рынку";
+    else if(S>=3) vd="Ниже рыночного уровня";
+    else vd="Критически слабый объект";
+    document.getElementById("s-verdict").innerHTML=vd;
+    var wn=[];
+    if(crit.length) wn.push("Оценка 1–2: "+crit.join(", ")+".");
+    if(ws!==100) wn.push("Сумма весов не равна 100% — итог пересчитан пропорционально.");
+    document.getElementById("s-warn").textContent=wn.join(" ");
+  }
+  strat.addEventListener("change",function(){setW();calc();});
+  document.getElementById("sc").addEventListener("input",calc);
+  // --- автоматические баллы ---
+  function num(id){var e=document.getElementById(id);if(!e||e.value==="")return null;var x=parseFloat(e.value);return isFinite(x)?x:null;}
+  function pw(x,P){if(x<=P[0][0])return P[0][1];for(var i=1;i<P.length;i++){if(x<=P[i][0]){var a=P[i-1],b=P[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}}return P[P.length-1][1];}
+  function avg(L){var sw=0,s=0;L.forEach(function(p){if(p[0]!==null){s+=p[0]*p[1];sw+=p[1];}});return sw?s/sw:null;}
+  function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
+  function autoScores(){
+    var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
+    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
+    if(sea===null&&sch===null){out.textContent=h!==null?"Введите расстояние до пляжа — поправка на высоту считается от него.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
+    if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
+    var sc=Math.max(1,base-pen),f=function(x){return String(x).replace(".",",");},parts=[];
+    if(ss!==null)parts.push("море "+ss);if(sc0!==null)parts.push("школа "+sc0);if(pen)parts.push("штраф за низину −"+f(pen));
+    out.innerHTML="→ балл за локацию <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Низина у моря: ниже 5 м над уровнем моря — зона риска цунами и подтоплений.</span>':"")+(h!==null&&sea===null?'<br>Чтобы учесть высоту, введите расстояние до пляжа.':"");
+    inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";
+    calc();
+  }
+  document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
+  document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
+  (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
+    sd.addEventListener("focusin",function(e){hp.hidden=false;hs.hidden=!(e.target.id==="d-sea"||e.target.id==="d-elev"||(hs.contains(e.target)));});
+    var keep=false;sd.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    sd.addEventListener("focusout",function(){setTimeout(function(){if(!keep&&!sd.contains(document.activeElement)){hp.hidden=true;hs.hidden=true;}},0);});
+    document.addEventListener("pointerdown",function(e){if(!sd.contains(e.target)){hp.hidden=true;hs.hidden=true;}});})();
+  document.getElementById("sd").addEventListener("input",autoScores);
+  document.getElementById("sd").addEventListener("change",autoScores);
+  strat.addEventListener("change",autoScores);
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="Изменено вручную";}});
+  setW();calc();
+})();
+</script>
 </section>
 
 </main>
