@@ -303,27 +303,29 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
-    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">Локация</legend>
-      <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="margin:0 auto;padding:4px 16px">Введите данные</legend>
+      <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div class="sd-vs" style="display:grid;grid-template-columns:1fr;gap:0;align-items:start">
         <div>
           <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">МОРЕ</span></div>
           <div class="f"><label for="d-sea">До пляжа, м — по дороге, а не по прямой</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
           <div class="f"><label for="d-elev">Высота над уровнем моря, м</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
         </div>
-        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
+        <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px;text-align:center">vs</div>
         <div>
           <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">ШКОЛА / СПОРТ</span></div>
           <div class="f"><label for="d-school">До международной школы или спортивного объекта, м — по дороге</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
-      <div style="margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)">
+      </div><div style="margin:0">
         <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="background:#fbefb3;border-radius:7px;padding:4px 14px">Окружение</span></div>
-        <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px">
+        <div style="display:grid;grid-template-columns:1fr;gap:6px">
           <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">+0,5 балла за каждую галочку</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">В комплексе есть бассейн</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">Рядом всё уже построено</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">Кафе, рестораны и магазин в пешей доступности</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">Больница или клиника в 15 минутах езды</label></div>
           <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">Минусы</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">Рядом строятся похожие объекты (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">Шум: аэропорт, стройка, ночная жизнь (−0,5)</label></div>
         </div>
       </div>
-      <div class="sd-out" id="o-loc"></div>
+      </div>
+      <div class="sd-out" id="o-loc" style="margin-top:8px"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
         <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 8 баллов; до 600 м — 7; до 1 км — 6; до 3 км — 5; до 5 км — 4; дальше 5 км — 3. Ещё до 2 баллов дают галочки окружения — по 0,5 за каждую. Минусы: похожие объекты строятся рядом — −1, шум — −0,5. Итог не больше 10 и не меньше 1.</p>
         <div id="loc-help-sea" hidden>
@@ -343,7 +345,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       </div>
     </fieldset>
   </div>
-<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}</style>
+<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel input[type=number]{background:#fff}#loc-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#loc-panel .loc-2col{grid-template-columns:1fr!important}#loc-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}</style>
   <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
@@ -450,6 +452,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
     inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
     document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});})();
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(!t.id||t.id.indexOf("s-w-")!==0)return;var o=0;C.forEach(function(c){if("s-w-"+c[0]!==t.id){var x=parseFloat(document.getElementById("s-w-"+c[0]).value);if(isFinite(x))o+=x;}});var v=parseFloat(t.value);if(isFinite(v)&&v+o>100){t.value=Math.max(0,100-o);t.style.outline="2px solid #e0a100";setTimeout(function(){t.style.outline="";},700);}},true);
   setW();calc();
 })();
 </script>
