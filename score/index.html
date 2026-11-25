@@ -325,7 +325,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 8 баллов; до 600 м — 7; до 1 км — 6; до 2 км — 5; до 3 км — 4; до 5 км — 3; дальше 5 км — 2. Ещё до 2 баллов дают галочки окружения — по 0,5 за каждую. Минусы: похожие объекты строятся рядом — −1, шум — −0,5. Итог не больше 10 и не меньше 1.</p>
+        <p style="margin:0 0 8px">Шкала расстояния одинаковая для моря, школы и спортивного объекта: до 300 м — 8 баллов; до 600 м — 7; до 1 км — 6; до 3 км — 5; до 5 км — 4; дальше 5 км — 3. Ещё до 2 баллов дают галочки окружения — по 0,5 за каждую. Минусы: похожие объекты строятся рядом — −1, шум — −0,5. Итог не больше 10 и не меньше 1.</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">Высота над уровнем моря работает как обратная поправка: чем ниже участок и чем ближе он к морю, тем сильнее штраф. Связь нелинейная — штраф быстро растёт на последних метрах высоты: <b>штраф = 4 × e<sup>−высота/4</sup> × k</b>, где k зависит от расстояния до пляжа: до 300 м — 1; до 600 м — 0,8; до 1 км — 0,6; до 2 км — 0,4; до 3 км — 0,25; дальше — 0,15. Итог округляется до 0,5 и не опускается ниже 1.</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
@@ -343,7 +343,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       </div>
     </fieldset>
   </div>
-<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:rgba(255,255,255,.6)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#loc-panel .sd-vs{grid-template-columns:1fr!important}#loc-panel .sd-vs>div:nth-child(2){text-align:center;padding:2px 0 8px!important}</style>
+<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}</style>
   <div class="calc" id="sc">
     <div>
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="background:#b8e994;color:inherit;padding:0 .3em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
@@ -416,7 +416,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
-    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=2000?5:d<=3000?4:d<=5000?3:2;}
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=3000?5:d<=5000?4:3;}
     var nb=document.querySelectorAll(".e-plus:checked").length,bon=nb*0.5,mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0);
     if(sea===null&&sch===null){out.textContent=h!==null?"Введите расстояние до пляжа — поправка на высоту считается от него.":(nb||mn?"Введите расстояние до пляжа или школы — галочки окружения добавляются к нему.":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
@@ -443,7 +443,8 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   (function(){var inp=document.getElementById("s-r-loc"),row=inp.parentNode,sd=document.getElementById("sd"),hd=document.getElementById("score-data").parentNode,stl=hd.nextElementSibling;
     var pan=document.createElement("div");pan.id="loc-panel";pan.hidden=true;
     pan.appendChild(hd);if(stl&&stl.tagName==="STYLE")pan.appendChild(stl);pan.appendChild(sd);row.parentNode.insertBefore(pan,row.nextSibling);
-    var keep=false,show=function(){pan.hidden=false;},hide=function(){pan.hidden=true;};
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
     inp.addEventListener("focus",show);inp.addEventListener("click",show);
     pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
     var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
