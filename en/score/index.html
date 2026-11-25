@@ -278,7 +278,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="tbl"><table>
     <thead><tr><th>Criterion</th><th>Weight</th><th style="width:42%">What to assess</th><th>Why this weight</th></tr></thead>
     <tbody>
-      <tr><td>Location</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>distance to the sea or an international school by road</li><li>elevation above sea level: tsunami and flooding risk</li><li>shops, a hospital, restaurants nearby</li><li>sports facilities nearby: a gym, swimming pool, tennis, golf, Muay Thai</li><li>the road and travel time in high season</li><li>noise: the airport, construction, nightlife</li><li>how many similar properties are being built nearby</li></ul></td><td>Shapes demand, rental potential and long-term appeal</td></tr>
+      <tr><td>Location</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>distance to the beach or an international school by road</li><li>elevation above sea level: tsunami and flooding risk</li><li>shops, a hospital, restaurants nearby</li><li>sports facilities nearby: a gym, swimming pool, tennis, golf, Muay Thai</li><li>the road and travel time in high season</li><li>noise: the airport, construction, nightlife</li><li>how many similar properties are being built nearby</li></ul></td><td>Shapes demand, rental potential and long-term appeal</td></tr>
       <tr><td>Price per m²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>price per m² against the average for similar properties in the area</li><li>what the price includes: furniture, taxes and fees on purchase</li><li>payment terms and instalments</li><li>discounts and bonuses — is the base price inflated</li></ul></td><td>Determines the entry cost and the margin of competitiveness</td></tr>
       <tr><td>Developer and construction quality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>how many projects have already been completed</li><li>how many of them were completed without delays</li><li>how many lawsuits with buyers</li><li>local developer or with foreign participation, how many years on the market</li><li>management: who makes decisions, is it open to dialogue</li><li>financial statements in the DBD register</li><li>quality of completed projects: inspection, owner reviews</li><li>seismic resistance: designed to the standard for zone 2</li></ul></td><td>Affect project delivery, asset quality and extra costs</td></tr>
       <tr><td>Legal clarity</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>land title: Chanote or other</li><li>form of ownership: freehold in the foreign quota or leasehold</li><li>building permit and EIA</li><li>condominium registration</li><li>mortgages and other encumbrances</li><li>the contract: deadlines, penalties, guarantees, promises in writing</li></ul></td><td>Protects ownership rights and the capital invested</td></tr>
@@ -297,7 +297,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <div class="prose">
   <h2 id="score-data">Location: the score is calculated automatically</h2>
-  <p>Choose what matters more to you: the sea, or a school and sports. On the left — the distance to the beach and the elevation above sea level; on the right — the distance to an international school or a sports facility. Fill in only one: if you enter metres to the sea, the school field is cleared, and vice versa. The location score is entered in the calculator automatically, and you can always adjust it by hand.</p>
+  <p>Choose what matters more to you: the sea, or a school and sports. On the left — the distance to the beach and the elevation above sea level; on the right — the distance to an international school or a sports facility. Fill in only one: if you enter metres to the beach, the school field is cleared, and vice versa. The location score is entered in the calculator automatically, and you can always adjust it by hand.</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -305,7 +305,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 20px;align-items:start">
         <div>
           <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#b9ebe4;border-radius:7px;padding:4px 14px">SEA</span></div>
-          <div class="f"><label for="d-sea">To the sea (beach), m — by road, not in a straight line</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div class="f"><label for="d-sea">To the beach, m — by road, not in a straight line</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
           <div class="f"><label for="d-elev">Elevation above sea level, m</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
         </div>
         <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
@@ -318,7 +318,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
         <p style="margin:0 0 8px">The distance scale is the same for the sea, a school and a sports facility: up to 300 m — 10 points; up to 600 m — 9; up to 1 km — 8; up to 2 km — 7; up to 3 km — 6; up to 5 km — 5; beyond 5 km — 4.</p>
         <div id="loc-help-sea" hidden>
-          <p style="margin:0 0 8px">Elevation above sea level works as an inverse adjustment: the lower the plot and the closer it is to the sea, the bigger the penalty. The relationship is non-linear — the penalty grows quickly over the last metres of elevation: <b>penalty = 4 × e<sup>−elevation/4</sup> × k</b>, where k depends on the distance to the sea: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; beyond — 0.15. The result is rounded to 0.5 and never falls below 1.</p>
+          <p style="margin:0 0 8px">Elevation above sea level works as an inverse adjustment: the lower the plot and the closer it is to the sea, the bigger the penalty. The relationship is non-linear — the penalty grows quickly over the last metres of elevation: <b>penalty = 4 × e<sup>−elevation/4</sup> × k</b>, where k depends on the distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; beyond — 0.15. The result is rounded to 0.5 and never falls below 1.</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
             <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">Elevation</th><th style="text-align:left;padding:4px 10px">By the sea (up to 300 m)</th><th style="text-align:left;padding:4px 10px">1 km away</th><th style="text-align:left;padding:4px 10px">3 km away</th></tr></thead>
             <tbody>
@@ -407,12 +407,12 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
     function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
-    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the sea — the elevation adjustment is based on it.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the beach — the elevation adjustment is based on it.":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
     if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
     var sc=Math.max(1,base-pen),f=function(x){return String(x);},parts=[];
     if(ss!==null)parts.push("sea "+ss);if(sc0!==null)parts.push("school "+sc0);if(pen)parts.push("low-lying penalty −"+f(pen));
-    out.innerHTML="→ location score <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Low-lying land by the sea: below 5 m above sea level is a tsunami and flooding risk zone.</span>':"")+(h!==null&&sea===null?'<br>To take elevation into account, enter the distance to the sea.':"");
+    out.innerHTML="→ location score <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Low-lying land by the sea: below 5 m above sea level is a tsunami and flooding risk zone.</span>':"")+(h!==null&&sea===null?'<br>To take elevation into account, enter the distance to the beach.':"");
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";
     calc();
   }
