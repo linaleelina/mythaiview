@@ -297,6 +297,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="prose">
   <h2 id="score-data">地段：自动计算得分</h2>
   <p>您的策略决定您的地段：海边和/或学校和/或运动。左侧填写到海滩的距离和海拔高度，右侧填写到国际学校或运动设施的距离。只需填写一项：输入到海滩的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
+  <p class="rule-box"><b>地段的帕累托法则：</b>80%的得分取决于到您最看重的目标的距离：海滩、学校或运动设施（最高8分，满分10分）。20%是其他所有因素的总和：周边环境的加分和扣分（最高2分）。海边低洼扣分单独计算——这是对风险的修正，而不是对便利性的评价。</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -313,9 +314,16 @@ footer{border-top:1px solid var(--line);background:var(--card)}
           <div class="f"><label for="d-school">到国际学校或运动设施的距离，米——按道路计算</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
+      <div style="margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)">
+        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="background:#fbefb3;border-radius:7px;padding:4px 14px">周边环境</span></div>
+        <div class="sd-vs" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 28px">
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">每勾选一项 +0.5分</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">小区内有游泳池</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">周边已全部建成</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">步行可达咖啡馆、餐厅和商店</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">15分钟车程内有医院或诊所</label></div>
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">扣分项</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">附近正在建设同类项目（−1）</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">噪音：机场、施工、夜生活（−0.5）</label></div>
+        </div>
+      </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">海边、学校和运动设施使用同一距离评分标准：300米以内——10分；600米以内——9分；1公里以内——8分；2公里以内——7分；3公里以内——6分；5公里以内——5分；超过5公里——4分。</p>
+        <p style="margin:0 0 8px">海边、学校和运动设施使用同一距离评分标准：300米以内——8分；600米以内——7分；1公里以内——6分；2公里以内——5分；3公里以内——4分；5公里以内——3分；超过5公里——2分。周边环境勾选项最多再加2分——每项0.5分。扣分项：附近在建同类项目——−1分，噪音——−0.5分。总分最高10分，最低1分。</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">海拔高度是一项反向修正：地块越低、离海越近，扣分越多。两者是非线性关系——海拔越接近海平面，扣分增长越快：<b>扣分 = 4 × e<sup>−海拔/4</sup> × k</b>，其中k取决于到海滩的距离：300米以内——1；600米以内——0.8；1公里以内——0.6；2公里以内——0.4；3公里以内——0.25；更远——0.15。结果四舍五入到0.5，最低为1分。</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
@@ -328,7 +336,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
               <tr><td style="padding:3px 10px 3px 0">20米及以上</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
             </tbody>
           </table></div>
-          <p style="margin:0 0 8px;color:var(--ink)"><b>重要：</b>距海滩300米得10分，并不意味着住在海边总是好的。在低洼地带——海拔低于5米——最好完全不要住在海边：这里是海啸和洪水风险区。请参阅<a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">普吉岛海拔地图</a>（UNOSAT，2004年）。</p>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>重要：</b>距海滩300米得8分，并不意味着住在海边总是好的。在低洼地带——海拔低于5米——最好完全不要住在海边：这里是海啸和洪水风险区。请参阅<a href="https://reliefweb.int/map/thailand/elevation-map-phuket-island-thailand-29-december-2004" target="_blank" rel="noopener">普吉岛海拔地图</a>（UNOSAT，2004年）。</p>
         </div>
       </div>
     </fieldset>
@@ -405,16 +413,19 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
   function autoScores(){
     var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
-    function st(d){return d<=300?10:d<=600?9:d<=1000?8:d<=2000?7:d<=3000?6:d<=5000?5:4;}
-    if(sea===null&&sch===null){out.textContent=h!==null?"请输入到海滩的距离——海拔修正以此为依据。":"";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=2000?5:d<=3000?4:d<=5000?3:2;}
+    var nb=document.querySelectorAll(".e-plus:checked").length,bon=nb*0.5,mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0);
+    if(sea===null&&sch===null){out.textContent=h!==null?"请输入到海滩的距离——海拔修正以此为依据。":(nb||mn?"请输入到海滩或学校的距离——周边环境加分会加在距离得分上。":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
     var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
     if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
-    var sc=Math.max(1,base-pen),f=function(x){return String(x);},parts=[];
-    if(ss!==null)parts.push("海边 "+ss);if(sc0!==null)parts.push("学校 "+sc0);if(pen)parts.push("低洼扣分 −"+f(pen));
+    var sc=Math.max(1,Math.min(10,base+bon-mn-pen)),f=function(x){return String(x);},parts=[];
+    if(ss!==null)parts.push("海滩 "+ss+"/8");if(sc0!==null)parts.push("学校/运动 "+sc0+"/8");if(bon||mn)parts.push("周边环境 "+(bon-mn>=0?"+":"−")+f(Math.abs(bon-mn))+"/2");if(pen)parts.push("低洼扣分 −"+f(pen));
     out.innerHTML="→ 地段得分 <b>"+f(sc)+"</b> ("+parts.join("，")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">海边低洼地：海拔低于5米属于海啸和洪水风险区。</span>':"")+(h!==null&&sea===null?'<br>如需考虑海拔，请输入到海滩的距离。':"");
     inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="自动计算";
     calc();
   }
+  document.getElementById("e-p1").addEventListener("change",function(){if(this.checked)document.getElementById("e-cons").checked=false;});
+  document.getElementById("e-cons").addEventListener("change",function(){if(this.checked)document.getElementById("e-p1").checked=false;});
   document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
   document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
   (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
