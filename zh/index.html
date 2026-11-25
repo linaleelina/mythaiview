@@ -277,7 +277,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="tbl"><table>
     <thead><tr><th>标准</th><th>权重</th><th style="width:42%">评估什么</th><th>为什么是这个权重</th></tr></thead>
     <tbody>
-      <tr><td>地段</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>按道路计算到海边或国际学校的距离</li><li>海拔高度：海啸和洪水风险</li><li>附近的商店、医院、餐厅</li><li>道路情况和旺季通行时间</li><li>噪音：机场、施工、夜生活</li><li>附近在建的同类项目数量</li></ul></td><td>决定需求、出租潜力和长期吸引力</td></tr>
+      <tr><td>地段</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>按道路计算到海边或国际学校的距离</li><li>海拔高度：海啸和洪水风险</li><li>附近的商店、医院、餐厅</li><li>附近的运动设施：健身房、游泳池、网球、高尔夫、泰拳馆</li><li>道路情况和旺季通行时间</li><li>噪音：机场、施工、夜生活</li><li>附近在建的同类项目数量</li></ul></td><td>决定需求、出租潜力和长期吸引力</td></tr>
       <tr><td>每平方米价格</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>每平方米价格与区域内同类房产均价对比</li><li>价格包含什么：家具、购房税费</li><li>付款条件和分期</li><li>折扣和赠送——基础价格是否被抬高</li></ul></td><td>决定入场成本和竞争力余量</td></tr>
       <tr><td>开发商与施工质量</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>已交付多少个项目</li><li>其中多少个按期交付、没有延期</li><li>与买家有多少起诉讼</li><li>本地开发商还是有外资参与，在市场上经营多少年</li><li>管理层：由谁决策，是否愿意沟通</li><li>在DBD登记处的财务报表</li><li>已交付项目的质量：实地查看、业主评价</li><li>抗震：是否按2区标准设计</li></ul></td><td>影响项目交付、资产质量和额外支出</td></tr>
       <tr><td>法律清晰度</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>土地证：Chanote还是其他</li><li>所有权形式：外国人配额内的永久产权还是租赁产权</li><li>建筑许可和环境影响评估（EIA）</li><li>公寓法人登记</li><li>抵押及其他负担</li><li>合同：期限、违约金、保证，承诺是否写入书面</li></ul></td><td>保护所有权和投入的资本</td></tr>
@@ -296,7 +296,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
   <div class="prose">
   <h2 id="score-data">地段：自动计算得分</h2>
-  <p>请选择对您更重要的一项：海边还是学校。左侧填写到海滩的距离和海拔高度，右侧填写到国际学校的距离。只需填写一项：输入到海边的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
+  <p>请选择对您更重要的一项：海边，还是学校和运动。左侧填写到海滩的距离和海拔高度，右侧填写到国际学校或运动设施的距离。只需填写一项：输入到海边的米数后，学校一栏会自动清空，反之亦然。地段得分会自动填入计算器，您随时可以手动修改。</p>
   </div>
   <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
   <div class="calc" id="sd">
@@ -309,13 +309,13 @@ footer{border-top:1px solid var(--line);background:var(--card)}
         </div>
         <div style="font-weight:700;color:var(--muted);margin:2px 0 8px;padding:0 4px">vs</div>
         <div>
-          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">学校</span></div>
-          <div class="f"><label for="d-school">到国际学校的距离，米——按道路计算</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="background:#f8c8d8;border-radius:7px;padding:4px 14px">学校 / 运动</span></div>
+          <div class="f"><label for="d-school">到国际学校或运动设施的距离，米——按道路计算</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
         </div>
       </div>
       <div class="sd-out" id="o-loc"></div>
       <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
-        <p style="margin:0 0 8px">海边和学校使用同一距离评分标准：300米以内——10分；600米以内——9分；1公里以内——8分；2公里以内——7分；3公里以内——6分；5公里以内——5分；超过5公里——4分。</p>
+        <p style="margin:0 0 8px">海边、学校和运动设施使用同一距离评分标准：300米以内——10分；600米以内——9分；1公里以内——8分；2公里以内——7分；3公里以内——6分；5公里以内——5分；超过5公里——4分。</p>
         <div id="loc-help-sea" hidden>
           <p style="margin:0 0 8px">海拔高度是一项反向修正：地块越低、离海越近，扣分越多。两者是非线性关系——海拔越接近海平面，扣分增长越快：<b>扣分 = 4 × e<sup>−海拔/4</sup> × k</b>，其中k取决于到海边的距离：300米以内——1；600米以内——0.8；1公里以内——0.6；2公里以内——0.4；3公里以内——0.25；更远——0.15。结果四舍五入到0.5，最低为1分。</p>
           <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
