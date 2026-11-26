@@ -1,279 +1,304 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>人工智能差距图 — 我眼中的泰国</title>
-<meta name="description" content="人工智能技术与驾驭它的能力：2017–2026年的事件标在两条曲线上，从ChatGPT到超级智能阈值。">
-<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<title>我眼中的泰国</title>
+<meta name="description" content="“我眼中的泰国”（My Thai View）是一个独立的科普项目和泰国指南。它帮助在泰国生活、工作、计划移居或考虑投资的人更好地了解当地的规则和实际做法。我用通俗的语言解释复杂的问题，并尽可能注明信息所依据的官方文件和来源。">
+<meta property="og:site_name" content="我眼中的泰国">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: a planning office's war-room ledger — sober, exact, every mark sourced.
-   IDEA: a surveyor's chart of two survey lines drifting apart, pinned with dated events.
-   PICTURE: the two curves C(t) and W(t) with the brick gap between them; a world map of where events happen.
-   COLOUR and TYPE: stone ground, black ink, brick accent for technology power; Schibsted Grotesk.
-   LAYOUT: title + live figures, the big gap chart, map beside the event card, then the ruled ledger, scale, form. */
-:root{color-scheme:light dark;--bg:light-dark(#e7e4df,#171513);--panel:light-dark(#fff,#211e1b);--ink:light-dark(#111,#efebe5);--mute:light-dark(#5e5850,#a59d92);--line:light-dark(#cfc9c0,#3a3530);--brick:#c8371e;--brick2:light-dark(#f0c9bf,#4a2219);--land:light-dark(#d9d4cc,#2c2824)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Schibsted Grotesk",system-ui,sans-serif;overflow-x:clip}
-.band{padding:clamp(24px,3.5vw,52px) max(5vw,16px);max-width:1340px;margin:0 auto}
-h1{font-size:clamp(30px,4.4vw,50px);line-height:1.05;margin:0 0 10px;font-weight:800;text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:24px;line-height:1.15;margin:0 0 12px;font-weight:800}
-.lede{max-width:70ch;color:var(--mute);margin:0}
-.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:22px 0 0}
-.figs div{background:var(--panel);padding:12px 14px}
-.figs b{display:block;font-size:clamp(24px,3vw,34px);line-height:1.1;font-variant-numeric:tabular-nums}
-.figs span{font-size:13px;color:var(--mute)}
-.c{color:var(--brick)}
-.panel{background:var(--panel);border:1px solid var(--line)}
-.fig{position:relative;min-height:380px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
-.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
-.seg{display:inline-flex;border:1px solid var(--ink)}
-.seg button{white-space:nowrap;border:0;background:none;color:var(--ink);font:600 14px/1 inherit;padding:0 14px;min-height:40px;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
-button,input,select,textarea{font:inherit;color:inherit}
-input,select,textarea{font-size:16px;background:var(--bg);border:1px solid var(--line);padding:9px 10px;min-height:44px;width:100%}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--brick);outline-offset:2px}
-.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:700;padding:0 16px;min-height:44px;cursor:pointer}
-.btn.ghost{background:none;color:var(--ink)}
-.chip{font-size:13px;border:1px solid var(--line);padding:6px 10px;background:none;cursor:pointer;min-height:36px}
-.legend{font-size:13px;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
-.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}
-.two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;margin-top:18px}
-@media(max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
-.map{position:relative}.map svg{display:block;width:100%;height:auto}
-.card{padding:16px 18px}
-.card .k{font-size:13px;color:var(--mute)}
-.card h3{font-size:20px;line-height:1.2;margin:6px 0 8px}
-.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 8px;border:1px solid currentColor;margin-right:6px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th{text-align:left;font-size:13px;color:var(--mute);font-weight:600;border-bottom:2px solid var(--ink);padding:8px 10px}
-td{border-bottom:1px solid var(--line);padding:10px;vertical-align:top}
-td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
-td.d{white-space:nowrap;font-variant-numeric:tabular-nums}
-tr.sel td{background:var(--brick2)}
-tbody tr{cursor:pointer}
-.src{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
-a{color:inherit}
-.scale{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.scale ol{margin:0;padding-left:0;list-style:none}.scale li{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}
-.scale li b{font-variant-numeric:tabular-nums}
-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-form label{font-size:13px;color:var(--mute);display:grid;gap:4px}
-form .wide{grid-column:1/-1}
-.msg{font-size:14px;min-height:1.4em}
-.note{font-size:13px;color:var(--mute);max-width:80ch}
-details summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
-.scroll{overflow-x:auto}
-.shift{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}.shift li{margin-bottom:6px}
-.cols{columns:2 340px;column-gap:40px}.cols li{break-inside:avoid}
-.empty{padding:40px 16px;text-align:center;color:var(--mute)}
-@media(max-width:600px){.seg button{padding:0 10px;font-size:13px}table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;white-space:normal;color:var(--mute)}.stack td:empty{display:none}.stack td.n{text-align:start}}
-@media(prefers-reduced-motion:no-preference){.dot{transition:r .2s}}
+/* Layout: шапка с разделами, одна колонка текста ~68ch, таблицы и плашки «важно» на полях цвета шафрана */
+:root{--head:#2f56b0;
+  --ink:#16233b;
+  --paper:#f4f6f9;
+  --card:#ffffff;
+  --muted:#5a6478;
+  --line:#d9dee7;
+  --accent:#b9770e;
+  --accent-soft:#fbf1df;
+  --teal:#0f6b6b;
+  --warn:#9c2f2f;
+  --warn-soft:#fbe9e7;
+  --ok:#1f6b3a;
+  --ok-soft:#e5f3ea;
+  --blue:#1f4fa8;
+  --blue-soft:#e8effb;
+  --display:"Unbounded", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Arial Black", system-ui, sans-serif;
+  --body:"Golos Text", "PT Sans", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+    --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+    --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d; --head:#8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e7ebf2; --paper:#0f1522; --card:#172033; --muted:#9aa5ba; --line:#2a3550;
+  --accent:#e3a443; --accent-soft:#2e2414; --teal:#4fc1bd;
+  --warn:#f08a80; --warn-soft:#351a1a; --ok:#6fd194; --ok-soft:#14291d; --blue:#7fa8f0; --blue-soft:#16223d;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:2.2rem 0 .7rem}
+#v-property h2,#v-property h3,#v-invest h2,#v-invest h3,#v-rights h2,#v-rights h3,#v-buying h2,#v-buying h3,#v-renting h2,#v-renting h3,#v-check h2,#v-check h3,#v-exit h2,#v-exit h3,#v-tokens h2,#v-tokens h3,#v-decide h2,#v-decide h3{color:var(--head)}
+h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
+p{margin:.5rem 0 .9rem}
+.num{font-variant-numeric:tabular-nums}
+
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top .bar{padding-top:30px;padding-bottom:30px}
+@media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
+.logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+nav.main{background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang{margin-left:auto;display:flex;gap:2px;background:rgba(255,252,245,.94);border-radius:12px;padding:4px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
+.lang a{padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;letter-spacing:.03em}
+.lang a:hover{color:var(--ink)}
+.lang a[aria-current]{background:#2f56b0;color:#fff}
+@media (max-width:720px){.lang{order:2}nav.main{order:3}}
+.bar{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.logo .mark{width:28px;height:28px;border-radius:6px;background:#e2572e;color:#fff;display:grid;place-items:center;font-size:.8rem}
+nav.main{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav.main a{flex:none;padding:7px 11px;border-radius:7px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.93rem}
+nav.main a:hover{color:var(--ink);background:var(--paper)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+.subbar{border-top:1px solid var(--line);background:var(--paper)}
+.subbar[hidden]{display:none}
+nav.sub{max-width:1080px;margin:0 auto;padding:6px 20px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.sub a{flex:none;padding:5px 10px;border-radius:6px;text-decoration:none;color:var(--muted);font-size:.88rem}
+nav.sub a:hover{color:var(--ink)}
+nav.sub a[aria-current="page"]{color:var(--ink);font-weight:600}
+#subbar nav.sub a,#subbar-prop nav.sub a,#subbar-banks nav.sub a,#subbar-analytics nav.sub a{text-align:center;line-height:1.25;display:flex;align-items:center}
+
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+.view{display:none}
+.view.active{display:block}
+.prose{max-width:70ch}
+.lead{font-size:1.14rem;color:var(--muted)}
+.stamp{display:inline-block;font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:.9rem;background:var(--card)}
+
+.primer{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:18px 22px 6px;margin:0 0 2rem}
+.primer-title{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.3;color:var(--teal);text-wrap:balance}
+.primer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.primer h3{margin-top:1rem}
+.primer li{font-size:.95rem}
+@media (max-width:720px){.primer-grid{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1.4rem 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile .v{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.tile .k{color:var(--muted);font-size:.9rem;line-height:1.35}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1rem 0 1.6rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card b{font-size:1.04rem}
+.card span{color:var(--muted);font-size:.93rem;line-height:1.45}
+
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:1rem 0;max-width:70ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+.note.blue{border-color:var(--blue);background:var(--blue-soft)}
+.note.blue .note-title{color:var(--blue);font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.3;margin-bottom:.5rem}
+.note p{margin:.3rem 0}
+.who{display:inline-block;margin-top:4px;font-size:.84rem;color:var(--muted)}
+.pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 9px;border-radius:999px;vertical-align:2px}
+.pill.law{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:var(--warn-soft);color:var(--warn)}
+.pill.temp{background:var(--accent-soft);color:var(--accent)}
+
+.tbl{overflow-x:auto;margin:.8rem 0 1.2rem;max-width:860px}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.86rem;background:var(--paper)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+li{margin:.25rem 0}
+
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1rem 0 1.5rem;max-width:900px}
+.calc .f{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.calc label{font-size:.9rem;font-weight:600}
+.calc .hint{font-size:.82rem;color:var(--muted)}
+.calc input,.calc select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.calc .chk{flex-direction:row;align-items:center;gap:8px}
+.res{background:var(--paper);border-radius:10px;padding:16px}
+.mr-head{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;max-width:980px;margin:1rem 0 .3rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mr{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;max-width:980px;margin:10px 0}
+.mr-m{background:var(--warn-soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:.95rem}
+.mr-m+.mr-m{margin-top:8px}
+.mr-m b{color:var(--warn)}
+.mr-arrow{display:flex;justify-content:center}
+.mr-arrow svg{width:40px;height:20px}
+.mr .rule-box{margin:0}
+@media (max-width:720px){.mr,.mr-head{grid-template-columns:1fr}.mr-head span:nth-child(2),.mr-head span:nth-child(3){display:none}.mr-arrow svg{transform:rotate(90deg);margin:4px 0}}
+.pc-row{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin:12px 0;display:grid;grid-template-columns:44px 1fr;gap:12px;max-width:960px}
+.pc-n{width:36px;height:36px;border-radius:50%;background:var(--head);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.pc-t{font-weight:700;margin-bottom:6px}
+.pc-chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 8px}
+.pc-s{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:.88rem}
+.pc-s.th{background:var(--blue-soft,#e8eefb);border-color:var(--head);color:var(--head)}
+.pc-a{color:var(--muted);font-size:.9rem}
+.pc-f{font-size:.82rem;color:var(--muted)}
+.pc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.pc-b{font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 10px}
+.pc-b.ok{background:var(--ok-soft);color:var(--ok)}.pc-b.no{background:var(--warn-soft);color:var(--warn)}.pc-b.mid{background:var(--accent-soft);color:#8a5a00}
+.pc-cost{font-size:.85rem;letter-spacing:2px}
+.pc-note{font-size:.9rem;margin-top:6px}
+.fx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;font-size:1.15rem;text-align:center;margin:1rem 0;padding:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap}
+.fx i{font-style:italic}.fx .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}.fx .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+#asi-chart{width:100%;height:auto;max-width:900px;display:block;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#v-analytics h2,#v-asi h2{color:var(--head)}
+.res .big{font-family:var(--display);font-size:1.9rem;font-weight:700}
+.res .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.res .row:last-child{border-bottom:0}
+.res .row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.bars div{display:grid;grid-template-columns:62px 1fr 92px;gap:8px;align-items:center;font-size:.82rem}
+.bars i{display:block;height:10px;border-radius:3px;background:var(--accent);min-width:1px}
+.bars em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+dl.gl{display:grid;grid-template-columns:minmax(150px,240px) 1fr;gap:6px 18px;max-width:860px}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot{max-width:1080px;margin:0 auto;padding:24px 20px;font-size:.9rem;color:var(--muted)}
+.foot>div{max-width:80ch}
+.foot .src{margin-top:10px;font-size:.84rem;line-height:1.5}
+.foot b{color:var(--ink)}
+
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  dl.gl{grid-template-columns:1fr}
+  dl.gl dd{margin-bottom:8px}
+  .bar{flex-wrap:wrap;gap:8px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.rule-box{background:rgba(255,252,245,.94);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px;margin:1.2rem 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rule-box{background:var(--card)}}
+.view-box{background:rgba(255,252,245,.94);border-left:5px solid var(--head);border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18);padding:14px 18px 10px;margin:1.2rem 0}
+.view-box p{margin:0}
+.view-box .sig{text-align:right;font-style:italic;color:var(--head);margin-top:.4rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .view-box{background:var(--card)}}
+[id]{scroll-margin-top:120px}
+.motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
 </style>
-<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+<script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/">
 </head>
 <body>
-<header class="band" style="padding-bottom:0">
-  <p style="margin:0 0 18px;font-size:14px"><span style="float:right"><b>中文</b> | <a href="../../en/gap/" hreflang="en" lang="en">EN</a> | <a href="../../gap/" hreflang="ru" lang="ru">RU</a></span><a href="../">← 我眼中的泰国</a> · <a href="../asi/">ASI过滤器</a> · <a href="../analytics/">分析</a></p>
-  <h1>技术的增长快于人类驾驭它的能力</h1>
-  <p class="lede">每个事件都会推动两条曲线之一： <b class="c">C(t)</b> ——人工智能技术的力量，或 <b>W(t)</b> ——人类驾驭技术的能力：法律、条约、安全机构。两条曲线都是0到5的等级：ChatGPT为1级，超级智能（ASI）为5级，即模型 <a href="../asi/">“ASI过滤器”</a>中的阈值。通过过滤器，意味着W不晚于C达到5级。</p>
-  <p class="note" style="margin:12px 0 0;padding:10px 14px;border-left:3px solid var(--brick);background:var(--panel)">事件每周更新一次。最近更新：2026年11月23日。以后这里将推出自动更新的在线版本。</p>
-  <div class="figs" id="figs"></div>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="./"><span class="mark">泰</span>我眼中的泰国</a>
+    <nav class="main" aria-label="栏目">
+      <a aria-current="page" href="./">首页</a>
+      <a href="taxes/" data-group="taxes">税务</a>
+      <a href="property/" data-group="property">房产</a>
+      <a href="banks/" data-group="banks">货币</a>
+      <a href="tourism/">旅游</a>
+    </nav>
+    <nav class="lang" aria-label="Language"><a href="./" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">中文</a><a href="../en/" hreflang="en" lang="en">EN</a><a href="../" hreflang="ru" lang="ru">RU</a></nav>
+  </div>
+  <div class="subbar" id="subbar" hidden>
+    <nav class="sub" aria-label="税收">
+      <a href="taxes/">概览</a>
+      <a href="residency/">税务居民</a>
+      <a href="pit/">个人<br>所得税</a>
+      <a href="pitcalc/">税款<br>计算器</a>
+      <a href="visas/">签证<br>与优惠</a>
+      <a href="business/">企业</a>
+      <a href="tfrs/">财务<br>报告准则</a>
+      <a href="calendar/">税务日历</a>
+      <a href="glossary/">术语表</a>
+      <a href="docs/">文件</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-prop" hidden>
+    <nav class="sub" aria-label="房产">
+      <a href="property/">概览</a>
+      <a href="invest/">普吉岛<br>投资</a>
+      <a href="decide/">如何<br>做决定</a>
+      <a href="check/">核查<br>开发商</a>
+      <a href="rights/">产权<br>与持有形式</a>
+      <a href="buying/">购房<br>与费用</a>
+      <a href="renting/">出租</a>
+      <a href="exit/">出售<br>与退出</a>
+      <a href="tokens/">房地产<br>代币</a>
+      <a href="score/">评分<br>模型</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-banks" hidden>
+    <nav class="sub" aria-label="货币">
+      <a href="banks/">概览</a>
+      <a href="moneyflow/">货币<br>循环</a>
+      <a href="bot/">泰国<br>央行</a>
+      <a href="banksystem/">银行<br>体系</a>
+      <a href="bangkokbank/">盘谷<br>银行</a>
+      <a href="payments/">支付<br>体系</a>
+      <a href="propertypay/">房产<br>付款</a>
+      <a href="emoney/">电子<br>货币</a>
+      <a href="crypto/">加密货币<br>交易所</a>
+      <a href="amlo/">AMLO</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-analytics" hidden>
+    <nav class="sub" aria-label="分析">
+      <a href="analytics/">概览</a>
+      <a href="consumption/">消费</a>
+      <a href="focus/">找回<br>注意力</a>
+      <a href="future/">未来<br>经济</a>
+      <a href="asi/">ASI<br>过滤器</a>
+    </nav>
+  </div>
 </header>
 
-<main class="band">
-  <section class="panel">
-    <div class="bar">
-      <div class="seg" role="group" aria-label="事件类型">
-        <button type="button" data-k="all" aria-pressed="true">全部</button>
-        <button type="button" data-k="C" aria-pressed="false">C 技术</button>
-        <button type="button" data-k="W" aria-pressed="false">W 治理</button>
-      </div>
-      <button type="button" class="chip" id="clearCountry" hidden></button>
-      <label class="chip" style="display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="trendT" checked style="width:auto;min-height:0">趋势</label>
-      <div class="legend"><span><i style="background:var(--brick)"></i>C(t) 技术力量</span><span><i style="background:var(--ink)"></i>W(t) 治理能力</span><span><i style="background:var(--brick2);height:10px"></i>差距</span><span><i style="background:repeating-linear-gradient(90deg,var(--mute) 0 6px,transparent 6px 10px)"></i>趋势</span></div>
-    </div>
-    <div class="fig" id="chart" aria-label="带事件的C和W曲线图"><svg id="cs" role="img"></svg></div>
-  </section>
+<main>
 
-  <div class="two">
-    <section class="panel">
-      <div class="bar"><b>事件发生在哪里</b><span class="note" style="margin-left:auto">点击国家进行筛选</span></div>
-      <div class="map" id="map"></div>
-    </section>
-    <section class="panel card" id="card" aria-live="polite"></section>
+<section class="view active" id="v-home">
+  <h1>我眼中的泰国</h1>
+  <p class="motto">实质重于形式</p>
+  <p class="lead prose">“我眼中的泰国”（My Thai View）是一个独立的科普项目和泰国指南。它帮助在泰国生活、工作、计划移居或考虑投资的人更好地了解当地的规则和实际做法。我用通俗的语言解释复杂的问题，并尽可能注明信息所依据的官方文件和来源。</p>
+  <div class="cards">
+    <a class="card" style="background:#f1e2cb;border-color:#f1e2cb" href="taxes/"><b>税务</b><span>税务居民身份、个人所得税、企业、享有税收优惠的签证、税务日历和术语表</span></a>
+    <style>.card-st{position:relative}.card-st .st-main{color:inherit;text-decoration:none}.card-st .st-main::after{content:"";position:absolute;inset:0;border-radius:10px}.card-st .st-sub{position:relative;z-index:1;color:var(--head);font-weight:600}</style><div class="card card-st" style="background:#cdeee8;border-color:#cdeee8"><a class="st-main" href="property/"><b>房产</b></a><span>普吉岛投资、产权与持有形式、购房税费、出租</span><a class="st-sub" href="score/" style="display:inline-block;margin-top:10px;background:#b8e994;color:var(--ink);font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:1rem">房产评分模型 →</a></div>
+    <a class="card" style="background:#fbefb3;border-color:#fbefb3" href="banks/"><b>货币</b><span>货币循环、泰国央行、银行、PromptPay、电子货币、加密货币交易所、AMLO</span></a>
+    <a class="card" style="background:#d3defa;border-color:#d3defa" href="tourism/"><b>旅游</b><span>旅游线路之外的泰国</span></a>
+    <a class="card" style="background:#e6dcf5;border-color:#e6dcf5" href="invest/#calc-yield"><b>购买计算器</b><span>公寓的测算回本期与广告宣传的对比</span></a>
+    <a class="card" style="background:#d6edc9;border-color:#d6edc9" href="pitcalc/"><b>税款计算器</b><span>按2026年税率表计算全年个人所得税</span></a>
+    <a class="card" style="background:#d4ecf8;border-color:#d4ecf8" href="exit/"><b>出售计算器</b><span>转售时卖方需缴纳的税费</span></a>
+    <a class="card" style="background:#fbd9b8;border-color:#fbd9b8" href="buyrent/"><b>替代方案计算器：买还是租</b><span>公寓或汽车：在您选择的期限内哪个更划算</span></a>
   </div>
+  <div class="prose">
+  <h2 id="author" style="color:var(--head)">关于作者</h2>
+  <div class="view-box"><p>我在探索泰国，住在普吉岛。我的使命是做信息世界里的向导：找到重要的东西，揭示幕后不为人知的内容，分享知识和实践经验。</p><p>我关心的不仅是正在发生什么，还有为什么会发生、谁在推动这些进程、它们反映了谁的利益，以及会带来什么后果。</p><p class="sig">— 莉娜·李</p></div>
+  </div>
+</section>
 
-  <section style="margin-top:34px" id="meaning">
-    <h2>这意味着什么</h2>
-    <p style="margin-top:0;max-width:80ch"><b class="c">风险窗口</b> ——指技术已经能够自我改进（4级）、但尚未成为超级智能（5级），而治理能力仍然落后的那些年份。根据“ASI过滤器”模型，这一时期差距和风险最大。这不是灾难的日期，而是错误最难纠正的时期：就像夜里高速行车。</p>
-        <p style="max-width:80ch">目前差距仍在扩大：技术的进步多于治理，而规则通常在危机之后才跳跃式改变。个人几乎无法影响这一点，但可以让自己做好准备。</p>
-    <h3 style="font-size:20px;margin:22px 0 8px">风险窗口可能移动</h3>
-    <p style="max-width:80ch;margin-top:0">风险窗口的日期是按当前速度直线外推的结果。每有新事件都会重新计算，可能提前，也可能推迟。</p>
-    <div class="shift">
-      <div class="panel card"><b class="c">会提前，如果</b><ul style="margin:8px 0 0;padding-left:1.2em">
-        <li>人工智能开始加速自身发展：在4级之后，技术增长可能比直线更陡；</li>
-        <li>出现意外突破——新的架构或训练方法，就像2017年的Transformer；</li>
-        <li>对算力和数据中心的投资急剧增长；</li>
-        <li>规则被削弱或废除，例如美国废除 <a href="https://www.govinfo.gov/content/pkg/FR-2023-11-01/html/2023-24283.htm" target="_blank" rel="noopener">第14110号行政令</a> ：这样治理会更加落后。</li></ul></div>
-      <div class="panel card"><b>会推迟，如果</b><ul style="margin:8px 0 0;padding-left:1.2em">
-        <li>增长受限于电力、芯片、数据或资金；</li>
-        <li>能力不再随模型和算力的扩大而增长；</li>
-        <li>发生严重事故后各国放慢研发：规则通常在危机之后跳跃式改变；</li>
-        <li>美国和中国就相互核查达成协议——这是缩小差距最有力的方式。</li></ul></div>
-    </div>
-    <p class="note" style="max-width:80ch">此外，事件等级是专家评估，直线仅基于几年的数据。因此风险窗口是供思考的参考，而不是日历上的日期。</p>
-    <div class="panel card" style="margin-top:14px">
-      <h3 style="margin-top:0;font-size:20px">这对我们每个人意味着什么</h3>
-      <ol class="cols" style="margin:0;padding-left:1.2em">
-          <li style="margin-bottom:8px"><b>决定权留给自己。</b> 人工智能是执行者，而不是替你做决定的人。技术越强大，不独立思考的习惯代价就越高。 <a href="https://mythaiview.ru/zh/focus/">夺回你的注意力</a></li>
-          <li style="margin-bottom:8px"><b>趁还有时间，抓紧学习。</b> 了解人工智能、金钱和经济如何运作，培养人工智能最晚才能取代的能力：判断力、责任感、与人的关系。</li>
-          <li style="margin-bottom:8px"><b>保持灵活。</b> 有财务储备，少负债，不止一个收入来源。在风险窗口期，职业和市场可能在一年内而非十年内发生变化。</li>
-          <li style="margin-bottom:8px"><b>从消费转向拥有。</b> 工资取决于你的劳动是否被需要；资产份额取决于资产是否创造价值。 <a href="https://mythaiview.ru/zh/consumption/#owner">如何成为所有者</a></li>
-          <li><b>掌控你的数据。</b> 你交给云端人工智能服务的个人信息越少，别人对你了解得越少，也越难操控你。开源模型可以在自己的电脑上运行，但这也不是完全的保护：程序可能联网并传输数据，而模型本身由开发者训练，带有开发者的设定。请检查设置，关闭不必要的网络访问，不要把不愿给陌生人看的东西交给人工智能。 <a href="https://mythaiview.ru/zh/focus/">如何安全使用人工智能</a></li>
-        </ol>
-    </div>
-  </section>
-
-  <section style="margin-top:34px">
-    <h2>事件记录</h2>
-    <div class="panel scroll"><table class="stack"><thead><tr><th>日期</th><th>事件</th><th>曲线</th><th style="text-align:right">等级</th><th style="text-align:right">变化</th><th>地点</th><th>来源</th></tr></thead><tbody id="rows"></tbody></table><div class="empty" id="empty" hidden></div></div>
-  </section>
-
-  <section style="margin-top:34px">
-    <h2>等级标准</h2>
-    <p class="note" style="margin:0 0 12px">事件得分是事件发生后曲线所处的等级，而不是增量。技术力量和治理能力都无法直接测量，因此等级是专家评估。参照点为：ChatGPT——1，超级智能——5。小数表示“介于两个等级之间”。</p>
-    <div class="scale">
-      <div class="panel card"><b class="c">C — 技术等级</b><ol>
-        <li><b>1</b><span>能对话和写文本，经常出错，没有人就无法完成任务（ChatGPT，2022年）</span></li>
-        <li><b>2</b><span>以专家水平通过专业考试，回答前会推理（GPT-4、o1）</span></li>
-        <li><b>3</b><span>能独立完成专家数小时的工作，作为智能体操作软件，能发现真实漏洞</span></li>
-        <li><b>4</b><span>能以顶尖人类的水平完成任何智力工作，包括人工智能研究，即能够自我改进（AGI）</span></li>
-        <li><b>5</b><span>在任何智力任务上超越全人类（ASI）——过滤器阈值</span></li></ol></div>
-      <div class="panel card"><b>W — 治理等级</b><ol>
-        <li><b>1</b><span>风险得到承认：各国宣言和企业的自愿承诺</span></li>
-        <li><b>2</b><span>主要司法辖区对前沿模型的强制性规则：透明度、报告、测试</span></li>
-        <li><b>3</b><span>主要国家确实能够叫停或限制危险模型：发布前强制审查、许可证</span></li>
-        <li><b>4</b><span>包括美中在内的人工智能主要大国协调一致的机制，并相互核查</span></li>
-        <li><b>5</b><span>具有核查机制、能够控制ASI的具有约束力的全球协议</span></li>
-        <li><b>↓</b><span>废除、削弱或推迟规则会降低等级</span></li></ol></div>
-    </div>
-  </section>
-
-
-
-  <p class="note" style="margin-top:28px"><b>趋势与风险窗口。</b> 虚线将曲线按直线延伸：C的斜率按2022年以来的事件计算，W按2023年以来的事件计算。风险窗口是按趋势技术从4级（人工智能自我改进）到5级（ASI）、而治理仍然落后的那些年份。这不是预测：数据很少，等级是专家评估，技术在4级之后可能加速，而治理通常在危机后跳跃式变化。每有新事件，趋势都会自动重新计算。</p>
-  <p class="note" style="margin-top:28px">这是一个供思考的模型，不是预测。曲线是阶梯式的：每个事件发生后，曲线升到为其指定的等级，并保持到下一个事件。阴影部分是技术与治理能力之间的差距。事件由Claude收集，每条都附有来源链接；莉娜·李负责核查和修正评分。Anthropic模型的评分由同一家公司的模型Claude给出：值得与METR等独立测评进行对照。</p>
 </main>
 
-<script>
-{
-const EVENTS=[{"id": "2017-06-12-transformer", "date": "2017-06-12", "kind": "C", "country": "US", "title": "Transformer架构（《Attention Is All You Need》）", "note": "谷歌研究人员提出了这一架构，所有现代大语言模型都建立在其之上。得分4：整个行业的新基础，但大规模影响出现得较晚。", "url": "https://arxiv.org/abs/1706.03762", "level": 0.2}, {"id": "2020-05-28-gpt3", "date": "2020-05-28", "kind": "C", "country": "US", "title": "GPT-3：1750亿参数的模型", "note": "OpenAI证明，扩大规模能让模型获得新能力，而无需针对每项任务微调。得分3：前沿模型的新水平。", "url": "https://arxiv.org/abs/2005.14165", "level": 0.6}, {"id": "2022-11-30-chatgpt", "date": "2022-11-30", "kind": "C", "country": "US", "title": "ChatGPT向所有人开放", "note": "语言模型首次成为数亿人使用的大众产品。得分5：改变整个行业的大规模普及。", "url": "https://openai.com/index/chatgpt/", "level": 1.0}, {"id": "2023-03-14-gpt4", "date": "2023-03-14", "kind": "C", "country": "US", "title": "GPT-4", "note": "模型能以优秀毕业生的水平通过专业考试，并能理解图像。得分4：能力的质的飞跃。", "url": "https://arxiv.org/abs/2303.08774", "level": 1.6}, {"id": "2023-08-15-cn-genai", "date": "2023-08-15", "kind": "W", "country": "CN", "title": "中国：生成式人工智能服务管理暂行办法", "note": "中国首部专门针对生成式人工智能的规定生效：安全评估和服务备案。得分+2：行业强制性规则。", "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm", "level": 0.6}, {"id": "2023-10-30-eo14110", "date": "2023-10-30", "kind": "W", "country": "US", "title": "美国：关于安全人工智能的第14110号行政令", "note": "最强大模型的开发者必须向政府报告安全测试情况。得分+3：政府的直接要求。", "url": "https://www.federalregister.gov/d/2023-24283", "level": 0.9}, {"id": "2023-11-01-bletchley", "date": "2023-11-01", "kind": "W", "country": "GB", "title": "布莱切利宣言", "note": "包括美国和中国在内的28个国家首次共同承认前沿人工智能的风险。得分+2：大国首份联合宣言，但没有约束性义务。", "url": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration", "level": 1.0}, {"id": "2024-05-21-seoul", "date": "2024-05-21", "kind": "W", "country": "KR", "title": "首尔：企业关于前沿人工智能安全的承诺", "note": "16家公司承诺公布安全框架和不可接受风险的阈值。得分+2：企业的自愿承诺。", "url": "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024", "level": 1.1}, {"id": "2024-08-01-euaiact", "date": "2024-08-01", "kind": "W", "country": "EU", "title": "欧盟《人工智能法》生效", "note": "主要司法辖区首部全面的人工智能法律，要求分阶段实施。得分+4。", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", "level": 1.4}, {"id": "2024-09-05-coe", "date": "2024-09-05", "kind": "W", "country": "INT", "title": "欧洲委员会《人工智能框架公约》开放签署", "note": "首部具有法律约束力的人工智能国际条约；首批签署方包括美国、英国和欧盟。得分+3。", "url": "https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence", "level": 1.5}, {"id": "2024-09-12-o1", "date": "2024-09-12", "kind": "C", "country": "US", "title": "OpenAI o1：回答前会推理的模型", "note": "模型花时间进行链式推理，数学和编程成绩大幅提升。得分4：质的新能力。", "url": "https://openai.com/index/learning-to-reason-with-llms/", "level": 2.0}, {"id": "2025-01-20-deepseek-r1", "date": "2025-01-20", "kind": "C", "country": "CN", "title": "DeepSeek-R1：开放的推理模型", "note": "这款中国模型追平了领先的闭源模型，并以开放权重发布。得分4：开放获取的前沿水平。", "url": "https://arxiv.org/abs/2501.12948", "level": 2.0}, {"id": "2025-01-20-eo14110-revoked", "date": "2025-01-20", "kind": "W", "country": "US", "title": "美国：第14110号行政令被撤销", "note": "新一届政府取消了安全报告要求；第14365号行政令的序言证实了这一点。得分−3：国家要求的倒退。", "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-16/html/2025-23092.htm", "level": 1.3}, {"id": "2025-01-21-stargate", "date": "2025-01-21", "kind": "C", "country": "US", "title": "星际之门：5000亿美元投入人工智能算力基础设施", "note": "宣布了规模最大的人工智能数据中心项目。得分3：对算力的最大投资。", "url": "https://openai.com/index/announcing-the-stargate-project/", "level": 2.0}, {"id": "2025-08-02-eu-gpai", "date": "2025-08-02", "kind": "W", "country": "EU", "title": "欧盟：通用模型规则开始适用", "note": "通用模型提供者必须遵守《人工智能法》的要求。得分+2。", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", "level": 1.5}, {"id": "2025-09-29-sb53", "date": "2025-09-29", "kind": "W", "country": "US", "title": "加利福尼亚：关于前沿人工智能透明度的SB 53法案", "note": "大型开发者必须公布灾难性风险管理框架并报告事故。得分+2：州法律。", "url": "https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/", "level": 1.6}, {"id": "2025-10-28-cn-cyberlaw", "date": "2025-10-28", "kind": "W", "country": "CN", "title": "中国：《网络安全法》增加人工智能条款", "note": "国家法律中首条关于人工智能治理的一般性规定，自2026年1月1日起施行。得分+1：没有具体义务的框架性规定。", "url": "https://www.caixinglobal.com/2025-10-29/china-amends-cybersecurity-law-to-add-first-ever-ai-clause-102376988.html", "level": 1.6}, {"id": "2025-12-11-eo14365", "date": "2025-12-11", "kind": "W", "country": "US", "title": "美国：针对各州人工智能法律的第14365号行政令", "note": "司法部成立工作组，对各州的人工智能法律提出质疑，部分联邦资金与放弃“繁重”法律挂钩。得分−2：施压削弱规则。", "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-16/html/2025-23092.htm", "level": 1.5}, {"id": "2026-02-19-delhi", "date": "2026-02-19", "kind": "W", "country": "IN", "title": "新德里：人工智能影响峰会宣言", "note": "宣言得到包括美国和中国在内的88个国家和组织支持。重点是普及与合作，没有安全承诺。得分+1。", "url": "https://www.mea.gov.in/bilateral-documents.htm?dtl/40809", "level": 1.5}, {"id": "2026-03-05-gpt54", "date": "2026-03-05", "kind": "C", "country": "US", "title": "GPT-5.4：通用模型具备电脑操作能力", "note": "OpenAI首个内置电脑操作功能的通用模型。得分2。", "url": "https://fast.io/resources/most-powerful-ai-2026/", "level": 2.4}, {"id": "2026-04-24-deepseek-v4", "date": "2026-04-24", "kind": "C", "country": "CN", "title": "开放权重的DeepSeek V4 Pro", "note": "前沿级开放模型，价格比商业模型低数倍。得分3。", "url": "https://fast.io/resources/most-powerful-ai-2026/", "level": 2.4}, {"id": "2026-06-09-fable5", "date": "2026-06-09", "kind": "C", "country": "US", "title": "Claude Fable 5和Mythos 5", "note": "Mythos系列首个公开模型，此前仅向受信任的合作伙伴开放。得分4：能力达到新水平，包括网络安全领域。", "url": "https://www.developersdigest.tech/blog/frontier-model-landscape-june-2026", "level": 3.0}, {"id": "2026-06-12-export-controls", "date": "2026-06-12", "kind": "W", "country": "US", "title": "美国：对Fable 5和Mythos 5模型实施出口管制", "note": "商务部要求外国人访问这些模型须取得许可证；Anthropic暂时对所有人关闭了这些模型。管制于6月30日解除。得分+2：国家首次干预对具体模型的访问，但时间很短。", "url": "https://www.csis.org/analysis/department-commerce-restricted-access-anthropics-latest-models-what-comes-next", "level": 1.6}, {"id": "2026-07-06-illinois", "date": "2026-07-06", "kind": "W", "country": "US", "title": "伊利诺伊州：人工智能安全措施法（SB 315）", "note": "对最大开发者提出要求，包括每年进行独立审计。得分+2：州法律。", "url": "https://capitolnewsillinois.com/news/pritzker-signs-landmark-ai-regulation-bill-that-aims-to-mitigate-risks/", "level": 1.7}, {"id": "2026-07-16-waico", "date": "2026-07-16", "kind": "W", "country": "CN", "title": "上海：世界人工智能合作组织成立", "note": "29个创始成员国签署了协议。得分+2：新的国际机构，目前义务仍较笼统。", "url": "https://chambers.com/practice-guides/guides/ai-intellectual-property-2026/china/trends-and-developments", "level": 1.7}, {"id": "2026-09-03-gpt6", "date": "2026-09-03", "kind": "C", "country": "US", "title": "GPT-6 Astra", "note": "OpenAI称其为处理复杂端到端工作能力最强的模型。得分3。", "url": "https://browsewiz.com/blog/the-frontier-of-intelligence-comparing-top-generative-ai-models-in-2025", "level": 3.0}, {"id": "2026-09-29-wh-accord", "date": "2026-09-29", "kind": "W", "country": "US", "title": "白宫：“超级智能”协议", "note": "最大的几家公司就前沿模型的内部控制和审计达成的自愿协议，不具法律效力。得分+1。", "url": "https://www.akingump.com/en/insights/ai-law-and-regulation-tracker/trump-and-tech-companies-sign-white-house-accord-on-super-intelligence", "level": 1.8}, {"id": "2026-11-10-gemini4", "date": "2026-11-10", "kind": "C", "country": "US", "title": "Gemini 4 Carbon全面开放", "note": "谷歌开放了其能力最强的模型，用于长时间智能体任务和网络安全。得分3。", "url": "https://axis-intelligence.com/ai-model-release-tracker/", "level": 3.0}];
-const MAP={"d":"M304.1,431.3L307.8,433L311.2,433.7L310.8,435.2L308.7,435.3L307.1,434.3L306.9,435.5L305.3,436.3L302.8,436L300.8,435.2L298.2,434.7L294.7,433.1L291.7,431.6L287.2,428.3L289.4,428.9L293.4,430.9L296.8,431.9L297.4,430.6L297.4,428.6L299,427.4L300.7,427.7L302.1,429.1ZM322.2,423.2L324.5,424.5L324.1,425.6L321.3,426.4L320,425.4L318.5,426.7L316.9,425.4L319,423.7L321.2,424.4ZM619.9,419.1L616.3,419.3L616.7,417.7L617.3,416.5L617.7,415.9L618.9,416.8L621,417.2L620.9,417.8ZM809.1,392.2L811,393.3L812.5,392.9L814.7,392.3L816,392.5L814.4,396.1L813,397.1L811.5,399.6L811.1,398.8L808.3,400.9L807.9,400.7L806.4,400.6L806.3,398L807,396L806.9,393.4L807.7,392ZM876,392.6L875.9,393.9L878.3,392.6L878.2,393.9L877.5,395.2L875.7,396.6L872.8,398.9L870.8,400.1L870.7,401.5L868.9,401.6L866.1,402.7L864.2,404.7L860.8,407.7L858,409.1L856.3,409.9L854.1,409.9L853.3,408.9L850.8,408.7L851.2,407.6L853.9,405.3L858.8,402.4L860.7,401.8L863.1,400.6L866.2,399L868.6,397.5L871,395.2L872.4,394.4L873.7,392.7L876.3,391.3ZM888,378L888.1,381.3L889.2,379.2L889.9,380L889,382.3L890.5,383.3L892,383.6L894,382.4L895.1,382.8L893,385.5L891.2,387.3L889.4,387.2L888.2,388.1L887.7,389.4L887,390L885.1,391.7L882.6,393.7L880,395L880.1,394.2L879.3,393.7L882.2,391.2L882.4,389.5L880.5,388.3L881.2,387.2L883.5,386.1L885.3,383.8L886.2,381.8L886.3,379.7L886.6,379.2L886.1,377.9L885.5,375.2L885.5,373L886.6,372.8L887.1,374.5L888.6,375.3ZM885.9,334.9L884.7,335.7L883.6,334.8L882.1,333.5L880.9,331.8L879.7,329.7L879.6,328.6L880.7,328.7L881.9,329.7L882.8,330.7L883.4,331.6L885,333.5ZM919,320.1L919.7,321L918.9,322.6L917.2,323L915.8,322.6L915.9,321.3L917.2,320.2L918.2,320.6ZM923.8,317.7L922,318.5L920.2,319.1L920.1,318L921.5,317.3L922.4,317.2L924.2,316.2L924.7,316.1L924.1,317.5ZM892.1,317.4L891.2,317.8L890.6,316.5L890.9,315.7ZM891.2,312.7L891.1,315.2L890.5,314.8L889.9,315L889.7,314.1L890.1,311.8ZM585,308.5L585.3,312.2L585.9,313.6L585.5,315.1L585,316L584.2,314.2L583.7,315.1L584.1,317.4L583.8,318.7L583,319.4L582.7,322L581.5,325.6L579.9,329.8L577.9,335.6L576.7,339.9L575.2,343.5L573.1,344.2L570.7,345.5L569.3,344.7L567.4,343.6L566.8,342L566.8,339.3L566,336.8L565.9,334.6L566.5,332.4L567.7,331.9L567.8,330.8L569.2,328.5L569.5,326.6L569,325.1L568.6,323.2L568.5,320.3L569.5,318.6L570,316.7L571.3,316.5L572.8,315.9L573.8,315.4L574.9,315.3L576.5,313.6L578.7,311.7L579.6,310.1L579.3,308.8L580.4,309.2L581.9,307.1L582,305.2L583,303.9L583.8,305.2L584.5,306.5ZM830.1,309.1L830.7,311.5L832.5,310.4L833.2,311.7L834.3,312.9L833.8,314.2L833.9,316.9L834,318.4L834.6,318.8L834.8,321.4L834.2,323L834.6,325.1L837.1,326.7L838.6,328.2L840,329.5L839.5,330.2L840.5,332.2L840.7,335.5L841.9,334.8L842.6,336.2L843.4,335.7L843,338.9L844.3,340.8L845.1,342L846.4,344.5L846.4,347L845.9,348.7L845.1,350.6L845.5,353.3L844.4,356L843.4,357.4L841.8,360.2L841.2,361.9L839.9,364.1L837.7,366.9L835.2,368.4L833.3,370.8L831.9,372.4L830,375L828.4,376.5L826.8,378.8L825.5,381L825.2,381.9L823.3,383L820.5,383.1L817.7,384.4L816,385.5L813.9,386.9L812.5,385.5L811.3,385L812.3,383.4L810.7,383.9L807.6,386.2L805.9,385.3L804.7,384.9L803.4,384.6L801.4,383.7L800.6,381.9L801.1,379.5L801.1,378L800.4,376.7L798.2,376.4L799.6,374.9L799.8,372.6L797.8,374.7L795.4,375.3L797.3,373.6L798.4,371.8L799.9,370.3L800.5,368L797.5,370.6L795.6,371.7L793.7,374.1L792.3,372.9L792.9,371.2L792.2,369L791.2,367.9L791.9,367.1L789.4,365.3L787.6,365.2L785.7,363.7L781.1,364L777.5,365.1L774.3,366.1L771.9,365.9L768.8,367.5L766.4,368.2L765.4,369.8L764.1,371.1L761.9,371.1L760.2,371.4L758.2,370.9L756.3,371.2L754.6,371.3L752.5,373L751.9,372.8L750.3,373.7L748.8,374.7L747,374.6L745.4,374.6L743.3,372.6L742.2,372L742.8,370.2L744.1,369.8L744.8,369.1L745,368L745.9,365.9L746.2,364.1L745.7,360.9L745.8,359.2L746.3,357.4L745.8,355.4L746,354.5L745.2,353.3L745.4,350.9L744.5,348.4L744.5,347.1L745.3,348.4L745.1,345.6L746.2,346.5L746.6,347.7L747,346.1L746.2,343.7L746.2,342.7L745.8,341.8L746.4,340L747.1,339.2L747.7,337.7L747.8,335.9L749.3,333.7L749.1,336L750.6,333.9L752.8,332.9L754.4,331.6L756.5,330.4L757.8,330.2L758.4,330.6L760.7,329.4L762.3,329.1L762.8,328.4L763.5,328.1L765,328.2L767.8,327.3L769.5,326L770.4,324.3L772.2,322.8L772.6,321.5L772.9,319.9L775.1,317.2L775.8,319.9L777,319.3L776.3,317.8L777.3,316.3L778.4,317L779.1,314.7L780.7,313.2L781.5,312L782.9,311.4L783,310.6L784.1,310.9L784.3,310.2L785.5,309.7L786.8,309.3L788.6,310.7L789.8,312.5L791.4,312.6L793,312.8L792.7,311.2L794.3,308.7L795.6,307.9L795.3,307.1L796.6,305.4L798.4,304.3L799.7,304.7L801.9,304.1L802.1,302.5L800.3,301.5L801.7,301.1L803.4,301.8L804.6,303.1L806.7,303.9L807.5,303.6L809,304.5L810.7,303.6L811.6,303.9L812.3,303.3L813.3,304.8L812.4,306.5L811.3,307.7L810.3,307.8L810.5,309L809.5,310.6L808.3,312.1L808.4,312.9L810.2,314.6L812.1,315.6L813.2,316.7L814.8,318.5L815.6,318.5L816.8,319.3L817,320.2L819.3,321.3L821.2,320.2L822,318.6L822.8,317.2L823.4,315.5L824.6,313.1L824.5,311.6L824.8,310.7L824.8,308.9L825.4,306.6L826,306L825.8,305L826.6,303.4L827.3,301.7L827.5,300.8L828.6,299.7L829.1,301.1L829.1,303.1L829.7,303.4L829.6,304.7L830.4,306.3L830.3,308ZM880.2,299.1L880.8,300.1L879,300.1L878.2,298.2L879.7,299ZM771.4,298.3L770.2,298.4L766.9,296.2L769.4,295.6L770.8,296.6L771.6,297.5ZM877.1,297.2L876.1,297.3L874.5,297L874,296.5L874.3,295.3L876,295.8L876.8,296.4ZM879.4,296.4L878.9,296.9L877.3,294.3L876.9,292.5L877.8,292.5L878.5,294.9ZM781.2,298L778.9,298.7L778.6,298.3L778.9,297.3L780.2,295.4L782.9,294.2L783.3,293.5L785.6,292.8L787.5,292.7L788.3,292.3L789.3,292.7L788.2,293.5L785.4,294.9L783.1,295.7ZM764.5,291.8L765.4,292.6L767,292.3L767.6,293.6L764.5,294.3L762.6,294.7L761.2,294.6L762.2,292.9L763.7,292.9ZM777.7,291.8L777.1,293.5L773.1,294.3L769.6,294L769.7,292.8L771.9,292.2L773.4,293.1L775.2,292.9ZM875.1,292.5L875.1,293.1L873.2,291.8L871.8,290.7L870.9,289.7L871.4,289.4L872.5,290.1L874.5,291.5ZM869.2,289.5L868.6,289.7L867.5,289L866.6,287.7L866.7,287.2L868.2,288.5ZM740.2,287.7L745.3,288L745.9,286.8L750.8,288.3L751.6,290.2L755.5,290.8L758.6,292.6L755.5,293.8L752.7,292.5L750.3,292.6L747.6,292.4L745.2,291.9L742.2,290.7L740.3,290.4L739.2,290.8L734.4,289.5L734,288.2L731.6,288L733.6,285L736.8,285.2L738.9,286.4L739.9,286.7ZM809.2,286L807.7,288.1L807.6,285.8L808.2,284.7L808.8,283.7L809.3,284.6ZM864.9,287.9L864.2,288.2L863.1,287L862.1,285.1L861.7,282.7L862.1,282.4L862.3,283.3L863.1,284L864.2,286L865.4,287ZM854.9,283.8L853.5,284L853.1,284.9L851.6,285.6L850.2,286.3L848.8,286.3L846.7,285.4L845.2,284.6L845.5,283.6L847.8,284.1L849.3,283.8L849.8,282.4L850.2,282.3L850.3,283.9L851.8,283.7L852.6,282.6L854.2,281.6L854,279.8L855.6,279.7L856.1,280.2L855.9,281.9ZM789.9,277.6L788.9,278.6L787.1,278L786.6,276.7L789.3,276.6ZM798.4,276.5L799.3,278.8L797.1,277.5L794.9,277.3L793.4,277.5L791.6,277.4L792.3,275.7L795.6,275.6ZM858.2,280.8L857.3,281.6L856.9,279.8L856.3,278.6L855.2,277.6L853.7,276.3L851.8,275.4L852.6,274.6L854,275.5L854.9,276.2L856,276.9L857,278.2L857.9,279.2ZM808.3,270.5L808.9,275.5L811.6,277.3L813.9,274.1L817,272.2L819.3,272.2L821.6,273.3L823.5,274.4L826.3,275L830.8,277.1L835.7,278.8L837.4,280.4L838.8,281.9L839.1,283.7L843.4,285.6L843.9,287.2L841.5,287.6L841.9,289.6L844.1,291.6L845.5,294.9L847,294.8L846.7,296.1L848.7,296.6L847.9,297.2L850.5,298.5L850.1,299.4L848.4,299.6L847.8,298.8L845.6,298.5L843,298L841.1,296.1L839.8,294.4L838.7,291.7L835.4,290.3L833.1,291.2L831.4,292.2L831.5,294.5L829.3,295.5L827.9,295L825.2,294.9L823.1,292.4L820.4,291.8L819.7,292.6L816.4,292.7L817.7,290.2L819.4,289.4L819,286.1L817.8,283.5L812.9,280.9L810.7,280.7L806.8,277.8L806,279.3L805,279.6L804.4,278.5L804.4,277.1L802.5,275.6L805.4,274.5L807.2,274.6L807,273.8L803.2,273.8L802.1,271.9L799.8,271.4L798.7,269.9L802.3,269.1L803.6,268.1L807.9,269.4ZM784.7,262.7L782.6,265.7L780.6,266.3L778.1,265.7L773.7,265.8L771.4,266.3L771,268.6L773.3,271.3L774.8,269.9L779.7,268.9L779.5,270.3L778.3,269.8L777.2,271.6L774.8,272.8L777.2,276.7L776.7,277.8L779,281.3L778.9,283.3L777.4,284.2L776.4,283.2L777.8,280.7L775.2,281.8L774.5,281L774.9,279.8L773.1,278L773.4,275L771.6,276L771.7,279.5L771.6,283.9L769.9,284.4L768.8,283.5L769.7,280.6L769.4,277.7L768.3,277.7L767.5,275.6L768.7,273.6L769.1,271.1L770.4,266.5L771,265.3L773.2,263L775.3,263.9L778.6,264.3L781.7,264.2L784.3,262ZM793.8,263.5L793.7,266.2L792.4,265.9L792,267.8L793,269.4L792.3,269.8L791.2,267.8L790.4,263.9L790.9,261.5L791.8,260.3L792,262L793.6,262.3ZM733,284.9L730.1,285L727.9,282.4L724.6,279.9L723.6,278.1L721.6,275.6L720.3,273.3L718.4,269L716,266.4L715.3,263.8L714.3,261.4L711.9,259.5L710.4,256.9L708.4,255.2L705.5,251.8L705.2,250.2L706.9,250.4L711.1,251L713.5,253.9L715.6,256L717.1,257.3L719.6,260.6L722.3,260.6L724.6,262.7L726.1,265.3L728.1,266.7L727.1,269.2L728.6,270.2L729.5,270.3L730,272.5L730.9,274.2L732.8,274.4L734,276.4L733.3,280.2ZM765.2,261.4L768.2,264.2L765.1,264.6L764.2,266.7L764.3,269.5L761.8,271.5L761.6,274.6L760.5,279.3L760.1,278.2L757.1,279.6L756.1,277.7L754.2,277.5L752.9,276.5L749.8,277.6L748.8,276.2L747.1,276.3L744.9,276L744.6,271.9L743.3,271L742,268.4L741.7,265.7L742,262.9L743.5,260.9L745.5,261.9L747.5,261.3L748,258.7L749.1,258.2L752.2,257.5L754.1,255.1L755.3,253.2L756.3,252L758.5,250.3L760.4,248.2L761.6,245.8L762.7,245.8L764.1,247.4L764.3,248.7L766.1,249.5L768.3,250.5L768.2,251.7L766.4,251.8L767,253.3L765.1,254.3L763.6,257.1L765.7,260ZM786.7,241.3L787.2,243.3L787.4,245L786.7,247.8L785.6,244.7L784.4,246.2L785.4,248.5L784.7,249.9L781.5,248.1L780.6,245.9L781.4,244.5L779.6,243L778.8,244.3L777.6,244.2L775.8,245.9L775.3,245L776.1,242.4L777.7,241.6L779.1,240.4L780.1,241.8L782,240.9L782.4,239.6L784.2,239.5L783.9,237.1L786.1,238.6L786.5,240.1ZM668,248L665.7,248.7L664.4,246.3L663.7,241.9L664.7,236.9L666.6,238.6L667.9,240.8L669.3,244L669.1,247.2ZM293.3,236.1L291.1,236.4L290.6,236.1L291.4,235.3L291.5,234.1L293,233.7L293.5,233.8ZM779.9,235.5L779.1,236.6L778.4,238.5L777.7,239.4L775.9,237.3L776.4,236.5L776.9,235.6L777,233.7L778.5,233.5L778.3,235.6L779.9,232.6ZM765.8,238.5L762.5,241.4L763.6,239.3L765.4,237.4L766.8,235.2L767.9,232.2L768.6,234.7L767,236.4ZM773.9,230.6L775.6,231.5L777.3,231.5L777.4,232.8L776.3,234.1L774.7,235L774.5,233.6L774.5,232.1ZM783.3,229.8L784.5,233.2L782.3,232.4L782.5,233.4L783.3,235.3L782.1,236L781.8,233.8L781,233.7L780.4,231.8L782,232.1L781.8,230.9L780,228.6L782.5,228.6ZM772.6,227L772.2,229.6L770.9,228.1L769.3,225.8L771.5,225.9ZM769.7,210.3L771.4,211.2L772.1,210.4L772.5,211.2L772.2,212.4L773.5,214.6L773.2,217.2L771.8,218.2L771.7,220.7L772.6,223.1L774.1,223.5L775.2,223.1L778.7,224.8L778.6,226.5L779.6,227.2L779.5,228.6L777.3,227.1L776.1,225.5L775.6,226.6L773.7,224.8L771.3,225.2L769.9,224.6L769.9,223.3L770.6,222.5L769.8,221.8L769.6,222.9L768,221.2L767.5,219.8L767,216.9L768.2,217.9L767.7,213.1L768.1,210.3ZM283.2,211.2L282.5,211.9L280.5,211.9L279,212L279,210.7L279.4,210.3L281.5,210.3L282.8,210.5ZM253.6,212.3L252.8,212.8L251.4,212.3L250,211.2L250.4,210.5L251.5,210.2L252.1,210.4L253.8,210.6L255.1,211.4L255.5,212.2ZM265.7,206.1L267.8,206.6L268.2,206.1L270.3,206.1L271.7,206.9L272.4,206.8L272.7,207.9L274.1,207.8L274,208.7L275.1,208.8L276.2,210L275.1,211.2L274,210.6L272.8,210.7L271.9,210.5L271.4,211.1L270.4,211.3L270.1,210.5L269.1,211L267.8,213.1L267.2,212.6L267.2,211.7L265.5,211.2L264.3,211.4L262.7,211.2L261.4,211.8L260.2,210.8L260.5,209.8L262.9,210.2L264.8,210.5L265.8,209.8L264.8,208.5L265,207.3L263.4,206.8L264.1,206ZM741,209.8L739,211.3L736.7,210.3L736.2,207.7L737.3,206.3L740,205.4L741.5,205.5L742.3,206.6L741.3,208ZM49.7,208.5L49.2,209L48.6,208.6L48.9,207.7L48.8,206.6L49,206.3L49.6,205.8L49.6,205.2L49.8,204.9L50,204.9L50.9,205.5L51.2,205.7L51.5,206.1L51.9,207.2L51.8,207.4L50.6,208ZM49.6,203.7L48.6,204L48.4,203.3L48.2,203.1L48.2,202.9L48.5,202.6L49.3,202.9L49.9,203.4ZM48.3,202.1L48.1,202.4L46.7,202.3L47,202ZM46.1,201.6L45.9,201.8L45.7,201.8L44.9,201.7L44.7,201L44.7,200.9L45.5,200.4L45.6,200.6ZM42.3,199.6L41.9,199.9L41.2,199.4L41.4,199.1L41.9,198.8L42.5,198.9ZM248.6,197.2L249.5,198.3L251.9,198L252.7,198.7L254.6,200.6L256,202L256.9,202L258.3,202.6L258,203.5L259.9,203.6L261.7,204.8L261.3,205.6L259.5,205.9L257.7,206.1L256,205.9L252.2,206.2L254.2,204.4L253.3,203.6L251.6,203.4L250.9,202.5L250.5,200.8L249,200.9L246.8,200.1L246.1,199.4L242.8,199L242,198.4L243.1,197.6L240.6,197.4L238.5,199L237.4,199.1L236.9,199.8L235.5,200.2L234.5,199.9L236,198.9L236.8,197.8L238.1,197.1L239.5,196.5L241.5,196.2L242.2,195.9L244.3,196.1L246.4,196.2ZM254.7,194.1L254,194.3L253.7,192.5L252.9,191.6L253.8,189.7L254.5,189.8L255,192.4ZM766.8,197.1L766.2,199.7L764.4,197.1L763.6,194.8L764.4,191.7L766,189.4L767.3,190.3L767.3,192.2ZM255.5,185.5L252.6,186L252.7,184.8L253.9,184.6L255.6,184.7ZM257.6,185.4L256.8,187.6L256.4,187.2L256.7,185.6L255.8,184.4L255.9,184ZM791.2,162.1L791.9,163.2L791.2,165.1L789.8,164.1L788.7,164.8L788.7,166.6L786.8,165.7L786.3,164.2L787,162.4L788.6,162.8L789.1,161.5ZM541,157.5L539.4,158.8L539.7,159.3L539.8,159.6L537.3,160.8L536,160.4L535.4,159.2L536.6,159.1L536.7,159.1L537,158.3L538.8,158.4ZM514,157.4L515.4,158.4L517.3,158.2L519.2,158.4L519.2,159L520.5,158.6L520.2,159.5L516.7,159.8L516.7,159.3L513.6,158.7ZM493.6,149.6L492.7,152L493.1,153L492.6,154.5L490.7,153.4L489.4,153.1L486,151.5L486.3,149.9L489.2,150.2L491.7,149.9ZM478.1,140.5L479.5,142.7L479.2,146.7L478.1,146.5L477.1,147.5L476.2,146.7L476.1,143L475.5,141.3L476.9,141.4ZM803.3,152.9L803.4,155.4L804.5,156.9L804,159.1L801.4,160.5L797.1,160.7L794.8,164.2L792.7,163.1L791.8,160.8L787.7,161.4L785.3,162.9L782.4,163L785.7,165.2L785.7,170.5L784.5,171.7L782.9,170.6L782.7,167.8L780.8,166.9L779,164.8L781.1,163.8L781.7,161.9L783.7,160.3L784.7,158.2L789.3,157.3L792.2,157.9L792.6,152.4L794.9,153.9L797.2,150.8L798.1,149.7L798,145.9L796.1,142.5L796.2,140.5L798.5,140L801.8,144.2L802.9,146.7L802,149.8ZM478.9,137.6L478.1,140L477,139.4L476.5,137.3L477,136.2L478.5,135ZM800.3,131.5L802.3,132.1L803.4,130.9L805.7,134.3L802.6,135.1L802,138.1L797.1,136L797.4,139.4L794.8,139.4L793,136.4L793,134L795.5,133.9L794,129.7L793.5,127.3L797.9,130.5ZM305.9,124.3L307.5,124.7L309.8,124.7L308.2,125.9L307.3,126.1L304.7,124.8L304.4,123.8L305.6,122.9ZM312.7,116.7L311.6,116.7L308.9,115.8L307.2,114.4L308.1,114.2L310.9,114.9L312.9,116.2ZM168,118.5L166.5,118.9L163.5,117.5L163.5,116.5L162,115.4L162.1,114.6L160.1,114.1L160.2,112.4L160.9,111.8L162.9,112.4L164,112.9L166,113.2L166.1,114.2L166.4,115.6L168,116.8ZM327.4,112L325.1,114.6L326.9,113.6L328.2,114.2L327.1,115.3L328.9,116.1L330.2,115.4L332.3,116.3L330.9,118.4L332.7,117.9L332.6,119.5L332.8,121.4L331.1,124L330,124.1L328.6,123.6L329.8,121.1L329.2,120.7L325.8,123.3L324.4,123.2L326.4,121.8L324.4,121.1L321.8,121.3L317.3,121.2L317.2,120.3L319,119.2L318.2,118.4L320.7,116.6L324.6,111.9L326.6,110.2L328.9,109.2L329.9,109.4L329.2,110.2ZM157.6,102.2L159.9,102L156.9,105.3L157.2,107.6L156.3,107.6L155.9,106.3L156,104.9L155.5,104L156,102.7L156.8,101.8ZM788.3,111.8L793.9,117.1L789.8,116.1L791,120.4L795,123.5L796.1,125.6L793.3,123.8L793.1,126.1L791.2,123.6L789.8,120.6L787.7,117.4L786.9,115.2L784.5,111.2L781.3,108.3L778.9,104.3L780.1,103L778.3,101.7L779,101.3L780.9,103.2L783.6,106L785.4,108.9ZM441.6,107.4L437.4,109.1L434.2,108.7L436.4,105.6L435.5,102.7L438.8,100.4L440.6,99L442.5,98.9L444.7,100.7L443.4,102.7L443.6,104.8ZM486,97.7L484.7,100L482.3,98.4L482,97.2L485.3,96.2ZM119.4,93.4L116.2,94.4L115.8,93.7L116.7,92.4L119.6,91.4L121.1,90.9L122.4,91.1L122.6,92ZM451.5,89.1L449,92.1L451.2,91.7L453.7,91.7L452.9,94.1L450.7,96.6L453,96.8L455,100.5L456.5,101L457.7,104.3L458.3,105.4L461.1,106L460.7,107.9L459.5,108.7L460.3,110.2L458.2,111.8L455.1,111.7L451.1,112.6L450.1,112L448.5,113.4L446.4,113L444.7,114.2L443.5,113.6L447.1,110.5L449.2,109.8L445.6,109.3L445,108.2L447.5,107.3L446.4,105.7L446.9,103.8L450.3,104L450.7,102.4L449.3,100.5L446.6,100L446.2,99.2L447.1,98L446.4,97.2L445.1,98.5L445.2,95.8L444.2,94.3L445.3,91.4L447.2,89.1L448.9,89.3ZM99.5,85.5L97.7,85.9L96.9,85.4L96.3,84.6L99,84.2L100.4,84.4ZM289.9,79.3L288.3,80.7L287.5,80.5L287.4,79.6L287.6,79.5L288.8,78.6L289.7,78.7ZM285.2,77.7L281.8,79.2L280.3,79.2L280.3,78.4L282.6,77.2L285.5,77.2ZM100.9,75.5L101.3,75.8L102.9,76.1L102.4,76.4L100.2,77L99.6,76.6L100.9,75.5ZM860.4,76.6L859.5,76.4L858.2,75.9L856.5,76.1L855.7,75.8L854.7,74.8L854.7,74.8L856.6,75.3L857.6,75.1L859.1,75.5L860.4,76.6ZM283.1,69.8L282.7,70.9L284.1,70.5L284.8,71.2L286.6,72.2L288.4,73L287.9,74.3L289.5,74.1L290.5,75L288.2,75.8L285.3,75.2L284.8,74L281.9,75.4L278,76.8L278.3,75.2L275.3,75.5L277.9,74.1L279.5,72L281.7,69.5ZM429.6,67.6L428.9,69.4L430.9,71.2L427.9,73.2L421.5,75.1L419.6,75.6L416.9,75.2L411.2,74.3L413.5,73.1L409.3,71.8L413.1,71.3L413.2,70.5L408.9,69.9L410.7,68.2L413.9,67.8L416.8,69.6L420.2,68.1L422.6,68.9L426.3,67.5ZM304.6,65.8L302.2,65.9L302.5,64.6L304.2,63.2L306.3,62.8L307.5,63.5L306.8,64.7L306.4,65ZM574.9,140.3L576.4,142.4L577.6,142.6L578.4,143.4L576.5,143.7L576.3,146L576.1,147.1L575.3,147.8L575.5,149.3L576.6,151.6L579,152.2L580.9,153.8L584.5,154.3L588.3,153.5L588.4,152.8L587.6,150.6L587.5,147.4L585.5,146.4L585.8,144.3L584.1,144.1L584.3,141.5L586.7,142.3L588.7,141.3L586.6,139.5L585.6,137.7L583.8,138.5L583.9,140.7L582.8,138.8L582.6,138L583,136.7L582.4,135.7L579.4,134.6L577.9,131.9L576.4,131.2L576.2,130.2L578.6,130.5L578.3,128.3L580.2,127.8L582.4,128.2L582.3,125.3L581.5,123.4L579.2,123.6L577.1,122.8L574.6,124.2L572.5,124.8L571.7,126.6L569.5,127.1L567.6,130.2L570.1,133L570.2,135.1L573.4,138.7ZM108.7,68.8L108.8,68.9L108.4,69L108.7,68.8ZM851.6,69L851,70.1L847.9,70.4L850.9,73L850.7,73.5L848.6,73.5L846,72.5L842.3,71.7L840.5,70.6L837.9,70.1L836,70.5L833.8,69.5L833.1,68.6L831.3,69.2L833.7,70.4L833.8,71.6L833.8,71.6L832.4,72.8L829.5,72.6L832.9,74L836.6,76.3L838.3,77L839.7,78.1L840,78.9L835.4,78.3L831.5,80.3L830,80.6L828.6,82.6L827.1,84.3L827.5,85.6L822.6,83.6L819,85.8L817.1,84.8L816.1,86L812.8,85.6L813.8,87.4L813.5,90.2L814.6,91.3L817.6,91.9L820.8,96.1L818.9,96.2L819.9,98.6L821.8,99.8L819,101.3L820.8,104.6L817.9,105.3L819.4,108.3L818.1,111.1L815.8,109L811.7,104.8L805.6,98.3L803.6,94.4L804,92.7L803.1,91.3L806,90.7L806.8,87.1L808,84.3L809.9,82.1L807.9,78.2L805.6,78.4L806.4,80.7L803.7,83.7L798.9,80.3L794.2,81.2L792.9,85.9L796.1,87.6L791.9,88.4L788.7,88.6L787.2,86.6L783.5,86.2L781.9,87.6L774.9,87.1L768.4,87.9L765.3,93.4L761.4,100.2L765.2,100.6L767.5,102.4L770.1,103L770.6,101.6L773.2,101.8L778.6,105L780.3,107.4L780.3,110.4L782.3,113.9L784.1,118.7L783,123L783.3,125.1L782,128.6L780.5,132.1L779.8,133.8L777.5,135.6L776,135.7L773.8,134.2L771.6,136.4L771.7,137.4L770.7,137.2L770.1,138.3L769.8,139.3L770.9,141.5L769.9,142.2L769.7,142.7L769.2,143.6L767.7,144.1L767,144.9L767.5,146.3L767.3,146.6L768.5,147.1L770.4,148.4L774,152.1L775.3,154L776.7,157.6L776.3,159.3L774.3,159.9L772.7,161.1L770.6,161.4L769.7,159.7L769.4,157.4L767.1,154.2L768.8,153.7L766.1,151.1L764.7,150.5L764.6,151.1L764,151.3L763.7,150.7L762.9,150.5L762.1,150L762.3,148.6L762.7,148.3L762.2,147.7L762.2,146.1L761.9,145.6L760.3,145.2L758.8,144.4L755.8,145.3L754.5,146.7L752.2,147.6L753,146.1L752,145L753.1,142.9L751.2,141.3L749.5,142.4L747.6,144.5L746.8,146.5L744.5,146.6L743.7,148.1L745.8,150.1L748,150.6L748.5,152L750.8,152.9L752.8,150.7L755.4,151.9L757,152L758,153.6L754.8,154.4L754.2,156.1L752.3,157.6L751.8,159.8L755,161.5L757,164.5L759.4,167.3L761.8,169.7L762.4,172L761.1,172.8L762.1,174.5L763.9,175.4L764.2,177.9L764.2,180.4L762.9,180.7L761.8,184L760.7,188L759.2,191.7L756.3,194.6L753.2,197.2L750.4,197.5L749,198.9L748,197.9L746.8,199.4L743.5,200.9L740.8,201.4L740.5,204.7L739.1,204.8L738,202.6L738.4,201.4L734.8,200.4L733.6,200.9L730.6,203.6L728.9,206.5L728.7,208.6L731.1,211.8L734.1,215.9L736.7,217.8L738.6,220.2L740.5,225.9L740.7,231.3L738.7,233.3L735.8,235.3L733.9,237.8L730.8,240.7L729.7,238.7L730.3,236.6L728.2,234.9L725.9,234.5L724.8,232.9L723.1,229.7L720.7,228.3L718.4,228.3L718.6,225.9L716.3,226L716.4,229.3L715.3,233.8L714.7,236.5L715,238.7L716.7,238.8L718,241.6L718.6,244.3L720.2,246L721.8,246.4L723.2,248L723.8,248.3L725.5,250.1L726.7,252.1L726.9,254.2L726.7,255.6L726.9,256.7L727.2,258.5L728.1,259.3L729.2,262L729.2,263L727.3,263.2L724.8,261L721.6,258.6L721.3,257L719.7,254.9L719.2,252.4L718.2,250.7L718.4,248.5L717.8,247.2L716.7,246L716.1,244.5L714.6,242.8L713.3,241.4L713,243.1L712.4,241.4L712.5,239.5L713.1,236.6L712.7,234.3L713.3,232L712.3,230.2L712.2,226.8L711,225.2L709.7,221.6L708.9,217.7L707.4,215.1L705.9,216.7L703.2,218.9L701.7,218.6L700,217.9L700.4,214.1L699.5,211.2L697,207.7L697.2,206.5L695.6,206.2L693.5,203.7L692.5,202L692.1,200.5L691.4,199L690.1,197.2L687.7,197.1L688.1,198.4L687.5,200.1L686.3,199.4L686,200L685.3,199.7L684.2,199.4L684,200.5L682.3,200.5L679.1,201.1L679.6,203.4L678.5,205.2L675,207.3L672.5,210.9L670.7,212.9L668.3,214.9L668.5,216.3L667.2,217L665,218.1L663.8,218.3L663.2,220.6L664.1,224.6L664.4,227.2L663.5,230.1L663.8,235.3L662.5,235.5L661.4,237.8L662.2,238.8L659.9,239.7L659.1,241.7L658.1,242.6L655.5,239.8L654,235.5L652.8,232.4L651.8,230.9L650.2,228L649.3,224.2L648.7,222.2L646,218L644.4,212.1L643.3,208.1L642.9,204.4L642.1,201.5L638.5,203.4L636.6,203L632.9,199.3L634,198.2L633.1,197L629.8,194.4L627.8,193.6L626.8,191.4L624.5,189L619.9,189.6L615.7,189.7L612.1,190.1L607.2,189.2L604.4,188.4L601.4,188L599.9,184.3L598.7,183.7L596.8,184.3L594.3,185.8L591.1,184.7L588.3,182.4L585.8,181.5L583.8,178.6L581.5,174.5L580.2,175L578.5,173.9L577.7,175.1L576.1,175L576.8,176.4L576.6,177.1L577.7,179.4L578.9,182L580.2,182.7L580.8,183.8L582.6,185.1L582.9,186.4L582.7,187.4L583.1,188.5L583.9,189.3L584.4,190.3L584.8,191.1L584.4,188.8L585,187.2L585.7,186.9L586.5,187.9L586.7,189.7L586.3,191.5L586.9,192.7L587.4,192.5L587.5,193.3L589.5,192.9L591.6,192.9L593.2,193L594.8,190.9L596.5,189L597.9,187.1L598.6,186L598.9,186.3L598.8,187.6L598.5,188.1L599.1,190.6L600.5,192.7L602,193.8L603.9,194.2L605.5,194.7L606.8,196.5L607.6,197.5L608.6,197.9L608.6,198.6L607.9,200.4L607.5,201.3L606.5,202.3L605.7,204.4L604.5,204.2L604,205L603.8,206.5L604.2,208.6L604,209L602.8,208.9L601.3,210.1L601.1,211.6L600.6,212.2L598.9,212.2L598,213L598.1,214.2L596.9,215.1L595.4,214.8L593.7,215.8L592.5,216L590.7,216.8L590.3,218.2L590.3,219.2L587.7,220.5L583.6,222L581.3,224.1L580.2,224.3L579.4,224.1L577.9,225.4L576.3,226L574.1,226.1L573.4,226.3L572.9,227.1L572.2,227.3L571.8,228.1L570.5,228.1L569.7,228.5L567.9,228.3L567.1,226.5L567.2,224.8L566.7,223.9L566.1,221.7L565.3,220.4L565.8,220.3L565.5,218.9L565.8,218.3L565.6,216.9L565.2,215.6L564.4,214.7L564.1,213.5L562.7,212.4L561.2,209.8L560.4,207.3L558.5,205.2L557.3,204.7L555.4,201.7L555,199.6L555,197.8L553.4,194.4L552.1,193.2L550.7,192.5L549.7,190.8L549.8,190.1L549,188.5L548.2,187.8L547.1,185.5L545.4,183L544,180.9L542.7,180.9L543,179.2L543.1,178.1L543.3,176.9L543.2,176.5L542.5,177.7L542.1,180L541.5,181.6L541,182.2L540.1,181.2L538.8,179.8L536.8,175.4L536.5,175.7L537.8,178.9L539.5,182L541.7,186.8L542.7,188.5L543.6,190.2L546.1,193.6L545.6,194.2L545.8,196.2L548.9,198.9L549.4,199.6L550.4,202.6L549.9,203.1L550.4,206.3L551.5,210L552.5,210.7L554,211.9L555.6,215.4L556.5,218.2L558,219.7L561.6,222.6L563.2,224.4L564.6,226.1L565.5,227.2L566.8,228.1L567.5,229.1L567.4,230.3L566,231.1L567.1,231.9L568,232.5L568.5,233.7L569.8,235L571.1,235L573.5,234.3L576.4,233.9L578.7,232.9L580,232.7L580.9,232.2L582.4,232.1L583.2,232L584.4,231.6L585.8,231.3L587,230.2L588,230.2L588.1,231L587.9,232.8L588,234.4L587.5,235.5L586.8,238.9L585.6,242.3L584.1,246.2L581.9,250.7L579.7,254.1L576.7,258.3L574,260.7L570.1,263.8L567.6,266.1L564.7,269.8L564.1,271.4L563.5,272.2L561.7,273.4L561,274.6L560,274.9L559.6,277L558.8,278.3L558.2,280.3L557.1,281.3L555.9,285.1L556,286.8L557.7,287.9L557.7,288.7L557,290.6L557.1,291.5L556.9,293L557.8,294.9L558.8,297.9L559.8,298.6L560.2,300L560,303L560.2,305.7L560.2,310.5L560.6,312L559.7,314.2L558.6,316.3L556.9,318.2L554.4,319.4L551.4,320.9L548.4,324.2L547.3,324.7L545.4,326.9L544.3,327.6L544,329.8L545.2,332.1L545.6,333.9L545.6,334.9L546.1,334.7L545.8,337.7L545.3,339.2L545.9,339.7L545.5,341L544.4,342.1L542.2,343.1L539,344.8L537.8,345.9L538,347.2L538.6,347.4L538.3,349L537.6,351.3L537.2,353.8L536.4,355.2L534.6,356.8L534.1,357.2L532.9,358.8L532.1,360.4L530.6,362.6L527.6,365.8L525.7,367.6L523.8,369L521.1,370.2L519.8,370.4L519.4,371.2L517.9,370.8L516.7,371.4L514,370.8L512.5,371.1L511.4,371L508.8,372.2L506.7,372.7L505.1,373.8L503.9,373.9L502.9,372.8L502.1,372.8L501,371.4L500.9,371.8L500.6,371L500.7,369.2L499.9,367.1L500.7,366.6L500.7,364.2L499.1,361.3L497.9,358.7L497.9,358.7L496.1,354.7L494.3,352.4L493.3,350.1L492.8,347.1L492.2,344.9L491.3,340.1L491.3,336.5L491,334.8L490,333.5L488.7,331L487.3,327.3L486.8,325.4L484.7,322.4L484.5,320L484.3,318.1L484.6,315.4L485.6,312.6L485.7,311.2L486.6,308.5L487.2,307.2L488.7,305.2L489.5,303.9L489.8,301.6L489.7,299.8L488.9,298.7L488.2,296.9L487.6,295.1L487.7,294.4L488.5,293.2L487.7,290.2L487.2,288.2L485.9,286.3L486.1,285.7L485.8,284.7L485.1,282.4L482.9,279.2L480.2,276.1L478.4,273.6L476.8,270.4L476.9,269.4L477.5,268.4L478.1,266.2L478.7,263.9L478.2,263.4L479.1,260L479.5,257.6L478.4,255.6L477.2,255.1L476.7,253.7L476,253.2L476,252.4L473.3,253.5L472.3,253.3L471.3,254L469.2,254L467.7,252L466.9,249.8L465,247.8L463,247.9L460.7,247.8L458.5,248.2L456.4,248.9L452.2,250.7L450.8,251.7L448.4,252.6L446,251.7L444.8,251.8L443,251.2L441.3,251.2L438.2,251.7L436.3,252.6L433.7,253.7L433.2,253.6L432.5,253.7L429.8,252.2L427.4,249.9L425.2,248.2L423.4,246.2L422.7,246L420.8,244.8L419.5,243.1L419,242L418.8,239.8L417.6,237.9L416.6,236.7L416,236.3L415.3,235.7L415,234.4L414.7,233.7L413.9,233.2L412.5,231.9L411.4,231.7L410.9,230.9L410.9,230.4L410.1,229.7L410,229.1L409.6,226.7L410,225.4L409,223L407.7,221.9L408.9,221.3L410.2,219.2L410.9,217.6L410.7,215.9L411.5,214.4L411.9,211.5L411.8,208.5L411.5,207L411.8,205.4L411.2,204L409.9,202.6L410.1,201.3L410.3,199.9L411.3,199.1L412.2,197.5L412.1,196.4L413.1,194.3L414.6,192.3L415.5,191.8L416.3,190L416.4,188.4L417.5,186.5L419.2,185.3L421,182.2L422.4,181L424.8,180.6L426.9,178.5L428.2,177.7L430.5,175.1L430,171.3L431.1,168.6L431.5,167L433.3,164.9L435.8,163.5L437.8,162.3L439.6,159.1L440.5,157.2L442.3,157.2L443.7,158.5L446.1,158.3L448.6,159L449.7,159L452.2,157.3L454.9,156.8L456.5,155.5L458.9,154.6L463.1,154L467.2,153.8L468.4,154.2L470.8,153L473.4,153L474.4,153.7L476.1,153.5L478.8,152.3L480.5,152.7L480.4,154.2L482.5,153.1L482.7,153.7L481.5,155.2L481.5,156.6L482.3,157.4L482,160L480.4,161.6L480.9,163.3L482.1,163.3L482.8,164.8L483.7,165.3L486.7,166.3L487.7,166.1L489.8,166.6L493.2,167.9L494.4,170.7L496.7,171.3L500.3,172.6L503,174.1L504.2,173.3L505.4,171.9L504.7,169.5L505.5,168L507.2,166.6L509,166.2L512.4,166.8L513.3,168.2L514.2,168.2L515,168.7L517.5,169.1L518.2,170.1L521.5,170L524,170.8L526.6,171.8L527.7,172.2L529.6,171.3L530.6,170.4L532.8,170.1L534.7,170.5L535.4,172L536,171L538,171.8L540,171.9L541.2,171.2L541.9,170.1L541.7,170L542.2,168.5L542.6,166.2L542.9,165.4L543,165.4L543.7,162.9L544.8,160.7L544.8,160.6L544.4,158.3L544.9,157L543.9,155.6L544.7,154.4L543.2,154.7L541.1,154L539.5,155.8L535.8,156.1L533.7,154.5L531,154.4L530.5,155.6L528.8,156L526.3,154.4L523.6,154.4L522,151.4L520.1,149.7L521.2,147.3L519.5,145.8L522.1,142.9L525.8,142.8L526.7,140.5L531.3,140.9L534.1,138.9L536.8,138L540.8,138L545.3,140.1L548.9,141.3L551.6,140.8L553.8,141.1L556.4,139.5L556.7,138.2L555.8,136.1L554.3,135L552.9,134.7L551.9,133.7L548.6,131.2L545.7,130L543.5,128.3L545.1,127.8L546.8,125.3L545.4,124.1L548.7,122.8L548.5,122.2L546.5,122.7L544.6,122.9L543.2,123.9L541,124L539.1,125.2L539.4,127L540.6,127.8L543,127.6L542.7,128.7L540.1,129.2L537.1,130.9L535.7,130.3L536.1,128.9L533.4,128L533.8,127.4L535.9,126.4L535.2,125.7L531.4,125L531.2,123.9L529,124.2L528.3,125.9L526.6,128.1L526.7,128.9L525.6,129.5L524.9,129.3L524.5,132.9L523.3,134.2L522.6,136.3L523.5,138.1L523.9,139.2L526.1,140.2L525.7,141L522.8,141.1L521.8,142.1L519.9,143.7L519,142.3L519,141.7L517.5,141.6L516.3,141.3L513.4,142.1L515.1,143.8L513.9,144.3L512.6,144.3L511.2,142.7L510.8,143.4L511.4,145.2L512.7,146.7L511.8,147.3L513.2,148.8L514.5,149.6L514.6,151.4L512.3,150.6L513.1,152.1L511.5,152.4L512.6,155.2L510.9,155.2L508.8,153.9L507.8,151.4L507.3,149.4L506.3,148L505,146.2L504.8,145.3L504.4,145.1L504.3,144.5L502.9,143.4L502.7,142L502.8,139.9L503.1,138.9L502.7,138.5L502.2,138.2L501.4,137.2L500.4,136.6L498.1,135.5L496.7,134.4L494.4,133.5L492.4,131.3L492.9,131.1L491.7,129.8L491.7,128.8L490.1,128.3L489.4,129.6L488.7,128.6L488.7,127.5L488.8,127.5L489.4,127.2L487.5,126.8L485.5,127.8L485.7,129.3L485.4,130.2L486.2,131.7L488.5,133.3L489.7,135.8L492.4,138.2L494.3,138.2L494.9,138.9L494.3,139.5L496.5,140.6L498.3,141.5L500.4,143.1L500.7,143.7L500.2,144.8L498.9,143.3L496.7,142.8L495.7,144.8L497.5,145.9L497.3,147.5L496.3,147.7L495,150.4L494,150.6L494,149.7L494.5,148L495,147.4L494,145.6L493.2,144L492.2,143.7L491.4,142.3L489.9,141.8L488.8,140.6L487,140.4L485.1,139L482.9,137L481.2,135.3L480.5,132.3L479.3,131.9L477.3,130.9L476.2,131.3L474.8,132.7L473.9,132.9L471.7,134.7L466.9,133.8L463.4,134.8L463.1,136.7L463.2,138.4L460.8,140.4L457.7,141.1L457.4,142.1L455.9,143.8L454.9,146.3L455.7,148.1L454.3,149.4L453.7,151.4L451.8,152L450,154.4L446.8,154.4L444.5,154.4L442.9,155.5L441.9,156.6L440.7,156.4L439.8,155.3L439.2,153.6L436.9,153.1L435.9,153.9L434.6,153.4L433.3,153.8L433.8,151.4L433.7,149.5L432.6,149.2L432.1,148.1L432.4,146.1L433.5,144.9L433.7,143.7L434.4,141.9L434.4,140.6L434,139.5L434,138.5L434.2,136.3L433.3,135L436.9,132.8L439.8,133.3L443,133.3L445.5,133.8L447.5,133.7L451.4,133.8L452.7,132L453.5,125.9L451.2,122.8L449.5,121.3L446,120.1L445.9,117.9L449,117.3L452.9,118.1L452.3,114.7L454.4,116L459.9,113.7L460.7,111.2L462.8,110.6L464.6,110.1L465.8,109.3L468,105L471.1,103.7L473,103.8L473.4,103.2L475.3,103L475.7,103.7L477.3,102.3L476.8,101.2L476.7,99.5L475.8,97.9L475.8,95L476.1,94.2L476.8,93.4L478.7,93.2L479.5,92.4L481.3,91.6L481.2,93.1L480.6,94L480.8,94.8L482,95.2L481.5,96.3L480.8,96L479.2,98.1L479.8,99.5L479.9,100.6L482.1,101.3L482.1,102.3L484.4,101.7L485.7,100.9L488.2,102.1L489.3,103L490.8,102.2L494.3,100.8L497.1,99.8L499.4,100.3L499.6,101L501.8,101.1L502.2,99.8L505.3,98.9L504.6,96.5L504.6,94.3L505.6,92.5L507.6,91.5L509.5,93.7L511.3,93.6L511.5,91.4L511.6,89.8L510.8,90.1L509.4,89.1L509.1,87.5L511.8,86.7L514.5,86.3L516.9,86.8L519.1,86.7L521.4,85.1L519,83.8L515.1,84L511.4,85.1L507.9,85.7L506.5,84.1L504.4,83.2L504.7,80.5L503.5,78L504.4,76.4L506.1,74.7L510.7,71.8L512,71.2L511.7,70.1L508.7,68.8L505.2,69.6L503.3,71.5L503.8,73.1L500.6,75.3L496.6,77.6L495.3,81.5L496.9,83.5L499,85L497.2,88.2L494.9,88.8L494.3,93.6L493.1,96.2L490.4,96L489.2,98.2L486.6,98.4L485.8,95.7L483.9,92.4L482.2,88.4L480.8,86.7L476.5,90L473.5,90.6L470.5,89.2L469.8,86.2L469.3,79.8L471.3,78L476.9,75.7L481.1,72.9L484.9,69.2L489.7,64.1L493,62.1L498.3,58.8L502.6,57.7L505.9,57.8L508.7,55.7L512.3,55.8L515.8,55.3L522.2,57.2L519.8,57.9L522.2,59.5L524.1,58.6L527.6,60.2L533.2,60.8L541.5,63.7L543.3,65L543.8,66.7L541.8,68.1L538.6,68.9L529,66.8L527.6,67.2L531.2,69.1L532.2,73.1L535,73.9L536.7,74.6L536.8,73.3L535.3,72.1L536.5,71.1L541.8,72.8L543.5,72.2L541.7,70.2L545.9,67.6L547.9,67.7L550,68.7L550.8,66.8L548.7,65.3L549.3,63.7L547.5,62.1L553.3,62.9L554.9,64.4L552.4,64.7L552.7,66.2L554.6,67.1L557.6,66.5L557.6,64.8L561.6,63.6L568,61.3L569.5,61.5L568,63L570.6,63.3L571.8,62.4L575.5,62.3L578.2,61.3L581,62.8L582.7,61.1L580,59.6L580.8,58.8L587,59.5L590,60.3L598.5,63.3L599.3,62L596.7,60.6L596.4,60L593.9,59.8L594.1,58.6L592.2,56.6L591.8,55.7L594.4,53.4L594.7,51.2L595.9,50.7L601.3,51.3L602.4,52.7L601.5,54.8L603.1,55.6L604.6,57.4L605.7,60.9L608.6,62.5L608.5,64.2L606.1,68L608.6,68.4L609,67.4L611,66.8L611,65.4L612.2,64.2L610.3,62.7L610.5,61L608.2,60.8L607.1,59.3L607.5,56.7L603.9,54.7L606.6,53L605.3,51.2L606.2,51.1L607.9,52.5L608.4,55L610.7,55.4L608.9,53.6L611.7,52.6L615.6,52.5L620,53.9L617.2,51.8L615.5,49.2L618.6,48.7L623.2,48.8L627.2,48.5L624.9,47.2L626.1,45.6L628.2,45.5L631.1,44.3L635.8,44L636,43.3L640.8,43.1L642.7,43.7L645.9,42.4L649.4,42.4L649.1,41.4L650,40.4L653.6,39.5L657.4,40.2L655.4,40.8L659.9,41.2L661.4,42.3L662.6,41.7L668.1,41.8L673.3,42.9L675.6,43.8L676.2,45.1L674.7,45.8L670.9,47.1L670,47.9L672.6,48.2L676,48.8L677.3,48.4L679.6,49.9L679.9,49.3L682.7,48.9L689.2,49.3L690.6,50.5L699,50.8L697.5,48.9L701.9,49.4L705,49.4L709.3,50.7L711.7,52.3L711.4,53.3L715.7,55.3L719.7,56.4L719.2,53.7L723.4,54.8L726.1,54.1L730.6,54.9L731.4,54.2L734.9,54.6L731.3,52.2L732.7,51.1L752,52.8L755.2,54.3L762.4,56.2L769.8,55.7L774.2,56.1L777,57.2L778.8,59.1L782.1,59.8L784.2,59.3L787.6,59.2L792,59.7L795.4,59.4L801.5,61.8L803.1,60.9L799.6,59.3L799.1,58.1L806.3,58.8L810.3,58.7L817.5,59.9L821.7,61L821.7,61L829,63L837.4,65.7L839.2,67.3L841.4,68L838.6,66L844.6,66.4L851.3,68.8L851.6,69ZM267.9,60.7L266,61.6L263.9,60.8L262,61.1L260.2,59.9L262.6,59.1L264.8,58L266.4,58.7L267.2,59.2L267.5,59.7ZM813.6,54.5L815.8,56.2L813.8,56.4L812.5,55.6ZM813.6,54.5L813.8,54.4L815.4,54.4L819.2,55.1L819.5,55.5L818.2,56.1L815.8,56.2ZM278.9,59.7L277,62.3L281.1,60.3L282.4,62L280.5,63.9L281.2,65.7L284.6,63.8L287.6,61.5L289.6,58.7L292.3,58.9L295,59.3L296.9,60.5L296.2,61.8L293.8,63.2L294.3,64.6L293.3,65.9L288.1,67.8L285,68.2L283.4,67.4L281.9,68.7L278.5,71L277.1,72.1L273.5,74L270.4,74.1L268,75.3L266.8,77.1L264.1,77.4L260.1,79.6L255.8,82.7L253.6,84.9L251.5,88.2L254.4,88.6L253.9,91.3L253.7,93.4L257.1,92.9L260.5,94.1L262.1,95.2L263,96.5L265.4,97.3L267.2,98.5L270.8,98.7L273.1,99L271.5,101.5L270.8,104.4L271,107.7L273.2,110.5L275.4,109.5L277.9,106.5L278.8,101.9L277.9,100.4L282.1,99L285.6,97L287.8,95L288.5,93.1L288.2,90.7L286.6,88.6L290.7,85.6L291,83.1L292.6,78.8L294.4,78.2L297.7,78.9L299.7,79.2L301.9,78.5L303.4,79.4L305.2,81L305.3,82.1L309,82.3L307.9,84.6L306.9,88.1L308.7,88.6L309.6,90.2L313.4,88.7L316.9,85.6L318.9,84.3L319.5,86.8L320.8,90.4L321.9,93.8L320.3,95.6L322.7,97.2L324.1,98.8L327.4,99.6L328.5,100.5L328.5,103L330.2,103.3L330.7,104.4L329.8,107.7L327.8,108.8L325.8,109.8L321.7,110.9L318,113.3L313.9,113.8L309.2,113.2L305.7,113.2L303.2,113.4L300.5,115.5L297.1,116.8L292.3,120.8L288.6,123.5L290.8,123L296,119.1L301.7,116.6L305.3,116.3L306.9,117.8L304,119.8L303.7,123L303.7,125.3L306.4,126.8L310.4,126.3L313.8,123L313.3,125.1L314.5,126.2L311,128.2L305.2,130L302.5,131.2L299.2,133.4L297.4,133.2L298.1,130.6L303,128.1L299.1,128.2L296.4,128.6L296.5,129.6L293.5,131L290.7,132.1L287.9,133L285.9,135L285.4,135.5L284.9,137.1L285.2,138.7L286.2,138.8L286.3,137.6L286.8,138.3L286.4,139.2L284.6,139.7L283.4,139.6L281.5,140.2L280.4,140.3L278.9,140.5L276.6,141.3L280.4,140.8L280.9,141.4L277.3,142.3L275.7,142.3L275.9,141.9L274.9,142.7L275.6,142.9L274.4,145.1L271.9,147.4L272,146.6L271.5,146.5L270.9,145.7L270.9,147.4L271.4,147.9L271.1,149.1L270,150.3L267.9,152.7L267.7,152.6L269.1,150.5L268.1,149.3L268.6,146.8L267.7,148.1L267.7,150.1L266.3,149.6L267.6,150.6L266.9,153.5L267.5,153.7L267.5,154.8L267.1,157.8L264.9,160.1L262.1,161L260,162.8L258.7,163L257.1,164.2L256.5,165.2L253.2,167.2L251.5,168.7L249.8,170.5L248.9,172.7L248.9,174.8L249.1,177.4L249.8,179.6L249.5,181L250,184.5L249.5,186.6L249.1,187.8L248.1,189.7L247.3,190.1L246.1,189.7L246,188.4L245.1,187.6L244.3,185L243.6,182.6L243.5,181.4L244.4,179.4L244.1,177.7L242.7,175.1L241.9,174.6L239,176L238.6,175.9L237.7,174.4L236.3,173.7L233.3,174.1L231.2,173.7L229.2,173.9L228,174.4L228.3,175.2L227.9,176.5L228.3,177.1L227.7,177.5L226.9,177.1L225.8,177.6L224,177.5L222.5,175.9L220.2,176.3L218.5,175.6L216.9,175.8L214.6,176.5L211.7,178.8L208.8,180.1L207.1,181.6L206.1,183L205.6,185.1L205.4,186.6L205.6,187.6L205.6,187.7L205.6,187.7L204,190.3L203.1,192.6L202,196.7L201.5,198.2L201.6,199.9L202.1,201.4L202.2,203.8L203.5,206L203.8,207.8L204.6,209.3L207.2,210.1L208.1,211.4L210.5,210.6L212.5,210.2L214.6,209.7L216.3,209.2L218.1,207.9L219.1,206.1L219.7,203.5L220.3,202.6L222.2,201.8L225,201.1L227.3,201.2L228.9,201L229.4,201.6L229.1,203.1L227.4,204.9L226.5,206.8L226.9,207.3L226.3,208.7L225.3,211.1L224.8,210.3L224.2,210.3L224.1,210.8L224.6,210.8L224.5,211.6L223.9,213L224,213.4L223.6,214.5L223.7,214.8L223.2,216.4L222.6,217.2L222.1,217.3L221.5,218.3L222.2,218.9L222.5,218.4L223.2,218.8L223.5,219L224.1,218.4L224.9,218.4L225.1,218.6L225.5,218.5L226.7,218.7L227.9,218.7L228.8,218.3L229.2,218L230,218.1L230.6,218.4L231.3,218.3L231.8,218L233,218.4L233.4,218.5L234.1,219.1L234.8,219.8L235.7,220.2L236.3,221.1L236,221.4L235.8,222.1L235.9,223.2L235.2,224.2L234.8,225.5L234.6,226.8L234.7,227.6L234.6,229L234.2,229.3L233.8,230.6L233.9,231.4L233.3,232.2L233.3,233L233.7,233.5L234.2,235.2L235.2,236.4L236.3,237.7L237.2,238.8L237.1,239.5L238.1,239.6L238.4,239.4L239.1,240.1L240.4,239.9L241.5,239.1L243.2,238.5L244.1,237.6L245.6,237.8L245.5,238.1L246.9,238.2L248.1,238.7L248.9,239.6L249.8,240.5L251.2,240.6L253.3,238.4L254.4,238.1L254.5,237.1L255.1,234.5L256.7,233.1L258.4,233L258.7,232.4L260.7,232.6L262.9,231.1L264,230.4L265.4,228.9L266.3,229.1L266.9,229.9L266.3,231L266.2,231.7L264.6,232L265.4,233.4L265.2,235L263.9,236.8L264.8,239.2L265.9,239L266.7,236.8L265.9,235.7L265.9,233.4L269.3,232.2L269.1,230.7L270,229.8L270.8,231.9L272.7,232L274.3,233.7L274.3,234.7L276.6,234.7L279.5,234.4L280.9,235.8L282.9,236.2L284.4,235.2L284.5,234.4L287.8,234.2L290.9,234.2L288.6,235.1L289.5,236.6L291.5,236.8L293.5,238.3L293.8,240.7L295.1,240.7L296.1,241.4L297.8,242.5L299.3,244.5L299.4,246.1L300.4,246.2L301.7,247.7L302.7,248.7L305.9,249.3L306.2,248.8L308.3,248.6L311.1,249.4L312,249.7L313.9,250.4L316.7,253L317.1,254.3L318,254.1L318.6,255.8L320,261.2L321.4,261.7L321.5,263.8L319.5,266.3L320.3,267.2L325,267.7L325.1,270.8L327.1,268.8L330.4,269.9L334.8,271.7L336.1,273.5L335.7,275.2L338.8,274.3L343.9,275.9L347.9,275.8L351.8,278.3L355.3,281.8L357.3,282.6L359.6,282.8L360.5,283.7L361.5,287.6L362,289.5L361.1,294.5L359.8,296.5L356.3,300.8L354.8,304.3L353,306.9L352.3,307L351.7,309.2L352.2,315L351.8,319.7L351.7,321.7L350.9,322.9L350.8,327.1L348.5,331.1L348.3,334.2L346.3,335.6L345.9,337.4L343.1,337.4L339.2,338.6L337.5,340L334.7,340.9L332,343.3L330.2,346.4L330.1,348.7L330.8,350.4L330.7,353.5L330.3,355L328.8,356.7L326.8,362.1L325,364.6L323.5,366L322.9,368.9L321.6,370.7L320.8,372.6L318.3,374.3L316.4,373.7L315.1,374L312.5,372.7L310.9,372.8L309,371.1L309.2,372.7L312.8,375.4L312.9,377.5L314.8,378.8L315,380.3L313.4,384.3L310.2,385.9L305.4,386.5L302.7,386.2L303.6,388L303.7,390.3L304.5,391.9L303.4,393L301,393.4L298.4,392.3L297.6,393.1L298.8,396.1L300.7,397L301.7,396L302.9,397.6L300.9,398.6L299.6,400.4L300.1,403.5L300,405.1L297.8,405.1L296.4,406.7L296.5,408.9L299.5,411.1L301.9,411.7L302,414.4L299.8,416.1L299.6,419.6L297.9,420.7L297.4,422.1L299.3,425.2L301.5,426.9L300.5,426.7L298.4,426.7L297.6,427.4L296,428.5L296.7,431.2L295.8,431.3L292.9,430.3L289.4,428.3L285.9,426.6L284.4,424.8L284.3,423L282.4,421.1L280.1,416L280,413.2L281.6,410.8L277.7,410L279.1,407.3L278.1,402.3L281.2,403.4L280.4,397.1L278.5,396.3L279,400.1L277.3,399.6L276.7,395.3L275.8,389.6L276.3,387.5L274.8,384.6L273.7,381.1L274.7,381L274.9,376L275.4,371.1L275.4,366.5L273.9,361.9L274.1,359.4L273,355.6L273.8,351.8L273.2,345.8L273,339.5L272.7,332.6L271.9,327.5L270.8,323.2L268,321.4L267.6,320.2L262.1,317.1L257,313.8L254.8,311.9L253.5,309.3L253.8,308.4L251.2,304.4L248.2,298.8L245.3,292.7L244.1,291.3L243.2,289L241.1,287L239.1,285.8L239.9,284.4L238.5,281.5L239.3,279.3L241.3,277.4L242.7,275.1L242.1,273.8L241.1,275.2L239.5,273.9L240,273L239.5,270.2L240.5,269.8L240.9,267.9L241.9,265.9L241.8,264.6L243.2,264L245,262.8L244.7,261.8L245.7,261.6L245.6,260.1L246.2,259L247.5,258.7L248.7,256.8L249.7,255.2L248.8,254.5L249.3,252.7L248.9,249.9L249.5,249.1L249.1,246.5L248.2,244.9L247.3,244L246.9,242.4L247.5,241.5L246.9,241.3L246.5,240.3L245.2,239.5L244,239.7L243.4,240.7L242.3,241.5L241.7,241.6L241.5,242.2L242.6,243.9L241.9,244.3L241.5,244.7L240.2,244.9L239.9,243.1L239.5,243.6L238.6,243.4L238.2,242.2L237.1,242L236.5,241.6L235.3,241.6L235.2,242.3L234.9,241.8L233.5,241.2L233,240.5L233.4,240L233.3,239.3L232.6,238.6L231.7,238L230.8,237.6L230.7,236.7L230,236.1L230.1,237L229.5,237.8L229,236.9L228.2,236.6L227.9,236L228,235.1L228.4,234.1L227.7,233.7L228.3,233.1L227.5,232.1L226.4,230.9L225.9,229.8L224.9,228.9L223.7,227.5L224.1,227L224.4,227.5L224.7,227.2L224.3,226.3L223.5,226L223.2,226.7L221.7,226.7L220.7,226.4L219.7,225.8L218.3,225.6L217.6,224.9L216.3,224.4L214.7,224.4L213.6,223.7L212.3,222.5L209.8,219.2L208.6,218.2L206.5,217.4L205,217.6L202.8,218.8L201.4,219.1L199.7,218.3L197.8,217.7L195.6,216.3L193.7,215.8L190.9,214.4L189,212.9L188.5,212.1L187,211.9L184.5,211L183.7,209.6L181.2,207.8L180.3,205.9L179.9,204.4L180.9,204.1L180.8,203.2L181.5,202.4L181.7,201.3L181.2,200L181.2,198.7L180.6,197.2L179.1,194.1L177,191.7L176.2,189.8L174.4,188.5L174.1,187.8L175,185.9L173.8,185.2L172.7,183.7L172.7,181.5L171.4,181.3L170.4,179.6L169.6,178.1L169.8,177.2L169.1,174.9L169,172.5L169.4,171.3L168,170.1L167.1,170.2L165.9,169.4L165.1,170.6L165,172.1L164.6,174.4L165,175.7L166.3,177.8L166.5,178.5L166.8,178.8L166.8,179.8L167.3,179.8L167.2,181.8L167.8,182.5L168,183.6L169.2,185.2L169.3,188.1L169.7,189.4L170.1,190.9L169.8,192.5L171,192.6L171.7,194L172.3,195.4L172.1,195.9L170.8,197L170.3,197L170.1,195.2L168.8,193.4L167.3,191.9L166.2,191.1L166.9,188.9L166.9,187.2L165.9,186.3L164.6,184.9L164.1,185.3L163.7,184.5L162.3,183.7L161.3,181.9L161.6,181.7L162.6,181.9L163.9,180.7L164.4,179.3L163.1,177.1L161.8,176.3L161.5,174.4L161.2,172.3L160.9,169.9L160.8,167.1L160.9,165.5L160,163.8L158.9,163.4L159,162.5L157.6,162.4L157,161.5L154.8,161.2L154.4,160.7L154.8,159L153.6,156L153.3,151.7L153.7,151L153.1,150L152.3,147.4L153.1,144.9L152.6,143.2L154.4,140.7L155.6,138.1L156,135.8L158.4,132.9L161.9,127.4L163.7,123.4L164.5,120.8L164.6,119.4L165.3,118.9L168,119.9L167.7,122.7L168.7,121.9L169.7,119.4L170.4,117L170.1,117L167.4,114.1L166.5,112.8L163.1,111.6L163.6,109L165.1,107.2L163,105.9L164.3,103.6L163.1,101.5L164.1,100L163.7,98.9L162.4,98L163.7,95.5L162.6,93.2L163.6,90.5L161.6,90.3L158.2,90.2L156.3,89.4L154.3,86.5L152.7,86L149.8,85L146.6,85.2L143.5,84L142.1,82.8L139.1,83.4L137.7,85.3L136.4,85.5L133.3,86.1L130.5,87L127.6,87.6L128.8,85.9L132.4,83.2L135.5,82.4L135.6,81.7L131.4,83.2L128.1,85.1L123.1,87L123.4,88.4L119.4,90.4L115.9,91.6L112.9,92.5L111.2,93.7L106.4,95.2L104.5,96.6L100.8,97.8L99.4,97.6L96.6,98.4L93.4,99.4L90.7,100.3L86.1,101.1L86.2,100.7L89.9,99.3L92.9,98.4L96.7,96.8L99.8,96.5L102,95.3L106.6,93.6L107.6,93.1L110.2,92.1L112.6,89.9L115.3,88.3L112,89.1L111.7,88.6L109.6,89.7L109.5,88.2L108,89.2L108.5,87.8L105.2,89L103.9,89L105.3,87.3L106.8,86.2L106.4,85.3L103,85.8L102.5,84.5L101.7,83.8L103.4,82.2L103,81.1L105.5,79.5L108.9,77.9L111.2,76.5L113.1,76.3L114.1,76.8L117.2,75.5L118.5,75.7L121,74.9L122,73.6L121.3,73.1L124,72.1L122.7,72.1L119.9,72.7L118.6,73.3L117.6,72.7L114.3,73L112,72.4L112.3,71.3L111.5,69.7L115.7,68.6L121.8,67.3L123.5,67.3L121.7,68.6L126.2,68.5L126.4,66.9L125.1,65.9L125.2,64.6L124.6,63.5L122.8,62.6L125.6,61.3L129.3,61.2L133.2,60L135.3,58.7L138.8,57.5L141.1,57.2L146.3,56.1L147.9,56.3L152.6,54.9L154.9,55.4L154.9,56.6L156.4,56.1L159.6,56.2L158.8,56.8L161.3,57.3L163.6,57L166.8,57.8L170.4,58.1L171.5,58.4L174.7,58L176.8,58.7L178.6,59.1L181.7,59.7L183.5,61L185.4,61.2L188.3,60.1L191.5,59.3L194.2,59.6L198.3,58.5L202.2,57.9L202.5,58.9L204.6,58.3L206.2,57.1L207.3,57.4L208.4,59.7L212.8,58L211.2,59.9L214,59.5L215.5,58.7L217.8,58.9L219.8,60L223.6,60.9L226,61.4L228.1,61.2L229.7,62.5L225.7,63.8L228.9,64.4L234.7,64.1L236.8,63.6L237.7,65.2L241,63.9L239.8,62.7L241.8,61.9L244.4,61.7L246.2,61.5L247.3,62.1L248.2,63.5L250.7,63.3L253.3,64.5L256.8,64.1L259.7,64.1L260.7,62.5L262.8,62.1L265.3,62.9L263.5,65.4L266.3,63.3L267.9,63.4L270.7,60.8L269.7,59.2L268.2,58.1L270.6,55.3L274.3,53.5L276.6,53.9L277.7,55L278.3,57.9L275.6,59.1ZM240.1,50.5L238,51.6L243,50.9L244.6,52.1L247.9,50.9L249,51.7L248.3,54.2L250.3,53.1L251.2,50.5L253.2,50.2L254.8,50.6L256,51.6L255.1,54L254.2,55.8L256.5,57.1L259.1,58.3L258,59.4L254.5,59.6L255,60.6L253.6,61.6L250.3,61.2L247.4,60.5L244.9,60.6L240.4,61.5L234.1,62L231.2,62.2L231.2,60.9L229.1,60.2L227,60.5L226.4,58.5L228,58.2L231.4,57.8L234.1,57.9L237.1,57.4L233.8,56.8L229.4,57L226.6,57L226.5,56L232,55L228.9,55.1L226.1,54.4L229.6,52.5L231.9,51.5L238.6,50ZM259.4,49.7L256.3,51.4L254.8,49.6L255.8,49.3L258.5,49.2ZM313.2,50.5L312.9,51.2L310.9,51.1L308.8,51.1L306.5,51.4L306,51.3L304.8,49.9L305.5,49.1L306.5,48.9L310.8,49.2ZM293.5,50.4L293.9,51.9L297.1,49.9L302.8,48.9L304.3,51.5L302.8,53.1L307.2,52.4L309.7,51.4L313.2,52.7L315.1,53.9L314.7,55L318.7,54.4L319.7,56L323.9,57L325.1,58.1L325.6,60.5L321.3,61.7L325.1,63.4L328,64L329.7,66.4L332.9,66.6L331.3,68.4L326.2,71.5L324.2,70.4L322.2,67.8L319.4,68.2L318.4,69.7L319.8,71.2L322,72.5L322.5,73.2L322.6,75.9L320.9,77.8L318.6,77.1L314.4,74.9L316.2,77.3L317.6,78.9L317.5,79.9L312.3,78.8L308.5,77.2L306.6,75.9L307.7,75.1L305.3,73.7L303,72.4L302.6,73.2L296.3,73.6L295.1,72.7L297.6,70.7L301.5,70.7L306,70.3L305.8,69.4L307.3,68L311.4,65.4L311.5,64.3L311.2,63.4L308.8,62.1L305.3,61.2L307,60.6L305.9,59L304.2,58.8L303.2,57.9L301.6,58.7L297.8,59L290.9,58.5L287.2,57.7L284.3,57.3L283.3,56.4L286.2,55.3L283.4,55.2L284.7,52.7L287.9,50.4L290.7,49.4L296.1,48.8ZM268.3,48.7L270.2,49.2L273.9,48.9L273.8,49.6L271,50.8L273,51.9L270.8,54.1L266.8,55.1L265.1,54.9L264.5,53.9L261.3,52L262.1,51.2L265.7,51.5L265,49.9ZM737.9,50.2L735,50.3L730.7,50L730.3,49.9L731.1,48.9L733.3,48.6L737,49.6ZM279.9,51.3L276.4,53.2L274.2,53.1L274.8,50.9L275.8,49.7L277.7,48.6L280.2,48L284.1,48L287.2,48.6L282.6,50.9ZM223.7,54.8L217.3,56.1L217.3,54.9L214.1,53.6L215.6,52.8L219.3,50.7L222.7,49.1L222.4,47.6L229.3,47.2L231.5,47.7L236.2,47.8L237.3,48.6L238.4,49.6L235.3,50.2L228.9,52L224.7,53.7ZM746.5,45.7L745.4,46.6L742.1,46.4L737.5,45.4L737.1,44.7L741,45ZM283.6,45.9L281.8,46.8L279.1,46.7L277.4,46L279.4,44.9L282.6,44.3L283.6,45.1ZM734.5,44.5L735,46.3L727.9,46.2L725.4,46.8L720,45.2L719.2,43.6L721.2,43.1L726.3,43.2ZM278.2,41.8L278.6,42.8L277.5,44.1L275,45.9L271.7,46.1L270,45.7L271.3,44.3L268.1,44.5L269.7,42.7L271.6,42.7L275.2,41.9L277.7,42.1ZM258.8,43L258.7,43.8L260.8,43.4L262.6,43.5L261.8,44.7L259.6,45.8L252.8,46.2L246.9,47.3L244,47.3L244.5,46.5L249.6,45.5L240.7,45.7L238.5,45.3L243.6,43L246.1,42.3L250.5,43.1L252.4,44.5L255.5,44.7L255.1,42.4L257.7,41.6L259.4,41.8ZM574,56.5L572.9,56.7L566.3,56.4L565.5,55.3L561.7,54.6L561,53.2L562.8,52.7L562.3,51.3L565.4,49.2L563.5,48.9L567.3,46.8L566.4,45.7L570.1,44.4L575.7,42.9L581.7,42.4L584.5,41.5L587.9,41.2L589.7,42.2L588.8,42.9L582.7,44.1L577.5,45.2L572.5,47.5L570.6,49.9L568.4,52.3L569.5,54.4ZM286.1,40.9L287.4,41.6L291.1,41.6L292,42.4L290.8,43.3L292.5,43.8L293.2,44.4L295.7,44.5L298.3,44.7L301.7,44.2L305.7,44L308.6,44.1L309.9,45L309.6,46L307.9,46.7L304.7,47.2L302.5,46.9L296.8,47.3L292.8,47.3L290,47L285.6,46.2L286,44.9L286.8,43.7L285.9,42.7L282.3,42.4L280.8,41.7L282.4,40.7ZM247.7,39.6L245.4,41.4L243,42.2L241.2,42.3L236.6,43.3L233.2,43.7L231.2,43.2L236.4,41.4L242,39.9L244.8,39.9ZM288.6,39.9L287.7,40L284.4,39.8L284.5,39.2L288.2,39.2L289,39.6ZM258.9,39.5L254.7,40.1L252.8,39.4L255.2,38.7L258.1,38.4L260.3,38.8ZM507,39.1L503,40.1L499.7,39.5L500.9,38.9L499.8,38.2L503.5,37.7L504.3,38.6ZM262.2,37.4L259.5,37.9L256.4,37.9L256.9,37.5L259.5,36.9L260.4,37ZM286.1,38.7L282.9,39.1L282,38.6L282.1,37.7L282.9,36.8L285.2,36.9L286.1,37L287.4,37.8ZM279,38L278.7,39L276,38.7L273.8,38L269.8,37.9L272.3,37.2L270.7,36.7L271.6,35.9L274.8,36.2L278.8,37ZM653.7,38.1L644.1,39L644.8,36L646.1,35.8L647.6,35.9L653.4,37.2ZM494.8,35L500.9,36.6L496.4,37.5L495.6,39.2L494,39.6L493.2,41.5L491,41.6L486.9,40.2L488.6,39.4L485.8,38.7L482.2,36.8L480.8,35.1L485.7,34.3L486.7,35.1L489.2,35L489.9,34.3L492.5,34.2ZM507.5,33.5L511.1,34.2L508.7,35.4L503.5,35.6L498.1,35.3L497.7,34.7L495.2,34.6L493.1,33.7L498.6,33.1L501.2,33.6L502.9,32.9ZM553,33.2L550.8,33.4L549.3,33.6L549.2,34L547.2,34.3L545.1,33.8L545.8,33.1L541.8,33.1L545.1,32.7L547.8,32.7L548.4,33.2L549.2,32.7L550.7,32.4L553.6,32.8ZM643.1,36.8L639.4,37.1L633.8,36.4L630.1,35.6L627.4,34L624.5,33.6L627.8,32.2L631.1,31.7L635.6,32.7L641.8,34.8ZM305.7,35.1L307.2,35.8L304.1,36.4L299.1,38.1L295.7,38.3L292.2,38L291.1,37.1L292,36.3L294.1,35.7L290.7,35.7L289.6,35L289.5,34L291.9,33.1L293.9,32.4L295.9,32.3L295.7,31.8L299.9,31.7L300.9,32.8L303.3,33.2L305.8,33.7ZM345.8,28.1L350.2,28.2L353.6,28.4L356.2,29L355.6,29.5L350.5,30.3L345.9,30.7L343.9,31.2L347.7,31.2L342.4,32.4L339,33L334.4,34.8L330.4,35.1L328.9,35.6L323.2,35.8L325.5,36.1L323.9,36.5L324.4,37.6L322.1,38.4L318.7,39L317.1,39.9L313.9,40.6L313.8,41.1L317,41L316.6,41.6L310.5,43L306.2,42.4L300.4,42.7L297.8,42.5L294.4,42.3L295.2,41.2L299.1,40.7L299.7,39L300.9,38.9L304.9,39.8L303.8,38.4L301.2,37.9L303.5,37.1L307.2,36.5L308.5,35.8L306.8,34.9L307.2,33.8L312,33.9L313.2,34.1L316.7,33.3L313,33.1L306.6,33.2L304.3,32.5L303.8,31.7L302.5,31.1L303,30.4L306.1,30L308.2,30L312,29.6L315.5,28.9L317.5,29L318.7,29.6L321.3,28.5L324,28.2L327.3,28L332.7,27.9L333.3,28.1L338.6,27.8L342.2,27.9ZM417,27.3L426.9,28.8L423.4,29.5L416.8,29.6L407.3,29.8L408,30.1L414.3,29.9L419.2,30.6L422.8,30L424,30.7L421.6,31.9L426.4,31.1L435.1,30.4L440.2,30.7L441,31.6L433.3,33.1L432.2,33.6L426.4,34L430.5,34.1L427.9,35.6L426,37.1L425.4,39.6L427.2,41.1L424.3,41.2L421,42L424.1,43.2L424,45.3L422,45.5L423.9,47.6L419.6,47.7L421.6,48.7L420.8,49.6L418,50L415.3,50L417.3,51.7L417,52.8L413.4,51.8L412.3,52.4L414.7,53.1L416.9,54.6L417.2,56.7L413.5,57.2L412.2,56.2L410.2,54.7L410.4,56.4L407.8,57.8L413,57.9L415.7,58L409.8,60.3L403.8,62.3L397.6,63.2L395.4,63.2L393,64.3L389.3,67L384.4,68.9L382.9,69L379.9,69.7L376.8,70.3L374.4,72L373.8,73.9L372.1,75.6L368,77.8L368.1,80L366.5,82.2L364.5,85L361.4,85.1L359,82.9L354.7,82.8L353.1,81.3L352.7,78.6L350.3,75.2L349.9,73.5L350.6,71.1L348.8,68.6L350.3,66.6L349.4,65.7L352.7,62.6L356.2,61.7L357.4,60.6L358.7,58.6L356.1,59.5L354.8,59.8L352.8,60.2L350.8,59.4L351.4,57.6L352.9,56.3L354.7,56.2L358.4,56.9L355.8,55.3L354.4,54.4L352.3,54.8L351,54.1L354.3,51.8L353.6,50.9L352.9,49.2L352,46.6L350.1,45.6L350.7,44.6L346.5,43.2L342.6,43L337.6,43.1L332.9,43.3L331.2,42.6L329.1,41.1L334.4,40.3L338.3,40.2L330.8,39.6L327.4,38.7L328.3,37.8L336.1,36.7L343.5,35.7L344.9,34.9L340.7,34.1L343,33.2L350.4,31.8L353.1,31.6L353.2,30.6L357.8,30.1L363.4,29.8L368.8,29.8L370.1,30.4L375.6,29.3L379.2,30.1L381.5,30.2L384.7,30.9L381.3,29.8L382.2,29L388.8,27.8L394.8,27.9L397.4,27.3L403.6,27.1Z","pts":{"US":[215,147],"CN":[714,160],"EU":[478,88],"GB":[436,96],"FR":[450,132],"DE":[506,114],"KR":[770,146],"JP":[806,162],"IN":[658,198],"CA":[221,97],"AE":[602,188],"SG":[728,263],"IL":[543,171],"RU":[652,82],"TH":[718,220],"INT":[484,142],"BR":[317,298],"SA":[566,204],"TW":[766,194],"AU":[798,344]},"W":960,"H":470};
-const NAMES={US:"美国",CN:"中国",EU:"欧盟",GB:"英国",FR:"法国",DE:"德国",KR:"韩国",JP:"日本",IN:"印度",CA:"加拿大",AE:"阿联酋",SG:"新加坡",IL:"以色列",RU:"俄罗斯",TH:"泰国",INT:"国际",BR:"巴西",SA:"沙特阿拉伯",TW:"台湾",AU:"澳大利亚"};
-const START=Date.UTC(2017,0,1),TOP=5;const f1=v=>(+v).toFixed(1);
-let canEdit=false,events=[],kindF="all",countryF=null,selId=null,db=null;
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:"#";
-const fmtD=d=>{const [y,m,dd]=d.split("-");return y+"-"+m+"-"+dd};
-const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return ""}};
-const t=d=>Date.parse(d+"T00:00:00Z");
+<footer>
+  <div class="foot">
+    <div>
+      <b>我眼中的泰国</b>是一份免费的参考指南，有俄文、英文和中文版本。编者：莉娜·李。<br>
+      材料依据公开的官方来源；译文由编者完成。仅供参考，不构成税务或法律建议，也不构成提供服务。主要来源：泰国税务厅，<a href="https://www.rd.go.th/english/">rd.go.th</a>。</div>
+    <div class="src"><b>可供核查的官方资源：</b><a href="https://www.rd.go.th/english/">税务厅</a>、<a href="https://www.ratchakitcha.soc.go.th/">《政府公报》（法律的官方公布）</a>、<a href="https://www.krisdika.go.th/">国务委员会（法律文本）</a>、<a href="https://www.dol.go.th/">土地厅</a>、<a href="https://www.bot.or.th/">泰国央行</a>、<a href="https://www.dpa.or.th/">存款保护机构</a>、<a href="https://www.sec.or.th/EN/">证券交易委员会（SEC）</a>、<a href="https://www.amlo.go.th/">反洗钱办公室（AMLO）</a>、<a href="https://www.tfac.or.th/">会计专业联合会（TFAC）</a>、<a href="https://www.ifrs.org/use-around-the-world/use-of-ifrs-standards-by-jurisdiction/view-jurisdiction/thailand/">IFRS基金会——泰国概况</a>、<a href="https://www.sso.go.th/">社会保障办公室</a>、<a href="https://www.labour.go.th/">劳动保护与福利厅</a>、<a href="https://www.excise.go.th/">消费税厅</a>、<a href="https://www.customs.go.th/">海关厅</a>、<a href="https://www.boi.go.th/">投资促进委员会（BOI）</a>、<a href="https://www.dmf.go.th/">矿物燃料厅</a>、<a href="https://www.reic.or.th/">REIC——政府住房银行房地产信息中心</a>。</div>
+  </div>
+</footer>
 
-
-function series(){
-  const ev=[...events].sort((a,b)=>a.date<b.date?-1:1);
-  let c=0,w=0;const pts=[{x:START,c,w}];
-  for(const e of ev){const pc=e.kind==="C"?c:w;e._d=+e.level-pc;if(e.kind==="C")c=+e.level;else w=+e.level;pts.push({x:t(e.date),c,w,e})}
-  pts.push({x:Date.now(),c,w});
-  let area=0;for(let i=1;i<pts.length;i++){const yrs=(pts[i].x-pts[i-1].x)/31557600000;area+=Math.max(0,pts[i-1].c-pts[i-1].w)*yrs}
-  return {pts,c,w,area};
-}
-function fit(kind,from){const p=events.filter(e=>e.kind===kind&&e.date>=from).map(e=>[t(e.date)/31557600000+1970,+e.level]);if(p.length<3)return 0;
-  const n=p.length,mx=p.reduce((a,q)=>a+q[0],0)/n,my=p.reduce((a,q)=>a+q[1],0)/n;let sxy=0,sxx=0;for(const [x,y] of p){sxy+=(x-mx)*(y-my);sxx+=(x-mx)**2}return sxx?sxy/sxx:0}
-function trend(){const s=series(),now=Date.now()/31557600000+1970,bc=fit("C","2022-07-01"),bw=fit("W","2023-06-01");
-  const at=(l0,b,L)=>b>0&&l0<L?now+(L-l0)/b:(l0>=L?now:Infinity);
-  return {now,bc,bw,c4:at(s.c,bc,4),c5:at(s.c,bc,5),w5:at(s.w,bw,5),c:s.c,w:s.w}}
-let showTrend=true;
-function visible(){return events.filter(e=>(kindF==="all"||e.kind===kindF)&&(!countryF||e.country===countryF))}
-
-function figs(){
-  const s=series(),last=[...events].sort((a,b)=>a.date<b.date?1:-1)[0];
-  $("#figs").innerHTML=[
-    [`<b class="c">${f1(s.c)}</b>`,"C — 技术等级（满分5）"],[`<b>${f1(s.w)}</b>`,"W — 治理等级（满分5）"],
-    [`<b class="c">${f1(s.c-s.w)}</b>`,"差距 C − W，等级"],(()=>{const tr=trend();return [`<b>${isFinite(tr.c4)?Math.floor(tr.c4):"—"}–${isFinite(tr.c5)?Math.floor(tr.c5):"—"}</b>`,"按线性趋势的风险窗口"]})(),
-    [`<b>${events.length}</b>`,last?"个事件，最近一次 "+fmtD(last.date):"个事件"]].map(([a,b])=>`<div>${a}<span>${b}</span></div>`).join("");
-}
-
-const cs=$("#cs");
-function drawChart(){
-  const W=cs.clientWidth,H=cs.clientHeight;if(!W)return;
-  const s=series(),narrow=W<520,m={l:narrow?28:40,r:narrow?10:18,t:16,b:30};
-  const tr=trend(),endY=showTrend?Math.min(2041,Math.max(new Date().getUTCFullYear()+2,Math.ceil(Math.min(tr.w5,2040)))):new Date().getUTCFullYear()+1;
-  const x0=START,x1=Date.UTC(endY,0,1),yd=y=>Date.UTC(Math.floor(y),0,1)+(y-Math.floor(y))*31557600000;
-  const y0=0,y1=5.4;
-  const X=v=>m.l+(v-x0)/(x1-x0)*(W-m.l-m.r),Y=v=>H-m.b-(v-y0)/(y1-y0)*(H-m.t-m.b);
-  const step=k=>s.pts.map((p,i)=>(i?`H${X(p.x).toFixed(1)}V${Y(p[k]).toFixed(1)}`:`M${X(p.x).toFixed(1)},${Y(p[k]).toFixed(1)}`)).join("");
-  let gap="";for(let i=0;i<s.pts.length-1;i++){const a=s.pts[i],b=s.pts[i+1];if(a.c>a.w)gap+=`<rect x="${X(a.x)}" y="${Y(a.c)}" width="${Math.max(0,X(b.x)-X(a.x))}" height="${Y(a.w)-Y(a.c)}"/>`}
-  let ax="";const span=endY-2017,stepY=span>16?(narrow?4:2):(narrow?2:1);for(let y=2017;y<=endY;y++){if((y-2017)%stepY)continue;const xx=X(Date.UTC(y,0,1));if(xx>W-m.r-20)continue;ax+=`<line x1="${xx}" x2="${xx}" y1="${m.t}" y2="${H-m.b}" stroke="var(--line)"/><text x="${xx+3}" y="${H-10}" font-size="12" fill="var(--mute)">${narrow?"’"+String(y).slice(2):y}</text>`}
-  for(let v=0;v<=5;v++)ax+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" ${v===5?"":"stroke-dasharray=\"2 4\""}/><text x="${m.l-6}" y="${Y(v)+4}" font-size="12" fill="var(--mute)" text-anchor="end">${v}</text>`;
-  ax+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(5)}" y2="${Y(5)}" stroke="var(--brick)" stroke-width="2" stroke-dasharray="8 5"/><text x="${m.l+8}" y="${Y(5)-7}" font-size="13" font-weight="700" fill="var(--brick)">ASI — 过滤器阈值</text><text x="${m.l+8}" y="${Y(1)-7}" font-size="12" fill="var(--mute)">${narrow?"":"ChatGPT等级"}</text>`;
-  const vis=new Set(visible().map(e=>e.id));
-  const dots=s.pts.filter(p=>p.e).map(p=>{const e=p.e,on=vis.has(e.id),k=e.kind==="C";const r=e.id===selId?9:4+Math.min(5,Math.abs(e._d||0)*6);
-    return `<circle class="dot" data-id="${esc(e.id)}" cx="${X(p.x)}" cy="${Y(k?p.c:p.w)}" r="${r}" fill="${k?"var(--brick)":(e._d<0?"var(--panel)":"var(--ink)")}" stroke="${k?"var(--panel)":"var(--ink)"}" stroke-width="2" opacity="${on?1:.15}" style="cursor:pointer"><title>${esc(fmtD(e.date)+" — "+e.title)}</title></circle>`}).join("");
-  let tl="";if(showTrend){const nx=Date.now(),cap=(l0,b)=>{const T=b>0?Math.min(yd(tr.now+(TOP-l0)/b),x1):x1;const lv=Math.min(TOP,l0+b*((T-nx)/31557600000));return `M${X(nx)},${Y(l0)}L${X(T)},${Y(lv)}`+(T<x1?`H${X(x1)}`:"")};
-    if(isFinite(tr.c4)&&isFinite(tr.c5)){const a=X(yd(tr.c4)),b=X(Math.min(yd(tr.c5),x1));tl+=`<rect x="${a}" y="${m.t}" width="${b-a}" height="${H-m.t-m.b}" fill="var(--brick)" opacity=".1"/><text x="${(a+b)/2}" y="${Y(1.25)}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--brick)">风险窗口</text><text x="${(a+b)/2}" y="${Y(1.25)+15}" text-anchor="middle" font-size="12" fill="var(--mute)">${Math.floor(tr.c4)}–${Math.floor(tr.c5)}</text>`}
-    tl+=`<path d="${cap(tr.c,tr.bc)}" fill="none" stroke="var(--brick)" stroke-width="2" stroke-dasharray="6 5"/><path d="${cap(tr.w,tr.bw)}" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="6 5"/><text x="${X(nx)+6}" y="${H-m.b-8}" font-size="12" fill="var(--mute)">${narrow?"趋势 →":"今天 · 此后为线性趋势，不是预测 →"}</text><line x1="${X(nx)}" x2="${X(nx)}" y1="${m.t}" y2="${H-m.b}" stroke="var(--mute)"/>`}
-  cs.setAttribute("viewBox",`0 0 ${W} ${H}`);
-  cs.innerHTML=`${ax}${tl}<g fill="var(--brick2)">${gap}</g><path d="${step("w")}" fill="none" stroke="var(--ink)" stroke-width="2.5"/><path d="${step("c")}" fill="none" stroke="var(--brick)" stroke-width="3"/>
-  <text x="${X(s.pts.at(-1).x)-6}" y="${Y(s.c)-10}" text-anchor="end" font-weight="800" fill="var(--brick)">C ${f1(s.c)}</text><text x="${X(s.pts.at(-1).x)-6}" y="${Y(s.w)+34}" text-anchor="end" font-weight="800" fill="var(--ink)" paint-order="stroke" stroke="var(--panel)" stroke-width="4">W ${f1(s.w)}</text>${dots}`;
-}
-const ro=new ResizeObserver(drawChart);ro.observe(cs);
-cs.addEventListener("click",ev=>{const id=ev.target.closest("circle")?.dataset.id;if(id)select(id)});
-
-function drawMap(){
-  const by={};for(const e of visible()){(by[e.country]??={C:0,W:0})[e.kind]++}
-  const b=Object.entries(by).map(([k,v])=>{const p=MAP.pts[k];if(!p)return"";const n=v.C+v.W,r=7+Math.sqrt(n)*5,fc=v.C/n;
-    const on=!countryF||countryF===k;
-    return `<g data-c="${k}" style="cursor:pointer" opacity="${on?1:.35}" tabindex="0" role="button" aria-label="${NAMES[k]}: ${n}"><circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="var(--ink)"/><path d="${arc(p[0],p[1],r,fc)}" fill="var(--brick)"/><circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="none" stroke="var(--panel)" stroke-width="2"/>${lbl(k,p,r,n)}</g>`}).join("");
-  $("#map").innerHTML=`<svg viewBox="0 0 ${MAP.W} ${MAP.H}" role="img" aria-label="按国家分布的事件地图"><rect width="${MAP.W}" height="${MAP.H}" fill="var(--panel)"/><path d="${MAP.d}" fill="var(--land)"/>${b}</svg><p class="note" style="padding:0 14px 12px;margin:0"><span class="c">■</span> C类事件占比 &nbsp; ■ W类事件占比</p>`;
-}
-const LP={GB:"l",EU:"t",DE:"r",FR:"l",INT:"b",KR:"r",JP:"r",CN:"t",IN:"b",TW:"r",SG:"b",TH:"l",AE:"r",SA:"l",IL:"l",RU:"t"};
-function lbl(k,p,r,n){const q=LP[k]||"t",t=NAMES[k]+" "+n;const o={t:[p[0],p[1]-r-6,"middle"],b:[p[0],p[1]+r+16,"middle"],l:[p[0]-r-5,p[1]+5,"end"],r:[p[0]+r+5,p[1]+5,"start"]}[q];
-return `<text x="${o[0]}" y="${o[1]}" text-anchor="${o[2]}" font-size="14" font-weight="700" fill="var(--ink)" paint-order="stroke" stroke="var(--panel)" stroke-width="4">${t}</text>`}
-function arc(cx,cy,r,f){if(f<=0)return"";if(f>=1)return`M${cx-r},${cy}a${r},${r} 0 1,0 ${2*r},0a${r},${r} 0 1,0 ${-2*r},0`;const a=f*2*Math.PI,x=cx+r*Math.sin(a),y=cy-r*Math.cos(a);return`M${cx},${cy}L${cx},${cy-r}A${r},${r} 0 ${f>.5?1:0},1 ${x},${y}Z`}
-$("#map").addEventListener("click",ev=>{const k=ev.target.closest("g[data-c]")?.dataset.c;if(k)setCountry(countryF===k?null:k)});
-$("#map").addEventListener("keydown",ev=>{if(ev.key==="Enter"){const k=ev.target.closest("g[data-c]")?.dataset.c;if(k)setCountry(countryF===k?null:k)}});
-function setCountry(k){countryF=k;const b=$("#clearCountry");b.hidden=!k;b.textContent=k?NAMES[k]+" ✕":"";render()}
-$("#clearCountry").onclick=()=>setCountry(null);
-$("#trendT").onchange=e=>{showTrend=e.target.checked;drawChart()};
-document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{kindF=b.dataset.k;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
-
-const dl=e=>{const d=e._d||0;return Math.abs(d)<0.05?"无变化":(d>0?"+":"−")+f1(Math.abs(d))};
-function card(){
-  const e=events.find(x=>x.id===selId)||[...visible()].sort((a,b)=>a.date<b.date?1:-1)[0];
-  if(!e){$("#card").innerHTML=`<p class="note">请在图表、地图或记录中选择一个事件。</p>`;return}
-  const k=e.kind==="C";
-  $("#card").innerHTML=`<div class="k">${fmtD(e.date)} · ${esc(NAMES[e.country]||e.country)}</div><h3>${esc(e.title)}</h3>
-  <p style="margin:0 0 10px"><span class="tag ${k?"c":""}">${k?"C — 技术力量":"W — 治理能力"}</span><span class="tag">等级 ${f1(e.level)}</span><span class="tag">${dl(e)}</span></p>
-  <p style="margin:0 0 12px">${esc(e.note)}</p><p class="src">来源： <a href="${esc(safeUrl(e.url))}" target="_blank" rel="noopener">${esc(host(e.url))}</a></p>
-  ${canEdit?'<button type="button" class="chip" id="editBtn">修改</button>':''}`;
-  if(canEdit)$("#editBtn").onclick=()=>edit(e);
-}
-function table(){
-  const v=[...visible()].sort((a,b)=>a.date<b.date?1:-1);
-  $("#empty").hidden=!!v.length;$("#empty").textContent=events.length?"没有符合此筛选条件的事件。":"事件数据库暂时为空。";
-  $("#rows").innerHTML=v.map(e=>`<tr data-id="${esc(e.id)}" class="${e.id===selId?"sel":""}"><td class="d">${fmtD(e.date)}</td><td>${esc(e.title)}</td><td><span class="${e.kind==="C"?"c":""}" style="font-weight:700">${e.kind}</span></td><td class="n">${f1(e.level)}</td><td class="n" style="font-weight:400">${dl(e)}</td><td>${esc(NAMES[e.country]||e.country)}</td><td class="src"><a href="${esc(safeUrl(e.url))}" target="_blank" rel="noopener">${esc(host(e.url))}</a></td></tr>`).join("");
-}
-$("#rows").addEventListener("click",ev=>{if(ev.target.closest("a"))return;const id=ev.target.closest("tr")?.dataset.id;if(id)select(id)});
-function select(id){selId=id;render();$("#card").scrollIntoView({block:"nearest",behavior:"smooth"})}
-function render(){figs();drawChart();drawMap();card();table()}
-
-events=EVENTS.map(e=>({...e}));render();
-}
-</script>
 </body>
 </html>
