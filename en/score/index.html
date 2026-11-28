@@ -405,6 +405,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="f"><label for="m-fee">Common area fee, ฿ per m² per month</label><input id="m-fee" type="number" min="0" step="any" inputmode="decimal"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">up to ฿50 — 10; up to ฿70 — 8; up to ฿90 — 6; up to ฿120 — 4; more — 2</span>
       <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-brand" data-v="-1" style="margin-top:4px;width:auto">Separate brand and marketing fee (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-ffe" data-v="-1" style="margin-top:4px;width:auto">Furniture and equipment reserve above 3% of revenue (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-elec" data-v="-2" style="margin-top:4px;width:auto">Glass façade or west-facing windows without shading (−2)</label>
     </div></div>
+    <div id="m-mix" hidden style="margin-top:6px"><div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#b8e994;border-radius:7px;padding:6px 14px">OWNER STAYS</span></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Only for the «Renting out + personal use» strategy.</span><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-xown" style="margin-top:4px;width:auto">The operator contract bans or restricts owner stays in high season (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-gar" style="margin-top:4px;width:auto">The guaranteed return does not apply on the days the owner stays</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-lic" style="margin-top:4px;width:auto">The building has no hotel licence for short-term rentals</label></div>
     <div class="sd-out" id="o-mg" style="margin-top:8px"></div>
   </fieldset></div>
   </div>
@@ -435,6 +436,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="display:block;width:100%;box-sizing:border-box;background:#b8e994;color:inherit;padding:.1em .4em;border-radius:.35em">Strategy</mark></label><select id="s-strat">
         <option value="base">Base model</option>
         <option value="rent">Renting out</option>
+        <option value="mix">Renting out + personal use</option>
         <option value="resale">Resale</option>
         <option value="keep">Long-term capital preservation</option>
         <option value="live">Living in it yourself</option>
@@ -461,7 +463,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <script>
 (function(){
   var C=[["loc","Location"],["price","Price per m²"],["dev","Developer and construction quality"],["legal","Legal clarity"],["mgmt","Management and maintenance"],["liq","Liquidity"],["erg","Ergonomics and functionality"]];
-  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20],mix:[25,15,15,15,15,5,10]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
   C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Score: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Weight: '+c[1]+'"><input id="s-c-'+c[0]+'" type="text" readonly tabindex="-1" aria-label="Total: '+c[1]+'" style="background:#eef1f6;font-weight:600;text-align:center;padding-left:4px;padding-right:4px"></div>';});
@@ -492,7 +494,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     document.getElementById("s-verdict").innerHTML=vd;
     var wn=[];
     if(crit.length) wn.push("Score 1–2: "+crit.join(", ")+".");
-    if(ws!==100) wn.push("The weights do not add up to 100% — the total has been rescaled proportionally.");
+    if(strat.value==="mix"&&document.getElementById("m-gar")&&document.getElementById("m-gar").checked)wn.push("The guaranteed return is not paid for the days you stay: if you come in high season, the real yield is lower than promised.");if(strat.value==="mix"&&document.getElementById("m-lic")&&document.getElementById("m-lic").checked)wn.push("Without a hotel licence, short-term rentals (under 30 days) are illegal: that income is a grey zone, so plan on long-term rentals.");if(ws!==100) wn.push("The weights do not add up to 100% — the total has been rescaled proportionally.");
     document.getElementById("s-warn").textContent=wn.join(" ");
   }
   strat.addEventListener("change",function(){setW();calc();});
@@ -609,11 +611,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       var b1=parseFloat(document.getElementById("m-op").value),b2=Math.min(10,2+2*cnt("m-c2")),b3=parseFloat(document.getElementById("m-ry").value);
       var b4=fee<=50?10:fee<=70?8:fee<=90?6:fee<=120?4:2;pan.querySelectorAll(".m-c4:checked").forEach(function(c){b4+=parseFloat(c.dataset.v);});b4=Math.max(1,b4);
       var b5=Math.min(10,1+3*cnt("m-c5")),B=[b1,b2,b3,b4,b5],Wt=[15,25,25,25,10],t=0;B.forEach(function(b,i){t+=b*Wt[i]/100;});
-      var v=Math.max(1,Math.min(10,Math.round(t*2)/2));
+      var v=Math.max(1,Math.min(10,Math.round(t*2)/2));var mx=document.getElementById("s-strat").value==="mix",mo=mx&&document.getElementById("m-xown").checked;if(mo)v=Math.max(1,v-1);
       var h="→ management score <b>"+F(v)+"</b> ("+B.map(function(b,i){return N[i]+" "+F(b);}).join(" · ")+")";
       if(fee<30)h+='<br><span style="color:#c0392b">A fee below ฿30 per m² — check that there is enough money to maintain the complex and the sinking fund.</span>';
-      out.innerHTML=h+ex;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
-    pan.addEventListener("input",mg);pan.addEventListener("change",mg);})();
+      if(mo)h+=" · "+"−1 for restricted owner stays";if(mx&&document.getElementById("m-gar").checked)h+='<br><span style="color:#b9770e">'+"The guaranteed return is not paid for the days you stay: if you come in high season, the real yield is lower than promised."+"</span>";if(mx&&document.getElementById("m-lic").checked)h+='<br><span style="color:#c0392b">'+"Without a hotel licence, short-term rentals (under 30 days) are illegal: that income is a grey zone, so plan on long-term rentals."+"</span>";out.innerHTML=h+ex;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
+    pan.addEventListener("input",mg);pan.addEventListener("change",mg);var stg=document.getElementById("s-strat"),mxb=document.getElementById("m-mix"),tg=function(){mxb.hidden=stg.value!=="mix";if(inp.dataset.auto)mg();};stg.addEventListener("change",tg);tg();})();
   (function(){var src=document.getElementById("pr-src"),inp=document.getElementById("s-r-price"),row=inp.parentNode,out=document.getElementById("o-pr");
     var pan=document.createElement("div");pan.id="pr-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
     var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
