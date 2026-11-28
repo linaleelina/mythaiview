@@ -406,6 +406,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="f"><label for="m-fee">Плата за общее имущество, ฿ за м² в месяц</label><input id="m-fee" type="number" min="0" step="any" inputmode="decimal"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">до 50 ฿ — 10; до 70 — 8; до 90 — 6; до 120 — 4; дороже — 2</span>
       <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-brand" data-v="-1" style="margin-top:4px;width:auto">Отдельная плата за бренд и маркетинг (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-ffe" data-v="-1" style="margin-top:4px;width:auto">Резерв на мебель и оборудование больше 3% выручки (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-elec" data-v="-2" style="margin-top:4px;width:auto">Стеклянный фасад или окна на запад без затенения (−2)</label>
     </div></div>
+    <div id="m-mix" hidden style="margin-top:6px"><div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#b8e994;border-radius:7px;padding:6px 14px">ПРОЖИВАНИЕ ВЛАДЕЛЬЦА</span></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Только для стратегии «Сдача в аренду + личное проживание».</span><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-xown" style="margin-top:4px;width:auto">Договор с оператором запрещает или ограничивает проживание владельца в высокий сезон (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-gar" style="margin-top:4px;width:auto">Гарантированный доход не действует в дни проживания владельца</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-lic" style="margin-top:4px;width:auto">У дома нет гостиничной лицензии для посуточной сдачи</label></div>
     <div class="sd-out" id="o-mg" style="margin-top:8px"></div>
   </fieldset></div>
   </div>
@@ -436,6 +437,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="display:block;width:100%;box-sizing:border-box;background:#b8e994;color:inherit;padding:.1em .4em;border-radius:.35em">Стратегия</mark></label><select id="s-strat">
         <option value="base">Базовая модель</option>
         <option value="rent">Сдача в аренду</option>
+        <option value="mix">Сдача в аренду + личное проживание</option>
         <option value="resale">Перепродажа</option>
         <option value="keep">Долгосрочное сохранение капитала</option>
         <option value="live">Собственное проживание</option>
@@ -462,7 +464,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <script>
 (function(){
   var C=[["loc","Локация"],["price","Цена за м²"],["dev","Застройщик и качество строительства"],["legal","Юридическая чистота"],["mgmt","Управление и содержание"],["liq","Ликвидность"],["erg","Эргономика и функциональность"]];
-  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20]};
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20],mix:[25,15,15,15,15,5,10]};
   var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
   var rows=document.getElementById("s-rows"),h="";
   C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Балл: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Вес: '+c[1]+'"><input id="s-c-'+c[0]+'" type="text" readonly tabindex="-1" aria-label="Итог: '+c[1]+'" style="background:#eef1f6;font-weight:600;text-align:center;padding-left:4px;padding-right:4px"></div>';});
@@ -493,7 +495,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
     document.getElementById("s-verdict").innerHTML=vd;
     var wn=[];
     if(crit.length) wn.push("Оценка 1–2: "+crit.join(", ")+".");
-    if(ws!==100) wn.push("Сумма весов не равна 100% — итог пересчитан пропорционально.");
+    if(strat.value==="mix"&&document.getElementById("m-gar")&&document.getElementById("m-gar").checked)wn.push("Гарантированный доход не платится за дни вашего проживания: при приездах в сезон реальная доходность ниже обещанной.");if(strat.value==="mix"&&document.getElementById("m-lic")&&document.getElementById("m-lic").checked)wn.push("Без гостиничной лицензии посуточная сдача (меньше 30 дней) незаконна: доход от неё — серая зона, рассчитывайте на долгосрочную аренду.");if(ws!==100) wn.push("Сумма весов не равна 100% — итог пересчитан пропорционально.");
     document.getElementById("s-warn").textContent=wn.join(" ");
   }
   strat.addEventListener("change",function(){setW();calc();});
@@ -610,11 +612,11 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       var b1=parseFloat(document.getElementById("m-op").value),b2=Math.min(10,2+2*cnt("m-c2")),b3=parseFloat(document.getElementById("m-ry").value);
       var b4=fee<=50?10:fee<=70?8:fee<=90?6:fee<=120?4:2;pan.querySelectorAll(".m-c4:checked").forEach(function(c){b4+=parseFloat(c.dataset.v);});b4=Math.max(1,b4);
       var b5=Math.min(10,1+3*cnt("m-c5")),B=[b1,b2,b3,b4,b5],Wt=[15,25,25,25,10],t=0;B.forEach(function(b,i){t+=b*Wt[i]/100;});
-      var v=Math.max(1,Math.min(10,Math.round(t*2)/2));
+      var v=Math.max(1,Math.min(10,Math.round(t*2)/2));var mx=document.getElementById("s-strat").value==="mix",mo=mx&&document.getElementById("m-xown").checked;if(mo)v=Math.max(1,v-1);
       var h="→ балл за управление <b>"+F(v)+"</b> ("+B.map(function(b,i){return N[i]+" "+F(b);}).join(" · ")+")";
       if(fee<30)h+='<br><span style="color:#c0392b">Плата ниже 30 ฿ за м² — проверьте, хватает ли денег на содержание комплекса и фонд ремонта.</span>';
-      out.innerHTML=h+ex;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";calc();}
-    pan.addEventListener("input",mg);pan.addEventListener("change",mg);})();
+      if(mo)h+=" · "+"−1 за ограничение проживания владельца";if(mx&&document.getElementById("m-gar").checked)h+='<br><span style="color:#b9770e">'+"Гарантированный доход не платится за дни вашего проживания: при приездах в сезон реальная доходность ниже обещанной."+"</span>";if(mx&&document.getElementById("m-lic").checked)h+='<br><span style="color:#c0392b">'+"Без гостиничной лицензии посуточная сдача (меньше 30 дней) незаконна: доход от неё — серая зона, рассчитывайте на долгосрочную аренду."+"</span>";out.innerHTML=h+ex;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Рассчитано автоматически";calc();}
+    pan.addEventListener("input",mg);pan.addEventListener("change",mg);var stg=document.getElementById("s-strat"),mxb=document.getElementById("m-mix"),tg=function(){mxb.hidden=stg.value!=="mix";if(inp.dataset.auto)mg();};stg.addEventListener("change",tg);tg();})();
   (function(){var src=document.getElementById("pr-src"),inp=document.getElementById("s-r-price"),row=inp.parentNode,out=document.getElementById("o-pr");
     var pan=document.createElement("div");pan.id="pr-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
     var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
@@ -637,6 +639,10 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       window._cmpN={1:R[1].length,2:R[2].length};
       [1,2].forEach(function(k){var Lk=R[k],id=k===1?"p-med":"p-med2",inf=g(id+"-i");if(!Lk.length){var el=g(id);if(el.dataset.man==="1"){inf.textContent="";return;}var row=MK[k],bb=null;if(ob!==null){if(row[ob])bb=ob;else for(var t=1;t<6&&bb===null;t++){if(ob-t>=0&&row[ob-t])bb=ob-t;else if(ob+t<6&&row[ob+t])bb=ob+t;}}if(bb===null){if(el.dataset.base==="1"){el.value="";el.dataset.base="";el.style.background="";}inf.textContent=ob===null?"Введите расстояние до пляжа в разделе «Локация» — поле заполнится из базы сайта.":"";return;}var r=row[bb];el.value=r[0];el.dataset.base="1";el.style.background="#e3f4dc";window._cmpN[k]=r[2];inf.innerHTML=(k===1?(r[2]===1?"из базы сайта: {n} квартир в продаже в {k} проекте":"из базы сайта: {n} квартир в продаже в {k} проектах"):(r[2]===1?"из базы сайта: {n} сделок в {k} доме":"из базы сайта: {n} сделок в {k} домах")).replace("{n}",r[1]).replace("{k}",r[2])+", полоса {b}".replace("{b}",BN[bb])+(bb!==ob?" (в полосе {o} данных нет — взята ближайшая)".replace("{o}",BN[ob]):"")+" · западное побережье, ноябрь 2026 · достоверность: "+"<b>"+(r[2]<=2?RC[0]:r[2]<=4?RC[1]:RC[2])+"</b>"+"<br><span style=\"color:var(--muted)\">Внесите свои аналоги в таблицу ниже — они заменят это значение.</span>";return;}var sp=0,sa=0,v=Lk.map(function(x){sp+=x[0];sa+=x[1];return x[0]/x[1];}).sort(function(a,b){return a-b;}),n=v.length,md=n%2?v[(n-1)/2]:(v[n/2-1]+v[n/2])/2,w=sp/sa;
         g(id).value=Math.round(w);g(id).dataset.base="";g(id).style.background="";inf.innerHTML="по {n} аналогам{b} · медиана {m} ฿ · достоверность: ".replace("{n}",n).replace("{b}",ob===null?"":" в полосе "+BN[ob]).replace("{m}",G(md))+(n<=2?'<b style="color:#c0392b">'+RC[0]+'</b>':"<b>"+(n<=4?RC[1]:RC[2])+"</b>")+(Math.abs(w/md-1)>0.15?'<br><span style="color:#b9770e">В выборке есть выброс: проверьте аналоги с самой высокой и самой низкой ценой за м².</span>':"");});}
+    var _cmp0=cmp;cmp=function(){_cmp0();var b1=g("p-med").dataset.base==="1",b2=g("p-med2").dataset.base==="1",pd=g("p-date"),ps=g("p-src");
+      if(b1||b2){if(pd.dataset.man!=="1"){pd.value="2026-11-28";pd.dataset.base="1";pd.style.background="#e3f4dc";}if(ps.dataset.man!=="1"){ps.value=b1&&b2?"2":b1?"0":"1";ps.dataset.base="1";ps.style.background="#e3f4dc";}}
+      else{if(pd.dataset.base==="1"){pd.value="";pd.dataset.base="";pd.style.background="";}if(ps.dataset.base==="1"){ps.value="0";ps.dataset.base="";ps.style.background="";}}};
+    ["p-date","p-src"].forEach(function(x){var e=g(x);if(e)e.addEventListener("change",function(ev){if(!ev.isTrusted)return;e.dataset.man="1";e.dataset.base="";e.style.background="";});});
     function clr(){inp.dataset.secstop="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
     function pr(){var p=num("p-price"),a=num("p-area"),m1=num("p-med"),m2=num("p-med2"),m=(m1!==null&&m1>0)?m1:m2,both=m1!==null&&m1>0&&m2!==null&&m2>0,n=window._cmpN?(window._cmpN[(m1!==null&&m1>0)?1:2]||null):null,h="";
       if(p!==null&&a!==null&&a>0)h+="Цена объекта: <b>{p} ฿ за м²</b>".replace("{p}",G(p/a));
