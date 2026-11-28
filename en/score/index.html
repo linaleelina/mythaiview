@@ -294,17 +294,31 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p class="rule-box"><b>RULE 1:</b> a high overall score does not make up for a critical flaw. A property may score 8.5 out of 10 but have unresolved legal problems — such a property cannot be recommended for purchase.</p>
   <p class="rule-box"><b>RULE 2:</b> the weights depend on the investment strategy. For renting out, location, price and management matter most; for resale — price, liquidity and location; for long-term capital preservation — legal clarity, location and the developer; for living in it yourself — location, ergonomics and construction quality.</p>
   <p>Choose a strategy and score your property — the model will calculate the total. The strategy weights are a guide; you can change them.</p>
-  <div id="ai-prompt" style="margin:18px 0 6px;padding:16px 18px;border:2px solid #b8e994;border-radius:12px;background:#f6fbf2"><p style="margin:0 0 6px;font-weight:700">Don’t want to calculate yourself? Copy the AI prompt</p><p style="margin:0 0 12px;font-size:.92rem;color:var(--muted)">Paste it into any AI chat (ChatGPT, Claude, DeepSeek) together with the brochure, a link or screenshots of the property — the AI will score it with this model and ask for anything missing. Check the result: AI can make mistakes.</p><button type="button" id="ai-copy" style="font:inherit;font-weight:600;padding:8px 16px;border-radius:8px;border:0;background:#2e9e4f;color:#fff;cursor:pointer">Copy prompt</button><details style="margin-top:12px"><summary style="cursor:pointer;font-size:.92rem">Show the prompt text</summary><textarea id="ai-text" readonly style="width:100%;box-sizing:border-box;height:320px;margin-top:8px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid #ccd;border-radius:8px;background:#fff;resize:vertical">You are a Phuket real estate analyst. Evaluate the property using the My Thai View model (mythaiview.ru/en/score/). All the model&#x27;s rules are below. Follow them strictly and do not invent data.
+  <div id="ai-prompt" style="margin:18px 0 6px;padding:16px 18px;border:2px solid #b8e994;border-radius:12px;background:#f6fbf2"><p style="margin:0 0 6px;font-weight:700">Don’t want to calculate yourself? Copy the AI prompt</p><p style="margin:0 0 12px;font-size:.92rem;color:var(--muted)">Paste it into any AI chat (ChatGPT, Claude, DeepSeek) together with the brochure, a link or screenshots of the property — the AI will check the project in open sources itself (EIA register, courts, news — web search must be enabled in the chat), score it with this model and ask for anything missing. Check the result: AI can make mistakes.</p><button type="button" id="ai-copy" style="font:inherit;font-weight:600;padding:8px 16px;border-radius:8px;border:0;background:#2e9e4f;color:#fff;cursor:pointer">Copy prompt</button><details style="margin-top:12px"><summary style="cursor:pointer;font-size:.92rem">Show the prompt text</summary><textarea id="ai-text" readonly style="width:100%;box-sizing:border-box;height:320px;margin-top:8px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid #ccd;border-radius:8px;background:#fff;resize:vertical">You are a Phuket real estate analyst. Evaluate the property using the My Thai View model (mythaiview.ru/en/score/). All the model's rules are below. Follow them strictly and do not invent data.
+If you do not have web search, say so at the start of your answer and do not score legal clarity or the developer above 5.
 
 STEP 1. COLLECT THE DATA
-Take everything you can from the materials I attach (brochure, link, screenshots, contract). Then ask me, in one list, only for what is missing:
+Take everything you can from the materials I attach (brochure, link, screenshots, contract). Then do STEP 1A, and only after it ask me, in one list, for whatever is still missing:
 — strategy: base / renting out / renting out + personal use / resale / capital preservation / living in it yourself;
 — price, ฿; area, m²; type (studio, 1, 2, 3 bedrooms);
 — distance to the beach BY ROAD, m (or to an international school / sports facility); height above sea level, m;
 — land title deed, form of ownership (freehold within the foreign quota / leasehold), whether the foreign quota is still available;
 — operator, the contract with it, common area fee (฿/m² per month);
 — whether assignment (resale) before completion is allowed.
-If I answer &quot;don&#x27;t know&quot;, apply the rule for unknown data from step 3 and say so in your answer.
+If I answer "don't know", apply the rule for unknown data from step 3 and say so in your answer.
+
+STEP 1A. CHECK IT YOURSELF BEFORE ASKING
+Check the project in open sources. Search in English and Thai, by the project name and by the developer company's name (including its Thai spelling).
+1. EIA — the ONEP Smart EIA Plus register (eia.onep.go.th): find the developer as the project owner and list all its reports: number, name, type (อาคารชุด — condominium, or โรงแรม — hotel), approval letter number and date, address. Match them to the project: type, address, number of units. If there is no report for this project or the type does not match (a condominium is being sold but the EIA is for a hotel), it is a legal risk.
+2. Company — the registration date and number of the Thai company (DBD; the number is also shown in ONEP). If marketing gives an earlier year, note that it refers to the group, not the Thai company.
+3. Disputes and violations — search the news (The Phuket News, The Thaiger, Khao Phuket, Bangkok Post) for "project name + EIA / court / lawsuit / residents / landslide / permit / ONEP / complaint", and in Thai "ชื่อโครงการ + ร้องเรียน / ศาลปกครอง / ดินสไลด์ / ใบอนุญาตก่อสร้าง". List: who complains, about what, in which court or agency, what has been decided, what is still open, the date of the latest publication.
+4. Documents according to sellers — Chanote number, plot area, building permit number and date: collect them from listings and brochures and mark them "according to the agent" until there is a document. If there is a Chanote number, offer to check the plot in LandsMaps (landsmaps.dol.go.th): location, area, terrain.
+5. Discrepancies — compare data from at least three listing sites (number of units, floors, completion date, common area fee, distance to the beach). List every discrepancy separately.
+Checking rules:
+— An official source (ONEP, DBD, court, Land Department) outranks an agency; an agency outranks developer marketing.
+— An open court case, an inspection by ONEP or another agency, doubt about a valid building permit, or an EIA of the wrong type is a CONDITIONAL STOP FACTOR: legal clarity no higher than 2 until I bring a document showing the issue is closed.
+— What cannot be checked online (grounds for issuing the Chanote, encumbrances, whether the permit is valid) — say exactly that: "check with a lawyer at the Land Department / local administration", not "no problems found".
+— Finding nothing negative is not proof that the project is clean; say so.
 
 STEP 2. SCALE AND WEIGHTS
 Each criterion gets a score from 1 to 10: 1–2 critically poor; 3–4 below market; 5–6 market level; 7–8 better than most; 9–10 exceptional advantage. Total S = Σ(weight × score) / 100.
@@ -320,21 +334,21 @@ Weights, % (location / price per m² / developer / legal clarity / management / 
 STEP 3. HOW TO SCORE
 
 1. LOCATION. Road distance to the main destination (beach or school/sports): up to 300 m — 8; up to 600 m — 7; up to 1 km — 6; up to 3 km — 5; up to 5 km — 4; further — 3.
-Plus 0.5 for each (max +2): pool in the complex; everything nearby already built; cafés and a shop within walking distance; hospital/clinic within 15 minutes; coworking/kids&#x27; club; parking; gym; sauna.
+Plus 0.5 for each (max +2): pool in the complex; everything nearby already built; cafés and a shop within walking distance; hospital/clinic within 15 minutes; coworking/kids' club; parking; gym; sauna.
 Minuses: similar projects being built nearby −1; noise (airport, construction, nightlife) −0.5; access roads littered with rubbish −1.5.
 Low-ground penalty: 4 × e^(−height/4) × k, where k by distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; further — 0.15. Round to 0.5. Below 5 m near the sea is a tsunami-risk zone — say so plainly. Result between 1 and 10.
 
-2. PRICE PER M². Compare the property&#x27;s price per m² with the weighted average of comparables (sum of prices ÷ sum of areas) in the same distance-to-beach band. Cheaper than market by 20%+ — 9; by 10–20% — 8; by 5–10% — 7; ±5% — 6; more expensive by 5–10% — 5; by 10–20% — 4; by 20–35% — 3; more — 2.
-Score against the primary market and compare with the secondary market: 10–25% above secondary — −1, more than 25% — −2; for &quot;Resale&quot;, more than 25% is a STOP FACTOR.
+2. PRICE PER M². Compare the property's price per m² with the weighted average of comparables (sum of prices ÷ sum of areas) in the same distance-to-beach band. Cheaper than market by 20%+ — 9; by 10–20% — 8; by 5–10% — 7; ±5% — 6; more expensive by 5–10% — 5; by 10–20% — 4; by 20–35% — 3; more — 2.
+Score against the primary market and compare with the secondary market: 10–25% above secondary — −1, more than 25% — −2; for "Resale", more than 25% is a STOP FACTOR.
 Adjustments: still under construction but priced like completed units nearby −0.5; leasehold priced like freehold −1; good furniture included +0.5; something worth paying extra for (high floor, view, windows not facing west) +0.5; instalments tied to construction stages +0.5; buyer pays registration fees and taxes −0.5.
-If I have no comparables of my own, use the site&#x27;s reference (west coast, November 2026, ฿/m²):
+If I have no comparables of my own, use the site's reference (west coast, November 2026, ฿/m²):
 primary — up to 300 m: 208,790; up to 600 m: 192,185; up to 1 km: 152,533; up to 3 km: 144,926;
 secondary — up to 600 m: 142,687; up to 1 km: 71,082; up to 3 km: 84,463.
 Warn that this is a reference based on a small sample and that its secondary market consists mostly of older buildings.
 
-3. DEVELOPER AND CONSTRUCTION QUALITY. Score 1–10 by: how many projects completed and how many on time; court disputes with buyers; years on the market; financial statements in the DBD register; quality of completed projects and owner reviews; seismic resistance (design for zone 2). No data — no higher than 5.
+3. DEVELOPER AND CONSTRUCTION QUALITY. Score 1–10 by: how many projects completed and how many on time; court disputes with buyers and residents; years on the market of the Thai company; financial statements in the DBD register; quality of completed projects and owner reviews; seismic resistance (design for zone 2). No data — no higher than 5.
 
-4. LEGAL CLARITY. Land title (Chanote or other) and the grounds on which it was issued (forest land, slope, coastline — risk of revocation); freehold within the quota or leasehold; building permit and EIA; condominium registration; mortgages and encumbrances; contract: deadlines, penalties, guarantees, promises in writing.
+4. LEGAL CLARITY. Land title (Chanote or other) and the grounds on which it was issued (forest land, slope, coastline — risk of revocation); freehold within the quota or leasehold; building permit and EIA (the report type matches the project); condominium registration; mortgages and encumbrances; court cases and agency inspections (from STEP 1A); contract: deadlines, penalties, guarantees, promises in writing.
 Any unresolved legal problem is a STOP FACTOR regardless of scores.
 
 5. MANAGEMENT AND RUNNING COSTS. Five blocks; if data is missing, the block is scored at its minimum.
@@ -343,13 +357,13 @@ Any unresolved legal problem is a STOP FACTOR regardless of scores.
 — Contract, 25%: base 2, +2 for each: owner gets 60%+ of revenue after booking-platform commissions; contract can be terminated without penalty; management company can be changed; furniture, equipment and guest base stay with the owner.
 — Costs, 25%: common area fee up to 50 ฿/m² — 10; up to 70 — 8; up to 90 — 6; up to 120 — 4; higher — 2; separate brand fee −1; furniture reserve over 3% of revenue −1; glass façade or unshaded west-facing windows −2.
 — Transparency, 10%: base 1, +3 for each: repair fund balance is known; the condominium juristic person publishes its budget; good owner reviews.
-For &quot;Renting out + personal use&quot;: contract restricts owner stays in high season −1; if the guaranteed return is not paid on owner days or the building has no hotel licence for short-term rentals — give a warning.
+For "Renting out + personal use": contract restricts owner stays in high season −1; if the guaranteed return is not paid on owner days or the building has no hotel licence for short-term rentals — give a warning.
 
 6. LIQUIDITY. Five blocks; exclude a block with no data and lower the reliability.
 — Segment, 30%: up to 3 million ฿ — 8; up to 6 million — 7; up to 12 million — 6; up to 25 million — 5; up to 50 million — 4; more — 3; wide circle of buyers +1, narrow −1.
 — Demand and competition, 25%: comparables for sale ÷ sales per month: up to 3 months — 10; up to 6 — 8; up to 9 — 6; up to 12 — 4; more — 2.
 — Speed of sale, 10%: time to sell comparables on the same scale; discount from the initial price 5–15% −1, more than 15% −2.
-— Resale rights, 20%: base 8; assignment without fee +1, with a reasonable fee +0.5, prohibited −2 (for &quot;Resale&quot; — STOP FACTOR); quota available +1, exhausted −1.5; unclear transfer-of-ownership terms −1.
+— Resale rights, 20%: base 8; assignment without fee +1, with a reasonable fee +0.5, prohibited −2 (for "Resale" — STOP FACTOR); quota available +1, exhausted −1.5; unclear transfer-of-ownership terms −1.
 — Exit appeal, 15%: base 6; well-known brand with valid usage rights +1; operator with proven results +1; clear rental income model +1; operator linked to the developer, exit terms opaque −1; value depends heavily on the brand −1; no clear end buyer −2.
 
 7. ERGONOMICS. Standard area: studio 24–30 m²; 1 bedroom 33–37; 2 bedrooms 55–70; 3 bedrooms 71–85. Within standard — 8; up to 10% larger — 7; up to 20% — 6; up to 35% — 5; more — 4 (extra metres are non-functional corners and passages you pay for in baht).
@@ -358,14 +372,16 @@ Glass façade −1; west-facing windows without sun protection −0.5; terrace/b
 STEP 4. TOTAL
 Verdict: 8.5+ — strong property; 7–8.4 — better than most competitors; 5–6.9 — market level; 3–4.9 — below market; under 3 — critically weak.
 Rule 1: any criterion scored 1–2 is a critical flaw; a high total does not compensate for it.
-Rule 2: a stop factor means the property is not considered, regardless of scores.
+Rule 2: a stop factor means the property is not considered, regardless of scores. A conditional stop factor applies until a document is provided showing the issue is closed.
 
 ANSWER FORMAT
-1. Table: criterion — score — weight — contribution to total — what the score is based on (fact or assumption).
-2. Total out of 10 and verdict; stop factors and critical flaws on the first line, if any.
-3. Reliability of the assessment: high / limited / low, and why.
-4. What to check before buying: 3–7 points, starting with the riskiest.
-Call any return on a property under construction a forecast, not a fact. If data is missing, write &quot;no data&quot; — do not invent it.
+1. Stop factors, conditional stop factors and critical flaws on the first line, if any.
+2. Table: criterion — score — weight — contribution to total — what the score is based on (fact with a link, "according to the agent", or assumption).
+3. Total out of 10 and verdict.
+4. Checked in open sources: what was found (with links), discrepancies between sources, what remains unchecked.
+5. Reliability of the assessment: high / limited / low, and why.
+6. What to check before buying: 3–7 points, starting with the riskiest.
+Call any return on a property under construction a forecast, not a fact. If data is missing, write "no data" — do not invent it.
 The model helps compare properties but does not replace a legal check, an inspection and a return calculation.</textarea></details></div>
 <script>(function(){var b=document.getElementById("ai-copy"),t=document.getElementById("ai-text"),L=b.textContent;b.addEventListener("click",function(){function done(){b.textContent="✓ Copied";setTimeout(function(){b.textContent=L;},2000);}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t.value).then(done,fb);}else fb();function fb(){var d=t.closest("details");if(d)d.open=true;t.focus();t.select();try{document.execCommand("copy");done();}catch(e){}}});})();</script>
   </div>
