@@ -282,7 +282,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <tr><td>Price per m²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>price per m² against the average for similar properties in the area</li><li>what the price includes: furniture, taxes and fees on purchase</li><li>payment terms and instalments</li><li>discounts and bonuses — is the base price inflated</li></ul></td><td>Determines the entry cost and the margin of competitiveness</td></tr>
       <tr><td>Developer and construction quality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>how many projects have already been completed</li><li>how many of them were completed without delays</li><li>how many lawsuits with buyers</li><li>local developer or with foreign participation, how many years on the market</li><li>management: who makes decisions and how, is it open to dialogue, does it keep a balance between its own interests and those of buyers</li><li>financial statements in the DBD register</li><li>quality of completed projects: inspection, owner reviews</li><li>seismic resistance: designed to the standard for zone 2</li></ul></td><td>Affect project delivery, asset quality and extra costs</td></tr>
       <tr><td>Legal clarity</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>land title: Chanote or other</li><li>the basis on which the Chanote was issued: which document it was converted from and whether there is a risk of revocation — for example, if the plot is on forest land, a hillside or near the shoreline</li><li>form of ownership: freehold in the foreign quota or leasehold</li><li>building permit and EIA</li><li>condominium registration</li><li>mortgages and other encumbrances</li><li>the contract: deadlines, penalties, guarantees, promises in writing</li></ul></td><td>Protects ownership rights and the capital invested</td></tr>
-      <tr><td>Management and maintenance</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>hotel operator: an international brand or a local company, how many years it has operated in Phuket</li><li>the operator agreement: the owner's share of revenue, the term, whether it can be terminated</li><li>occupancy and average nightly rate at the operator's properties already in operation over past years — as a guide; for a property under construction any yield is a forecast, not a fact</li><li>operator fees: base fee, brand and marketing fees, the furniture and equipment replacement reserve</li><li>common area fee, ฿ per m² per month</li><li>the management company's commission on rental income</li><li>sinking fund and condominium juristic person reporting</li><li>owner reviews of management</li><li>whether the management company can be replaced</li><li>electricity and air conditioning costs: a glass façade and west-facing windows mean more heat from the sun and higher air conditioning bills</li></ul></td><td>Determine operating costs, quality of operation and the property's yield after completion</td></tr>
+      <tr><td>Management and maintenance</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>hotel operator: an international brand or a local company, how many years it has operated in Phuket/Bangkok</li><li>the operator agreement: the owner's share of revenue, the term, whether it can be terminated</li><li>occupancy and average nightly rate at the operator's properties already in operation over past years — as a guide; for a property under construction any yield is a forecast, not a fact</li><li>operator fees: base fee, brand and marketing fees, the furniture and equipment replacement reserve</li><li>common area fee, ฿ per m² per month</li><li>the management company's commission on rental income</li><li>sinking fund and condominium juristic person reporting</li><li>owner reviews of management</li><li>whether the management company can be replaced</li><li>electricity and air conditioning costs: a glass façade and west-facing windows mean more heat from the sun and higher air conditioning bills</li></ul></td><td>Determine operating costs, quality of operation and the property's yield after completion</td></tr>
       <tr><td>Liquidity</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>segment: the lower the price, the wider the sales funnel; the higher the price, the fewer buyers</li><li>a well-known hotel brand supports demand on resale; if the operator leaves, the property loses value</li><li>how quickly similar properties sell</li><li>how many comparable properties are on sale now</li><li>whether there is free foreign quota for resale</li><li>who will be the buyer when you exit</li><li>whether the developer allows resale (assignment) before completion and on what terms</li></ul></td><td>Determines whether and at what cost you can exit the investment</td></tr>
       <tr><td>Ergonomics and functionality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>layout and room sizes: structural and architectural features should not create unusable corners, niches and passages — you pay in baht for every such square metre</li><li>light, ventilation, humidity</li><li>glass façade: it is not functional in the tropics — overheating and stuffiness near the windows, sun-faded furniture and finishes, little privacy, costly cleaning at height; lower the ergonomics score</li><li>sound insulation: assess it as a feature of a property for the above-mid-market segment</li><li>storage space</li><li>parking, balcony</li><li>the view: assess it when everything around is already built and the view is preserved; a vacant plot next door is a risk of new construction that will block the view</li></ul></td><td>Affects the property's appeal to tenants and buyers</td></tr>
       <tr><td><b>Total</b></td><td><b>100%</b></td><td></td><td></td></tr>
@@ -294,6 +294,80 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <p class="rule-box"><b>RULE 1:</b> a high overall score does not make up for a critical flaw. A property may score 8.5 out of 10 but have unresolved legal problems — such a property cannot be recommended for purchase.</p>
   <p class="rule-box"><b>RULE 2:</b> the weights depend on the investment strategy. For renting out, location, price and management matter most; for resale — price, liquidity and location; for long-term capital preservation — legal clarity, location and the developer; for living in it yourself — location, ergonomics and construction quality.</p>
   <p>Choose a strategy and score your property — the model will calculate the total. The strategy weights are a guide; you can change them.</p>
+  <div id="ai-prompt" style="margin:18px 0 6px;padding:16px 18px;border:2px solid #b8e994;border-radius:12px;background:#f6fbf2"><p style="margin:0 0 6px;font-weight:700">Don’t want to calculate yourself? Copy the AI prompt</p><p style="margin:0 0 12px;font-size:.92rem;color:var(--muted)">Paste it into any AI chat (ChatGPT, Claude, DeepSeek) together with the brochure, a link or screenshots of the property — the AI will score it with this model and ask for anything missing. Check the result: AI can make mistakes.</p><button type="button" id="ai-copy" style="font:inherit;font-weight:600;padding:8px 16px;border-radius:8px;border:0;background:#2e9e4f;color:#fff;cursor:pointer">Copy prompt</button><details style="margin-top:12px"><summary style="cursor:pointer;font-size:.92rem">Show the prompt text</summary><textarea id="ai-text" readonly style="width:100%;box-sizing:border-box;height:320px;margin-top:8px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid #ccd;border-radius:8px;background:#fff;resize:vertical">You are a Phuket real estate analyst. Evaluate the property using the My Thai View model (mythaiview.ru/en/score/). All the model&#x27;s rules are below. Follow them strictly and do not invent data.
+
+STEP 1. COLLECT THE DATA
+Take everything you can from the materials I attach (brochure, link, screenshots, contract). Then ask me, in one list, only for what is missing:
+— strategy: base / renting out / renting out + personal use / resale / capital preservation / living in it yourself;
+— price, ฿; area, m²; type (studio, 1, 2, 3 bedrooms);
+— distance to the beach BY ROAD, m (or to an international school / sports facility); height above sea level, m;
+— land title deed, form of ownership (freehold within the foreign quota / leasehold), whether the foreign quota is still available;
+— operator, the contract with it, common area fee (฿/m² per month);
+— whether assignment (resale) before completion is allowed.
+If I answer &quot;don&#x27;t know&quot;, apply the rule for unknown data from step 3 and say so in your answer.
+
+STEP 2. SCALE AND WEIGHTS
+Each criterion gets a score from 1 to 10: 1–2 critically poor; 3–4 below market; 5–6 market level; 7–8 better than most; 9–10 exceptional advantage. Total S = Σ(weight × score) / 100.
+
+Weights, % (location / price per m² / developer / legal clarity / management / liquidity / ergonomics):
+— Base: 20 / 20 / 10 / 20 / 10 / 10 / 10
+— Renting out: 25 / 20 / 10 / 15 / 20 / 5 / 5
+— Renting out + personal use: 25 / 15 / 15 / 15 / 15 / 5 / 10
+— Resale: 20 / 25 / 10 / 15 / 5 / 20 / 5
+— Capital preservation: 20 / 10 / 20 / 30 / 5 / 10 / 5
+— Living in it yourself: 25 / 10 / 20 / 15 / 5 / 5 / 20
+
+STEP 3. HOW TO SCORE
+
+1. LOCATION. Road distance to the main destination (beach or school/sports): up to 300 m — 8; up to 600 m — 7; up to 1 km — 6; up to 3 km — 5; up to 5 km — 4; further — 3.
+Plus 0.5 for each (max +2): pool in the complex; everything nearby already built; cafés and a shop within walking distance; hospital/clinic within 15 minutes; coworking/kids&#x27; club; parking; gym; sauna.
+Minuses: similar projects being built nearby −1; noise (airport, construction, nightlife) −0.5; access roads littered with rubbish −1.5.
+Low-ground penalty: 4 × e^(−height/4) × k, where k by distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; further — 0.15. Round to 0.5. Below 5 m near the sea is a tsunami-risk zone — say so plainly. Result between 1 and 10.
+
+2. PRICE PER M². Compare the property&#x27;s price per m² with the weighted average of comparables (sum of prices ÷ sum of areas) in the same distance-to-beach band. Cheaper than market by 20%+ — 9; by 10–20% — 8; by 5–10% — 7; ±5% — 6; more expensive by 5–10% — 5; by 10–20% — 4; by 20–35% — 3; more — 2.
+Score against the primary market and compare with the secondary market: 10–25% above secondary — −1, more than 25% — −2; for &quot;Resale&quot;, more than 25% is a STOP FACTOR.
+Adjustments: still under construction but priced like completed units nearby −0.5; leasehold priced like freehold −1; good furniture included +0.5; something worth paying extra for (high floor, view, windows not facing west) +0.5; instalments tied to construction stages +0.5; buyer pays registration fees and taxes −0.5.
+If I have no comparables of my own, use the site&#x27;s reference (west coast, November 2026, ฿/m²):
+primary — up to 300 m: 208,790; up to 600 m: 192,185; up to 1 km: 152,533; up to 3 km: 144,926;
+secondary — up to 600 m: 142,687; up to 1 km: 71,082; up to 3 km: 84,463.
+Warn that this is a reference based on a small sample and that its secondary market consists mostly of older buildings.
+
+3. DEVELOPER AND CONSTRUCTION QUALITY. Score 1–10 by: how many projects completed and how many on time; court disputes with buyers; years on the market; financial statements in the DBD register; quality of completed projects and owner reviews; seismic resistance (design for zone 2). No data — no higher than 5.
+
+4. LEGAL CLARITY. Land title (Chanote or other) and the grounds on which it was issued (forest land, slope, coastline — risk of revocation); freehold within the quota or leasehold; building permit and EIA; condominium registration; mortgages and encumbrances; contract: deadlines, penalties, guarantees, promises in writing.
+Any unresolved legal problem is a STOP FACTOR regardless of scores.
+
+5. MANAGEMENT AND RUNNING COSTS. Five blocks; if data is missing, the block is scored at its minimum.
+— Operator, 15%: experience in Phuket/Bangkok over 10 years — 10; 7–10 years — 8; 4–6 — 6; 2–3 — 4; under 2 years or no operating properties — 2.
+— Returns, 25%: confirmed by statements for 3+ years — 10; for 1–2 years — 6; properties not comparable — 4; only forecasts or promises — 2.
+— Contract, 25%: base 2, +2 for each: owner gets 60%+ of revenue after booking-platform commissions; contract can be terminated without penalty; management company can be changed; furniture, equipment and guest base stay with the owner.
+— Costs, 25%: common area fee up to 50 ฿/m² — 10; up to 70 — 8; up to 90 — 6; up to 120 — 4; higher — 2; separate brand fee −1; furniture reserve over 3% of revenue −1; glass façade or unshaded west-facing windows −2.
+— Transparency, 10%: base 1, +3 for each: repair fund balance is known; the condominium juristic person publishes its budget; good owner reviews.
+For &quot;Renting out + personal use&quot;: contract restricts owner stays in high season −1; if the guaranteed return is not paid on owner days or the building has no hotel licence for short-term rentals — give a warning.
+
+6. LIQUIDITY. Five blocks; exclude a block with no data and lower the reliability.
+— Segment, 30%: up to 3 million ฿ — 8; up to 6 million — 7; up to 12 million — 6; up to 25 million — 5; up to 50 million — 4; more — 3; wide circle of buyers +1, narrow −1.
+— Demand and competition, 25%: comparables for sale ÷ sales per month: up to 3 months — 10; up to 6 — 8; up to 9 — 6; up to 12 — 4; more — 2.
+— Speed of sale, 10%: time to sell comparables on the same scale; discount from the initial price 5–15% −1, more than 15% −2.
+— Resale rights, 20%: base 8; assignment without fee +1, with a reasonable fee +0.5, prohibited −2 (for &quot;Resale&quot; — STOP FACTOR); quota available +1, exhausted −1.5; unclear transfer-of-ownership terms −1.
+— Exit appeal, 15%: base 6; well-known brand with valid usage rights +1; operator with proven results +1; clear rental income model +1; operator linked to the developer, exit terms opaque −1; value depends heavily on the brand −1; no clear end buyer −2.
+
+7. ERGONOMICS. Standard area: studio 24–30 m²; 1 bedroom 33–37; 2 bedrooms 55–70; 3 bedrooms 71–85. Within standard — 8; up to 10% larger — 7; up to 20% — 6; up to 35% — 5; more — 4 (extra metres are non-functional corners and passages you pay for in baht).
+Glass façade −1; west-facing windows without sun protection −0.5; terrace/balcony +0.5; a view that will not be blocked +0.5; vacant plot next door −0.5.
+
+STEP 4. TOTAL
+Verdict: 8.5+ — strong property; 7–8.4 — better than most competitors; 5–6.9 — market level; 3–4.9 — below market; under 3 — critically weak.
+Rule 1: any criterion scored 1–2 is a critical flaw; a high total does not compensate for it.
+Rule 2: a stop factor means the property is not considered, regardless of scores.
+
+ANSWER FORMAT
+1. Table: criterion — score — weight — contribution to total — what the score is based on (fact or assumption).
+2. Total out of 10 and verdict; stop factors and critical flaws on the first line, if any.
+3. Reliability of the assessment: high / limited / low, and why.
+4. What to check before buying: 3–7 points, starting with the riskiest.
+Call any return on a property under construction a forecast, not a fact. If data is missing, write &quot;no data&quot; — do not invent it.
+The model helps compare properties but does not replace a legal check, an inspection and a return calculation.</textarea></details></div>
+<script>(function(){var b=document.getElementById("ai-copy"),t=document.getElementById("ai-text"),L=b.textContent;b.addEventListener("click",function(){function done(){b.textContent="✓ Copied";setTimeout(function(){b.textContent=L;},2000);}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t.value).then(done,fb);}else fb();function fb(){var d=t.closest("details");if(d)d.open=true;t.focus();t.select();try{document.execCommand("copy");done();}catch(e){}}});})();</script>
   </div>
   <div class="prose">
   <h2 id="score-data">Location: the score is calculated semi-automatically</h2>
@@ -392,7 +466,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   <div class="calc" id="sdm"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
     <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
       <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dbe4f0;border-radius:7px;padding:6px 14px">OPERATOR · 15%</span></div>
-      <div class="f"><label for="m-op">Operator's experience in Phuket</label><select id="m-op"><option value="2" data-unk="1">— don't know — (2)</option><option value="10">more than 10 years (10)</option><option value="8">7–10 years (8)</option><option value="6">4–6 years (6)</option><option value="4">2–3 years (4)</option><option value="2">under 2 years or no operating properties (2)</option></select></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">An international brand without local experience does not get the maximum.</span>
+      <div class="f"><label for="m-op">Operator's experience in Phuket/Bangkok</label><select id="m-op"><option value="2" data-unk="1">— don't know — (2)</option><option value="10">more than 10 years (10)</option><option value="8">7–10 years (8)</option><option value="6">4–6 years (6)</option><option value="4">2–3 years (4)</option><option value="2">under 2 years or no operating properties (2)</option></select></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">An international brand without local experience does not get the maximum.</span>
       <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dfe9d4;border-radius:7px;padding:6px 14px">RETURNS · 25%</span></div>
       <div class="f"><label for="m-ry">Data on the operator's existing properties</label><select id="m-ry"><option value="2" data-unk="1">— only forecasts or promises — (2)</option><option value="10">confirmed by accounts for 3 years or more (10)</option><option value="6">confirmed for 1–2 years (6)</option><option value="4">available, but the properties are not comparable (4)</option></select></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="m-occ">Occupancy, %</label><input id="m-occ" type="number" min="0" max="100" step="any" inputmode="decimal"></div><div class="f"><label for="m-adr">Average daily rate, ฿</label><input id="m-adr" type="number" min="0" step="any" inputmode="decimal"></div></div>
