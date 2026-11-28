@@ -201,6 +201,7 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 <link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/tourism/">
 <link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/tourism/">
 <link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/tourism/">
+<style>#v-tourism [id]{scroll-margin-top:175px}@media(max-width:760px){#v-tourism [id]{scroll-margin-top:215px}}</style>
 </head>
 <body>
 <header class="top">
@@ -264,6 +265,14 @@ footer{border-top:1px solid var(--line);background:var(--card)}
       <a href="../focus/">Reclaim<br>attention</a>
       <a href="../future/">Future<br>economy</a>
       <a href="../asi/">ASI<br>filter</a>
+    </nav>
+  </div>
+  <div class="subbar" id="subbar-tourism">
+    <nav class="sub" aria-label="Tourism">
+      <a href="#phuket-beaches">Beaches</a>
+      <a href="#tsunami">Tsunami</a>
+      <a href="#seasons">Seasons</a>
+      <a href="#khao-yai">Khao Yai</a>
     </nav>
   </div>
 </header>
@@ -338,5 +347,6 @@ footer{border-top:1px solid var(--line);background:var(--card)}
   </div>
 </footer>
 
+<script>(function(){var L=[].slice.call(document.querySelectorAll("#subbar-tourism a")),S=L.map(function(a){return document.getElementById(a.getAttribute("href").slice(1));});function u(){var k=0;S.forEach(function(e,i){if(e&&e.getBoundingClientRect().top<240)k=i;});if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)k=S.length-1;L.forEach(function(a,i){if(i===k)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});}window.addEventListener("scroll",u,{passive:true});u();})();</script>
 </body>
 </html>
