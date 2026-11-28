@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Thai View</title>
-<meta name="description" content="My Thai View is an independent educational project and reference guide to Thailand. It helps people who live in the country, work here, plan to move or are considering investing to better understand local rules and practice. I explain complex topics in plain language and, wherever possible, cite the official documents and sources the information is based on.">
+<title>Property scoring model for Phuket: criteria, weights and calculator — My Thai View</title>
+<meta name="description" content="The model turns the seven criteria from the rule for choosing a property into a single overall score. It is a base model for investment property in Phuket: each criterion gets a weight, and the weights add up to 100%.">
 <meta property="og:site_name" content="My Thai View">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +57,7 @@ h3{font-size:1.08rem;font-weight:700;margin:1.6rem 0 .4rem}
 p{margin:.5rem 0 .9rem}
 .num{font-variant-numeric:tabular-nums}
 
-header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
+header.top{position:sticky;top:0;z-index:5;background:#f1e9da url("../../img/pattern.svg") repeat 0 0/420px 240px;border-bottom:3px solid #2f56b0}
 header.top .bar{padding-top:30px;padding-bottom:30px}
 @media (max-width:720px){header.top .bar{padding-top:16px;padding-bottom:16px}}
 .logo{background:rgba(255,252,245,.94);padding:7px 14px 7px 8px;border-radius:12px;box-shadow:0 2px 10px rgba(31,63,143,.18)}
@@ -197,97 +197,567 @@ footer{border-top:1px solid var(--line);background:var(--card)}
 .motto{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--head);margin:-.2rem 0 .9rem;letter-spacing:.01em}
 </style>
 <script data-goatcounter="https://linalee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/">
-<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/">
-<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/">
-<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/">
+<link rel="alternate" hreflang="ru" href="https://mythaiview.ru/score/">
+<link rel="alternate" hreflang="en" href="https://mythaiview.ru/en/score/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mythaiview.ru/zh/score/">
+<link rel="alternate" hreflang="x-default" href="https://mythaiview.ru/score/">
 </head>
 <body>
 <header class="top">
   <div class="bar">
-    <a class="logo" href="./"><span class="mark">T</span>My Thai View</a>
+    <a class="logo" href="../"><span class="mark">T</span>My Thai View</a>
     <nav class="main" aria-label="Sections">
-      <a aria-current="page" href="./">Home</a>
-      <a href="taxes/" data-group="taxes">Taxes</a>
-      <a href="property/" data-group="property">Property</a>
-      <a href="banks/" data-group="banks">Money</a>
-      <a href="tourism/">Tourism</a>
+      <a href="../">Home</a>
+      <a href="../taxes/" data-group="taxes">Taxes</a>
+      <a aria-current="page" href="../property/" data-group="property">Property</a>
+      <a href="../banks/" data-group="banks">Money</a>
+      <a href="../tourism/">Tourism</a>
     </nav>
-    <nav class="lang" aria-label="Language"><a href="../zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a><a href="../" hreflang="ru" lang="ru">RU</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../../zh/score/" hreflang="zh-Hans" lang="zh-Hans">中文</a><a href="./" hreflang="en" lang="en" aria-current="true">EN</a><a href="../../score/" hreflang="ru" lang="ru">RU</a></nav>
   </div>
   <div class="subbar" id="subbar" hidden>
     <nav class="sub" aria-label="Taxes">
-      <a href="taxes/">Overview</a>
-      <a href="residency/">Residency</a>
-      <a href="pit/">Income<br>tax</a>
-      <a href="pitcalc/">Tax<br>calculator</a>
-      <a href="visas/">Visas<br>and benefits</a>
-      <a href="business/">Business</a>
-      <a href="tfrs/">Reporting<br>standards</a>
-      <a href="calendar/">Calendar</a>
-      <a href="glossary/">Glossary</a>
-      <a href="docs/">Documents</a>
+      <a href="../taxes/">Overview</a>
+      <a href="../residency/">Residency</a>
+      <a href="../pit/">Income<br>tax</a>
+      <a href="../pitcalc/">Tax<br>calculator</a>
+      <a href="../visas/">Visas<br>and benefits</a>
+      <a href="../business/">Business</a>
+      <a href="../tfrs/">Reporting<br>standards</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../glossary/">Glossary</a>
+      <a href="../docs/">Documents</a>
     </nav>
   </div>
-  <div class="subbar" id="subbar-prop" hidden>
+  <div class="subbar" id="subbar-prop">
     <nav class="sub" aria-label="Property">
-      <a href="property/">Overview</a>
-      <a href="invest/">Investing<br>in Phuket</a>
-      <a href="decide/">How to make<br>a decision</a>
-      <a href="check/">Developer<br>check</a>
-      <a href="rights/">Ownership rights<br>and forms</a>
-      <a href="buying/">Buying<br>and fees</a>
-      <a href="renting/">Renting<br>out</a>
-      <a href="exit/">Selling<br>and exit</a>
-      <a href="tokens/">Real estate<br>tokens</a>
-      <a href="score/">Scoring<br>model</a>
+      <a href="../property/">Overview</a>
+      <a href="../invest/">Investing<br>in Phuket</a>
+      <a href="../decide/">How to make<br>a decision</a>
+      <a href="../check/">Developer<br>check</a>
+      <a href="../rights/">Ownership rights<br>and forms</a>
+      <a href="../buying/">Buying<br>and fees</a>
+      <a href="../renting/">Renting<br>out</a>
+      <a href="../exit/">Selling<br>and exit</a>
+      <a href="../tokens/">Real estate<br>tokens</a>
+      <a aria-current="page" href="../score/">Scoring<br>model</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-banks" hidden>
     <nav class="sub" aria-label="Money">
-      <a href="banks/">Overview</a>
-      <a href="moneyflow/">Circular<br>flow of money</a>
-      <a href="bot/">Bank of<br>Thailand</a>
-      <a href="banksystem/">Banking<br>system</a>
-      <a href="bangkokbank/">Bangkok<br>Bank</a>
-      <a href="payments/">Payment<br>system</a>
-      <a href="propertypay/">Property<br>payments</a>
-      <a href="emoney/">Electronic<br>money</a>
-      <a href="crypto/">Crypto<br>exchanges</a>
-      <a href="amlo/">AMLO</a>
+      <a href="../banks/">Overview</a>
+      <a href="../moneyflow/">Circular<br>flow of money</a>
+      <a href="../bot/">Bank of<br>Thailand</a>
+      <a href="../banksystem/">Banking<br>system</a>
+      <a href="../bangkokbank/">Bangkok<br>Bank</a>
+      <a href="../payments/">Payment<br>system</a>
+      <a href="../propertypay/">Property<br>payments</a>
+      <a href="../emoney/">Electronic<br>money</a>
+      <a href="../crypto/">Crypto<br>exchanges</a>
+      <a href="../amlo/">AMLO</a>
     </nav>
   </div>
   <div class="subbar" id="subbar-analytics" hidden>
     <nav class="sub" aria-label="Analytics">
-      <a href="analytics/">Overview</a>
-      <a href="consumption/">Consumption</a>
-      <a href="focus/">Reclaim<br>attention</a>
-      <a href="future/">Future<br>economy</a>
-      <a href="asi/">ASI<br>filter</a>
+      <a href="../analytics/">Overview</a>
+      <a href="../consumption/">Consumption</a>
+      <a href="../focus/">Reclaim<br>attention</a>
+      <a href="../future/">Future<br>economy</a>
+      <a href="../asi/">ASI<br>filter</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="view active" id="v-home">
-  <h1>My Thai View</h1>
-  <p class="motto">Substance over form</p>
-  <p class="lead prose">My Thai View is an independent educational project and reference guide to Thailand. It helps people who live in the country, work here, plan to move or are considering investing to better understand local rules and practice. I explain complex topics in plain language and, wherever possible, cite the official documents and sources the information is based on.</p>
-  <div class="cards">
-    <a class="card" style="background:#f1e2cb;border-color:#f1e2cb" href="taxes/"><b>Taxes</b><span>Residency, personal income tax, business, visas with tax benefits, calendar and glossary</span></a>
-    <div class="card card-st" style="background:#cdeee8;border-color:#cdeee8"><a class="st-main" href="property/"><b>Property</b></a><span>Investing in Phuket, ownership rights and forms, taxes and fees on purchase, renting out</span><a class="st-sub" href="score/" style="display:inline-block;margin-top:10px;background:#b8e994;color:var(--ink);font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:1rem">Property scoring model →</a></div>
-    <a class="card" style="background:#fbefb3;border-color:#fbefb3" href="banks/"><b>Money</b><span>Circular flow of money, Bank of Thailand, banks, PromptPay, e-money, crypto exchanges, AMLO</span></a>
-    <a class="card" style="background:#d3defa;border-color:#d3defa" href="tourism/"><b>Tourism</b><span>Thailand beyond the tourist trail</span></a>
-    <a class="card" style="background:#e6dcf5;border-color:#e6dcf5" href="invest/#calc-yield"><b>Entry calculator (buying an asset)</b><span>Estimated payback of an apartment versus the advertised one</span></a>
-    <a class="card" style="background:#d6edc9;border-color:#d6edc9" href="pitcalc/"><b>Tax calculator</b><span>Personal income tax for the year on the 2026 scale</span></a>
-    <a class="card" style="background:#d4ecf8;border-color:#d4ecf8" href="exit/"><b>Exit calculator (selling an asset)</b><span>Seller's taxes and fees on resale</span></a>
-    <a class="card" style="background:#fbd9b8;border-color:#fbd9b8" href="buyrent/"><b>Alternatives calculator: buy or rent</b><span>Apartment or car: which costs less over your chosen period</span></a>
+<section class="view active" id="v-score" data-title="Property scoring model for Phuket: criteria, weights and calculator">
+  <div class="prose">
+  <h1 id="calc-score">Property scoring model</h1>
+  <p class="lead">The model turns the seven criteria from the rule for choosing a property into a single overall score. It is a base model for investment property in Phuket: each criterion gets a weight, and the weights add up to 100%.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Criterion</th><th>Weight</th><th style="width:42%">What to assess</th><th>Why this weight</th></tr></thead>
+    <tbody>
+      <tr><td>Location</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>distance to the beach or an international school by road</li><li>elevation above sea level: tsunami and flooding risk</li><li>shops, a hospital, restaurants nearby</li><li>sports facilities nearby: a gym, swimming pool, tennis, golf, Muay Thai</li><li>the road and travel time in high season</li><li>noise: the airport, construction, nightlife</li><li>how many similar properties are being built nearby</li></ul></td><td>Shapes demand, rental potential and long-term appeal</td></tr>
+      <tr><td>Price per m²</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>price per m² against the average for similar properties in the area</li><li>what the price includes: furniture, taxes and fees on purchase</li><li>payment terms and instalments</li><li>discounts and bonuses — is the base price inflated</li></ul></td><td>Determines the entry cost and the margin of competitiveness</td></tr>
+      <tr><td>Developer and construction quality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>how many projects have already been completed</li><li>how many of them were completed without delays</li><li>how many lawsuits with buyers</li><li>local developer or with foreign participation, how many years on the market</li><li>management: who makes decisions and how, is it open to dialogue, does it keep a balance between its own interests and those of buyers</li><li>financial statements in the DBD register</li><li>quality of completed projects: inspection, owner reviews</li><li>seismic resistance: designed to the standard for zone 2</li></ul></td><td>Affect project delivery, asset quality and extra costs</td></tr>
+      <tr><td>Legal clarity</td><td>20%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>land title: Chanote or other</li><li>the basis on which the Chanote was issued: which document it was converted from and whether there is a risk of revocation — for example, if the plot is on forest land, a hillside or near the shoreline</li><li>form of ownership: freehold in the foreign quota or leasehold</li><li>building permit and EIA</li><li>condominium registration</li><li>mortgages and other encumbrances</li><li>the contract: deadlines, penalties, guarantees, promises in writing</li></ul></td><td>Protects ownership rights and the capital invested</td></tr>
+      <tr><td>Management and maintenance</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>hotel operator: an international brand or a local company, how many years it has operated in Phuket/Bangkok</li><li>the operator agreement: the owner's share of revenue, the term, whether it can be terminated</li><li>occupancy and average nightly rate at the operator's properties already in operation over past years — as a guide; for a property under construction any yield is a forecast, not a fact</li><li>operator fees: base fee, brand and marketing fees, the furniture and equipment replacement reserve</li><li>common area fee, ฿ per m² per month</li><li>the management company's commission on rental income</li><li>sinking fund and condominium juristic person reporting</li><li>owner reviews of management</li><li>whether the management company can be replaced</li><li>electricity and air conditioning costs: a glass façade and west-facing windows mean more heat from the sun and higher air conditioning bills</li></ul></td><td>Determine operating costs, quality of operation and the property's yield after completion</td></tr>
+      <tr><td>Liquidity</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>segment: the lower the price, the wider the sales funnel; the higher the price, the fewer buyers</li><li>a well-known hotel brand supports demand on resale; if the operator leaves, the property loses value</li><li>how quickly similar properties sell</li><li>how many comparable properties are on sale now</li><li>whether there is free foreign quota for resale</li><li>who will be the buyer when you exit</li><li>whether the developer allows resale (assignment) before completion and on what terms</li></ul></td><td>Determines whether and at what cost you can exit the investment</td></tr>
+      <tr><td>Ergonomics and functionality</td><td>10%</td><td><ul style="margin:0;padding-left:1.1rem;font-size:.9rem"><li>layout and room sizes: structural and architectural features should not create unusable corners, niches and passages — you pay in baht for every such square metre</li><li>light, ventilation, humidity</li><li>glass façade: it is not functional in the tropics — overheating and stuffiness near the windows, sun-faded furniture and finishes, little privacy, costly cleaning at height; lower the ergonomics score</li><li>sound insulation: assess it as a feature of a property for the above-mid-market segment</li><li>storage space</li><li>parking, balcony</li><li>the view: assess it when everything around is already built and the view is preserved; a vacant plot next door is a risk of new construction that will block the view</li></ul></td><td>Affects the property's appeal to tenants and buyers</td></tr>
+      <tr><td><b>Total</b></td><td><b>100%</b></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p><b>Why legal clarity is 20%.</b> It is not just a scoring criterion but a precondition for considering a property at all. An excellent location, an attractive price and a high estimated yield do not make up for problems with land rights, permits or the legality of ownership. That is why legal risks are checked not only with points but also on the stop-factor principle.</p>
+  <p><b>How to score.</b> Each criterion is scored from 1 to 10: 1–2 — critically poor; 3–4 — below market level; 5–6 — in line with the market; 7–8 — better than most competitors; 9–10 — an exceptional advantage. The overall score is the sum of the points multiplied by the weights: <b>S = Σ (weight × score) / 100</b>. For example, 8 points for location with a weight of 20% add 1.6 points to the total.</p>
+  <p class="rule-box"><b>RULE 1:</b> a high overall score does not make up for a critical flaw. A property may score 8.5 out of 10 but have unresolved legal problems — such a property cannot be recommended for purchase.</p>
+  <p class="rule-box"><b>RULE 2:</b> the weights depend on the investment strategy. For renting out, location, price and management matter most; for resale — price, liquidity and location; for long-term capital preservation — legal clarity, location and the developer; for living in it yourself — location, ergonomics and construction quality.</p>
+  <p>Choose a strategy and score your property — the model will calculate the total. The strategy weights are a guide; you can change them.</p>
+  <div id="ai-prompt" style="margin:18px 0 6px;padding:16px 18px;border:2px solid #b8e994;border-radius:12px;background:#f6fbf2"><p style="margin:0 0 6px;font-weight:700">Don’t want to calculate yourself? Copy the AI prompt</p><p style="margin:0 0 12px;font-size:.92rem;color:var(--muted)">Paste it into any AI chat (ChatGPT, Claude, DeepSeek) together with the brochure, a link or screenshots of the property — the AI will check the project in open sources itself (EIA register, courts, news — web search must be enabled in the chat), score it with this model and ask for anything missing. Check the result: AI can make mistakes.</p><button type="button" id="ai-copy" style="font:inherit;font-weight:600;padding:8px 16px;border-radius:8px;border:0;background:#2e9e4f;color:#fff;cursor:pointer">Copy prompt</button><details style="margin-top:12px"><summary style="cursor:pointer;font-size:.92rem">Show the prompt text</summary><textarea id="ai-text" readonly style="width:100%;box-sizing:border-box;height:320px;margin-top:8px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid #ccd;border-radius:8px;background:#fff;resize:vertical">You are a Phuket real estate analyst. Evaluate the property using the My Thai View model (mythaiview.ru/en/score/). All the model's rules are below. Follow them strictly and do not invent data.
+If you do not have web search, say so at the start of your answer and do not score legal clarity or the developer above 5.
+
+STEP 1. COLLECT THE DATA
+Take everything you can from the materials I attach (brochure, link, screenshots, contract). Then do STEP 1A, and only after it ask me, in one list, for whatever is still missing:
+— strategy: base / renting out / renting out + personal use / resale / capital preservation / living in it yourself;
+— price, ฿; area, m²; type (studio, 1, 2, 3 bedrooms);
+— distance to the beach BY ROAD, m (or to an international school / sports facility); height above sea level, m;
+— land title deed, form of ownership (freehold within the foreign quota / leasehold), whether the foreign quota is still available;
+— operator, the contract with it, common area fee (฿/m² per month);
+— whether assignment (resale) before completion is allowed.
+If I answer "don't know", apply the rule for unknown data from step 3 and say so in your answer.
+
+STEP 1A. CHECK IT YOURSELF BEFORE ASKING
+Check the project in open sources. Search in English and Thai, by the project name and by the developer company's name (including its Thai spelling).
+1. EIA — the ONEP Smart EIA Plus register (eia.onep.go.th): find the developer as the project owner and list all its reports: number, name, type (อาคารชุด — condominium, or โรงแรม — hotel), approval letter number and date, address. Match them to the project: type, address, number of units. If there is no report for this project or the type does not match (a condominium is being sold but the EIA is for a hotel), it is a legal risk.
+2. Company — the registration date and number of the Thai company (DBD; the number is also shown in ONEP). If marketing gives an earlier year, note that it refers to the group, not the Thai company.
+3. Disputes and violations — search the news (The Phuket News, The Thaiger, Khao Phuket, Bangkok Post) for "project name + EIA / court / lawsuit / residents / landslide / permit / ONEP / complaint", and in Thai "ชื่อโครงการ + ร้องเรียน / ศาลปกครอง / ดินสไลด์ / ใบอนุญาตก่อสร้าง". List: who complains, about what, in which court or agency, what has been decided, what is still open, the date of the latest publication.
+4. Documents according to sellers — Chanote number, plot area, building permit number and date: collect them from listings and brochures and mark them "according to the agent" until there is a document. If there is a Chanote number, offer to check the plot in LandsMaps (landsmaps.dol.go.th): location, area, terrain.
+5. Discrepancies — compare data from at least three listing sites (number of units, floors, completion date, common area fee, distance to the beach). List every discrepancy separately.
+6. Comparables — find real listings for criterion 2 in the same distance-to-beach band: primary market, secondary market, and completed buildings handed over no more than 5 years ago. Only listings with links.
+Checking rules:
+— An official source (ONEP, DBD, court, Land Department) outranks an agency; an agency outranks developer marketing.
+— An open court case, an inspection by ONEP or another agency, doubt about a valid building permit, or an EIA of the wrong type is a CONDITIONAL STOP FACTOR: legal clarity no higher than 2 until I bring a document showing the issue is closed.
+— What cannot be checked online (grounds for issuing the Chanote, encumbrances, whether the permit is valid) — say exactly that: "check with a lawyer at the Land Department / local administration", not "no problems found".
+— Finding nothing negative is not proof that the project is clean; say so.
+
+STEP 2. SCALE AND WEIGHTS
+Each criterion gets a score from 1 to 10: 1–2 critically poor; 3–4 below market; 5–6 market level; 7–8 better than most; 9–10 exceptional advantage. Total S = Σ(weight × score) / 100.
+
+Weights, % (location / price per m² / developer / legal clarity / management / liquidity / ergonomics):
+— Base: 20 / 20 / 10 / 20 / 10 / 10 / 10
+— Renting out: 25 / 20 / 10 / 15 / 20 / 5 / 5
+— Renting out + personal use: 25 / 15 / 15 / 15 / 15 / 5 / 10
+— Resale: 20 / 25 / 10 / 15 / 5 / 20 / 5
+— Capital preservation: 20 / 10 / 20 / 30 / 5 / 10 / 5
+— Living in it yourself: 25 / 10 / 20 / 15 / 5 / 5 / 20
+
+STEP 3. HOW TO SCORE
+
+1. LOCATION. Road distance to the main destination (beach or school/sports): up to 300 m — 8; up to 600 m — 7; up to 1 km — 6; up to 3 km — 5; up to 5 km — 4; further — 3.
+Plus 0.5 for each (max +2): pool in the complex; everything nearby already built; cafés and a shop within walking distance; hospital/clinic within 15 minutes; coworking/kids' club; parking; gym; sauna.
+Minuses: similar projects being built nearby −1; noise (airport, construction, nightlife) −0.5; access roads littered with rubbish −1.5.
+Low-ground penalty: 4 × e^(−height/4) × k, where k by distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; further — 0.15. Round to 0.5. Below 5 m near the sea is a tsunami-risk zone — say so plainly. Result between 1 and 10.
+
+2. PRICE PER M². Compare the property's price per m² with the weighted average of comparables (sum of prices ÷ sum of areas) in the same distance-to-beach band. Cheaper than market by 20%+ — 9; by 10–20% — 8; by 5–10% — 7; ±5% — 6; more expensive by 5–10% — 5; by 10–20% — 4; by 20–35% — 3; more — 2.
+Score against the primary market and compare with the secondary market: 10–25% above secondary — −1, more than 25% — −2; for "Resale", more than 25% is a STOP FACTOR.
+Adjustments: leasehold priced like freehold −1; good furniture included +0.5; something worth paying extra for (high floor, view, windows not facing west) +0.5; instalments tied to construction stages +0.5; buyer pays registration fees and taxes −0.5.
+For each group of comparables (primary, secondary, completed) state: N listings found, weighted average price ฿/m², source. If fewer than 3 listings are found in a group and I have no comparables of my own, use the site's reference (west coast, November 2026, ฿/m²):
+primary — up to 300 m: 208,790; up to 600 m: 192,185; up to 1 km: 152,533; up to 3 km: 144,926;
+secondary — up to 600 m: 142,687; up to 1 km: 71,082; up to 3 km: 84,463.
+Warn that this is a reference based on a small sample and that its secondary market consists mostly of older buildings.
+COMPARISON WITH COMPLETED UNITS (for properties under construction). A property under construction must be cheaper than the weighted average price of completed comparables by at least 5% for each year until completion, and by no less than 10%.
+— Discount below that norm — −0.5.
+— Price per m² equal to or above completed units — STOP FACTOR: a completed unit can be bought now, without construction risk or prepayment.
+— Name the completed comparable closest in price as an alternative: project, price, area, ฿/m², year completed, link.
+— For strategies with renting out, show how much income the buyer loses during construction: years until completion × annual income of the completed comparable. This is a forecast; if there is no income data, say so.
+— Fewer than 3 completed comparables found — the check is not done: write "no data", do not apply the stop factor under this rule, and lower the reliability.
+
+3. DEVELOPER AND CONSTRUCTION QUALITY. Score 1–10 by: how many projects completed and how many on time; court disputes with buyers and residents; years on the market of the Thai company; financial statements in the DBD register; quality of completed projects and owner reviews; seismic resistance (design for zone 2). No data — no higher than 5.
+
+4. LEGAL CLARITY. Land title (Chanote or other) and the grounds on which it was issued (forest land, slope, coastline — risk of revocation); freehold within the quota or leasehold; building permit and EIA (the report type matches the project); condominium registration; mortgages and encumbrances; court cases and agency inspections (from STEP 1A); contract: deadlines, penalties, guarantees, promises in writing.
+Any unresolved legal problem is a STOP FACTOR regardless of scores.
+
+5. MANAGEMENT AND RUNNING COSTS. Five blocks; if data is missing, the block is scored at its minimum.
+— Operator, 15%: experience in Phuket/Bangkok over 10 years — 10; 7–10 years — 8; 4–6 — 6; 2–3 — 4; under 2 years or no operating properties — 2.
+— Returns, 25%: confirmed by statements for 3+ years — 10; for 1–2 years — 6; properties not comparable — 4; only forecasts or promises — 2.
+— Contract, 25%: base 2, +2 for each: owner gets 60%+ of revenue after booking-platform commissions; contract can be terminated without penalty; management company can be changed; furniture, equipment and guest base stay with the owner.
+— Costs, 25%: common area fee up to 50 ฿/m² — 10; up to 70 — 8; up to 90 — 6; up to 120 — 4; higher — 2; separate brand fee −1; furniture reserve over 3% of revenue −1; glass façade or unshaded west-facing windows −2.
+— Transparency, 10%: base 1, +3 for each: repair fund balance is known; the condominium juristic person publishes its budget; good owner reviews.
+For "Renting out + personal use": contract restricts owner stays in high season −1; if the guaranteed return is not paid on owner days or the building has no hotel licence for short-term rentals — give a warning.
+
+6. LIQUIDITY. Five blocks; exclude a block with no data and lower the reliability.
+— Segment, 30%: up to 3 million ฿ — 8; up to 6 million — 7; up to 12 million — 6; up to 25 million — 5; up to 50 million — 4; more — 3; wide circle of buyers +1, narrow −1.
+— Demand and competition, 25%: comparables for sale ÷ sales per month: up to 3 months — 10; up to 6 — 8; up to 9 — 6; up to 12 — 4; more — 2.
+— Speed of sale, 10%: time to sell comparables on the same scale; discount from the initial price 5–15% −1, more than 15% −2.
+— Resale rights, 20%: base 8; assignment without fee +1, with a reasonable fee +0.5, prohibited −2 (for "Resale" — STOP FACTOR); quota available +1, exhausted −1.5; unclear transfer-of-ownership terms −1.
+— Exit appeal, 15%: base 6; well-known brand with valid usage rights +1; operator with proven results +1; clear rental income model +1; operator linked to the developer, exit terms opaque −1; value depends heavily on the brand −1; no clear end buyer −2.
+
+7. ERGONOMICS. Standard area: studio 24–30 m²; 1 bedroom 33–37; 2 bedrooms 55–70; 3 bedrooms 71–85. Within standard — 8; up to 10% larger — 7; up to 20% — 6; up to 35% — 5; more — 4 (extra metres are non-functional corners and passages you pay for in baht).
+Glass façade −1; west-facing windows without sun protection −0.5; terrace/balcony +0.5; a view that will not be blocked +0.5; vacant plot next door −0.5.
+
+STEP 4. TOTAL
+Verdict: 8.5+ — strong property; 7–8.4 — better than most competitors; 5–6.9 — market level; 3–4.9 — below market; under 3 — critically weak.
+Rule 1: any criterion scored 1–2 is a critical flaw; a high total does not compensate for it.
+Rule 2: a stop factor means the property is not considered, regardless of scores. A conditional stop factor applies until a document is provided showing the issue is closed.
+
+ANSWER FORMAT
+1. Stop factors, conditional stop factors and critical flaws on the first line, if any.
+2. Market: for each group of comparables (primary, secondary, completed) — N found, weighted average price ฿/m², source (listings / my data / site reference); the property's discount to completed units and the required discount.
+3. Table: criterion — score — weight — contribution to total — what the score is based on (fact with a link, "according to the agent", or assumption).
+4. Total out of 10 and verdict.
+5. Checked in open sources: what was found (with links), discrepancies between sources, what remains unchecked.
+6. Reliability of the assessment: high / limited / low, and why.
+7. What to check before buying: 3–7 points, starting with the riskiest.
+Call any return on a property under construction a forecast, not a fact. If data is missing, write "no data" — do not invent it.
+The model helps compare properties but does not replace a legal check, an inspection and a return calculation.</textarea></details></div>
+<script>(function(){var b=document.getElementById("ai-copy"),t=document.getElementById("ai-text"),L=b.textContent;b.addEventListener("click",function(){function done(){b.textContent="✓ Copied";setTimeout(function(){b.textContent=L;},2000);}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t.value).then(done,fb);}else fb();function fb(){var d=t.closest("details");if(d)d.open=true;t.focus();t.select();try{document.execCommand("copy");done();}catch(e){}}});})();</script>
   </div>
   <div class="prose">
-  <h2 id="author" style="color:var(--head)">About the author</h2>
-  <div class="view-box"><p>I explore Thailand and live in Phuket. My mission is to be a guide in the world of information: to find what matters, to reveal what stays behind the scenes, and to share knowledge and practical experience.</p><p>I am interested not only in what is happening, but also in why it is happening, who is behind the processes, whose interests they reflect and what consequences they lead to.</p><p class="sig">— Lina Lee</p></div>
+  <h2 id="score-data">Location: the score is calculated semi-automatically</h2>
+  <p>Your strategy determines your location: the sea and/or a school and/or sports. Fill in only one: if you enter metres to the beach, the school field is cleared, and vice versa. The location score is entered in the calculator automatically, and you can always adjust it by hand.</p>
+  <p class="rule-box"><b>THE PARETO RULE FOR LOCATION:</b> 80% of the score is the distance to the place that matters most to you: the beach, a school or sports (up to 8 points out of 10). 20% is all the other factors together: the surroundings, pluses and minuses (up to 2 points). The low-lying penalty by the sea is subtracted separately — it is an adjustment for risk, not for convenience.</p>
   </div>
+  <style>.sd-g select,.sd-g input:not([type=checkbox]){width:100%;box-sizing:border-box}.sd-g{min-width:0;border:0;border-radius:10px;background:color-mix(in srgb,var(--c) 45%,transparent);padding:10px 12px 4px;margin:0 0 12px}.sd-g legend{background:var(--c);border-radius:7px;padding:4px 10px;font-weight:600}.sd-out{font-size:.92rem;margin:-4px 0 8px;min-height:1px}@media(max-width:640px){.sd-vs{grid-template-columns:1fr!important}.sd-vs>div:nth-child(2){text-align:center;padding:4px 0 10px!important}}</style>
+  <div class="calc" id="sd">
+    <fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
+      <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div class="sd-vs" style="display:grid;grid-template-columns:1fr;gap:0;align-items:start">
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#b9ebe4;border-radius:7px;padding:6px 14px">SEA</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px;align-items:end">
+            <div class="f"><label for="d-sea">To the beach, m — by road, not in a straight line</label><input id="d-sea" type="number" min="0" step="50" inputmode="numeric"></div>
+            <div class="f"><label for="d-elev">Elevation above sea level, m</label><input id="d-elev" type="number" min="0" step="1" inputmode="numeric"></div>
+          </div>
+        </div>
+        <div style="height:10px"></div>
+        <div>
+          <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#f8c8d8;border-radius:7px;padding:6px 14px">SCHOOL / SPORTS</span></div>
+          <div class="f"><label for="d-school">To an international school or sports facility, m — by road</label><input id="d-school" type="number" min="0" step="50" inputmode="numeric"></div>
+        </div>
+      </div>
+      </div><div style="margin:0">
+        <div style="font-weight:700;letter-spacing:.04em;text-align:center;margin:0 0 8px"><span style="display:block;background:#fbefb3;border-radius:7px;padding:6px 14px">Surroundings</span></div>
+        <div style="display:grid;grid-template-columns:1fr;gap:6px">
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">+0.5 points for each tick</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p0" class="e-plus" style="margin-top:4px;width:auto">The complex has a swimming pool</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p1" class="e-plus" style="margin-top:4px;width:auto">Everything nearby is already built</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p2" class="e-plus" style="margin-top:4px;width:auto">Cafés, restaurants and a shop within walking distance</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p3" class="e-plus" style="margin-top:4px;width:auto">A hospital or clinic within 15 minutes’ drive</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p4" class="e-plus" style="margin-top:4px;width:auto">Co-working space / kids’ club</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p5" class="e-plus" style="margin-top:4px;width:auto">Parking</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p6" class="e-plus" style="margin-top:4px;width:auto">Gym</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-p7" class="e-plus" style="margin-top:4px;width:auto">Sauna</label></div>
+          <div><div style="font-size:.88rem;color:var(--muted);margin-bottom:6px">Minuses</div><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-cons" class="e-minus" style="margin-top:4px;width:auto">Similar projects are being built nearby (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-noise" class="e-minus" style="margin-top:4px;width:auto">Noise: airport, construction, nightlife (−0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 6px;cursor:pointer"><input type="checkbox" id="e-trash" class="e-minus" style="margin-top:4px;width:auto">Access roads are littered with rubbish (−1.5)</label></div>
+        </div>
+      </div>
+      </div>
+      <div class="sd-out" id="o-loc" style="margin-top:8px"></div>
+      <div id="loc-help" hidden style="font-size:.9rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:10px">
+        <p style="margin:0 0 8px">The distance scale is the same for the sea, a school and a sports facility: up to 300 m — 8 points; up to 600 m — 7; up to 1 km — 6; up to 3 km — 5; up to 5 km — 4; beyond 5 km — 3. The surroundings ticks add up to 2 more points — 0.5 for each. Minuses: similar properties being built nearby — −1, noise — −0.5. The total is no more than 10 and no less than 1.</p>
+        <div id="loc-help-sea" hidden>
+          <p style="margin:0 0 8px">Elevation above sea level works as an inverse adjustment: the lower the plot and the closer it is to the sea, the bigger the penalty. The relationship is non-linear — the penalty grows quickly over the last metres of elevation: <b>penalty = 4 × e<sup>−elevation/4</sup> × k</b>, where k depends on the distance to the beach: up to 300 m — 1; up to 600 m — 0.8; up to 1 km — 0.6; up to 2 km — 0.4; up to 3 km — 0.25; beyond — 0.15. The result is rounded to 0.5 and never falls below 1.</p>
+          <div style="overflow-x:auto;margin:0 0 8px"><table style="border-collapse:collapse;font-size:.88rem;min-width:420px">
+            <thead><tr><th style="text-align:left;padding:4px 10px 4px 0">Elevation</th><th style="text-align:left;padding:4px 10px">By the sea (up to 300 m)</th><th style="text-align:left;padding:4px 10px">1 km away</th><th style="text-align:left;padding:4px 10px">3 km away</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:3px 10px 3px 0">0 m</td><td style="padding:3px 10px">−4</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">2 m</td><td style="padding:3px 10px">−2,5</td><td style="padding:3px 10px">−1,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">5 m</td><td style="padding:3px 10px">−1</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">−0,5</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">10 m</td><td style="padding:3px 10px">−0,5</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+              <tr><td style="padding:3px 10px 3px 0">20 m and above</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td><td style="padding:3px 10px">0</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin:0 0 8px;color:var(--ink)"><b>Important:</b> 8 points for 300 m to the beach does not mean that living right by the sea is always good. In low-lying areas — below 5 m above sea level — it is better not to live by the sea at all: this is a tsunami and flooding risk zone. See the <a href="../tourism/#tsunami">elevation map of Phuket</a> on the Tourism page.</p>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+<style>#loc-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#loc-panel h2{font-size:1.1rem;margin:0 0 6px}#loc-panel .prose{max-width:none}#loc-panel .prose p{font-size:.92rem}#loc-panel input[type=number]{background:#fff}#loc-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#loc-panel .loc-2col{grid-template-columns:1fr!important}#loc-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#loc-panel #sd{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#liq-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#liq-panel h2{font-size:1.1rem;margin:0 0 6px}#liq-panel .prose{max-width:none}#liq-panel .prose p{font-size:.92rem}#liq-panel select{background:#fff}#liq-panel input[type=number]{background:#fff}#liq-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#liq-panel .loc-2col{grid-template-columns:1fr!important}#liq-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#liq-panel #sdl{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#pr-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#pr-panel h2{font-size:1.1rem;margin:0 0 6px}#pr-panel .prose{max-width:none}#pr-panel .prose p{font-size:.92rem}#pr-panel select{background:#fff}#pr-panel table input,#pr-panel table select{padding:4px 6px;font-size:.88rem}#pr-panel input[type=number]{background:#fff}#pr-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#pr-panel .loc-2col{grid-template-columns:1fr!important}#pr-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#pr-panel #sdp{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#mg-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#mg-panel h2{font-size:1.1rem;margin:0 0 6px}#mg-panel .prose{max-width:none}#mg-panel .prose p{font-size:.92rem}#mg-panel select{background:#fff}#mg-panel input[type=number]{background:#fff}#mg-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#mg-panel .loc-2col{grid-template-columns:1fr!important}#mg-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#mg-panel #sdm{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#erg-panel{margin:2px 0 14px;padding:12px 12px 4px;border:1px dashed var(--line);border-radius:10px;background:var(--bg,#f4f6fa);position:relative;z-index:3;box-shadow:0 8px 24px rgba(20,30,60,.12)}#erg-panel h2{font-size:1.1rem;margin:0 0 6px}#erg-panel .prose{max-width:none}#erg-panel .prose p{font-size:.92rem}#erg-panel select{background:#fff}#erg-panel input[type=number]{background:#fff}#erg-panel .loc-2col>div:last-child{border-left:1px solid var(--line);padding-left:28px}@media(max-width:760px){#erg-panel .loc-2col{grid-template-columns:1fr!important}#erg-panel .loc-2col>div:last-child{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}}#erg-panel #sde{display:block;padding:0;margin:0;background:none;border:0;box-shadow:none}#erg-panel .e-adj{accent-color:#2e9e4f}</style>
+  <div id="liq-src" hidden>
+  <div class="prose"><h2 id="liq-data">Liquidity: the score is calculated semi-automatically</h2>
+  <p>Liquidity answers three questions: who can buy the property, how easy it is to find a buyer, and on what terms it can be sold. A low price does not guarantee liquidity if hundreds of comparable units are on sale, demand is weak and the contract restricts resale. The score is made up of five weighted blocks; a block without data is not penalised but left out of the calculation — though the score becomes less reliable. The score is entered in the calculator automatically, and you can always adjust it manually.</p></div>
+  <div class="calc" id="sdl"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
+    <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#e6dff0;border-radius:7px;padding:6px 14px">SEGMENT · 30%</span></div>
+      <div class="f"><label for="l-price">Property price, ฿</label><input id="l-price" type="number" min="1000000" step="any" inputmode="decimal"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Up to ฿3m — 8; up to ฿6m — 7; up to ฿12m — 6; up to ฿25m — 5; up to ฿50m — 4; more — 3.</span>
+      <div class="f"><label for="l-buy">Range of buyers</label><select id="l-buy"><option value="">— don't know —</option><option value="1">wide: Thais, foreigners, investors and owner-occupiers (+1)</option><option value="0">medium (0)</option><option value="-1">narrow (−1)</option></select></div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dfe9d4;border-radius:7px;padding:6px 14px">DEMAND AND COMPETITION · 25%</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="l-an">Comparable units on sale</label><input id="l-an" type="number" min="0" step="any" inputmode="decimal"></div><div class="f"><label for="l-sl">Comparable sales per month</label><input id="l-sl" type="number" min="0" step="any" inputmode="decimal"></div></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Months of supply = units on sale ÷ sales per month: up to 3 months — 10; up to 6 — 8; up to 9 — 6; up to 12 — 4; more — 2. Count comparable properties in the same segment, area and ownership type.</span>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dbe4f0;border-radius:7px;padding:6px 14px">SALES SPEED · 10%</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="l-sell">Actual time to sell comparables, months</label><input id="l-sell" type="number" min="0" step="any" inputmode="decimal"></div><div class="f"><label for="l-disc">Discount from the initial price, %</label><input id="l-disc" type="number" min="0" step="any" inputmode="decimal"></div></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Time: up to 3 months — 10; up to 6 — 8; up to 9 — 6; up to 12 — 4; more — 2. A 5–15% discount — −1, above 15% — −2. Count actual deals, not listings.</span>
+    </div><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#f0d9df;border-radius:7px;padding:6px 14px">RIGHT TO RESELL · 20%</span></div>
+      <div class="f"><label for="l-resale">Assignment before completion under the contract</label><select id="l-resale"><option value="">— don't know —</option><option value="1">allowed without a fee (+1)</option><option value="0.5">allowed with a reasonable fee (+0.5)</option><option value="0">allowed with significant restrictions (0)</option><option value="-2">prohibited (−2; a stop factor for the Resale strategy)</option></select></div>
+      <div class="f"><label for="l-quota">Foreign quota</label><select id="l-quota"><option value="">— don't know —</option><option value="1">available (+1)</option><option value="-1.5">used up (−1.5)</option></select></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-cj" id="l-unc" data-v="-1" style="margin-top:4px;width:auto">Unclear terms for the transfer of ownership (−1)</label><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Base 8. A used-up quota narrows the range of buyers but does not prohibit a sale: a Thai citizen can buy. A ban on assignment does not mean the completed property cannot be sold.</span>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#f3e7c6;border-radius:7px;padding:6px 14px">APPEAL AT EXIT · 15%</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-brand" data-v="1" style="margin-top:4px;width:auto">A well-known brand with valid rights of use (+1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-opr" data-v="1" style="margin-top:4px;width:auto">An operating operator with confirmed results (+1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-model" data-v="1" style="margin-top:4px;width:auto">A clear rental income model (+1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-link" data-v="-1" style="margin-top:4px;width:auto">The operator is linked to the developer, exit terms are opaque (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-dep" data-v="-1" style="margin-top:4px;width:auto">The value depends heavily on keeping the brand (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="l-ci" id="l-nobuy" data-v="-2" style="margin-top:4px;width:auto">No clear end buyer (−2)</label><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Base 6. A buyer should want the property not only for the brand on the façade.</span>
+    </div></div>
+    <div class="sd-out" id="o-liq" style="margin-top:8px"></div>
+  </fieldset></div>
+  </div>
+  <div id="erg-src" hidden>
+  <div class="prose"><h2 id="erg-data">Ergonomics: the score is calculated semi-automatically</h2>
+  <p>The starting point is the standard area for the unit type. If the area is larger than the standard for the same number of bedrooms, the extra metres usually go into non-functional corners, niches, corridors or a non-standard layout that is not built at right angles — and you pay in baht for every such metre. The score is entered in the calculator automatically, and you can always adjust it manually. The façade, windows, terrace, parking, gym, sauna and view only adjust the layout score.</p></div>
+  <div class="calc" id="sde"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
+    <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#f3e7c6;border-radius:7px;padding:6px 14px">LAYOUT</span></div>
+      <div class="f"><label for="e-type">Unit type</label><select id="e-type"><option value="">— choose —</option><option value="24-30">Studio (standard 24–30 m²)</option><option value="33-37">1 bedroom (standard 33–37 m²)</option><option value="55-70">2 bedrooms (standard 55–70 m²)</option><option value="71-85">3 bedrooms (standard 71–85 m²)</option></select></div>
+      <div class="f"><label for="e-area">Area, m²</label><input id="e-area" type="number" min="10" step="any" inputmode="decimal"></div>
+      <p style="font-size:.88rem;color:var(--muted);margin:0 0 8px">Scale by excess over the standard: within the standard — 8 points; up to +10% — 7; up to +20% — 6; up to +35% — 5; more — 4.</p>
+    </div><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#fbefb3;border-radius:7px;padding:6px 14px">PLUSES AND MINUSES</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="e-adj" id="e-glass" data-v="-1" style="margin-top:4px;width:auto">Glass façade (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="e-adj" id="e-west" data-v="-0.5" style="margin-top:4px;width:auto">West-facing windows without sun protection (−0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="e-adj" id="e-balc" data-v="0.5" style="margin-top:4px;width:auto">Terrace / balcony (+0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="e-adj" id="e-view" data-v="0.5" style="margin-top:4px;width:auto">A view that neighbouring buildings will not block (+0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="e-adj" id="e-lot" data-v="-0.5" style="margin-top:4px;width:auto">Vacant plot next door — the view may be built over (−0.5)</label>
+    </div></div>
+    <div class="sd-out" id="o-erg" style="margin-top:8px"></div>
+  </fieldset></div>
+  </div>
+  <div id="mg-src" hidden>
+  <div class="prose"><h2 id="mg-data">Management and maintenance: the score is calculated semi-automatically</h2>
+  <p>A good brand on its own does not guarantee a return: the contract terms, the real economics of management and the costs that reduce net income matter more. The score is made up of five weighted blocks; if there is no data, a block is scored at the bottom of its range — the unknown is a risk too. The score is entered in the calculator automatically, and you can always adjust it manually.</p></div>
+  <div class="calc" id="sdm"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
+    <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dbe4f0;border-radius:7px;padding:6px 14px">OPERATOR · 15%</span></div>
+      <div class="f"><label for="m-op">Operator's experience in Phuket/Bangkok</label><select id="m-op"><option value="2" data-unk="1">— don't know — (2)</option><option value="10">more than 10 years (10)</option><option value="8">7–10 years (8)</option><option value="6">4–6 years (6)</option><option value="4">2–3 years (4)</option><option value="2">under 2 years or no operating properties (2)</option></select></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">An international brand without local experience does not get the maximum.</span>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dfe9d4;border-radius:7px;padding:6px 14px">RETURNS · 25%</span></div>
+      <div class="f"><label for="m-ry">Data on the operator's existing properties</label><select id="m-ry"><option value="2" data-unk="1">— only forecasts or promises — (2)</option><option value="10">confirmed by accounts for 3 years or more (10)</option><option value="6">confirmed for 1–2 years (6)</option><option value="4">available, but the properties are not comparable (4)</option></select></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="m-occ">Occupancy, %</label><input id="m-occ" type="number" min="0" max="100" step="any" inputmode="decimal"></div><div class="f"><label for="m-adr">Average daily rate, ฿</label><input id="m-adr" type="number" min="0" step="any" inputmode="decimal"></div></div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#e6dff0;border-radius:7px;padding:6px 14px">TRANSPARENCY · 10%</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c5" id="m-fund" style="margin-top:4px;width:auto">There is a sinking fund and its balance is known</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c5" id="m-rep" style="margin-top:4px;width:auto">The condominium juristic person publishes its budget and accounts</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c5" id="m-rev" style="margin-top:4px;width:auto">Good owner reviews of the management</label><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Each item adds 3 to the block (base 1, maximum 10).</span>
+    </div><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#f0d9df;border-radius:7px;padding:6px 14px">CONTRACT · 25%</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c2" id="m-share" style="margin-top:4px;width:auto">The owner gets 60% or more of revenue after booking platform commissions</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c2" id="m-term" style="margin-top:4px;width:auto">The contract can be terminated without a penalty</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c2" id="m-swap" style="margin-top:4px;width:auto">The management company can be replaced</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c2" id="m-own" style="margin-top:4px;width:auto">Furniture, equipment and the guest base stay with the owner</label><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Each item adds 2 to the block (base 2, maximum 10).</span>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#f3e7c6;border-radius:7px;padding:6px 14px">COSTS · 25%</span></div>
+      <div class="f"><label for="m-fee">Common area fee, ฿ per m² per month</label><input id="m-fee" type="number" min="0" step="any" inputmode="decimal"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">up to ฿50 — 10; up to ฿70 — 8; up to ฿90 — 6; up to ฿120 — 4; more — 2</span>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-brand" data-v="-1" style="margin-top:4px;width:auto">Separate brand and marketing fee (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-ffe" data-v="-1" style="margin-top:4px;width:auto">Furniture and equipment reserve above 3% of revenue (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="m-c4" id="m-elec" data-v="-2" style="margin-top:4px;width:auto">Glass façade or west-facing windows without shading (−2)</label>
+    </div></div>
+    <div id="m-mix" hidden style="margin-top:6px"><div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#b8e994;border-radius:7px;padding:6px 14px">OWNER STAYS</span></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Only for the «Renting out + personal use» strategy.</span><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-xown" style="margin-top:4px;width:auto">The operator contract bans or restricts owner stays in high season (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-gar" style="margin-top:4px;width:auto">The guaranteed return does not apply on the days the owner stays</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" id="m-lic" style="margin-top:4px;width:auto">The building has no hotel licence for short-term rentals</label></div>
+    <div class="sd-out" id="o-mg" style="margin-top:8px"></div>
+  </fieldset></div>
+  </div>
+  <div id="pr-src" hidden>
+  <div class="prose"><h2 id="pr-data">Price per m²: the score is calculated semi-automatically</h2>
+  <p>The model compares the property’s price per square metre with the weighted average price of similar properties: 6 points is the market price, higher means a price advantage, lower means overpaying. The price and area entered here are carried over automatically to the Liquidity and Ergonomics sections below. The score is filled in the calculator automatically, and you can always adjust it by hand.</p></div>
+  <div class="calc" id="sdp"><fieldset class="sd-g" style="--c:#dfe9d4;grid-column:1/-1;background:transparent;border:1px solid var(--line);padding:14px 16px 6px"><legend style="width:100%;box-sizing:border-box;text-align:center;margin:0;padding:6px 16px">Enter the data</legend>
+    <div class="loc-2col" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 32px;align-items:start"><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#f1e2cb;border-radius:7px;padding:6px 14px">PROPERTY</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-price">Apartment price, ฿</label><input id="p-price" type="number" min="1000000" step="any" inputmode="decimal"></div><div class="f"><label for="p-area">Area, m²</label><input id="p-area" type="number" min="10" step="any" inputmode="decimal"></div></div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#dfe9d4;border-radius:7px;padding:6px 14px">MARKET BENCHMARK</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px"><div class="f"><label for="p-med">Weighted average price of comparables, ฿ per m² — primary market</label><input id="p-med" type="number" min="0" step="any" inputmode="decimal"><span id="p-med-i" style="font-size:.82rem;color:var(--muted)"></span></div><div class="f"><label for="p-med2">Weighted average price of comparables, ฿ per m² — resale market</label><input id="p-med2" type="number" min="0" step="any" inputmode="decimal"><span id="p-med2-i" style="font-size:.82rem;color:var(--muted)"></span></div></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">The score is calculated against the primary market and compared with the resale market: once completed, the apartment itself becomes a resale unit. A price 10–25% above resale costs −1 point, more than 25% costs −2; for the Resale strategy, more than 25% is a stop factor. If the primary market is not filled in, the score is calculated against the resale market.</span>
+      <div class="f"><label for="p-src">Data source</label><select id="p-src"><option value="0">listings</option><option value="1">transactions</option><option value="2">mixed</option></select></div>
+      <div class="f"><label for="p-date">Date of data collection</label><input id="p-date" type="date"></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Compare properties with a similar location, form of ownership, construction stage and characteristics. Use the prices of specific apartments, not advertised “from” prices. Measure area the same way: in Thailand it often includes the balcony.</span>
+      <p style="font-size:.88rem;color:var(--muted);margin:0 0 8px">Scale: 20%+ below market — 9; 10–20% — 8; 5–10% — 7; ±5% — 6; 5–10% above — 5; 10–20% — 4; 20–35% — 3; more — 2.</p>
+    </div><div>
+      <div style="font-weight:700;letter-spacing:.06em;margin:2px 0 8px;text-align:center"><span style="display:block;background:#dbe4f0;border-radius:7px;padding:6px 14px">PRICE ADJUSTMENTS</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-off" data-v="-0.5" style="margin-top:4px;width:auto">The building is still under construction but priced like completed apartments nearby (−0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-lease" data-v="-1" style="margin-top:4px;width:auto">Leasehold (a 30-year lease) priced like freehold (ownership) (−1)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-furn" data-v="0.5" style="margin-top:4px;width:auto">Good furniture is included in the price, so you will not have to buy it (+0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-adv" data-v="0.5" style="margin-top:4px;width:auto">There is something worth paying extra for: a high floor, a view, windows not facing west, a good finish — you have seen it yourself (+0.5)</label>
+      <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#fbefb3;border-radius:7px;padding:6px 14px">PAYMENT TERMS</span></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-inst" data-v="0.5" style="margin-top:4px;width:auto">Instalments are tied to construction stages (+0.5)</label><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0 0 8px;cursor:pointer"><input type="checkbox" class="p-adj" id="p-extra" data-v="-0.5" style="margin-top:4px;width:auto">The buyer pays the registration fee and taxes on transfer (−0.5)</label><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Instalments do not make an apartment cheaper in market value — they improve the terms of purchase, so they are counted separately.</span>
+    </div></div>
+    <div style="font-weight:700;letter-spacing:.06em;margin:10px 0 8px;text-align:center"><span style="display:block;background:#e6dff0;border-radius:7px;padding:6px 14px">COMPARABLES</span></div><span style="font-size:.85rem;color:var(--muted);display:block;margin:-2px 0 8px">Enter 5–10 similar apartments. The calculator takes only those in the same distance-to-beach band as the property (up to 300 m, 600 m, 1 km, 3 km, 5 km, further) and, for each market, calculates the weighted average price: total prices ÷ total area. The figure goes into the field above automatically, and you can adjust it.</span><div style="overflow-x:auto"><table style="width:100%;min-width:560px;table-layout:fixed;border-collapse:collapse;font-size:.88rem"><colgroup><col style="width:22%"><col style="width:13%"><col style="width:15%"><col style="width:17%"><col style="width:15%"><col style="width:18%"></colgroup><thead><tr><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">Price, ฿</th><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">Area, m²</th><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">To beach, m</th><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">Market</th><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">฿ per m²</th><th style="font-weight:400;text-align:left;padding:2px 4px;color:var(--muted)">Counted</th></tr></thead><tbody><tr><td style="padding:2px"><input id="c-p0" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a0" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d0" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m0" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm0" style="padding:2px 4px"></td><td id="c-st0" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p1" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a1" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d1" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m1" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm1" style="padding:2px 4px"></td><td id="c-st1" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p2" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a2" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d2" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m2" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm2" style="padding:2px 4px"></td><td id="c-st2" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p3" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a3" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d3" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m3" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm3" style="padding:2px 4px"></td><td id="c-st3" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p4" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a4" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d4" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m4" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm4" style="padding:2px 4px"></td><td id="c-st4" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p5" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a5" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d5" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m5" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm5" style="padding:2px 4px"></td><td id="c-st5" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p6" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a6" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d6" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m6" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm6" style="padding:2px 4px"></td><td id="c-st6" style="padding:2px 4px"></td></tr><tr><td style="padding:2px"><input id="c-p7" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-a7" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><input id="c-d7" type="number" min="0" step="any" inputmode="decimal" style="width:100%"></td><td style="padding:2px"><select id="c-m7" style="width:100%"><option value="2">resale</option><option value="1">primary</option></select></td><td id="c-pm7" style="padding:2px 4px"></td><td id="c-st7" style="padding:2px 4px"></td></tr></tbody></table></div><span id="c-note" style="font-size:.85rem;color:#b9770e;display:block;margin:4px 0 0"></span>
+    <div class="sd-out" id="o-pr" style="margin-top:8px"></div>
+  </fieldset></div>
+  </div>
+  <div class="calc" id="sc">
+    <div>
+      <div class="f"><label for="s-strat" style="font-size:1.9rem;font-weight:700;line-height:1.2"><mark style="display:block;width:100%;box-sizing:border-box;background:#b8e994;color:inherit;padding:.1em .4em;border-radius:.35em">Strategy</mark></label><select id="s-strat">
+        <option value="base">Base model</option>
+        <option value="rent">Renting out</option>
+        <option value="mix">Renting out + personal use</option>
+        <option value="resale">Resale</option>
+        <option value="keep">Long-term capital preservation</option>
+        <option value="live">Living in it yourself</option>
+      </select></div>
+      <div id="s-basenote" style="font-size:.88rem;color:var(--muted);margin:-4px 0 8px">(goal not yet defined)</div>
+      <div class="s-head" style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:4px"><span>Criterion</span><span>Score</span><span>Weight, %</span><span>Total</span></div>
+      <div id="s-rows"></div>
+      <div class="f chk" style="margin-top:6px"><input type="checkbox" id="s-stop"><label for="s-stop" style="font-weight:400">There are unresolved legal problems (stop factor)</label></div>
+    </div>
+    <div class="res" aria-live="polite">
+      <div class="big num" id="s-total" style="line-height:1.2;margin-top:-14px">0</div>
+      <div style="color:var(--muted);font-size:.9rem">(overall property score)</div>
+      <div style="margin:.2rem 0 .2rem" id="s-verdict">—</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem">A high score is a necessary but not sufficient condition for buying.</div>
+      <div id="s-contrib"></div>
+      <div class="row"><span>Sum of weights</span><span id="s-wsum">100%</span></div>
+      <div id="s-warn" style="margin-top:.8rem;font-size:.9rem"></div>
+    </div>
+  </div>
+  <p class="prose" style="font-size:.88rem;color:var(--muted)">The model helps compare properties against the same rules, but it does not replace legal due diligence, an inspection of the property or a yield calculation. The scores are your own judgement, so compare properties scored by the same person against the same criteria.</p>
+  <div class="prose">
+  <p class="rule-box"><b>RULE:</b> the model weeds out weak properties and helps compare strong ones, but the decision to buy is made only after all the conditions have been checked.</p>
+  </div>
+<script>
+(function(){
+  var C=[["loc","Location"],["price","Price per m²"],["dev","Developer and construction quality"],["legal","Legal clarity"],["mgmt","Management and maintenance"],["liq","Liquidity"],["erg","Ergonomics and functionality"]];
+  var W={base:[20,20,10,20,10,10,10],rent:[25,20,10,15,20,5,5],resale:[20,25,10,15,5,20,5],keep:[20,10,20,30,5,10,5],live:[25,10,20,15,5,5,20],mix:[25,15,15,15,15,5,10]};
+  var RB=["#dfe9d4","#f1e2cb","#dbe4f0","#f0d9df","#d6ece8","#e6dff0","#f3e7c6"];
+  var rows=document.getElementById("s-rows"),h="";
+  C.forEach(function(c,ci){var col=RB[ci];h+='<div style="display:grid;grid-template-columns:minmax(0,1fr) 60px 60px 60px;gap:8px;align-items:center;margin-bottom:8px"><label for="s-r-'+c[0]+'" style="font-weight:600;font-size:1.05rem;background:'+col+';border:1px solid '+col+';border-radius:7px;padding:8px 10px;min-height:44px;display:flex;align-items:center;line-height:1.25;box-sizing:border-box">'+c[1]+'</label><input id="s-r-'+c[0]+'" type="number" min="1" max="10" step="0.5" value="6" aria-label="Score: '+c[1]+'"><input id="s-w-'+c[0]+'" type="number" min="0" max="100" step="5" aria-label="Weight: '+c[1]+'"><input id="s-c-'+c[0]+'" type="text" readonly tabindex="-1" aria-label="Total: '+c[1]+'" style="background:#eef1f6;font-weight:600;text-align:center;padding-left:4px;padding-right:4px"></div>';});
+  rows.innerHTML=h;
+  var strat=document.getElementById("s-strat");
+  function v(id,lo,hi){var x=parseFloat(document.getElementById(id).value);if(!isFinite(x))x=lo;return Math.max(lo,Math.min(hi,x));}
+  function f1(x){return x.toFixed(1);}
+  function setW(){document.getElementById("s-basenote").hidden=strat.value!=="base";W[strat.value].forEach(function(w,i){document.getElementById("s-w-"+C[i][0]).value=w;});}
+  function calc(){
+    var S=0,ws=0,ch="",crit=[];
+    C.forEach(function(c){var r=v("s-r-"+c[0],1,10),w=v("s-w-"+c[0],0,100);ws+=w;var k=w*r/100;S+=k;
+      document.getElementById("s-c-"+c[0]).value=f1(k); if(r<=2)crit.push(c[1]);});
+    var stop=document.getElementById("s-stop").checked,rsb=strat.value==="resale"&&(document.getElementById("l-resale")||{}).value==="-2";var rsc=strat.value==="resale"&&document.getElementById("s-r-price").dataset.secstop==="1";
+    if(ws>0&&ws!==100)S=S*100/ws;
+    var tot=document.getElementById("s-total"),gr=(Math.round(S*10)/10>=7.9&&!stop&&!rsb&&!rsc&&!crit.length);tot.innerHTML='<span style="color:'+(gr?"#2e9e4f":"inherit")+'">'+f1(S)+'</span> out of 10';
+    document.getElementById("s-contrib").innerHTML=ch;
+    var ws_el=document.getElementById("s-wsum");ws_el.textContent=ws+"%";ws_el.style.color=ws===100?"":"#c0392b";
+    var vd;
+    if(stop) vd="<b style='color:#c0392b'>Stop factor: the property is not considered, regardless of the score</b>";
+    else if(rsb) vd="<b style='color:#c0392b'>Stop factor for the Resale strategy: the contract prohibits assignment before completion, so the property cannot be sold before handover</b>";
+    else if(rsc) vd="<b style='color:#c0392b'>Stop factor for the Resale strategy: the property’s price is more than 25% above the resale market, so reselling at a profit is almost impossible</b>";
+    else if(crit.length) vd="<b style='color:#c0392b'>Critical flaw — a high score does not make up for it</b>";
+    else if(S>=8.5) vd="Strong property: exceptional advantages";
+    else if(S>=7) vd="Better than most competitors";
+    else if(S>=5) vd="In line with the market";
+    else if(S>=3) vd="Below market level";
+    else vd="Critically weak property";
+    document.getElementById("s-verdict").innerHTML=vd;
+    var wn=[];
+    if(crit.length) wn.push("Score 1–2: "+crit.join(", ")+".");
+    if(strat.value==="mix"&&document.getElementById("m-gar")&&document.getElementById("m-gar").checked)wn.push("The guaranteed return is not paid for the days you stay: if you come in high season, the real yield is lower than promised.");if(strat.value==="mix"&&document.getElementById("m-lic")&&document.getElementById("m-lic").checked)wn.push("Without a hotel licence, short-term rentals (under 30 days) are illegal: that income is a grey zone, so plan on long-term rentals.");if(ws!==100) wn.push("The weights do not add up to 100% — the total has been rescaled proportionally.");
+    document.getElementById("s-warn").textContent=wn.join(" ");
+  }
+  strat.addEventListener("change",function(){setW();calc();});
+  document.getElementById("sc").addEventListener("input",calc);
+  // --- automatic scores ---
+  function num(id){var e=document.getElementById(id);if(!e||e.value==="")return null;var x=parseFloat(e.value);return isFinite(x)?x:null;}
+  function pw(x,P){if(x<=P[0][0])return P[0][1];for(var i=1;i<P.length;i++){if(x<=P[i][0]){var a=P[i-1],b=P[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);}}return P[P.length-1][1];}
+  function avg(L){var sw=0,s=0;L.forEach(function(p){if(p[0]!==null){s+=p[0]*p[1];sw+=p[1];}});return sw?s/sw:null;}
+  function r05(x){return Math.max(1,Math.min(10,Math.round(x*2)/2));}
+  function autoScores(){
+    var sea=num("d-sea"),h=num("d-elev"),sch=num("d-school"),out=document.getElementById("o-loc"),inp=document.getElementById("s-r-loc");
+    function st(d){return d<=300?8:d<=600?7:d<=1000?6:d<=3000?5:d<=5000?4:3;}
+    var nb=document.querySelectorAll(".e-plus:checked").length,bon=Math.min(2,nb*0.5),mn=(document.getElementById("e-cons").checked?1:0)+(document.getElementById("e-noise").checked?0.5:0)+(document.getElementById("e-trash").checked?1.5:0);
+    if(sea===null&&sch===null){out.textContent=h!==null?"Enter the distance to the beach — the elevation adjustment is based on it.":(nb||mn?"Enter the distance to the beach or a school — the surroundings ticks are added to it.":"");if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}calc();return;}
+    var ss=sea===null?null:st(sea),sc0=sch===null?null:st(sch),base=Math.max(ss===null?0:ss,sc0===null?0:sc0),pen=0;
+    if(h!==null&&sea!==null){var k=sea<=300?1:sea<=600?0.8:sea<=1000?0.6:sea<=2000?0.4:sea<=3000?0.25:0.15;pen=Math.round(4*Math.exp(-h/4)*k*2)/2;}
+    var sc=Math.max(1,Math.min(10,base+bon-mn-pen)),f=function(x){return String(x);},parts=[];
+    if(ss!==null)parts.push("beach "+ss+" out of 8");if(sc0!==null)parts.push("school/sports "+sc0+" out of 8");if(bon||mn)parts.push("surroundings "+(bon-mn>=0?"+":"−")+f(Math.abs(bon-mn)));if(pen)parts.push("low-lying penalty −"+f(pen));
+    out.innerHTML="→ location score <b>"+f(sc)+"</b> ("+parts.join(", ")+")"+(h!==null&&sea!==null&&h<5&&sea<=1000?'<br><span style="color:#c0392b">Low-lying land by the sea: below 5 m above sea level is a tsunami and flooding risk zone.</span>':"")+(h!==null&&sea===null?'<br>To take elevation into account, enter the distance to the beach.':"");
+    inp.value=sc;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";
+    calc();
+  }
+  document.getElementById("e-p1").addEventListener("change",function(){if(this.checked)document.getElementById("e-cons").checked=false;});
+  document.getElementById("e-cons").addEventListener("change",function(){if(this.checked)document.getElementById("e-p1").checked=false;});
+  document.getElementById("d-sea").addEventListener("input",function(){if(this.value!=="")document.getElementById("d-school").value="";});
+  document.getElementById("d-school").addEventListener("input",function(){if(this.value!==""){document.getElementById("d-sea").value="";document.getElementById("d-elev").value="";}});
+  (function(){var sd=document.getElementById("sd"),hp=document.getElementById("loc-help"),hs=document.getElementById("loc-help-sea");
+    sd.addEventListener("focusin",function(e){hp.hidden=false;hs.hidden=!(e.target.id==="d-sea"||e.target.id==="d-elev"||(hs.contains(e.target)));});
+    var keep=false;sd.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    sd.addEventListener("focusout",function(){setTimeout(function(){if(!keep&&!sd.contains(document.activeElement)){hp.hidden=true;hs.hidden=true;}},0);});
+    document.addEventListener("pointerdown",function(e){if(!sd.contains(e.target)){hp.hidden=true;hs.hidden=true;}});})();
+  document.getElementById("sd").addEventListener("input",autoScores);
+  document.getElementById("sd").addEventListener("change",autoScores);
+  strat.addEventListener("change",autoScores);
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(t.id&&t.id.indexOf("s-r-")===0&&t.dataset.auto){t.dataset.auto="";t.style.background="";t.title="Changed by hand";}});
+  (function(){var inp=document.getElementById("s-r-loc"),row=inp.parentNode,sd=document.getElementById("sd"),hd=document.getElementById("score-data").parentNode,stl=hd.nextElementSibling;
+    var pan=document.createElement("div");pan.id="loc-panel";pan.hidden=true;
+    pan.appendChild(hd);if(stl&&stl.tagName==="STYLE")pan.appendChild(stl);pan.appendChild(sd);row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});})();
+  document.getElementById("s-rows").addEventListener("input",function(e){var t=e.target;if(!t.id||t.id.indexOf("s-w-")!==0)return;var o=0;C.forEach(function(c){if("s-w-"+c[0]!==t.id){var x=parseFloat(document.getElementById("s-w-"+c[0]).value);if(isFinite(x))o+=x;}});var v=parseFloat(t.value);if(isFinite(v)&&v+o>100){t.value=Math.max(0,100-o);t.style.outline="2px solid #e0a100";setTimeout(function(){t.style.outline="";},700);}},true);
+  (function(){var src=document.getElementById("liq-src"),inp=document.getElementById("s-r-liq"),row=inp.parentNode,out=document.getElementById("o-liq");
+    var pan=document.createElement("div");pan.id="liq-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});
+    var F=function(x){return String(x);},N=["segment","demand","speed","right","appeal"];
+    function clr(){if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
+    function sv(id){return document.getElementById(id).value;}
+    function sc5(m){return m<=3?10:m<=6?8:m<=9?6:m<=12?4:2;}
+    function liq(){var p=num("l-price"),rs=sv("l-resale"),q=sv("l-quota");
+      if(p===null){out.textContent="Enter the property price — the calculation starts from it.";clr();calc();return;}
+      if(p<1e6){out.innerHTML='<span style="color:#c0392b">Enter a price of at least ฿1,000,000.</span>';clr();calc();return;}
+      p=p/1e6;var B=[],ex="";
+      var bS=(p<=3?8:p<=6?7:p<=12?6:p<=25?5:p<=50?4:3)+(sv("l-buy")===""?0:parseFloat(sv("l-buy")));B.push(bS);
+      var an=num("l-an"),sl=num("l-sl"),bD=null;if(an!==null&&sl!==null&&sl>0){var mos=an/sl;bD=sc5(mos);ex+="<br>"+"Months of supply: <b>{m}</b>".replace("{m}",F(Math.round(mos*10)/10));}B.push(bD);
+      var mo=num("l-sell"),dc=num("l-disc"),bT=null;if(mo!==null){bT=sc5(mo)+(dc===null?0:(dc>15?-2:dc>5?-1:0));}B.push(bT);
+      var uc=document.getElementById("l-unc").checked,bJ=null;if(rs!==""||q!==""||uc){bJ=8+(rs===""?0:parseFloat(rs))+(q===""?0:parseFloat(q))+(uc?-1:0);}B.push(bJ);
+      var ci=pan.querySelectorAll(".l-ci:checked"),bI=null;if(ci.length){bI=6;ci.forEach(function(c){bI+=parseFloat(c.dataset.v);});}B.push(bI);
+      var Wt=[30,25,10,20,15],t=0,w=0,nd=[];B.forEach(function(b,i){if(b===null){nd.push(N[i]);return;}b=Math.max(1,Math.min(10,b));B[i]=b;t+=b*Wt[i];w+=Wt[i];});
+      var v=Math.max(1,Math.min(10,Math.round(t/w*2)/2));
+      var h="→ liquidity score <b>"+F(v)+"</b> ("+B.map(function(b,i){return N[i]+" "+(b===null?"—":F(b));}).join(" · ")+")"+ex;
+      if(nd.length)h+="<br>"+"No data: {x} — these blocks are not counted, so the score is less reliable.".replace("{x}",nd.join(", "));
+      if(rs==="-2")h+='<br><span style="color:#c0392b">A ban on assignment is a stop factor for the Resale strategy: the property cannot be sold before completion.</span>';
+      out.innerHTML=h;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
+    pan.addEventListener("input",liq);pan.addEventListener("change",liq);})();
+  (function(){var src=document.getElementById("erg-src"),inp=document.getElementById("s-r-erg"),row=inp.parentNode,out=document.getElementById("o-erg");
+    var pan=document.createElement("div");pan.id="erg-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});
+    var F=function(x){return String(x);},G=function(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");};
+    var ex=function(a,b){var A=document.getElementById(a),B=document.getElementById(b);A.addEventListener("change",function(){if(A.checked)B.checked=false;});B.addEventListener("change",function(){if(B.checked)A.checked=false;});};ex("e-view","e-lot");
+    function clr(){if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
+    function erg(){var t=document.getElementById("e-type").value,ar=num("e-area"),adj=0,any=false;
+      pan.querySelectorAll(".e-adj").forEach(function(c){if(c.checked){adj+=parseFloat(c.dataset.v);any=true;}});
+      if(!t||ar===null){out.textContent=(t||ar!==null||any)?"Choose the unit type and enter the area — the pluses and minuses are added to the layout score.":"";clr();calc();return;}
+      var lo=parseFloat(t.split("-")[0]),hi=parseFloat(t.split("-")[1]),x=ar-hi,pc=x>0?x/hi*100:0;
+      var base=x<=0?8:pc<=10?7:pc<=20?6:pc<=35?5:4,v=Math.max(1,Math.min(10,base+adj));
+      var h="→ ergonomics score <b>"+F(v)+"</b> ("+"layout "+base+" out of 8"+(adj?", "+"pluses and minuses "+(adj>0?"+":"−")+F(Math.abs(adj)):"")+")";
+      if(x>0){var xr=Math.round(x*10)/10;h+="<br>"+"Above the standard: <b>{x} m²</b> ({p}%)".replace("{x}",F(xr)).replace("{p}",Math.round(pc));var p=num("l-price");if(p!==null&&p>=1e6)h+=" — at this property's price that is about <b>{c} ฿</b>".replace("{c}",G(p/ar*x));}
+      else if(ar<lo*0.9)h+="<br>Below the standard: it may feel cramped.";
+      out.innerHTML=h;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
+    pan.addEventListener("input",erg);pan.addEventListener("change",erg);})();
+  (function(){var src=document.getElementById("mg-src"),inp=document.getElementById("s-r-mgmt"),row=inp.parentNode,out=document.getElementById("o-mg");
+    var pan=document.createElement("div");pan.id="mg-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var keep=false,show=function(){pan.hidden=false;fit();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});
+    var F=function(x){return String(x);},G=function(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");},N=["operator","contract","yield","costs","transparency"];
+    function clr(){if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
+    function cnt(c){return pan.querySelectorAll("."+c+":checked").length;}
+    function mg(){var fee=num("m-fee"),occ=num("m-occ"),adr=num("m-adr"),ex="";
+      if(occ!==null&&adr!==null)ex+="<br>"+"RevPAR (revenue per room per night before costs): <b>{r}</b>.".replace("{r}","{r} ฿".replace("{r}",G(adr*occ/100)));
+      if(document.getElementById("m-ry").value==="2"&&(occ!==null||adr!==null))ex+="<br>For an off-plan property, model pessimistic, base and optimistic scenarios — a forecast is not a result.";
+      if(fee===null){out.innerHTML="Enter the common area fee — the calculation starts from it."+ex;clr();calc();return;}
+      var b1=parseFloat(document.getElementById("m-op").value),b2=Math.min(10,2+2*cnt("m-c2")),b3=parseFloat(document.getElementById("m-ry").value);
+      var b4=fee<=50?10:fee<=70?8:fee<=90?6:fee<=120?4:2;pan.querySelectorAll(".m-c4:checked").forEach(function(c){b4+=parseFloat(c.dataset.v);});b4=Math.max(1,b4);
+      var b5=Math.min(10,1+3*cnt("m-c5")),B=[b1,b2,b3,b4,b5],Wt=[15,25,25,25,10],t=0;B.forEach(function(b,i){t+=b*Wt[i]/100;});
+      var v=Math.max(1,Math.min(10,Math.round(t*2)/2));var mx=document.getElementById("s-strat").value==="mix",mo=mx&&document.getElementById("m-xown").checked;if(mo)v=Math.max(1,v-1);
+      var h="→ management score <b>"+F(v)+"</b> ("+B.map(function(b,i){return N[i]+" "+F(b);}).join(" · ")+")";
+      if(fee<30)h+='<br><span style="color:#c0392b">A fee below ฿30 per m² — check that there is enough money to maintain the complex and the sinking fund.</span>';
+      if(mo)h+=" · "+"−1 for restricted owner stays";if(mx&&document.getElementById("m-gar").checked)h+='<br><span style="color:#b9770e">'+"The guaranteed return is not paid for the days you stay: if you come in high season, the real yield is lower than promised."+"</span>";if(mx&&document.getElementById("m-lic").checked)h+='<br><span style="color:#c0392b">'+"Without a hotel licence, short-term rentals (under 30 days) are illegal: that income is a grey zone, so plan on long-term rentals."+"</span>";out.innerHTML=h+ex;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
+    pan.addEventListener("input",mg);pan.addEventListener("change",mg);var stg=document.getElementById("s-strat"),mxb=document.getElementById("m-mix"),tg=function(){mxb.hidden=stg.value!=="mix";if(inp.dataset.auto)mg();};stg.addEventListener("change",tg);tg();})();
+  (function(){var src=document.getElementById("pr-src"),inp=document.getElementById("s-r-price"),row=inp.parentNode,out=document.getElementById("o-pr");
+    var pan=document.createElement("div");pan.id="pr-panel";pan.className="x-panel";pan.hidden=true;while(src.firstChild)pan.appendChild(src.firstChild);src.remove();row.parentNode.insertBefore(pan,row.nextSibling);
+    var sc=document.getElementById("sc"),fit=function(){if(pan.hidden)return;var r=sc.getBoundingClientRect(),l=row.parentNode.getBoundingClientRect();pan.style.width=(window.innerWidth>760?Math.max(l.width,r.right-l.left-24):l.width)+"px";};
+    var g=function(i){return document.getElementById(i);};
+    var sync=function(){if(g("p-price").value===""&&g("l-price").value!=="")g("p-price").value=g("l-price").value;if(g("p-area").value===""&&g("e-area").value!=="")g("p-area").value=g("e-area").value;};
+    var keep=false,show=function(){sync();pan.hidden=false;fit();cmp();pr();},hide=function(){pan.hidden=true;};window.addEventListener("resize",fit);
+    inp.addEventListener("focus",show);inp.addEventListener("click",show);
+    pan.addEventListener("pointerdown",function(){keep=true;setTimeout(function(){keep=false;},400);});
+    var chk=function(){setTimeout(function(){var a=document.activeElement;if(!keep&&a!==inp&&!pan.contains(a))hide();},0);};
+    inp.addEventListener("focusout",chk);pan.addEventListener("focusout",chk);
+    document.addEventListener("pointerdown",function(e){if(e.target!==inp&&!pan.contains(e.target))hide();});
+    var link=function(a,b){g(a).addEventListener("input",function(e){if(!e.isTrusted)return;g(b).value=g(a).value;g(b).dispatchEvent(new Event("input",{bubbles:true}));});};
+    link("p-price","l-price");link("l-price","p-price");link("p-area","e-area");link("e-area","p-area");
+    var F=function(x){return String(x);},G=function(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");},RL=["low","limited","good"];
+    var BN=["up to 300 m","up to 600 m","up to 1 km","up to 3 km","up to 5 km","over 5 km"],RC=["low","limited","good"];function band(x){return x<=300?0:x<=600?1:x<=1000?2:x<=3000?3:x<=5000?4:5;}
+    var MK={"1":[[208790,17,2],[192185,17,2],[152533,30,3],[144926,40,4],null,null],"2":[null,[142687,5,1],[71082,29,4],[84463,26,3],null,null]};["p-med","p-med2"].forEach(function(x){var e=g(x);if(e)e.addEventListener("input",function(ev){if(!ev.isTrusted)return;e.dataset.man=e.value!==""?"1":"";e.dataset.base="";e.style.background="";});});
+    function cmp(){var od=num("d-sea"),ob=od===null?null:band(od),R={1:[],2:[]};g("c-note").textContent=ob===null?"The property’s distance to the beach is not entered in the Location section — all comparables are counted, without filtering by band.":"";
+      for(var i=0;i<8;i++){var cp=num("c-p"+i),ca=num("c-a"+i),cd=num("c-d"+i),cm=g("c-m"+i).value,pe=g("c-pm"+i),st=g("c-st"+i);if(cp===null||ca===null||ca<=0){pe.textContent="";st.textContent="";continue;}
+        pe.textContent=G(cp/ca);var ok=ob===null||(cd!==null&&band(cd)===ob);st.innerHTML=ok?'<span style="color:#2e7d32">yes</span>':'<span style="color:var(--muted)">'+(cd===null?"no distance":"other band")+'</span>';if(ok)R[cm].push([cp,ca]);}
+      window._cmpN={1:R[1].length,2:R[2].length};
+      [1,2].forEach(function(k){var Lk=R[k],id=k===1?"p-med":"p-med2",inf=g(id+"-i");if(!Lk.length){var el=g(id);if(el.dataset.man==="1"){inf.textContent="";return;}var row=MK[k],bb=null;if(ob!==null){if(row[ob])bb=ob;else for(var t=1;t<6&&bb===null;t++){if(ob-t>=0&&row[ob-t])bb=ob-t;else if(ob+t<6&&row[ob+t])bb=ob+t;}}if(bb===null){if(el.dataset.base==="1"){el.value="";el.dataset.base="";el.style.background="";}inf.textContent=ob===null?"Enter the distance to the beach in the «Location» section — the field will be filled from the site database.":"";return;}var r=row[bb];el.value=r[0];el.dataset.base="1";el.style.background="#e3f4dc";window._cmpN[k]=r[2];inf.innerHTML=(k===1?(r[2]===1?"from the site database: {n} units for sale in {k} project":"from the site database: {n} units for sale in {k} projects"):(r[2]===1?"from the site database: {n} sales in {k} building":"from the site database: {n} sales in {k} buildings")).replace("{n}",r[1]).replace("{k}",r[2])+", band {b}".replace("{b}",BN[bb])+(bb!==ob?" (no data for {o} — nearest band used)".replace("{o}",BN[ob]):"")+" · west coast, November 2026 · reliability: "+"<b>"+(r[2]<=2?RC[0]:r[2]<=4?RC[1]:RC[2])+"</b>"+"<br><span style=\"color:var(--muted)\">Enter your own comparables in the table below — they will replace this value.</span>";return;}var sp=0,sa=0,v=Lk.map(function(x){sp+=x[0];sa+=x[1];return x[0]/x[1];}).sort(function(a,b){return a-b;}),n=v.length,md=n%2?v[(n-1)/2]:(v[n/2-1]+v[n/2])/2,w=sp/sa;
+        g(id).value=Math.round(w);g(id).dataset.base="";g(id).style.background="";inf.innerHTML="from {n} comparables{b} · median ฿{m} · reliability: ".replace("{n}",n).replace("{b}",ob===null?"":" in band "+BN[ob]).replace("{m}",G(md))+(n<=2?'<b style="color:#c0392b">'+RC[0]+'</b>':"<b>"+(n<=4?RC[1]:RC[2])+"</b>")+(Math.abs(w/md-1)>0.15?'<br><span style="color:#b9770e">The sample has an outlier: check the comparables with the highest and lowest price per m².</span>':"");});}
+    var _cmp0=cmp;cmp=function(){_cmp0();var b1=g("p-med").dataset.base==="1",b2=g("p-med2").dataset.base==="1",pd=g("p-date"),ps=g("p-src");
+      if(b1||b2){if(pd.dataset.man!=="1"){pd.value="2026-11-28";pd.dataset.base="1";pd.style.background="#e3f4dc";}if(ps.dataset.man!=="1"){ps.value=b1&&b2?"2":b1?"0":"1";ps.dataset.base="1";ps.style.background="#e3f4dc";}}
+      else{if(pd.dataset.base==="1"){pd.value="";pd.dataset.base="";pd.style.background="";}if(ps.dataset.base==="1"){ps.value="0";ps.dataset.base="";ps.style.background="";}}};
+    ["p-date","p-src"].forEach(function(x){var e=g(x);if(e)e.addEventListener("change",function(ev){if(!ev.isTrusted)return;e.dataset.man="1";e.dataset.base="";e.style.background="";});});
+    function clr(){inp.dataset.secstop="";if(inp.dataset.auto){inp.dataset.auto="";inp.style.background="";inp.title="";}}
+    function pr(){var p=num("p-price"),a=num("p-area"),m1=num("p-med"),m2=num("p-med2"),m=(m1!==null&&m1>0)?m1:m2,both=m1!==null&&m1>0&&m2!==null&&m2>0,n=window._cmpN?(window._cmpN[(m1!==null&&m1>0)?1:2]||null):null,h="";
+      if(p!==null&&a!==null&&a>0)h+="Property price: <b>{p} ฿ per m²</b>".replace("{p}",G(p/a));
+      if(p===null||a===null||a<=0||m===null||m<=0){out.innerHTML=(h?h+"<br>":"")+"Enter the apartment price, the area and the prices of comparables.";clr();calc();return;}
+      var d=(p/a/m-1)*100,dr=Math.round(d*10)/10;
+      var base=d<=-20?9:d<=-10?8:d<=-5?7:d<5?6:d<10?5:d<20?4:d<35?3:2,adj=0;
+      pan.querySelectorAll(".p-adj:checked").forEach(function(c){adj+=parseFloat(c.dataset.v);});
+      var pm2=both?(p/a/m2-1)*100:null,padj=pm2===null?0:pm2>25?-2:pm2>10?-1:0;adj+=padj;inp.dataset.secstop=(pm2!==null&&pm2>25)?"1":"";var v=Math.max(1,Math.min(10,base+adj));
+      h+="<br>"+"Deviation from the market: <b>{d}%</b> — ".replace("{d}",(dr>0?"+":dr<0?"−":"")+F(Math.abs(dr)))+(d<=-5?"the property is cheaper than the market benchmark":d>=5?"the property is more expensive than the market benchmark":"the property is at market level");if(both){var d2=Math.round((p/a/m2-1)*1000)/10;h+="<br>"+"Resale market: {d}%".replace("{d}",(d2>0?"+":d2<0?"−":"")+F(Math.abs(d2)));;if(pm2>10)h+='<br><span style="color:'+(pm2>25?"#c0392b":"#b9770e")+'">Price above the resale market by '+F(Math.round(pm2*10)/10)+'%: when you sell after completion you compete with resale units, and buyers will not pay you back the premium for newness.</span>';}
+      h="→ price score <b>"+F(v)+"</b> (base "+base+(adj?", adjustments "+(adj>0?"+":"−")+F(Math.abs(adj)):"")+")<br>"+h;
+      if(n!==null)h+="<br>Benchmark reliability: <b>"+(n<=2?RL[0]:n<=4?RL[1]:RL[2])+"</b>"+(n>10?" — ten non-comparable apartments are worse than five truly similar ones.":"");
+      if(g("p-src").value==="0")h+="<br>A benchmark from listings reflects asking prices, not transaction prices.";
+      if(d<=-30)h+='<br><span style="color:#c0392b">The price is well below the market benchmark. Check the property’s legal status, land rights, the developer’s documents, the contract terms, the form of ownership and the reason for the discount.</span>';
+      out.innerHTML=h;inp.value=v;inp.dataset.auto="1";inp.style.background="#e3f4dc";inp.title="Calculated automatically";calc();}
+    var cpr=function(e){if(e&&e.target&&/^c-/.test(e.target.id||""))cmp();pr();};pan.addEventListener("input",cpr);pan.addEventListener("change",cpr);})();
+  setW();calc();
+})();
+</script>
 </section>
 
 </main>
